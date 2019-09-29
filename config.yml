@@ -1,0 +1,15 @@
+development:
+  password: 0d1e460e75a9e993dbf8e9a3f9a464a0
+  theme_id: "74031038519"
+  store: https://mcsquares-dev.myshopify.com
+  ignore_files:
+  - config/settings_data.json
+  - theme.lock
+#Pushing Production will hit the coming soon theme @ https://shopbontemps.com/
+# production:
+#   password: cc71fb917bf64053eb0b849955f0f99d
+#   theme_id: "45730726006"
+#   store: https://shopbontemps.myshopify.com
+#   ignore_files:
+#   - config/settings_data.json
+#   - theme.lock
