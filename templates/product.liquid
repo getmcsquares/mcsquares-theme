@@ -1,35 +1,9 @@
-{% include 'shogun-products', content: product %}
-{{product.metafields.shogun.above}}
-{% comment %}
-  The contents of the product.liquid template can be found in /sections/product-template.liquid
-{% endcomment %}
+{% include 'breadcrumbs' %}
 
-{% section 'product-template' %}
+{% section 'static-product' %}
 
-{% if collection %}
-  <div class="full-width full-width--return-link">
-    <a href="{{ collection.url }}" class="h1 return-link">
-      {% include 'icon-arrow-thin-left' %}
-      {{ 'products.product.collection_return' | t: collection: collection.title }}
-    </a>
-  </div>
-{% endif %}
+{% section 'static-product-recommendations' %}
 
-<script>
-  // Override default values of shop.strings for each template.
-  // Alternate product templates can change values of
-  // add to cart button, sold out, and unavailable states here.
-  window.productStrings = {
-    addToCart: {{ 'products.product.add_to_cart' | t | json }},
-    soldOut: {{ 'products.product.sold_out' | t | json }},
-    unavailable: {{ 'products.product.unavailable' | t | json }}
-  }
-</script>
+{% section 'static-product-reviews' %}
 
-			<!-- PERFECT AUDIENCE INTEGRATION START -->
-			{% include 'perfect-audience-product' %}
-			<!-- PERFECT AUDIENCE INTEGRATION END -->
-		
-
-{{product.metafields.shogun.below}}
-
+{% section 'static-recently-viewed' %}
