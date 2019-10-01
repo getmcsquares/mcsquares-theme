@@ -8,7 +8,7 @@ This file can be re-written at any time.
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
 
 <head>
-  
+  {% include 'gtm-head' %}
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -90,7 +90,7 @@ This file can be re-written at any time.
 
 
 <body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-  
+  {% include 'gtm-body' %}
   
   {{ content_for_layout }}
   
