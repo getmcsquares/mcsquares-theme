@@ -1,6 +1,6 @@
 <footer class="site-footer" role="contentinfo">
   <div class="page-width">
-    <div class="flex-footer">
+    <div class="flex-footer sh-row">
       {% for block in section.blocks %}
         <div class="flex__item" {{ block.shopify_attributes }}>
           {% case block.type %}
@@ -79,7 +79,7 @@
 
             {% when 'menu' %}
               {% if linklists[block.settings.link_list].links.size > 0 %}
-                <div class="site-footer__section">
+                <div class="site-footer__section sh-col-sm-4">
                   <h4 class="h1 site-footer__section-title">{{ linklists[block.settings.link_list].title }}</h4>
                   <ul class="site-footer__list">
                     {% for link in linklists[block.settings.link_list].links %}
