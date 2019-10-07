@@ -73,8 +73,8 @@
           {% if logo_alt == '' %}
             {% assign logo_alt = shop.name | strip %}
           {% endif %}
-          {% assign logo_height = section.settings.logo_height | default: 100 %}
-          {% assign logo_width = section.settings.logo_width | default: 200 %}
+          {% assign logo_height = section.settings.logo_height | default: 80 %}
+          {% assign logo_width = section.settings.logo_width | default: 80 %}
           {% assign logo_size = logo_width | prepend: 'x' %}
 
           {% capture logo_style %}
