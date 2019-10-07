@@ -7,7 +7,7 @@
 <div class="{{ block_class | strip_newlines }}" {{ block.shopify_attributes }}>
 
   {% if block.type == 'menu' %}
-      {% comment %} <h2 class="site-footer-block-title" data-accordion-trigger> {% endcomment %}
+      <h2 class="site-footer-block-title" data-accordion-trigger>
         {{ linklists[block.settings.menu].title | escape }}
 
         <span class="site-footer-block-icon accordion--icon">
