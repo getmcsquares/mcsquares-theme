@@ -2868,17 +2868,17 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   margin-left: auto;
   font-size: 0;
   transition: margin 0.15s $ease-bubble;
-
   @include media($min: $bp-large) {
     display: flex;
     align-items: center;
     flex-basis: auto;
     flex-grow: 1;
     flex-shrink: 1;
-    justify-content: center;
+    // justify-content: center;
     margin-right: nth($local-header-main-space, 2);
     margin-left: 0;
-
+    padding: 0 3em;
+    justify-content: space-between;
     .site-header-sticky--scrolled & {
       margin-left: nth($local-header-main-space, 1);
     }
