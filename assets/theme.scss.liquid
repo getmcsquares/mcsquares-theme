@@ -5185,7 +5185,6 @@ $local-space-large: 20px;
       margin-top: $font-heading-medium;
     }
   }
-
   &.promo-mosaic--layout-1 {
     @include media($min: $bp-small) {
       .promo-block--header {
@@ -5471,6 +5470,13 @@ $local-space-large: 20px;
   }
 }
 
+.promo-mosaic--inner-alt{
+  &.promo-mosaic--layout-2 {
+    @include media($min: $bp-small) {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
 // Block heights (Small, Medium, Large)
 $local-grid-block-heights: (300px, 375px, 450px);
 
