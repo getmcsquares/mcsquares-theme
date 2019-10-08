@@ -14645,17 +14645,18 @@ $local-image-width: rem(48px);
   padding: 10px 15px 15px;
   text-align: center;
 }
-.container{
-  @include media($min: $bp-large) {
-    @extend %layout-container;
-    max-width: $local-max-width;
-  }
-  &__row {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-}
+$grid__bp-sm: 576;
+$grid__bp-md: 768;
+$grid__bp-lg: 992;
+$grid__bp-xl: 1200;
+$map-grid-props: (
+        '': 0,
+        '-sm': $grid__bp-sm,
+        '-md': $grid__bp-md,
+        '-lg': $grid__bp-lg,
+        '-xl': $grid__bp-xl
+);
+
 $grid__cols: 12;
 @for $i from 1 through $grid__cols {
   .col-#{$i} {
@@ -14675,17 +14676,17 @@ $map-grid-props: ('-sm': 0, '-md': $grid__bp-md, '-lg': $grid__bp-lg);
 @each $modifier , $breakpoint in $map-grid-props {
   @include create-col-classes($modifier, $grid__cols, $breakpoint);
 }
-$grid__bp-sm: 576;
-$grid__bp-md: 768;
-$grid__bp-lg: 992;
-$grid__bp-xl: 1200;
-$map-grid-props: (
-        '': 0,
-        '-sm': $grid__bp-sm,
-        '-md': $grid__bp-md,
-        '-lg': $grid__bp-lg,
-        '-xl': $grid__bp-xl
-);
+.container{
+  @include media($min: $bp-large) {
+    @extend %layout-container;
+    max-width: $local-max-width;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
 // About template *+*+*+*+*+*+*+*+*+
 
 .about-content {
