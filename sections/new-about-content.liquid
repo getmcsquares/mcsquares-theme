@@ -1,6 +1,6 @@
 <div class="page-width">
-  <div class="section-block section-block--padding">
-<div class="section-inner about-content promo-mosaic--container">
+  <div class="section-block section-block--padding container">
+<div class="section-inner about-content container__row">
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
@@ -9,20 +9,12 @@
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
 
-  <div class="flex__item
-    promo-mosaic--inner
-    {% if cylcle_var=='even' %}
-    promo-mosaic--inner-alt
-    {% else %}
-    promo-mosaic--inner
-    {% endif %}
-    promo-mosaic--layout-2
-  "
+  <div class="container__col-sm-5"
   style='padding: .5em;'>
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
   </div>
   {% endcapture %}
-    <div class="flex flex--grid flex--no-gutter" style='padding: 3em 0;'>
+    <div class="flex flex--grid flex--no-gutter container__col-sm-7" style='padding: 3em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left flex__item">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
