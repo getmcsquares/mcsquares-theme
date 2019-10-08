@@ -20,12 +20,12 @@
           {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
           {%- for image in product.images -%}
             <div class="product-single__photo product__photo-container product__photo-container-{{ section.id }} js{% unless image == featured_image %} hide{% endunless %}"
-                 id="ProductPhoto"
-                 style="max-width: {% include 'image-width' with image: image, width: 480 %}px;"
-                 data-image-id="{{ image.id }}">
+                id="ProductPhoto"
+                style="max-width: {% include 'image-width' with image: image, width: 480 %}px;"
+                data-image-id="{{ image.id }}">
               <a href="{{ image | img_url: '1024x1024' }}"
-                 class="js-modal-open-product-modal product__photo-wrapper product__photo-wrapper-{{ section.id }}"
-                 style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
+                class="js-modal-open-product-modal product__photo-wrapper product__photo-wrapper-{{ section.id }}"
+                style="padding-top:{{ 1 | divided_by: image.aspect_ratio | times: 100}}%;">
                 {% assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                 <img class="lazyload{% unless image == featured_image %} lazypreload{% endunless %}"
                   src="{{ image | img_url: '150x150' }}"
