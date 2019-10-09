@@ -26,7 +26,7 @@
     "product": {% unless onboarding %}{{ product | json }}{% else %}false{% endunless} %}
   }
 </script>
-{% assign bg_color = sections.settings.bg_color %}
+{% assign bg_color = section.settings.bg_color %}
 <section class="curve-container">
 {% include 'svg-curve' %}
 </section>
