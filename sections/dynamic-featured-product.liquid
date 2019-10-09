@@ -26,11 +26,13 @@
     "product": {% unless onboarding %}{{ product | json }}{% else %}false{% endunless} %}
   }
 </script>
+{% assign bg_color = sections.settings.bg_color %}
 <section class="curve-container">
+{% %}
 {% include 'svg-curve' %}
 </section>
 
-<section  style="position: relative;" class="featured-product--container home-section--content" data-product-wrapper>
+<section  style="position: relative; background-color: {{ bg_color }}" class="featured-product--container home-section--content" data-product-wrapper>
 {% comment %} {% include 'svg-curve' %} {% endcomment %}
 
   <div class="featured-product--inner">
@@ -72,6 +74,11 @@
       "label": "Enable cart redirection",
       "info": "Automatically sends users to the Cart page after adding a product.",
       "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
     }
   ],
   "presets": [
