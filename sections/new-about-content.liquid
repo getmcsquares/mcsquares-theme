@@ -1,6 +1,4 @@
-<div class="page-width">
-  <div class="section-block section-block--padding container">
-<div class="section-inner about-content container__row">
+<div class="section-inner about-content">
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
@@ -8,22 +6,19 @@
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
   {% capture image_layout %}
-  <div class="container__col-5" style='padding: .5em;'>
+  <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5em;'>
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
-  {% comment %} {% include 'responsive-image' with image: block.settings.image, image_class: "about-image", max_width: 700, max_height: 800 %} {% endcomment %}
   </div>
   {% endcapture %}
-    <div class="container__col-7" style='padding: 3em 0;'>
+    <div class="row d-flex align-items-center" style='padding: 3em 0;'>
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
-    <div class="text-left flex__item flex flex--center-vertical medium-up--two-thirds {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
+    <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
       <p>{{ block.settings.text_content }}</p>
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
     </div>
   {% endfor %}
-</div>
-</div>
 </div>
 {% if section.blocks.size == 0 %}
   {% include 'no-blocks' %}
@@ -43,7 +38,7 @@
           "en": "Section Heading"
         },
         "default": {
-          "en": "Default title content"
+          "en": "Rethinking beverages for our female contemporaries."
         }
       },
       {
@@ -53,7 +48,7 @@
           "en": "Section subeading"
         },
         "default": {
-          "en": "Default subtitle"
+          "en": "Our blends are designed to heighten the highs, cushion the lows and complement the in-betweens of women’s everyday pursuits."
         }
       }
     ],
@@ -67,14 +62,14 @@
             "id": "heading",
             "label": "section heading",
             "default": {
-              "en": "Lorem Block Header"
+              "en": "It’s 2018, your teas should be clean."
             }
           },
           {
             "type": "text",
             "id": "text_content",
             "label": "Text Content",
-            "default": "lorem block content"
+            "default": "lorem"
           },
           {
             "type": "image_picker",
