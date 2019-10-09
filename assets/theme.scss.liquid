@@ -14665,9 +14665,15 @@ $local-image-width: rem(48px);
 // Curve SVG +*+*+*+*+*+*+*+*
 #curve{
   position: absolute;
-  top: 0;
+  bottom: 100%;
+  left: 0;
   width: 100%;
+  right: 0;
+  z-index: 1;
   path{
     fill: #fff
+    -webkit-box-shadow: inset 0px 6px 5px -5px rgba(150,150,150,0.63);
+    -moz-box-shadow: inset 0px 6px 5px -5px rgba(150,150,150,0.63);
+    box-shadow: inset 0px 6px 5px -5px rgba(150,150,150,0.63);
   };
 }
