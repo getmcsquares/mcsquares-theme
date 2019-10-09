@@ -30,8 +30,8 @@
 <section class="curve-container">
 {% include 'svg-curve' %}
 </section>
-
-<section  style="position: relative; background-color: {{ bg_color }}" class="featured-product--container home-section--content" data-product-wrapper>
+<div style="background-color: {{ bg_color }}">
+<section  style="position: relative;" class="featured-product--container home-section--content" data-product-wrapper>
 {% comment %} {% include 'svg-curve' %} {% endcomment %}
 
   <div class="featured-product--inner">
@@ -43,7 +43,7 @@
     %}
   </div>
 </section>
-
+</div>
 {% schema %}
 {
   "name": "Featured product",
