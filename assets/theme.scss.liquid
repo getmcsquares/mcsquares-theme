@@ -1545,7 +1545,9 @@ $color-featured-post-foreground: $color-background;
   border: 1px solid $color-box-shadow-border;
   box-shadow: 0 1px 4px $color-box-shadow-shadow;
 }
-
+%round-corners {
+  border-radius: 20px 0 20px 0;
+}
 %inline-chevron {
   display: inline-block;
   margin-left: rem(5px);
@@ -6713,8 +6715,9 @@ $local-padding-medium: 20px;
   @extend %layout-container;
 
   .featured-product--inner {
-    @extend %box-shadow;
+    // @extend %box-shadow;
     padding: $gutter-outer;
+    @extend %round-corners;
   }
 
   .product-main {
@@ -13100,7 +13103,7 @@ $local-thumbnail-space: 3px;
   position: relative;
   overflow: hidden;
   touch-action: pan-y;
-
+  @extend %box-shadow;
   .flickity-viewport {
     height: auto;
     overflow: hidden;
