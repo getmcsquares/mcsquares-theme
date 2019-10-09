@@ -140,4 +140,7 @@
 
     {% include 'structured-data' %}
   </body>
+  {% if template.name contains 'page' %}
+  {% include 'bootstrap-helper' %}
+  {% endif %}
 </html>
