@@ -102,7 +102,8 @@
 {% endcapture %}
 
 {% form 'product', product, class: product_form_class, data-product-form: '' %}
-<div>
+<div class="row">
+<div class="col-6">
 <div class="product-details" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
@@ -200,6 +201,7 @@
             {{ 'product.buttons.view_details' | t }}
           </a>
         {% endif %}
+        </div>
     </div>
   {% if product.has_only_default_variant %}
     <input
@@ -222,10 +224,11 @@
         {{ product.description }}
       </div>
     {% endunless %}
+  <div class="small-hide tester col-6">
+    {{atc}}
+  </div>
 </div>
 
-<div class="small-hide tester">
-{{atc}}
-</div>
+
 
 {% endform %}
