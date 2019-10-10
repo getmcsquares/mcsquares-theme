@@ -94,7 +94,7 @@
   {% if product_smart_buttons or quickshop_smart_buttons %}
     {{ form | payment_button }}
   {% endif %}
-  
+
   {% if enable_social_sharing and is_product_modal %}
     {{ share_buttons | strip_newlines }}
   {% endif %}
@@ -125,7 +125,7 @@
     {% endunless %}
 </div>
 
-<div class="small-hide">
+<div class="small-hide tester">
 {{atc}}
 </div>
 
