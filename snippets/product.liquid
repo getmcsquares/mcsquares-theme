@@ -33,7 +33,7 @@
   on_sale: on_sale
 %}
 
-{%- capture share_buttons -%}
+{% comment %} {%- capture share_buttons -%}
   {% assign social_image = false %}
   {% if product.featured_image %}
     {% assign social_image = product.featured_image | img_url: '1024x' %}
@@ -46,7 +46,7 @@
     social_title: product.title,
     social_url: social_url
   -%}
-{%- endcapture  -%}
+{%- endcapture  -%} {% endcomment %}
 
 <article class="product--outer row">
   {% comment %}
@@ -77,6 +77,11 @@
             selected_variant: selected_variant
           %}
         {% endunless %}
+
+
+        {% comment %} {% if enable_social_sharing and is_product_modal == false %}
+          {{ share_buttons | strip_newlines }}
+        {% endif %} {% endcomment %}
       </div>
   </div>
     {% comment %}

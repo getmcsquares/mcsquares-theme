@@ -41,7 +41,6 @@
 
 {% capture atc %}
   <div class="product-form--atc">
-  
     <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
       <div class="form-field form-field--qty-select">
         <div class="form-field-select-wrapper">
@@ -111,7 +110,7 @@
     {{ form | payment_button }}
   {% endif %}
 
-  {% if enable_social_sharing and is_product_modal %}
+  {% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}
   {% endif %}
 {% endcapture %}
