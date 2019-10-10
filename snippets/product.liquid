@@ -77,11 +77,6 @@
             selected_variant: selected_variant
           %}
         {% endunless %}
-
-
-        {% if enable_social_sharing and is_product_modal == false %}
-          {{ share_buttons | strip_newlines }}
-        {% endif %}
       </div>
   </div>
     {% comment %}
@@ -92,8 +87,6 @@
         {{ product.description }}
       </div>
     {% endunless %} {% endcomment %}
-
-
   </div>
 
   {% comment %}
