@@ -202,7 +202,7 @@
           </a>
         {% endif %}
         </div>
-    </div>
+
   {% if product.has_only_default_variant %}
     <input
       name="id"
@@ -219,11 +219,12 @@
   <div class="small-show">
   {{atc}}
   </div>
-    {% unless product.description == blank or hide_description %}
-      <div class="product-description rte" data-product-description>
-        {{ product.description }}
-      </div>
-    {% endunless %}
+  {% unless product.description == blank or hide_description %}
+    <div class="product-description rte" data-product-description>
+      {{ product.description }}
+    </div>
+  {% endunless %}
+    </div>
   <div class="small-hide tester col-6">
     {{atc}}
   </div>
