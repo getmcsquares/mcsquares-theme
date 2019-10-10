@@ -24,27 +24,7 @@
   {% assign product_form_class = 'smart-payment-enabled product-form-alt' %}
 {% endif %}
 
-{% form 'product', product, class: product_form_class, data-product-form: '' %}
-<div>
-  {% if product.has_only_default_variant %}
-    <input
-      name="id"
-      value="{{ product.variants[0].id }}"
-      type="hidden">
-  {% else %}
-    {%
-      include 'product-options',
-      product: product,
-      selected_variant: selected_variant,
-      style: settings.product_option_style
-    %}
-  {% endif %}
-    {% unless product.description == blank or hide_description %}
-      <div class="product-description rte" data-product-description>
-        {{ product.description }}
-      </div>
-    {% endunless %}
-</div>
+{% capture atc %}
   <div class="product-form--atc">
     <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
       <div class="form-field form-field--qty-select">
@@ -110,6 +90,36 @@
       </span>
     </button>
   </div>
+{% endcapture %}
+
+{% form 'product', product, class: product_form_class, data-product-form: '' %}
+<div>
+  {% if product.has_only_default_variant %}
+    <input
+      name="id"
+      value="{{ product.variants[0].id }}"
+      type="hidden">
+  {% else %}
+    {%
+      include 'product-options',
+      product: product,
+      selected_variant: selected_variant,
+      style: settings.product_option_style
+    %}
+  {% endif %}
+  <div class="small-show">
+  {{atc}}
+  </div>
+    {% unless product.description == blank or hide_description %}
+      <div class="product-description rte" data-product-description>
+        {{ product.description }}
+      </div>
+    {% endunless %}
+</div>
+
+<div class="small-hide">
+{{atc}}
+</div>
 
   {% if product_smart_buttons or quickshop_smart_buttons %}
     {{ form | payment_button }}

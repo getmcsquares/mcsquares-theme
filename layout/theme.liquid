@@ -140,7 +140,7 @@
 
     {% include 'structured-data' %}
   </body>
-  {% if template.name contains 'page' %}
+  {% if template.name contains 'page' or template.name contains 'product' %}
   {% comment %} tester {% endcomment %}
   {% include 'bootstrap-helper' %}
   {% endif %}

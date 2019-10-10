@@ -13637,9 +13637,18 @@ $local-thumbnail-space: 3px;
 .product-form-alt{
   display: flex;
   align-items: flex-start;
-  .product-form--atc {
-    display: flex;
+}
+.small-hide{
+  @include media($max: $bp-medium) {
+    display: none;
   }
+}
+.small-show{
+  display: none;
+  @include media($max: $bp-medium) {
+    display: block;
+  }
+
 }
 .product-form--atc {
   margin-top: $space-small;
