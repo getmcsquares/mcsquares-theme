@@ -25,6 +25,7 @@
 {% endif %}
 
 {% form 'product', product, class: product_form_class, data-product-form: '' %}
+<div>
   {% if product.has_only_default_variant %}
     <input
       name="id"
@@ -38,7 +39,12 @@
       style: settings.product_option_style
     %}
   {% endif %}
-
+    {% unless product.description == blank or hide_description %}
+      <div class="product-description rte" data-product-description>
+        {{ product.description }}
+      </div>
+    {% endunless %}
+</div>
   <div class="product-form--atc">
     <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
       <div class="form-field form-field--qty-select">

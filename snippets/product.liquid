@@ -186,11 +186,11 @@
     {% comment %}
       Product description field, never moves
     {% endcomment %}
-    {% unless product.description == blank or hide_description %}
+    {% comment %} {% unless product.description == blank or hide_description %}
       <div class="product-description rte" data-product-description>
         {{ product.description }}
       </div>
-    {% endunless %}
+    {% endunless %} {% endcomment %}
 
     {% if enable_social_sharing and is_product_modal %}
       {{ share_buttons | strip_newlines }}
