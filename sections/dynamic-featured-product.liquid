@@ -28,14 +28,11 @@
 </script>
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve' %}
-
 <div style="background-color: {{ bg_color }}">
 <section  style="position: relative; margin-top: 0;" class="featured-product--container home-section--content" data-product-wrapper>
-{% comment %} {% include 'svg-curve' %} {% endcomment %}
-
   <div class="featured-product--inner">
     {%
-      include 'product',
+      include 'product-dynamic',
       is_product_modal: false,
       hide_description: true,
       onboarding: onboarding
