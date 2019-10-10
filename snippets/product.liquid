@@ -60,8 +60,11 @@
       onboarding: onboarding
     %}
   </div>
-  <div class="product-main col-lg-8">
-  <div class="row">
+  <div class="col-lg-8">
+    {% comment %}
+      Product form original location, will remain unless is 3 column layout
+    {% endcomment %}
+    <div class="product-form--regular row" data-product-form-regular>
     <div class="product-details col-sm-6" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
@@ -150,13 +153,17 @@
           </div>
         {% endunless %}
       {% endif %}
-    </div>
 
-    {% comment %}
-      Product form original location, will remain unless is 3 column layout
-    {% endcomment %}
-    <div class="product-form--regular  col-sm-6" data-product-form-regular>
-      <div data-product-form-area>
+        {% if hide_description %}
+          <a
+            href="{{ product.url | within: collection }}"
+            class="product-link"
+          >
+            {{ 'product.buttons.view_details' | t }}
+          </a>
+        {% endif %}
+    </div>
+      <div data-product-form-area class="col-sm-6">
         {% if is_product_modal %}
           <div data-product-quickshop-message class="product-message--container"></div>
         {% endif %}
@@ -169,20 +176,11 @@
           %}
         {% endunless %}
 
-        {% if hide_description %}
-          <a
-            href="{{ product.url | within: collection }}"
-            class="product-link"
-          >
-            {{ 'product.buttons.view_details' | t }}
-          </a>
-        {% endif %}
 
         {% if enable_social_sharing and is_product_modal == false %}
           {{ share_buttons | strip_newlines }}
         {% endif %}
       </div>
-    </div>
   </div>
     {% comment %}
       Product description field, never moves
