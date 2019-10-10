@@ -48,11 +48,11 @@
   -%}
 {%- endcapture  -%}
 
-<article class="product--outer">
+<article class="product--outer row">
   {% comment %}
     Product slideshow, never moves
   {% endcomment %}
-  <div class="product-gallery" data-product-gallery>
+  <div class="product-gallery col-lg-4 " data-product-gallery>
     {%
       include 'product-gallery',
       selected_image: selected_image,
@@ -60,8 +60,9 @@
       onboarding: onboarding
     %}
   </div>
-  <div class="product-main">
-    <div class="product-details" data-product-details>
+  <div class="product-main col-lg-8">
+  <div class="row">
+    <div class="product-details col-sm-6" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -154,7 +155,7 @@
     {% comment %}
       Product form original location, will remain unless is 3 column layout
     {% endcomment %}
-    <div class="product-form--regular" data-product-form-regular>
+    <div class="product-form--regular  col-sm-6" data-product-form-regular>
       <div data-product-form-area>
         {% if is_product_modal %}
           <div data-product-quickshop-message class="product-message--container"></div>
@@ -182,7 +183,7 @@
         {% endif %}
       </div>
     </div>
-
+  </div>
     {% comment %}
       Product description field, never moves
     {% endcomment %}
