@@ -5,6 +5,7 @@
 
   @param selected_variant
 {% endcomment %}
+{% assign enable_social_sharing = settings.product_social_sharing %}
 
 {% if is_product_modal and settings.quickshop_show_dcb %}
   {% assign quickshop_smart_buttons = true %}
@@ -117,7 +118,7 @@
 
 {% form 'product', product, class: product_form_class, data-product-form: '' %}
 <div class="row">
-<div class="col-6">
+<div class="col-7">
 <div class="product-details" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
@@ -239,7 +240,7 @@
     </div>
   {% endunless %}
     </div>
-  <div class="small-hide tester col-6">
+  <div class="small-hide tester col-5">
     {{atc}}
   </div>
 </div>
