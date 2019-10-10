@@ -90,6 +90,10 @@
       </span>
     </button>
   </div>
+
+  {% if product_smart_buttons or quickshop_smart_buttons %}
+    {{ form | payment_button }}
+  {% endif %}
 {% endcapture %}
 
 {% form 'product', product, class: product_form_class, data-product-form: '' %}
@@ -121,7 +125,4 @@
 {{atc}}
 </div>
 
-  {% if product_smart_buttons or quickshop_smart_buttons %}
-    {{ form | payment_button }}
-  {% endif %}
 {% endform %}
