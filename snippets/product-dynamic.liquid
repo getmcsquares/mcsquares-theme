@@ -48,11 +48,11 @@
   -%}
 {%- endcapture  -%} {% endcomment %}
 
-<article class="product--outer row">
+<article class="product--outer">
   {% comment %}
     Product slideshow, never moves
   {% endcomment %}
-  <div class="product-gallery col-md-4 " data-product-gallery>
+  <div class="product-gallery" data-product-gallery>
     {%
       include 'product-gallery',
       selected_image: selected_image,
@@ -60,12 +60,12 @@
       onboarding: onboarding
     %}
   </div>
-  <div class="col-md-8">
+  <div class="">
     {% comment %}
       Product form original location, will remain unless is 3 column layout
     {% endcomment %}
     <div class="product-form--regular " data-product-form-regular>
-      <div data-product-form-area class="col-12">
+      <div data-product-form-area>
         {% if is_product_modal %}
           <div data-product-quickshop-message class="product-message--container"></div>
         {% endif %}
