@@ -12,8 +12,8 @@
 
 </div>
 <div class="product-info-content row">
-  <div class="product-info-logo col-sm-5">
-    <img style="max-width: 100%;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+  <div class="product-info-logo col-sm-5 text-center">
+    <img style="max-width: 300px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   </div>
   <div class="product-info-text col-sm-7">
   <p style="color: {{ section.settings.font_color }}">
@@ -47,7 +47,7 @@
       "label": "Background Color"
     },
     {
-      "type": "link_list",
+      "type": "collection",
       "id": "cta_link",
       "label": "CTA Link"
     },
