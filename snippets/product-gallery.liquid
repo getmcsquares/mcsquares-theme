@@ -13,6 +13,7 @@
 >
   {% if product.images.size > 0 %}
     {% for image in product.images %}
+    {%- unless image.alt contains 'logo' -%}
       {% assign is_video = false %}
 
       {%
@@ -105,6 +106,7 @@
           {% endif %}
         </div>
       </figure>
+      {%- endunless -%}
     {% endfor %}
   {% else %}
     <figure class="product-gallery--image product-gallery--image-placeholder">
@@ -124,6 +126,7 @@
     aria-label="{{ 'general.accessibility.nav_product_thumbnails' | t }}"
   >
     {% for image in product.images %}
+    {%- unless image.alt contains 'logo' -%}
       {% assign is_video = false %}
 
       {% if image.alt != blank %}
@@ -157,6 +160,7 @@
           {% endif %}
         </span>
       </button>
+      {%- endunless -%}
     {% endfor %}
   </div>
 {% endif %}
