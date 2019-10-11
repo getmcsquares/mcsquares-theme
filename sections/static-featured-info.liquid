@@ -11,13 +11,17 @@
 <div class="product-info-images">
 
 </div>
-
 <div class="product-info-content row">
   <div class="product-info-logo col-sm-5">
-    <img style="max-width: 100%;" src="{{ featured_image | img_url: '350x350' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+    <img style="max-width: 100%;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   </div>
   <div class="product-info-text col-sm-7">
-
+  <p style="color: {{ section.settings.font_color }}">
+  The monkey-rope is found in all whalers; but it was only in the Pequod that the monkey and his holder were ever tied together. This improvement upon the original usage was introduced by no less a man than Stubb, in order to afford the imperilled harpooneer the strongest possible guarantee for the faithfulness and vigilance of his monkey-rope holder.So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed distinctly to perceive that my own individuality was now merged.
+  </p>
+  <p>
+  <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
+  </p>
   </div>
 </div>
 </div>
@@ -34,8 +38,23 @@
     },
     {
       "type": "color",
+      "id": "font_color",
+      "label": "Font Color"
+    },
+    {
+      "type": "color",
       "id": "bg_color",
       "label": "Background Color"
+    },
+    {
+      "type": "link",
+      "id": "cta_link",
+      "label": "CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text"
     }
   ]
 }
