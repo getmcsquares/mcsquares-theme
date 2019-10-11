@@ -1,0 +1,35 @@
+
+{%- assign bg_color section.settings.svg_color -%}
+<div style="background-color: {{ section.settings.bg_color }}">
+{% include 'svg-curve-flat' %}
+<div class="product-info-images">
+
+</div>
+<div class="product-info-content row">
+  <div class="product-info-logo col-sm-5">
+
+  </div>
+  <div class="product-info-text col-sm-7">
+
+  </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Static Product Info",
+  "class": "product--section-info",
+  "settings": [
+    {
+      "type": "color",
+      "id": "svg_color",
+      "label": "Top Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    }
+  ]
+}
+
+{% endschema %}
