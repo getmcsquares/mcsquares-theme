@@ -2,9 +2,11 @@
 {%- assign bg_color = section.settings.svg_color -%}
 <div style="background-color: {{ section.settings.bg_color }}">
 {% include 'svg-curve-flat' %}
+<div class="container">
 <div class="product-info-images">
 
 </div>
+
 <div class="product-info-content row">
   <div class="product-info-logo col-sm-5">
     <a href="{{ featured_image | img_url: '1024x1024' }}">
@@ -14,6 +16,7 @@
   <div class="product-info-text col-sm-7">
 
   </div>
+</div>
 </div>
 </div>
 {% schema %}
