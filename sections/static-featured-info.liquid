@@ -1,4 +1,9 @@
-{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+{% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
+{% for image in product.images %}
+{% if image.alt contains 'logo' %}
+  {%- assign featured_image = image | default: product.featured_image -%}
+{% endif %}
+{% endfor %}
 {%- assign bg_color = section.settings.svg_color -%}
 <div class="product-info-inner" style="background-color: {{ section.settings.bg_color }}">
 {% include 'svg-curve-flat' %}
