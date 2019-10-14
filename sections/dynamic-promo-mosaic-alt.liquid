@@ -9,7 +9,7 @@
   }
 </script>
 {% assign bg_color = section.settings.bg_color %}
-<div style="background-color: {{ bg_color }}">
+<div style="background-color: {{ bg_color }}" {% if section.settings.curve = 'top' %}class="has-top-curve"{% elsif section.settings.curve = 'bottom' %}class="has-bottom-curve" {% endif %}>
 <section class="promo-mosaic--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
@@ -124,6 +124,25 @@
         }
       ],
       "default": "top-left"
+    },{
+      "id": "text_alignment",
+      "type": "select",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "none"
     },
     {
       "id": "maintain_aspect_ratio",
