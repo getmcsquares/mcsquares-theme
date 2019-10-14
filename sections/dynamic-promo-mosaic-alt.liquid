@@ -8,6 +8,7 @@
     "compress_blocks": {{ section.settings.compress_blocks | json }}
   }
 </script>
+{% assign bg_color = section.settings.bg_color %}
 <div style="background-color: {{ bg_color }}">
 <section class="promo-mosaic--container">
   {% if section.settings.title != blank %}
@@ -16,7 +17,7 @@
     </h2>
   {% endif %}
 
-  <div class="home-section--content promo-mosaic--height-{{ section.settings.section_height }}">
+  <div class="home-section--content promo-mosaic--height-{{ section.settings.section_height }}" style="padding-top: 10px;">
     {% if section.blocks.size > 0 %}
       <div
         class="
