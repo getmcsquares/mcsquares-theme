@@ -9,10 +9,11 @@
   data-section-id="{{ section.id }}"
   data-section-type="dynamic-featured-collection">
 </script>
-
+{% assign bg_color = section.settings.bg_color %}
+<div style="background-color: {{ bg_color }}">
 <section class="product-row--container featured-collection--container">
   {% if section.settings.title != blank %}
-    <h2 class="home-section--title">
+    <h2 class="home-section--title text-left">
       {{ section.settings.title | escape }}
     </h2>
   {% endif %}
@@ -85,7 +86,7 @@
 
   {% include 'quick-shop' %}
 </section>
-
+</div>
 <style>
   #shopify-section-{{section.id}} .featured-collection--banner {
     color: {{ section.settings.banner_color }};
@@ -127,6 +128,11 @@
       "type": "image_picker",
       "label": "Image",
       "info": "500 x 750px .jpg recommended"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "
     }
   ],
   "presets": [
