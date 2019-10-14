@@ -8,7 +8,7 @@
     "compress_blocks": {{ section.settings.compress_blocks | json }}
   }
 </script>
-
+<div style="background-color: {{ bg_color }}">
 <section class="promo-mosaic--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
@@ -47,7 +47,7 @@
     blocks: section.blocks
   %}
 </section>
-
+</div>
 {% schema %}
 {
   "name": "Mosaic Alt",
@@ -220,6 +220,11 @@
           "default": 50
         }
       ]
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
     }
   ],
   "presets": [
