@@ -8,7 +8,9 @@
     "compress_blocks": {{ section.settings.compress_blocks | json }}
   }
 </script>
-
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div style="background-color: {{ bg_color }}">
 <section class="promo-mosaic--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
@@ -46,7 +48,7 @@
     blocks: section.blocks
   %}
 </section>
-
+</div>
 {% schema %}
 {
   "name": "Mosaic",
@@ -138,6 +140,11 @@
       "type": "checkbox",
       "label": "Compress blocks",
       "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
     }
   ],
   "blocks": [
