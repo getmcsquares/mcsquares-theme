@@ -77,21 +77,9 @@
             selected_variant: selected_variant
           %}
         {% endunless %}
-
-
-        {% comment %} {% if enable_social_sharing and is_product_modal == false %}
-          {{ share_buttons | strip_newlines }}
-        {% endif %} {% endcomment %}
       </div>
   </div>
-    {% comment %}
-      Product description field, never moves
-    {% endcomment %}
-    {% comment %} {% unless product.description == blank or hide_description %}
-      <div class="product-description rte" data-product-description>
-        {{ product.description }}
-      </div>
-    {% endunless %} {% endcomment %}
+
   </div>
 
   {% comment %}
