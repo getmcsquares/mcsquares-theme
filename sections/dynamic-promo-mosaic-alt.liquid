@@ -9,7 +9,7 @@
   }
 </script>
 {% assign bg_color = section.settings.bg_color %}
-<div style="background-color: {{ bg_color }}" {% if section.settings.curve = 'top' %}class="has-top-curve"{% elsif section.settings.curve = 'bottom' %}class="has-bottom-curve" {% endif %}>
+<div style="background-color: {{ bg_color }}" {% if section.settings.curve == 'top' %}class="has-top-curve"{% elsif section.settings.curve == 'bottom' %}class="has-bottom-curve" {% endif %}>
 <section class="promo-mosaic--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
@@ -62,7 +62,7 @@
       "default": "Mosaic"
     },
     {
-      "id": "section_height",
+      "id": "curve",
       "type": "select",
       "label": "Section height",
       "options": [
