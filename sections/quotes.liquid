@@ -11,9 +11,12 @@
       <div class="container">
         <div class="quotes-row row" id="Quotes-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes">
           {% for block in section.blocks %}
+          {% capture color %}
+          {% cycle 'green', 'orange', 'blue' %}
+          {% endcapture %}
               <div class="text-center col-sm-4 card-container">
               <div class="quote__card d-flex flex-column align-items-center justify-content-around">
-                <div class="quote-title"><h5>{{ block.settings.author | escape }}</h5></div>
+                <div class="quote-title {{ color }}"><h5>{{ block.settings.author | escape }}</h5></div>
                 <div class="quote__image image-round"><img src="{{ block.settings.image | img_url: '500x500' }}"></div>
                   {% comment %} <span class="quote-icon">{% include 'icon-quote' %}</span> {% endcomment %}
                   <div class="rte-setting">{{ block.settings.quote }}</div>
