@@ -10,11 +10,13 @@
       <div class="container">
         <div class="quotes-row row" id="Quotes-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes">
           {% for block in section.blocks %}
-              <div class="quote__card text-center col-sm-4 d-flex flex-column align-items-center justify-content-around">
+              <div class="text-center col-sm-4 ">
+              <div class="quote__card d-flex flex-column align-items-center justify-content-around">
                 <div><h4>{{ block.settings.author | escape }}</h4></div>
                 <div class="quote__image image-round"><img src="{{ block.settings.image | img_url: '500x500' }}"></div>
                   {% comment %} <span class="quote-icon">{% include 'icon-quote' %}</span> {% endcomment %}
                   <div class="rte-setting">{{ block.settings.quote }}</div>
+                </div>
               </div>
           {% endfor %}
         </div>
