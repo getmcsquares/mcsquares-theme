@@ -71,7 +71,7 @@
       {% include 'breadcrumbs' %}
 
       <div class="productgrid--masthead">
-        {% if section.settings.show_collection_image and collection.image %}
+        {% comment %} {% if section.settings.show_collection_image and collection.image %}
           <figure class="collection--image">
             {%
               include 'rimg',
@@ -81,7 +81,7 @@
               canvas: true
             %}
           </figure>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
         <div class="collection--information">
           <h1 class="collection--title">
