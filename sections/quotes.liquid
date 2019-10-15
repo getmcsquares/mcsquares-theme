@@ -14,7 +14,7 @@
               <div class="quote__slide text-center">
                 <div class="page-width">
                   <blockquote>
-                    <span class="quote-icon">{% include 'icon-quote' %}</span>
+                    {% comment %} <span class="quote-icon">{% include 'icon-quote' %}</span> {% endcomment %}
                     <div class="rte-setting">{{ block.settings.quote }}</div>
                     <cite>{{ block.settings.author | escape }}</cite>
                   </blockquote>
