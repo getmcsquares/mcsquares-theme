@@ -14726,12 +14726,19 @@ $local-image-width: rem(48px);
 }
 .quote-row{
   .card-container{
-    padding: 10px;
+    padding: 4px;
   }
 }
 .quote__card{
   @extend %box-shadow;
-
+  padding: $space-small;
+  position: relative;
+}
+.quote-title{
+  position: absolute;
+  top: 0;
+  width: auto;
+  padding: 3px 8px;
 }
 .quote__image{
   max-width: 300px;
