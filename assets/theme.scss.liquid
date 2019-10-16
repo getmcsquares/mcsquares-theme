@@ -4167,6 +4167,7 @@ $local-cart-sidebar-width: 280px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-left: $space-xx-large;
   h1{
     color: white;
   }
@@ -4174,10 +4175,18 @@ $local-cart-sidebar-width: 280px;
     padding-bottom: $space-xxx-small;
     font-size: 80%;
     color: white;
+    margin-right: $space-small;
+    @include media($min: $bp-small) {
+      margin-right: 0;
+    }
   }
   &:first-child {
     margin-top: 0;
     margin-right: $space-small;
+  }
+  @include media($min: $bp-small) {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
