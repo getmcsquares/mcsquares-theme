@@ -1,3 +1,7 @@
+
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div style="background-color: {{ bg_color }}">
 <div class="page-width quotes__wrap">
   <div class="section-block section-block--padding">
     {% if section.settings.title != blank %}
@@ -32,7 +36,7 @@
     {% endif %}
   </div>
 </div>
-
+</div>
 {% schema %}
   {
     "name": {
@@ -84,6 +88,11 @@
         "default": {
           "en": "<p>In today's modern classroom, students have dozens of distractions vying for their attention. Boredom and disengagement are constant problems in the traditional classroom setting, and now students are consumed with ever increasing screen time as opposed to interacting with their teachers and peers. mcSquares enhance student learning experiences through haptic and kinesthetic learning, as well as allowing students to engage with each their classmates as well as their teachers.</p>"
         }
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
       }
     ],
     "blocks": [
