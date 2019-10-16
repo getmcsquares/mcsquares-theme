@@ -14732,7 +14732,9 @@ $local-image-width: rem(48px);
   right: 0;
   z-index: 1;
   height: 108px;
-
+  &.outer-shadow{
+    @extend %box-shadow;
+  }
   path{
     width: 100%;
     // -webkit-box-shadow: inset 0px 6px 5px -5px rgba(150,150,150,0.63);
