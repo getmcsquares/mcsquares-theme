@@ -4160,10 +4160,21 @@ $local-cart-sidebar-width: 280px;
 }
 
 .collection--information {
-  margin-top: $space-large;
-
+  margin-top: 0;
+  padding: $space-large;
+  background-color: #383a35;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  h1{
+    color: white;
+  }
+  h3{
+    padding-bottom: $space-x-small;
+  }
   &:first-child {
     margin-top: 0;
+    margin-right: $space-small;
   }
 }
 

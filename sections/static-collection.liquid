@@ -57,15 +57,16 @@
 
 {% paginate collection.products by paginate_by %}
         <div class="collection--information">
+        <h3>Whiteboard Solutions</h3>
           <h1 class="collection--title">
             {{ collection.title }}
           </h1>
 
-          {% if collection.description != blank %}
+          {% comment %} {% if collection.description != blank %}
             <div class="collection--description rte">
               {{ collection.description }}
             </div>
-          {% endif %}
+          {% endif %} {% endcomment %}
         </div>
   <div class="productgrid--outer {{ collection_classes | strip_newlines }}">
     {% if show_sidebar %}
