@@ -174,10 +174,10 @@
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
+    {% include 'header-image-helper' %}
   </section>
 {% endif %}
-{% include 'site-header-actions' %}
-{% include 'header-image-helper' %}
+{% comment %} {% include 'site-header-actions' %} {% endcomment %}
 {% schema %}
 {
   "name": "Slideshow",
