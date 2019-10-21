@@ -209,8 +209,6 @@
       blocks: section.blocks,
       is_mobile: false
     %}
-
-    {% include 'site-header-actions' %}
   </nav>
 </div>
 
@@ -218,6 +216,7 @@
   include 'site-mobile-nav',
   blocks: section.blocks,
 %}
+{% include "header-image-helper" %}
 
 {% schema %}
 {
