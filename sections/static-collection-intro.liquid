@@ -2,13 +2,13 @@
   <div class="section-block section-block--padding">
     <div class="flex flex--grid flex--no-gutter">
       {% assign flex_size = 'medium-up--one-half' %}
-        <div class="flex__item flex flex--center-vertical {{ flex_size }}" {{ block.shopify_attributes }}>
-              <div class="flex__item">
+        <div class="row" {{ block.shopify_attributes }}>
+              <div class="col-md-6">
                   <noscript>
                     <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
                   </noscript>
                   <div class="image-content__image-container">
-                    <div class="image-content__image-wrapper" style="padding: 2em;">
+                    <div class="image-content__image-wrapper" style="padding: 2em; max-width: 100%;">
                       {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                       <img class="image-content__image lazyload"
                         src="{{ collection.image | img_url: '300x300' }}"
@@ -20,7 +20,7 @@
                     </div>
                   </div>
               </div>
-              <div class="flex__item image-content__text text-left">
+              <div class="col-md-6 image-content__text text-left">
                 <div class="rte-setting">{{ collection.description }}</div>
               </div>
         </div>
