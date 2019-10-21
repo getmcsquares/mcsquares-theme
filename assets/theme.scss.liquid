@@ -3061,7 +3061,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 .site-header-cart {
   right: $gutter-outer-small - $local-header-icon-padding;
   transition: right 0.15s $ease-bubble, top 0.15s $ease-bubble;
-
+  display: flex;
   @include media($min: $bp-small) {
     right: $gutter-outer-medium - $local-header-icon-padding;
   }
@@ -3078,7 +3078,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 .site-header-cart--count {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 30px;
   display: block;
   opacity: 0;
   transition: opacity 0.15s linear;
