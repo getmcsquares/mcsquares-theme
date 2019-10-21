@@ -1,7 +1,9 @@
 <div class="page-width  section-block--padding has-both-curve">
 <div class="section-block">
   <div class="row">
-  <div class="col-4"></div>
+  <div class="col-4">
+  
+  </div>
   <div class="col-8">
   <div class="row">
   <div class="col-6 text-center">
@@ -15,7 +17,9 @@
   </div>
   </div>
 </div>
+<script>
 
+</script>
 {% schema %}
   {
     "name": "For the Trees",
@@ -40,6 +44,16 @@
         "default": "<p>Our products help companies meet environmental goals by providing a product that can be used over and over again. That means mcSquares products save the trees while saving you money.</p>"
       }
     ],
+    "max_blocks": 3,
+    "blocks": [
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Tree Image (randomized on page load)"
+          }
+        ]
+    ]
     "presets": [
       {
         "name": {
