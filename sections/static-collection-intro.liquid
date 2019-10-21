@@ -28,10 +28,17 @@
 
   </div>
 </div>
-
+{% include 'svg-curve' %}
 {% schema %}
   {
     "name": "Collection Intro",
-    "class": "index-section"
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color"
+      }
+    ]
   }
 {% endschema %}
