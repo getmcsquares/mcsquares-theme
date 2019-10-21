@@ -8,7 +8,6 @@
     </feComponentTransfer>
     <feGaussianBlur stdDeviation="3"/>
     <feOffset dx="5" dy="5" result="offsetblur"/>
-    {% comment %} <feFlood flood-color="rgba(0, 0, 0, 0.7)" result="color"/> {% endcomment %}
     <feComposite in2="offsetblur" operator="in"/>
     <feComposite in2="SourceAlpha" operator="in" />
     <feMerge>

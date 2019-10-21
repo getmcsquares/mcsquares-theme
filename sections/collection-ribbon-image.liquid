@@ -1,0 +1,47 @@
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div style="background-color: {{ bg_color }}">
+  <div class="ribbon-image-box">
+    <div class="image-content__image-container">
+      <div class="image-content__image-wrapper" style="">
+        {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+        <img class="image-content__image lazyload"
+          src="{{ section.settings.image | img_url: '300x300' }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ section.settings.image.alt | escape }}">
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Collection Ribbon Image",
+    "class": "section",
+    "settings": [
+      {
+        "type": "image",
+        "id": "image",
+        "label": "Ribbon Image"
+      },
+      {
+        "type": "text",
+        "id": "header",
+        "label": "Content Header"
+      }
+      ,
+      {
+        "type": "richtext",
+        "id": "body",
+        "label": "Content Body"
+      },
+      {
+        "type": "color_picker",
+        "id": "bg_color",
+        "label": "background color"
+      }
+    ]
+  }
+{% endschema %}
