@@ -3,12 +3,12 @@
     <div class="flex flex--grid flex--no-gutter">
       {% assign flex_size = 'medium-up--one-half' %}
         <div class="row" {{ block.shopify_attributes }}>
-              <div class="col-md-6">
+              <div class="col-md-6" style="padding: 2em;">
                   <noscript>
                     <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
                   </noscript>
                   <div class="image-content__image-container">
-                    <div class="image-content__image-wrapper" style="padding: 2em; max-width: 100%;">
+                    <div class="image-content__image-wrapper" style="max-width: 100%;">
                       {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
                       <img class="image-content__image lazyload"
                         src="{{ collection.image | img_url: '300x300' }}"
