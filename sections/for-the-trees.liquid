@@ -2,7 +2,19 @@
 <div class="section-block">
   <div class="row">
   <div class="col-4">
-  
+    <div class="row">
+      <div class="offset-sm-5 col-sm-6 text-center">
+      {% assign img_url = block[0].settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+          <img class="lazyload {% unless forloop.first == true %} lazypreload{% endunless %}"
+            src="{{ block[0].settings.image | img_url: '300x' }}"
+            data-src="{{ img_url }}"
+            data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+            data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+            data-sizes="auto"
+            data-parent-fit="cover"
+            alt="{{ block[0].settings.image.alt | escape }}">
+      </div>
+    </div>
   </div>
   <div class="col-8">
   <div class="row">
