@@ -104,6 +104,33 @@
       </a>
     </div>
 
+<div
+  class="
+    site-navigation-wrapper
+
+    {% if shop.customer_accounts_enabled or settings.enable_currency_converter %}
+      site-navigation--has-actions
+    {% endif %}
+
+    {% if section.settings.full_width_header %}
+      site-header--full-width
+    {% endif %}
+  "
+  data-site-navigation
+  id="site-header-nav"
+>
+  <nav
+    class="site-navigation"
+    aria-label="{{ 'general.accessibility.nav_main' | t }}"
+  >
+    {%
+      include 'navmenu',
+      menu: section.settings.menu,
+      blocks: section.blocks,
+      is_mobile: false
+    %}
+  </nav>
+</div>
     {%
       include 'live-search-form',
       quick_links: linklists[section.settings.quick_links],
@@ -180,43 +207,17 @@
 
       {% include 'icon-cart' %}
       <span class="visually-hidden">{{ 'general.accessibility.cart' | t }}</span>
+
     </a>
   </div>
+  {% include 'site-header-actions' %}
 </div>
 
-<div
-  class="
-    site-navigation-wrapper
-
-    {% if shop.customer_accounts_enabled or settings.enable_currency_converter %}
-      site-navigation--has-actions
-    {% endif %}
-
-    {% if section.settings.full_width_header %}
-      site-header--full-width
-    {% endif %}
-  "
-  data-site-navigation
-  id="site-header-nav"
->
-  <nav
-    class="site-navigation"
-    aria-label="{{ 'general.accessibility.nav_main' | t }}"
-  >
-    {%
-      include 'navmenu',
-      menu: section.settings.menu,
-      blocks: section.blocks,
-      is_mobile: false
-    %}
-  </nav>
-</div>
 
 {%
   include 'site-mobile-nav',
   blocks: section.blocks,
 %}
-{% include 'site-header-actions' %}
 {% schema %}
 {
   "name": "Header",
