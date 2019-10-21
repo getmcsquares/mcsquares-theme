@@ -1,0 +1,38 @@
+<div class="page-width">
+  <div class="section-block section-block--padding">
+    <div class="flex flex--grid flex--no-gutter">
+      {% assign flex_size = 'medium-up--one-half' %}
+        <div class="flex__item flex flex--center-vertical {{ flex_size }}" {{ block.shopify_attributes }}>
+              <div class="flex__item">
+                  <noscript>
+                    <img src="{{ collection.image | img_url: '600x' }}" alt="{{ block.settings.image.alt }}" class="image-content__image">
+                  </noscript>
+                  <div class="image-content__image-container">
+                    <div class="image-content__image-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
+                      {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      <img class="image-content__image lazyload"
+                        src="{{ collection.image | img_url: '300x300' }}"
+                        data-src="{{ img_url }}"
+                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                        data-aspectratio="{{ collection.image.aspect_ratio }}"
+                        data-sizes="auto"
+                        alt="{{ collection.image.alt | escape }}">
+                    </div>
+                  </div>
+              </div>
+              <div class="flex__item image-content__text text-left">
+                <div class="rte-setting">{{ collection.description }}</div>
+              </div>a
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Intro",
+    "class": "index-section"
+  }
+{% endschema %}
