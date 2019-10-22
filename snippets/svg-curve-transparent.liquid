@@ -1,7 +1,20 @@
-<section class="curve-container" style=" height: 50px;">
+<section class="curve-container" style="background-color: {{ bg_color }}; height: 50px;">
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="curve" class="outer-shadow" width="1521px" height="55px" viewBox="0 0 1521 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="curve" width="1521px" height="50px" viewBox="0 0 1521 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<filter id="inset-shadow" x="0%" y="-50%" width="200%" height="200%">
+    <feComponentTransfer in=SourceAlpha>
+      <feFuncA type="table" tableValues="1 0" />
+    </feComponentTransfer>
+    <feGaussianBlur stdDeviation="3"/>
+    <feOffset dx="5" dy="5" result="offsetblur"/>
+    <feComposite in2="offsetblur" operator="in"/>
+    <feComposite in2="SourceAlpha" operator="in" />
+    <feMerge>
+      <feMergeNode in="SourceGraphic" />
+      <feMergeNode />
+    </feMerge>
+  </filter>
     <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
-        <path fill="transparent" d="M0.000708475118,2.82182727 C836.357661,86.805322 776.438322,-52.3373189 1521,25 C1521,25 1521,34.7262135 1521,54.1786406 L-0.00257688805,54.1786406 C-0.00038664594,19.940765 0.000708475117,2.82182727 0.000708475118,2.82182727 Z" id="Path" fill="#D8D8D8"></path>
+        <path filter="url(#inset-shadow)" fill="#111" d="M0.000708475118,2.82182727 C836.357661,86.805322 776.438322,-52.3373189 1521,25 C1521,25 1521,34.7262135 1521,54.1786406 L-0.00257688805,54.1786406 C-0.00038664594,19.940765 0.000708475117,2.82182727 0.000708475118,2.82182727 Z" id="Path" fill="#D8D8D8"></path>
     </g>
 </svg></section>
