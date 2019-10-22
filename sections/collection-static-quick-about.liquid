@@ -1,0 +1,55 @@
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div style="background-color: {{ bg_color }}">
+  <div class="row d-flex align-items-center">
+    {% for block in section.blocks %}
+    <div class="col-4 about-image-wrap text-center" style='padding: 1em;'>
+      <img class="logo-small" style=" max-height: 20px;" src="{{ block.settings.image | img_url: '50x' }}"/>
+      <h3>{{block.settings.header}}</h3>
+      {{block.setings.body}}
+    </div>
+  {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Collection Quick About"
+    },
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": {
+          "en": "Bckground"
+        }
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Static block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Logo Image"
+          },
+          {
+            "type": "text",
+            "id": "header",
+            "label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Main Copy"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
