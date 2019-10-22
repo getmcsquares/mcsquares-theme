@@ -1,11 +1,11 @@
-<div class="section-inner about-content" style="">
+<div class="section-inner about-content container" style="">
   {% if section.settings.section_title != blank %}
     <div class="text-center limitcopywidth">
     <h1 class="section-header">{{ section.settings.section_title }}</h1>
     </div>
   {% endif %}
 
-  <div class="row d-flex align-items-center" style='padding: 0em 0;'>
+  <div class="row d-flex align-items-center">
     {% for block in section.blocks %}
     <div class="col-6 col-sm-3 about-image-wrap " style='padding: .5em;'>
       <img class="logo" style="max-width: 100%;" src="{{ block.settings.image | img_url: '250x' }}"/>
