@@ -3,7 +3,7 @@
 <div class="container" style="background-color: {{ bg_color }}">
   <div class="row d-flex align-items-center ">
     {% for block in section.blocks %}
-    <div class="col-4 about-image-wrap text-left" style='padding: 1em;'>
+    <div class="col-4 about-image-wrap text-left has-bar" style='padding: 1em;'>
       <img class="logo-small" style=" max-height: 20px;" src="{{ block.settings.image | img_url: '50x' }}"/>
       <h3>{{block.settings.header}}</h3>
       {{block.settings.body}}
