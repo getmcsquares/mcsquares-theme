@@ -903,6 +903,8 @@ $client-light-blue: #058fbd;
 $client-orange: #ed7724;
 $client-black: #383a35;
 $client-green: #a3d133;
+$client-grey: #fafafa;
+
 // ! Typography
 
 // Fonts
@@ -14829,4 +14831,14 @@ $local-image-width: rem(48px);
       font-weight: bold;
     }
   }
+}
+
+// static collection content
+.static-content-outer{
+  padding: 4rem 2rem;
+}
+.static-content-box{
+  background-color: $client-grey;
+  padding: 6rem;
+  @extend %box-shadow;
 }
