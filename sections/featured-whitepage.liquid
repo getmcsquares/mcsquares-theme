@@ -3,8 +3,7 @@
 {% assign article = articles[section.settings.article] %}
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
-<div class="">
-  <div class="container">
+  <div class="container round shadow">
     <div class="row">
       <div class="product-info-content row">
         <div class="product-info-text col-md-7">
@@ -17,13 +16,12 @@
             <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
           </p>
         </div>
-        <div class="product-info-logo col-md-5 text-center">
-          <img style="max-width: 300px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+        <div class="product-info-logo col-md-5 text-center" style="background-image: url'{{ featured_image | img_url: '500x500' }}'; background-size:cover;backround-position:center;background-repeat: no-repeat; height: 100%;">
+          {% comment %} <img style="max-width: 300px;" src="" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}"> {% endcomment %}
         </div>
       </div>
     </div>
   </div>
-</div>
 {% schema %}
 {
   "name": "Featured Whitepage",
