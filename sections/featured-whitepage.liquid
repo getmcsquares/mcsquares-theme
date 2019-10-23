@@ -1,0 +1,54 @@
+{% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
+{%- assign article = section.settings.article  -%}
+{%- assign featured_image = article.image  -%}
+{%- assign bg_color = section.settings.bg_color -%}
+<div class="product-info-inner">
+  <div class="container">
+    <div class="row">
+      <div class="product-info-content row">
+        <div class="product-info-text col-md-7">
+        <p style="color: {{ section.settings.font_color }}">{{ article.published_at }}</p>
+          <a href="{{article.url}}"><h3>{{ article.title }}</h3></a>1
+          <p style="color: {{ section.settings.font_color }}">
+            {{ article.excerpt }}
+          </p>
+          <p>
+            <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
+          </p>
+        </div>
+        <div class="product-info-logo col-md-5 text-center">
+          <img style="max-width: 300px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Static Product Info",
+  "class": "product--section-info index-section has-graphic",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero",
+      "label": "Hero Image"
+    },
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Featured Whitepage/Blog"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    }
+  ]
+}
+
+{% endschema %}
