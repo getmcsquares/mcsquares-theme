@@ -1,5 +1,6 @@
 {% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
-{%- assign article = section.settings.article  -%}
+{% comment %} {%- assign article = section.settings.article  -%} {% endcomment %}
+{% assign article = articles[section.settings.article] %}
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
 <div class="product-info-inner">
@@ -25,14 +26,9 @@
 </div>
 {% schema %}
 {
-  "name": "Static Product Info",
+  "name": "Featured Whitepage",
   "class": "product--section-info index-section has-graphic",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "hero",
-      "label": "Hero Image"
-    },
     {
       "type": "article",
       "id": "article",
