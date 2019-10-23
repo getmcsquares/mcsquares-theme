@@ -3,8 +3,8 @@
 {%- assign bg_color = section.settings.svg_color -%}
 <div class="product-info-inner" style="background-color: {{ section.settings.bg_color }}">
 <div class="container">
-<div class="product-info-images">
-
+<div class="product-info-hero">
+      <img style="" src="{{ section.settings.hero  }}" alt="{{ section.settings.hero.alt | escape }}">
 </div>
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">
@@ -29,7 +29,12 @@
     {
       "type": "color",
       "id": "svg_color",
-      "label": "Top Background"
+      "label": "Background"
+    },
+    {
+      "type": "image",
+      "id": "hero",
+      "label": "Hero Image"
     },
     {
       "type": "color",
