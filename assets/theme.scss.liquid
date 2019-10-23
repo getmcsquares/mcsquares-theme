@@ -2914,6 +2914,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   @include media($max: $bp-large) {
     display: table;
     min-height: $header-content-height;
+    min-height: 60px;
   }
 
   @include media($min: $bp-large) {
@@ -2933,6 +2934,9 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   @include media($max: $bp-large) {
     display: table-cell;
     vertical-align: middle;
+    img {
+      max-height: 44px;
+    }
   }
 
   @include media($min: $bp-large) {
