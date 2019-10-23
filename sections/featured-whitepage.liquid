@@ -3,7 +3,7 @@
 {% assign article = articles[section.settings.article] %}
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
-<div class="product-info-inner">
+<div class="">
   <div class="container">
     <div class="row">
       <div class="product-info-content row">
@@ -11,7 +11,7 @@
         <p style="color: {{ section.settings.font_color }}">{{ article.published_at }}</p>
           <a href="{{article.url}}"><h3>{{ article.title }}</h3></a>1
           <p style="color: {{ section.settings.font_color }}">
-            {{ article.excerpt }}
+            {{ article.excerpt_or_content }}
           </p>
           <p>
             <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
