@@ -3,8 +3,9 @@
 {%- assign bg_color = section.settings.bg_color -%}
 <div class="product-info-inner" style="background-color: {{ section.settings.bg_color }}">
 <div class="container">
-<div class="product-info-hero" style="background-image: url('{{ section.settings.hero | img_url }}')">
-      {% comment %} <img style="" src="" alt="{{ section.settings.hero.alt | escape }}"> {% endcomment %}
+<div class="product-info-hero-wrap" style="position: relative;">
+      <div class="product-info-hero" style="background-image: url('{{ section.settings.hero | img_url }}')">
+      </div>
 </div>
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">
