@@ -4,21 +4,19 @@
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
   <div class="container round shadow">
-    <div class="row">
-      <div class="product-info-content row">
-        <div class="featured-whitpeage-content col-md-7">
-        <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
-          <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
-          <p style="color: {{ section.settings.font_color }}">
-            {{ article.excerpt }}
-          </p>
-          <p>
-            <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
-          </p>
-        </div>
-        <div class="product-info-logo col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; height: 100%;">
-          {% comment %} <img style="max-width: 300px;" src="" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}"> {% endcomment %}
-        </div>
+    <div class="product-info-content row">
+      <div class="featured-whitepage-content col-md-7">
+      <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+        <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
+        <p style="color: {{ section.settings.font_color }}">
+          {{ article.excerpt }}
+        </p>
+        <p>
+          <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
+        </p>
+      </div>
+      <div class="product-info-logo col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; height: 100%;">
+        {% comment %} <img style="max-width: 300px;" src="" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}"> {% endcomment %}
       </div>
     </div>
   </div>
