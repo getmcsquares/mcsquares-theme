@@ -903,7 +903,10 @@ $client-light-blue: #058fbd;
 $client-orange: #ed7724;
 $client-black: #383a35;
 $client-green: #a3d133;
-$client-grey: #fafafa;
+$client-grey: #5c6670;
+$client-black: #383a35;
+$client-light-grey: #d7dad9;
+$client-off-white: #f7f8f7;
 
 // ! Typography
 
@@ -2911,6 +2914,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   @include media($max: $bp-large) {
     display: table;
     min-height: $header-content-height;
+    min-height: 60px;
   }
 
   @include media($min: $bp-large) {
@@ -2930,6 +2934,9 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   @include media($max: $bp-large) {
     display: table-cell;
     vertical-align: middle;
+    img {
+      max-height: 44px;
+    }
   }
 
   @include media($min: $bp-large) {
@@ -2997,6 +3004,8 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   }
 }
 
+
+
 .site-header-menu-toggle {
   left: $gutter-outer-small - $local-header-icon-padding;
 
@@ -3052,8 +3061,10 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     width: 22px;
     height: 2px;
     background-color: $color-header-text;
+    background-color: $client-blue;
     transition: transform 0.2s;
     transform-origin: 1px;
+
 
     + .toggle-icon--bar {
       margin-top: 5px;
@@ -14355,7 +14366,8 @@ $local-image-width: rem(48px);
   border: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  background: $client-grey;
+  background: $client-black !important;
+  color: $client-light-grey;
 
   .live-search--active & {
     border-bottom-left-radius: 0;
@@ -14381,6 +14393,13 @@ $local-image-width: rem(48px);
   border-top-left-radius: 0;
   background-color: $client-blue;
   border: 1px solid $client-blue;
+  outline: none;
+  &:hover {
+    background-color: $client-blue !important;
+    border: 1px solid $client-blue !important;
+    opacity: .8;
+    outline: none;
+  }
   .search-icon {
     color: #d7dad9;
   }
@@ -14876,7 +14895,7 @@ $local-image-width: rem(48px);
 .static-content-box{
   padding-left: unset;
   padding-right: unset;
-  background-color: $client-grey;
+  background-color: $client-off-white;
   padding: 2rem;
   @extend %box-shadow;
   @extend %round-corners;
