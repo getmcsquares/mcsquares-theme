@@ -2926,6 +2926,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   display: block;
   color: currentColor;
   text-decoration: none;
+  max-width:
 
   @include media($max: $bp-large) {
     display: table-cell;
@@ -2985,7 +2986,12 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 .site-header-cart--button {
   display: inline-block;
   padding: $local-header-icon-padding;
-  color: $color-header-text;
+  //color: $color-header-text;
+  color: $client-blue;
+  &:hover {
+    color: $client-blue;
+    opacity: .8;
+  }
 
   svg {
     display: block;
@@ -3260,6 +3266,8 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 
 .announcement-bar-text,
 .announcement-bar-text-mobile {
+    color: #fff;
+    font-weight:400;
   a {
     position: relative;
     z-index: 1;
@@ -10537,7 +10545,7 @@ $local-space-large: 15px;
   .share-buttons--twitter {
     background-color: $color-twitter;
   }
-  
+
   .share-buttons--linkedin {
     background-color: $color-linkedin;
   }
@@ -11921,7 +11929,7 @@ $local-button-size: rem(28px) + (rem(2px) * 2); // size + (padding * 2)
   position: relative;
   z-index: 1;
   display: none;
-  
+
   @include media($min: $bp-small) {
     display: block;
   }
@@ -14314,6 +14322,7 @@ $local-image-width: rem(48px);
   .live-search--focused & {
     border-color: transparentize($color-border, 0.75);
     box-shadow: 0 3px 7px transparentize($color-border, 0.84);
+    outline: none;
   }
 
   .live-search--takeover & {
@@ -14347,6 +14356,7 @@ $local-image-width: rem(48px);
   border: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  background: $client-grey;
 
   .live-search--active & {
     border-bottom-left-radius: 0;
@@ -14370,7 +14380,11 @@ $local-image-width: rem(48px);
   vertical-align: top;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-
+  background-color: $client-blue;
+  border: 1px solid $client-blue;
+  .search-icon {
+    color: #d7dad9;
+  }
   .live-search--active & {
     border-bottom-right-radius: 0;
   }
@@ -14761,7 +14775,7 @@ $local-image-width: rem(48px);
   padding-bottom: 50px;
 }
 
-// Quotes 
+// Quotes
 .quotes__wrap{
   padding: $space-xx-large;
 }
@@ -14770,7 +14784,7 @@ $local-image-width: rem(48px);
     padding-left: unset !important;
     padding-right: unset !important;
     padding: 4px !important;
-    
+
   }
 }
 .quote__card{
