@@ -9,9 +9,9 @@
       <div class="product-info-content row">
         <div class="product-info-text col-md-7">
         <p style="color: {{ section.settings.font_color }}">{{ article.published_at }}</p>
-          <a href="{{article.url}}"><h3>{{ article.title }}</h3></a>1
+          <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
           <p style="color: {{ section.settings.font_color }}">
-            {{ article.excerpt_or_content }}
+            {{ article.excerpt }}
           </p>
           <p>
             <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
@@ -27,7 +27,7 @@
 {% schema %}
 {
   "name": "Featured Whitepage",
-  "class": "product--section-info index-section has-graphic",
+  "class": "product--section-info index-section has-graphic home-section-content",
   "settings": [
     {
       "type": "article",
