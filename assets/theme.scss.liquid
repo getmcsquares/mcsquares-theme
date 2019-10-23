@@ -2997,6 +2997,8 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   }
 }
 
+
+
 .site-header-menu-toggle {
   left: $gutter-outer-small - $local-header-icon-padding;
 
@@ -3052,8 +3054,10 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     width: 22px;
     height: 2px;
     background-color: $color-header-text;
+    background-color: $client-blue;
     transition: transform 0.2s;
     transform-origin: 1px;
+
 
     + .toggle-icon--bar {
       margin-top: 5px;
@@ -14381,6 +14385,13 @@ $local-image-width: rem(48px);
   border-top-left-radius: 0;
   background-color: $client-blue;
   border: 1px solid $client-blue;
+  outline: none;
+  &:hover {
+    background-color: $client-blue;
+    border: 1px solid $client-blue;
+    opacity: .8;
+    outline: none;
+  }
   .search-icon {
     color: #d7dad9;
   }
