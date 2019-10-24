@@ -120,15 +120,26 @@
               text-align-{{ block.settings.text_alignment }}
             "
           >
-            {% if block.settings.link != blank %}
-              <a class="slideshow-link" href="{{ block.settings.link }}">
+            {% if block.settings.titleimg != blank %}
+                {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="hero__link">
+                {% endif %}
+                  <img src="{{ block.settings.titleimg }}" alt="{{block.settings.title | escape}}" class="titleimg" />
+                  <h1 class="hero__title hidden">{{ block.settings.title | escape }}</h1>
+                {% if block.settings.link != blank %}
+                  </a>
+                {% endif %}
+            {% else %}
+                <h1 class="hero__title{% if block.settings.link != blank %} hero__title--has-link{% endif %}">
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}" class="hero__link">
+                  {% endif %}
+                  {{ block.settings.title | escape }}
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                </h1>
             {% endif %}
-            {% if block.settings.title != blank %}
-              <h1 class="slideshow-slide-heading">
-                {{ block.settings.title | escape }}
-              </h1>
-            {% endif %}
-
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
@@ -254,6 +265,19 @@
           "type": "text",
           "label": "Heading",
           "default": "Slideshow"
+        },
+        {
+          "type": "image_picker",
+          "id": "titleimg",
+          "label": {
+            "pt-BR": "Title Imagem",
+            "it": "Title Immagine",
+            "en": "Title Image (replaces H1)",
+            "es": "Title Imagen",
+            "de": "Title Foto",
+            "ja": "Title 画像",
+            "fr": "Title Image"
+          }
         },
         {
           "id": "text",
