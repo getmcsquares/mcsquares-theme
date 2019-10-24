@@ -1,7 +1,7 @@
 {% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
 {%- assign featured_image = collection.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
-<div class="product-info-inner product-info-hero-wrap" style="background-color: {{ section.settings.bg_color }}">
+<div class="product-info-inner product-info-hero-wrap">
 <div class="container">
 <div class="" style="position: relative;">
       <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
@@ -9,7 +9,7 @@
 </div>
 </div>
 </div>
-<div class="product-info-inner" style="background-color: {{ section.settings.bg_color }}">
+<div class="product-info-inner">
 <div class="container">
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">

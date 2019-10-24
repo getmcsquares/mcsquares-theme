@@ -277,6 +277,11 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 {% assign font_variable_named_styles = blank %}
 
 
+@font-face {
+  font-family: 'Propisi';
+  src: url('./Propisi-Medium.otf');
+}
+
 // External libraries
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -329,8 +334,11 @@ section {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font-family: 'Propisi', sans-serif;
 }
-
+.text-cursive{
+  font-family: 'Propisi', sans-serif;
+}
 /* Grouping content
    ========================================================================== */
 
@@ -2935,7 +2943,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     display: table-cell;
     vertical-align: middle;
     img {
-      max-height: 44px;
+      max-height: 44px !important;
     }
   }
 
@@ -4176,7 +4184,10 @@ $local-cart-sidebar-width: 280px;
     margin-top: $space-large;
   }
 }
-
+.section-pad{
+  padding-top: $space-medium;
+  padding-bottom: $space-medium;
+}
 .collection--image {
   position: relative;
   margin: 0;
@@ -4560,6 +4571,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
   display: inline-block;
   width: 100%;
   vertical-align: top;
+  max-width: 600px;
 }
 
 .product-gallery {
@@ -6783,6 +6795,7 @@ $local-padding-medium: 20px;
     @include media($min: $bp-small) {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -14900,6 +14913,9 @@ $local-image-width: rem(48px);
   @extend %box-shadow;
   @extend %round-corners;
 }
+.product-info-inner{
+  background-color: rgba(56,58,53,1);
+}
 .product-info-hero-wrap{
   background: rgba(250,250,250,1);
   background: -moz-linear-gradient(top, rgba(250,250,250,1) 0%, rgba(250,250,250,1) 20%, rgba(56,58,53,1) 20%, rgba(56,58,53,1) 100%);
@@ -14918,4 +14934,15 @@ $local-image-width: rem(48px);
 }
 .round{
   @extend %round-corners;
+  overflow: hidden;
+}
+.shadow{
+  @extend %box-shadow;
+}
+// whitepages
+.featured-whitepage-content{
+  padding: $space-xxx-large $space-large;
+}
+.limit-copy-width{
+  max-width: 668px !important;
 }
