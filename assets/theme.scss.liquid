@@ -2935,7 +2935,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     display: table-cell;
     vertical-align: middle;
     img {
-      max-height: 44px;
+      max-height: 44px !important;
     }
   }
 
@@ -4563,6 +4563,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
   display: inline-block;
   width: 100%;
   vertical-align: top;
+  max-width: 600px;
 }
 
 .product-gallery {
@@ -6786,6 +6787,7 @@ $local-padding-medium: 20px;
     @include media($min: $bp-small) {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 }
