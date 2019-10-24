@@ -1,0 +1,35 @@
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve-transparent' %}
+<div style="background-color: {{ bg_color }}">
+  <div class="ribbon-image-box">
+    <div class="image-content__image-container">
+      <div class="image-content__image-wrapper" style="">
+        {% assign img_url = section.settings.image | img_url: '1x1'  %}
+        <img
+          class="image-content__image curve-clip lazyload"
+          src="{{ section.settings.image }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+          data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+          data-sizes="auto"
+          alt="{{ section.settings.image.alt | escape }}"
+          style="width: 100%">
+      </div>
+    </div>
+  </div>
+  <div class="d-flex flex-column justify-content-center align-items-center container limit-copy-width">
+    <h1 class="text-blue text-cursive">{{section.settings.header}}</h1>
+    <p class="text-center">{{section.settings.body}}</p>
+  </div>
+</div>
+<style>
+.curve-clip{
+  clip-path: url(#curvePath)
+}
+</style>
+{% schema %}
+  {
+    "name": "Collection Ribbon Image",
+    "class": "section yotpo-section"
+  }
+{% endschema %}
