@@ -4,12 +4,12 @@
   {%- assign featured_image = image | default: product.featured_image -%}
 {% endif %}
 {% endfor %}
-{%- assign bg_color = section.settings.svg_color -%}
+{%- assign bg_color = section.settings.bg_color -%}
 <div class="product-info-inner product-info-hero-wrap">
 <div class="container">
 <div class="" style="position: relative;">
-      <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
-      </div>
+    <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
+    </div>
 </div>
 </div>
 </div>
@@ -41,11 +41,6 @@
       "type": "image_picker",
       "id": "hero",
       "label": "Hero Image"
-    },
-    {
-      "type": "color",
-      "id": "svg_color",
-      "label": "Top Background"
     },
     {
       "type": "color",
