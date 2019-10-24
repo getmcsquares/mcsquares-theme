@@ -31,11 +31,6 @@
 <div style="background-color: {{ bg_color }}">
 <section  style="position: relative; margin-top: 0;" class="featured-product--container home-section--content" data-product-wrapper>
   <div class="featured-product--inner">
-    {% if section.settings.title_image != blank %}
-    <div>
-    <img src="{{section.settings.title_image  | img_url: '500x500' }}" class="title_image" />
-    </div>
-    {% endif %}
     {% comment %}
       @param layout {String}
         Layout type
@@ -106,9 +101,8 @@
             </div>
           {% endif %}
           {% if is_product_modal %}
-            {% if section.settings.replace_product_title_image != blank %}{% else %}{% endif %}
             <h2 class="product-title">
-              <a href="{{ product.url | within: collection }}">{% if section.settings.replace_product_title != blank %}{{ section.settings.replace_product_title }}{% else %}{{ product.title }}{% endif %}</a>
+              <a href="{{ product.url | within: collection }}">{% if section.settings.replace_product_title != blank %}<span class="product-title-replacement">{{ section.settings.replace_product_title }}</span>{% else %}{{ product.title }}{% endif %}</a>
             </h2>
           {% else %}
             {% if template == 'index' %}
@@ -117,7 +111,7 @@
               <h1 class="product-title">
             {% endif %}
               {% unless onboarding %}
-                {% if section.settings.replace_product_title != blank %}{{ section.settings.replace_product_title }}{% else %}{{ product.title }}{% endif %}
+                {% if section.settings.replace_product_title != blank %}<span class="product-title-replacement">{{ section.settings.replace_product_title }}</span>{% else %}{{ product.title }}{% endif %}
               {% else %}
                 {{ 'onboarding.product.title' | t }}
               {% endunless %}
@@ -297,7 +291,7 @@
       "type": "text",
       "id": "replace_product_title",
       "label": {
-        "en": "product highlight img"
+        "en": "replace product name"
       }
     }
   ],
