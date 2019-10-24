@@ -31,6 +31,9 @@
 <div style="background-color: {{ bg_color }}">
 <section  style="position: relative; margin-top: 0;" class="featured-product--container home-section--content" data-product-wrapper>
   <div class="featured-product--inner">
+    <div>
+    <img src="section.settings.title_image" class="" />
+    </div>
     {%
       include 'product-dynamic',
       is_product_modal: false,
@@ -74,6 +77,13 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_image",
+      "label": {
+        "en": "Image"
+      }
     }
   ],
   "presets": [
