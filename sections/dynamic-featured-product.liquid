@@ -106,8 +106,9 @@
             </div>
           {% endif %}
           {% if is_product_modal %}
+            {% if section.settings.replace_product_title_image != blank %}{% else %}{% endif %}
             <h2 class="product-title">
-              <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+              <a href="{{ product.url | within: collection }}">{% if section.settings.replace_product_title != blank %}{{ section.settings.replace_product_title }}{% else %}{{ product.title }}{% endif %}</a>
             </h2>
           {% else %}
             {% if template == 'index' %}
@@ -116,7 +117,7 @@
               <h1 class="product-title">
             {% endif %}
               {% unless onboarding %}
-                {{ product.title }}
+                {% if section.settings.replace_product_title != blank %}{{ section.settings.replace_product_title }}{% else %}{{ product.title }}{% endif %}
               {% else %}
                 {{ 'onboarding.product.title' | t }}
               {% endunless %}
@@ -289,7 +290,14 @@
       "type": "image_picker",
       "id": "title_image",
       "label": {
-        "en": "Image"
+        "en": "product highlight img"
+      }
+    },
+    {
+      "type": "text",
+      "id": "replace_product_title",
+      "label": {
+        "en": "product highlight img"
       }
     }
   ],
