@@ -277,6 +277,11 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 {% assign font_variable_named_styles = blank %}
 
 
+@font-face {
+  font-family: 'Propisi';
+  src: url('./Propisi-Medium.otf');
+}
+
 // External libraries
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -329,6 +334,7 @@ section {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  font-family: 'Propisi', sans-serif;
 }
 
 /* Grouping content
@@ -14931,5 +14937,5 @@ $local-image-width: rem(48px);
 }
 // whitepages
 .featured-whitepage-content{
-  padding: $space-x-large $space-medium;
+  padding: $space-xxx-large $space-large;
 }
