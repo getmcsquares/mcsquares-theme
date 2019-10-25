@@ -20,8 +20,6 @@
         {%- endcapture -%}
         background-color: {{ settings.color_text | color_mix: settings.color_background, 10 }};
         background-image: url('{{ bg_image | strip_newlines }}');
-        background: linear-gradient({% if block.settings.grad_direction == left %}-90deg{% elsif block.settings.grad_direction == right %}90deg{% elsif block.settings.grad_direction == up %}180deg{% elsif block.settings.grad_direction == down %}-180deg{% endif %}, rgba(0,0,0,0) 0%, {{ settings.color_text | color_mix: settings.color_background, 10 }} 70%);
-
       {% endunless %}
     }
 
@@ -32,6 +30,7 @@
 
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};
+        background:linear-gradient({% if block.settings.grad_direction == left %}-90deg{% elsif block.settings.grad_direction == right %}90deg{% elsif block.settings.grad_direction == up %}180deg{% elsif block.settings.grad_direction == down %}-180deg{% endif %}, rgba(0,0,0,0) 0%, {{ settings.color_text | color_mix: settings.color_background, 10 }} 70%);
       }
 
     {% endif %}
