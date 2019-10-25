@@ -306,41 +306,31 @@ brand font definitions
 }
 
 
-  //font-family: 'Cabin', sans-serif;
-
-
-  $brand-font-stack-header: 'Helvetica Neue';
-  $brand-font-stack-body: 'Open Sans';
-  $brand-font-stack-cursive: 'Propisi';
-  $brand-color-text: $client-black;
-  //$brand-link-color-text: #1c1c1c;
-  $brand-color-accent-text: $client-grey;
-
-//  #alpine-home, body.alpine, .alpine, .template-alpine, body.template-alpine {
-//    font-family: $brand-font-stack-body;
-//    color: $brand-color-text;
-//    input,
-//    textarea,
-//    button,
-//    select {
-//      font-family: $brand-font-stack-body !important;
-//      color: $brand-color-text;
-//      line-height: 1.5;
-//    }
-//    a {
-//      font-family: $brand-font-stack-body !important;
-//    }
-//    /*================ Headings ================*/
-//    h1,
-//    h2,
-//    h3,
-//    h4,
-//    h5,
-//    h6 {
-//      font-family: $brand-font-stack-header !important;
-//      a {
-//      }
-//    }
+ // #alpine-home, body.alpine, .alpine, .template-alpine, body.template-alpine {
+ //   font-family: $brand-font-stack-body;
+ //   color: $brand-color-text;
+ //   input,
+ //   textarea,
+ //   button,
+ //   select {
+ //     font-family: $brand-font-stack-body !important;
+ //     color: $brand-color-text;
+ //     line-height: 1.5;
+ //   }
+ //   a {
+ //     font-family: $brand-font-stack-body !important;
+ //   }
+ //   /*================ Headings ================*/
+ //   h1,
+ //   h2,
+ //   h3,
+ //   h4,
+ //   h5,
+ //   h6 {
+ //     font-family: $brand-font-stack-header !important;
+ //     a {
+ //     }
+ //   }
 
 
 
@@ -931,6 +921,7 @@ $color-additional-accent: transparentize($color-footer-text, 0.5);
 $color-placeholder-background: mix($color-text, $color-background, 8%);
 $color-placeholder-fill: mix($color-text, $color-background, 35%);
 
+
 // General
 $color-black: #000;
 $color-white: #fff;
@@ -979,6 +970,13 @@ $font-body: $type-body !default;
 $font-button: $type-button !default;
 $font-menu: $type-menu !default;
 $font-section: $type-section !default;
+
+$font-heading: 'Helvetica Neue';
+$font-body: 'Open Sans';
+$font-button: 'Open Sans';
+$font-menu: 'Open Sans';
+$font-section: $type-section !default;
+$font-cursive: 'Propisi';
 
 // Base Size
 $font-size-base: {{ settings.type_size_base }};
@@ -14969,6 +14967,9 @@ $local-image-width: rem(48px);
 
 // For the Trees
 .for-the-trees {
+  .section-block {
+    width: 100%;
+  }
   h1.title {
     color: $client-green;
   }
