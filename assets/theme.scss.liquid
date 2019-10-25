@@ -9292,9 +9292,11 @@ $local-link-space: 13px;
 .home-section--content {
   // margin-top: $space-medium;
   padding-top: $space-medium;
+  padding-bottom: $space-medium;
   @include media($min: $bp-medium) {
     // margin-top: $space-large;
     padding-top: $space-large;
+    padding-bottom: $space-large;
   }
 
   .shopify-section:first-child &:first-child {
@@ -11675,6 +11677,10 @@ $local-item-width: 220px;
 .product-row--container {
   @extend %layout-container;
   position: relative;
+  padding-bottom: $space-large;
+  h2.home-section--title {
+    padding-top: 0;
+  }
 
   @include media($max: $bp-large) {
     // Prevent overflow scrolling for Flickity
