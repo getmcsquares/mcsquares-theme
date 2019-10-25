@@ -14944,6 +14944,10 @@ $local-image-width: rem(48px);
     .text-container {
       width: 90%;
       max-width: 700px;
+      @include media($bp-small) {
+        width: 94%;
+        margin: 0 auto;
+      }
     }
   }
   h1.section--title {
@@ -14958,7 +14962,7 @@ $local-image-width: rem(48px);
     .trees-counter-box{
       padding: 0;
       span{
-        color: $client-light-grey !important;
+        color: $client-grey !important;
         &.active {color: white !important;}
         background-color: $client-black;
         padding: 6px 10px;
@@ -15025,7 +15029,7 @@ $local-image-width: rem(48px);
 .limit-copy-width{
   max-width: 668px !important;
 }
-// ribbon image 
+// ribbon image
 .ribbon-image-box{
   height: 180px;
 }
