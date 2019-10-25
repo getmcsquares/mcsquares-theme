@@ -1,10 +1,10 @@
 {% assign bg_color = section.settings.bg_color %}
-{% comment %} {% include 'svg-curve-transparent' %} {% endcomment %}
+{% include 'svg-curve-transparent' %}
 <div style="background-color: {{ bg_color }}">
   <div class="ribbon-image-box">
     <div class="image-content__image-container">
       <div class="image-content__image-wrapper" style="">
-        {% assign img_url = section.settings.image | img_url: '1x1'  %}
+        {% assign img_url = section.settings.image | img_url: '800x'  %}
         <img
           class="image-content__image curve-clip lazyload"
           src="{{ img_url }}"
