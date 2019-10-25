@@ -2,9 +2,8 @@
   @param blocks {array}
     Array of blocks to iterate block stylings through
 {%- endcomment -%}
-
+{% assign block = block_item %}
 <style>
-  {% for block in blocks %}
     .promo-block--{{ block.id }} {
       {% if block.settings.color != blank %}
         color: {{ block.settings.color }};
@@ -38,5 +37,4 @@
       }
 {% endcomment %}
     {% endif %}
-  {% endfor %}
 </style>
