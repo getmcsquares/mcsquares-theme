@@ -20,9 +20,9 @@
 
 <section class="instagram--container">
   {% if section.settings.title != blank %}
-    <h2 class="home-section--title">
-      {{ section.settings.title | escape }}
-    </h2>
+    <h3 class="home-section--title">
+      {{ section.settings.title }}
+    </h3>
   {% endif %}
 
   <div
@@ -50,10 +50,10 @@
   "class": "instagram--section",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "title",
       "label": "Heading",
-      "default": "Instagram feed"
+      "default": "<p>follow us <a href="https://www.instagram.com/_mcsquares_/">@mcsquares</a></p>"
     },
     {
       "type": "text",
