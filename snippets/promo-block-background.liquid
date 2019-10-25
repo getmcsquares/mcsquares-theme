@@ -25,15 +25,14 @@
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
         {% assign blockdirection = block.settings.grad_direction %}
-
         {% if blockdirection == 'left' %}
-        {% assign direction = '90deg' %}
+          {% assign direction = '90deg' %}
         {% elsif blockdirection == 'right' %}
-        {% assign direction = '-90deg' %}
+          {% assign direction = '-90deg' %}
         {% elsif blockdirection == 'top' %}
-        {% assign direction = '-180deg' %}
+          {% assign direction = '0deg' %}
         {% elsif blockdirection == 'bottom' %}
-        {% assign direction = '180deg' %}
+          {% assign direction = '180deg' %}
         {% endif %}
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};

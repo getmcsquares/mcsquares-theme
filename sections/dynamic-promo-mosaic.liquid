@@ -219,6 +219,35 @@
           "label": "Color"
         },
         {
+          "type": "select",
+          "id": "grad_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "group": "1",
+              "value": "left",
+              "label": "left-to-right"
+            },
+            {
+              "group": "1",
+              "value": "right",
+              "label": "right-to-left"
+            },
+            {
+              "group": "1",
+              "value": "top",
+              "label": "top-to-bottom"
+            },
+            {
+              "group": "1",
+              "value": "bottom",
+              "label": "bottom-to-top"
+            }
+          ],
+          "default": "left",
+          "info": "left to right"
+        },
+        {
           "id": "opacity",
           "type": "range",
           "label": "Opacity",
@@ -226,7 +255,7 @@
           "max": 100,
           "step": 1,
           "unit": "%",
-          "default": 50
+          "default": 70
         }
       ]
     }
