@@ -17,7 +17,7 @@
           {%-
             include 'placeholder_svg_uri'
             placeholder: 'image'
-           -%}
+          -%}
         {%- endcapture -%}
         background-color: {{ settings.color_text | color_mix: settings.color_background, 10 }};
         background-image: url('{{ bg_image | strip_newlines }}');
@@ -34,7 +34,7 @@
 
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};
-        background: linear-gradient({% if [direction] == left %}90deg{% elsif [direction] == right %}-90deg{% elsif [direction] == top %}-180deg{% elsif [direction] == bottom %}180deg{% endif %}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
+        background: linear-gradient({% if direction == left %}90deg{% elsif direction == right %}-90deg{% elsif direction == top %}-180deg{% elsif direction == bottom %}180deg{% endif %}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
       }
 {% endcomment %}
     {% endif %}
