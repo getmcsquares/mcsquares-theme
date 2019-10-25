@@ -6533,7 +6533,6 @@ $local-photo-width: 165px;
     display: block;
     max-width: 100%;
     margin: 0 auto;
-    box-shadow: 1px 2px 3px rgba(0,0,0,.30);
   }
 
   &[data-instagram-photo-placeholder] {
@@ -6549,6 +6548,7 @@ $local-photo-width: 165px;
   padding-top: 100%;
   background-position: center;
   background-size: cover;
+  box-shadow: 1px 2px 3px rgba(0,0,0,.30);
 }
 
 $local-space-small: 10px;
@@ -14907,16 +14907,17 @@ $local-image-width: rem(48px);
 }
 
 // For the Trees
-
-.trees-counter.row{
-  margin: 1em 0;
-  .trees-counter-box{
-    span{
-      color: white !important;
-      background-color: $client-black;
-      padding: 6px 10px;
-      font-size: 16px;
-      font-weight: bold;
+.for-the-trees {
+  .trees-counter.row {
+    margin: 1em 0;
+    .trees-counter-box{
+      span{
+        color: white !important;
+        background-color: $client-black;
+        padding: 6px 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
     }
   }
 }
