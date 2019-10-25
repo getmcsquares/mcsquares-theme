@@ -26,7 +26,8 @@
     {% if block.settings.show_overlay and block.settings.background != blank %}
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
-      {% assign blockdirection = block.settings.grad_direction %}
+  {% comment %}
+        {% assign blockdirection = block.settings.grad_direction %}
 
       {% capture direction %}{{blockdirection}}{% endcapture %}
 
@@ -34,7 +35,7 @@
         background-color: {{ overlay }};
         background: linear-gradient({% if [direction] == left %}90deg{% elsif [direction] == right %}-90deg{% elsif [direction] == top %}-180deg{% elsif [direction] == bottom %}180deg{% endif %}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
       }
-
+{% endcomment %}
     {% endif %}
   {% endfor %}
 </style>
