@@ -1,487 +1,168 @@
-<footer class="site-footer" role="contentinfo">
-  <div class="page-width">
-    <div class="flex-footer sh-row">
-      {% for block in section.blocks %}
-        <div class="flex__item" {{ block.shopify_attributes }}>
-          {% case block.type %}
-            {% when 'social' %}
-              <div class="site-footer__section">
-                {% if block.settings.title != blank %}
-                  <h4 class="h1 site-footer__section-title text-{{ block.settings.align }}">{{ block.settings.title | escape }}</h4>
-                {% endif %}
-                <ul class="list--inline social-icons text-{{ block.settings.align }}">
-                  {% if settings.social_facebook_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_facebook_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
-                        {% include 'icon-facebook' %}
-                        <span class="icon__fallback-text">Facebook</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_twitter_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_twitter_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
-                        {% include 'icon-twitter' %}
-                        <span class="icon__fallback-text">Twitter</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_pinterest_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_pinterest_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
-                        {% include 'icon-pinterest' %}
-                        <span class="icon__fallback-text">Pinterest</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_instagram_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_instagram_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
-                        {% include 'icon-instagram' %}
-                        <span class="icon__fallback-text">Instagram</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_tumblr_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_tumblr_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
-                        {% include 'icon-tumblr' %}
-                        <span class="icon__fallback-text">Tumblr</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_snapchat_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_snapchat_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
-                        {% include 'icon-snapchat' %}
-                        <span class="icon__fallback-text">Snapchat</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_youtube_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_youtube_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
-                        {% include 'icon-youtube' %}
-                        <span class="icon__fallback-text">YouTube</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_vimeo_link != blank %}
-                    <li>
-                      <a href="{{ settings.social_vimeo_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
-                        {% include 'icon-vimeo' %}
-                        <span class="icon__fallback-text">Vimeo</span>
-                      </a>
-                    </li>
-                  {% endif %}
-                </ul>
-              </div>
-
-            {% when 'menu' %}
-              {% if linklists[block.settings.link_list].links.size > 0 %}
-                <div class="site-footer__section sh-col-sm-4">
-                  {% comment %} <h4 class="h1 site-footer__section-title">{{ linklists[block.settings.link_list].title }}</h4> {% endcomment %}
-                  <ul class="site-footer__list">
-                    {% for link in linklists[block.settings.link_list].links %}
-                      <li class="site-footer__list-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              {% endif %}
-
-            {% when 'text' %}
-              <div class="site-footer__section">
-                <h4 class="h1 site-footer__section-title">{{ block.settings.title | escape }}</h4>
-                <div class="rte-setting">{{ block.settings.text }}</div>
-              </div>
-
-            {% when 'newsletter' %}
-              <style>
-                .site-footer__newsletter-input {
-                  background-color: {{ block.settings.color_newsletter_input }};
-                  color: {{ block.settings.color_newsletter_input_text }};
-                }
-
-                .site-footer__newsletter-input::-webkit-input-placeholder {
-                  color: {{ block.settings.color_newsletter_input_text }};
-                  opacity: 0.7;
-                }
-
-                .site-footer__newsletter-input:-moz-placeholder {
-                  color: {{ block.settings.color_newsletter_input_text }};
-                  opacity: 0.7;
-                }
-
-                .site-footer__newsletter-input:-ms-input-placeholder {
-                  color: {{ block.settings.color_newsletter_input_text }};
-                  opacity: 0.7;
-                }
-
-                .site-footer__newsletter-input::-ms-input-placeholder {
-                  color: {{ block.settings.color_newsletter_input_text }};
-                  opacity: 1;
-                }
-              </style>
-              <div class="site-footer__section">
-                <h4 class="site-footer__section-title h1">
-                  {% if block.settings.title != blank %}
-                    {{ block.settings.title | escape }}
-                  {% endif %}
-                </h4>
-                <div class="form-vertical">
-                  {% form 'customer' %}
-                    {{ form.errors | default_errors }}
-                    {% if form.posted_successfully? %}
-                      <p class="form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
-                    {% else %}
-                      <input type="hidden" name="contact[tags]" value="newsletter">
-                      <label for="NewsletterEmail-{{ block.id }}" class="site-footer__newsletter-label">
-                        {% if block.settings.subheading != blank %}
-                          {{ block.settings.subheading }}
-                        {% endif %}
-                      </label>
-                      <div class="input-group">
-                        <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_placeholder' | t }}" name="contact[email]" id="NewsletterEmail-{{ block.id }}" class="input-group__field site-footer__newsletter-input" autocorrect="off" autocapitalize="off">
-                        <div class="input-group__btn">
-                          <button type="submit" class="btn btn--narrow" name="commit">
-                            {% include 'icon-arrow-right' %}
-                            <span class="icon__fallback-text">{{ 'general.newsletter_form.submit' | t }}</span>
-                          </button>
-                        </div>
-                      </div>
-                    {% endif %}
-                  {% endform %}
-                </div>
-              </div>
-
-          {% endcase %}
-        </div>
+<div class="footer-wrapper" style="background-color: {{section.settings.upper_footer_bg}}">
+<footer class="page-footer font-small contained">
+  <div class="footer-upper">
+    {% if section.settings.show_payment_icons %}
+    {% unless shop.enabled_payment_types == empty %}
+    {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,google_pay,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
+    <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+    <ul class="payment-icons" class="d-flex align-items-center">
+      {% for type in shop.enabled_payment_types %}
+      {% if payment_icons_available contains type %}
+      <li>
+        {%- assign icon_name = type | prepend: 'icon-' -%}
+        {% include icon_name %}
+        <span class="visually-hidden">{{ type | capitalize | replace: '_', ' ' }}</span>
+      </li>
+      {% endif %}
       {% endfor %}
-    </div>
-  </div>
-  <div class="site-footer__copyright">
-    <div class="page-width">
-      <div class="grid medium-up--grid--table">
-        <div class="grid__item medium-up--one-half">
-          <small>&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
-        </div>
-        <div class="grid__item medium-up--one-half medium-up--text-right">
-          {%- if section.settings.show_payment_icons -%}
-            {%- unless shop.enabled_payment_types == empty -%}
-              <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
-              <ul class="list--inline payment-icons">
-                {%- for type in shop.enabled_payment_types -%}
-                  <li>
-                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endunless -%}
-          {%- endif -%}
-        </div>
+    </ul>
+    {% endunless %}
+    {% endif %}
+    <div class="row">
+    {%- assign footer_linklist_1 = section.settings.footer_linklist_1 -%}
+    {%- assign footer_linklist_2 = section.settings.footer_linklist_2 -%}
+    {% if linklists[footer_linklist_1].links.size > 0 %}
+    <div class="col-sm-6">
+      <div class="row">
+        <ul class="footer-nav col-md-6 d-flex flex-column align-items-start">
+          {% for link in linklists[footer_linklist_1].links %}
+          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="footer-nav col-md-6 d-flex flex-column align-items-start">
+          {% for link in linklists[footer_linklist_2].links %}
+          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
+    {% endif %}
+    <div class="col-sm-6 social-links d-flex flex-column justify-content-between align-items-end">
+    <div class="small-hide"  style="max-width: 100%">
+      <span data-sumome-listbuilder-embed-id="1e51a6555ae5bc29000ff489679ae47a2744ba8114b856a83d0f7a1d7b5968a5"></span>
+      </div> 
+      {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+      {% if section.blocks.size > 0 %}
+      <ul class="d-flex align-items-center justify-content-center">
+        {% for social in social_accounts %}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+        {% for block in section.blocks %}
+        {% capture social_link %}{{block.settings.social_name | handleize }}{% endcapture %}
+        {% if social_link == social_handle %}
+        <li class="social-link">
+          <a href="{{ block.settings.link }}" target="_blank" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            <div class="icon">{% include social_icon %}</div>
+            <span class="icon-fallback-text">{{ block.section.social_name }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </ul>
+      {% else %}
+      <ul class="d-flex align-items-center justify-content-center footer-socials">
+        {% for social in social_accounts %}
+        {%- assign social_handle = social | handleize -%}
+        {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+        {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
+        {% if settings[social_link] != blank %}
+        <li class="social-link">
+          <a href="{{ settings[social_link] }}" target="_blank" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            <div class="icon">{% include social_icon %}</div>
+            <span class="icon-fallback-text">{{ social }}</span>
+          </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <a href="/" class="logo-image footer-logo">
+        {% if section.settings.logo != blank %}
+        {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        <img src="{{ section.settings.logo | img_url: image_size }}"
+        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        alt="{{ section.settings.logo.alt | default: shop.name }}">
+        {% else %}
+        {{ shop.name }}
+        {% endif %}
+      </a>
+    </div>
+  </div>
   </div>
 </footer>
+</div>
 
 {% schema %}
   {
-    "name": {
-      "pt-BR": "Rodapé",
-      "it": "Footer",
-      "en": "Footer",
-      "es": "Pie de página",
-      "de": "Fußzeile",
-      "ja": "フッター",
-      "fr": "Pied de page"
-    },
+    "name": "Footer",
     "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist_1",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_2",
+        "label": "Second menu",
+        "default": "footer"
+      },
       {
         "type": "checkbox",
         "id": "show_payment_icons",
-        "label": {
-          "pt-BR": "Exibir ícones de pagamento",
-          "it": "Mostra le icone di pagamento",
-          "en": "Show payment icons",
-          "es": "Mostrar iconos de pago",
-          "de": "Zahlungs-Buttons anzeigen",
-          "ja": "支払いアイコンを表示する",
-          "fr": "Afficher les icônes de paiement"
-        },
-        "default": true
+        "label": "Show payment icons",
+        "default": false
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Footer Logo image"
+      },
+      {
+        "type": "range",
+        "id": "logo_max_width",
+        "min": 120,
+        "max": 300,
+        "step": 5,
+        "unit": "px",
+        "label": "footer logo width",
+        "default": 250
+      },
+      {
+        "type": "color",
+        "id": "upper_footer_bg",
+        "label": "Upper Footer Background Color"
+      },
+      {
+        "type": "color",
+        "id": "lower_footer_bg",
+        "label": "Lower Footer Background Color"
       }
     ],
     "blocks": [
       {
-        "type": "social",
-        "name": {
-          "pt-BR": "Contas em redes sociais",
-          "it": "Account social",
-          "en": "Social accounts",
-          "es": "Cuentas de redes sociales",
-          "de": "Social-Media-Konten",
-          "ja": "SNSアカウント",
-          "fr": "Comptes sociaux"
+
+      "type": "text",
+      "name": "socials",
+      "settings": [
+        {
+          "type": "text",
+          "id": "social_name",
+          "label": "name of social (facebook, twitter, etc)"
         },
-        "limit": 1,
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": {
-              "pt-BR": "Título",
-              "it": "Heading",
-              "en": "Heading",
-              "es": "Título",
-              "de": "Titel",
-              "ja": "見出し",
-              "fr": "Titre"
-            },
-            "default": {
-              "pt-BR": "Acompanhe",
-              "it": "Seguici",
-              "en": "Follow us",
-              "es": "Síguenos",
-              "de": "Folge uns",
-              "ja": "フォローする",
-              "fr": "Suivez-nous"
-            }
-          },
-          {
-            "type": "radio",
-            "id": "align",
-            "label": {
-              "pt-BR": "Alinhamento de ícone",
-              "it": "Allineamento icona",
-              "en": "Icon alignment",
-              "es": "Alineación de ícono",
-              "de": "Symbolausrichtung",
-              "ja": "アイコンのアラインメント",
-              "fr": "Alignement des icônes"
-            },
-            "options": [
-              {
-                "value": "left",
-                "label": {
-                  "pt-BR": "Esquerda",
-                  "it": "Sinistra",
-                  "en": "Left",
-                  "es": "Izquierda",
-                  "de": "Links",
-                  "ja": "左",
-                  "fr": "Gauche"
-                }
-              },
-              {
-                "value": "center",
-                "label": {
-                  "pt-BR": "Centro",
-                  "it": "Al centro",
-                  "en": "Center",
-                  "es": "Centrar",
-                  "de": "Mitte",
-                  "ja": "中央",
-                  "fr": "Centre"
-                }
-              },
-              {
-                "value": "right",
-                "label": {
-                  "pt-BR": "Direita",
-                  "it": "Destra",
-                  "en": "Right",
-                  "es": "Derecha",
-                  "de": "Rechts",
-                  "ja": "右",
-                  "fr": "Droite"
-                }
-              }
-            ],
-            "default": "left"
-          }
-        ]
-      },
-      {
-        "type": "menu",
-        "name": {
-          "pt-BR": "Menu",
-          "it": "Menu",
-          "en": "Menu",
-          "es": "Menú",
-          "de": "Menü",
-          "ja": "メニュー",
-          "fr": "Menu"
-        },
-        "settings": [
-          {
-            "id": "link_list",
-            "type": "link_list",
-            "label": {
-              "pt-BR": "Menu",
-              "it": "Menu",
-              "en": "Menu",
-              "es": "Menú",
-              "de": "Menü",
-              "ja": "メニュー",
-              "fr": "Menu"
-            },
-            "info": {
-              "pt-BR": "Este menu não mostra itens suspensos",
-              "it": "Questo menu non mostrerà elementi a discesa",
-              "en": "This menu won't show dropdown items",
-              "es": "Este menú no mostrará elementos desplegables",
-              "de": "Dieses Menü zeigt keine Dropdowns an",
-              "ja": "このメニューにはドロップダウンアイテムは表示されません",
-              "fr": "Ce menu n'affichera pas les éléments des menus déroulants"
-            }
-          }
-        ]
-      },
-      {
-        "type": "text",
-        "name": {
-          "pt-BR": "Texto",
-          "it": "Testo",
-          "en": "Text",
-          "es": "Texto",
-          "de": "Text",
-          "ja": "テキスト",
-          "fr": "Texte"
-        },
-        "settings": [
-          {
-            "type": "text",
-            "id": "title",
-            "label": {
-              "pt-BR": "Título",
-              "it": "Heading",
-              "en": "Heading",
-              "es": "Título",
-              "de": "Titel",
-              "ja": "見出し",
-              "fr": "Titre"
-            },
-            "default": {
-              "pt-BR": "Coluna de texto",
-              "it": "Colonna di testo",
-              "en": "Text column",
-              "es": "Columna de texto",
-              "de": "Textspalte",
-              "ja": "テキスト列",
-              "fr": "Colonne de texte"
-            }
-          },
-          {
-            "type": "richtext",
-            "id": "text",
-            "label": {
-              "pt-BR": "Texto",
-              "it": "Testo",
-              "en": "Text",
-              "es": "Texto",
-              "de": "Text",
-              "ja": "テキスト",
-              "fr": "Texte"
-            },
-            "default": {
-              "pt-BR": "<p>Compartilhe detalhes da loja, promoções ou conteúdo da marca com seus clientes</p>",
-              "it": "<p>Condividi dettagli del negozio, promozioni o contenuto del brand con i clienti</p>",
-              "en": "<p>Share store details, promotions, or brand content with your customers</p>",
-              "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
-              "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden</p>",
-              "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する</p>",
-              "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients</p>"
-            }
-          }
-        ]
-      },
-      {
-        "type": "newsletter",
-        "name": {
-          "pt-BR": "Newsletter",
-          "it": "Newsletter",
-          "en": "Newsletter",
-          "es": "Boletín",
-          "de": "Newsletter",
-          "ja": "ニュースレター",
-          "fr": "Newsletter"
-        },
-        "limit": 1,
-        "settings": [
-          {
-            "type": "color",
-            "id": "color_newsletter_input",
-            "label": {
-              "pt-BR": "Campo da newsletter",
-              "it": "Campo newsletter",
-              "en": "Newsletter field",
-              "es": "Campo del boletín",
-              "de": "Newsletter-Feld",
-              "ja": "ニュースレターのフィールド",
-              "fr": "Champ de la newsletter"
-            },
-            "default": "#1a1a1a"
-          },
-          {
-            "type": "color",
-            "id": "color_newsletter_input_text",
-            "label": {
-              "pt-BR": "Texto da newsletter",
-              "it": "Testo newsletter",
-              "en": "Newsletter text",
-              "es": "Texto del boletín",
-              "de": "Newsletter-Text",
-              "ja": "ニュースレターのテキスト",
-              "fr": "Texte de la newsletter"
-            },
-            "default": "#fff"
-          },
-          {
-            "type": "text",
-            "id": "title",
-            "label": {
-              "pt-BR": "Título",
-              "it": "Heading",
-              "en": "Heading",
-              "es": "Título",
-              "de": "Titel",
-              "ja": "見出し",
-              "fr": "Titre"
-            },
-            "default": {
-              "pt-BR": "Fique por dentro",
-              "it": "Rimani aggiornato",
-              "en": "Be in the know",
-              "es": "Mantente informado",
-              "de": "Bleiben Sie auf dem Laufenden",
-              "ja": "よく知ってください",
-              "fr": "Restez au courant"
-            }
-          },
-          {
-            "type": "richtext",
-            "id": "subheading",
-            "label": {
-              "pt-BR": "Subtítulo",
-              "it": "Sottotitolo",
-              "en": "Subheading",
-              "es": "Subtítulo",
-              "de": "Unter-Überschrift",
-              "ja": "小見出し",
-              "fr": "Sous-titre"
-            },
-            "default": {
-              "pt-BR": "<p>Promoções, novos produtos e vendas. Diretamente para sua caixa de entrada.</p>",
-              "it": "<p>Promozioni, nuovi prodotti e offerte. Direttamente nella tua inbox.</p>",
-              "en": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
-              "es": "<p>Promociones, nuevos productos y ofertas. Directamente a tu bandeja de entrada.</p>",
-              "de": "<p>Werbeaktionen, neue Produkte und Sonderangebote. Direkt in Ihrem Posteingang.</p>",
-              "ja": "<p>プロモーション、新商品、セールについて、あなたの受信箱に直接知らせる。</p>",
-              "fr": "<p>Promotions, nouveaux produits et soldes. Directement dans votre boîte de réception.</p>"
-            }
-          }
-        ]
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link to Social"
+        }
+      ]
       }
     ]
   }
+
 {% endschema %}
