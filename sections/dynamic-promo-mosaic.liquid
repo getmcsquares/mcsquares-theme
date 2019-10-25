@@ -38,6 +38,9 @@
           compress_blocks: section.settings.compress_blocks,
           maintain_aspect_ratio: section.settings.maintain_aspect_ratio
         %}
+        {%
+          include 'promo-block-background'
+        %}
       {% endfor %}
       </div>
     {% endif %}
