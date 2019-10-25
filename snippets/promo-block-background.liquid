@@ -11,7 +11,6 @@
       {% endif %}
       {% unless block.settings.image %}
         {%- capture bg_image -%}
-
           {%-
             include 'placeholder_svg_uri'
             placeholder: 'image'
@@ -26,10 +25,19 @@
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
         {% assign blockdirection = block.settings.grad_direction %}
-      {% capture direction %}{{blockdirection}}{% endcapture %}
+
+        {% if blockdirection == 'left' %}
+        {% assign direction = '90deg' %}
+        {% elsif blockdirection == 'right' %}
+        {% assign direction = '-90deg' %}
+        {% elsif blockdirection == 'top' %}
+        {% assign direction = '-180deg' %}
+        {% elsif blockdirection == 'bottom' %}
+        {% assign direction = '180deg' %}
+        {% endif %}
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};
-        background: linear-gradient({% if direction == 'left' %}90deg{% elsif direction == 'right' %}-90deg{% elsif direction == 'top' %}-180deg{% elsif direction == 'bottom' %}180deg{% endif %}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
+        background: linear-gradient({{ direction }}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
       }
     {% endif %}
 </style>
