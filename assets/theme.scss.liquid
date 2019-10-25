@@ -903,7 +903,7 @@ $color-overlay-background: rgba({{ settings.color_overlay}}, {{ settings.overlay
 $color-background-light: mix($color-text, $color-background, 5%);
 
 $color-box-shadow-border: transparentize($color-border, 0.84);
-$color-box-shadow-shadow: transparentize($color-border, 0.89);
+$color-box-shadow-shadow: transparentize($color-border, 0.95);
 $color-box-shadow-border-focused: transparentize($color-border, 0.5);
 $color-box-shadow-shadow-focused: transparentize($color-border, 0.5);
 
@@ -1588,7 +1588,7 @@ $color-featured-post-foreground: $color-background;
 
 %box-shadow {
   border: 1px solid $color-box-shadow-border;
-  box-shadow: 0 1px 4px $color-box-shadow-shadow;
+  box-shadow: 1px 2px 4px $color-box-shadow-shadow;
 }
 %round-corners {
   border-radius: 20px 0 20px 0 !important;
@@ -5197,6 +5197,7 @@ $local-space-large: 20px;
 
   .promo-block {
     height: 100%;
+    @extend %box-shadow;
   }
 
   // The extra selectors are to beat out specificity rules :P
@@ -6578,7 +6579,7 @@ $local-photo-width: 165px;
   padding-top: 100%;
   background-position: center;
   background-size: cover;
-  box-shadow: 1px 2px 3px rgba(0,0,0,.30);
+  @extend %box-shadow;
 }
 
 $local-space-small: 10px;
@@ -9360,7 +9361,6 @@ $local-expander-width: rem(70px);
   position: relative;
   width: 100%;
   transition: font-size 0.23s $ease-bubble;
-
   .promo-block--content-align-top-center &,
   .promo-block--content-align-center-center &,
   .promo-block--content-align-bottom-center & {
@@ -9445,6 +9445,7 @@ $local-expander-width: rem(70px);
   color: currentColor;
   text-decoration: none;
   transition: height 0.23s $ease-bubble;
+  a:hover {color:unset;}
   @extend %round-corners;
   @include media($max: $bp-small) {
     height: 120px;
