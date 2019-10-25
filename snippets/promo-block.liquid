@@ -38,6 +38,7 @@
   {% endif %}
 
   {%- capture wrapper_classes -%}
+    promo-block--{{block.id}}
     promo-block--content
     promo-block--content-align-{{ text_alignment }}
     {% unless maintain_aspect_ratio %}promo-grid--maintain-aspect-ratio{% endunless %}
