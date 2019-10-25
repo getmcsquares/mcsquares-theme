@@ -28,11 +28,7 @@
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
       {% assign blockdirection = block.settings.grad_direction %}
-      {% assign left if block.settings.grad_direction == left %}
-      {% assign right if block.settings.grad_direction == right %}
-      {% assign up block.settings.grad_direction == up %}
-      {% assign down block.settings.grad_direction == down %}
-
+      
       {% capture direction %}
       {% if blockdirection == left %}90deg{% endif %}{% if blockdirection == right %}-90deg{% endif %}{% if blockdirection == top %}-180deg{% endif %}{% if blockdirection == bottom %}180deg{% endif %}
       {% endcapture %}
