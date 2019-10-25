@@ -276,12 +276,73 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 {% assign font_variable_styles = blank %}
 {% assign font_variable_named_styles = blank %}
 
+/*============================================================================
+ brand font definitions
+ ==============================================================================*/
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-@font-face {
-  font-family: 'Propisi';
-  font-weight: 400;
-  src: url('./Propisi-Medium.otf');
-}
+ @font-face {
+   font-family: 'Helvetica Neue';
+   font-display: auto;
+   src: url('./HelveticaNeue-01.ttf') format('truetype');
+   font-weight: normal;
+  }
+  @font-face {
+    font-family: 'Helvetica Neue';
+    font-display: auto;
+    src: url('./HelveticaNeue-Bold-02.ttf') format('truetype');
+    font-weight: bold;
+   }
+   @font-face {
+     font-family: 'Helvetica Neue';
+     font-display: auto;
+     src: url('./HelveticaNeue-Light-08.ttf') format('truetype');
+     font-weight: 300;
+    }
+   @font-face {
+     font-family: 'Propisi';
+     font-weight: 400;
+     src: url('./Propisi-Medium.otf');
+   }
+
+
+  //font-family: 'Cabin', sans-serif;
+
+
+  $brand-font-stack-header: 'Helvetica Neue';
+  $brand-font-stack-body: 'Open Sans';
+  $brand-font-stack-cursive: 'Propisi';
+  $brand-color-text: $client-black;
+  //$brand-link-color-text: #1c1c1c;
+  $brand-color-accent-text: $client-grey;
+
+ // #alpine-home, body.alpine, .alpine, .template-alpine, body.template-alpine {
+ //   font-family: $brand-font-stack-body;
+ //   color: $brand-color-text;
+ //   input,
+ //   textarea,
+ //   button,
+ //   select {
+ //     font-family: $brand-font-stack-body !important;
+ //     color: $brand-color-text;
+ //     line-height: 1.5;
+ //   }
+ //   a {
+ //     font-family: $brand-font-stack-body !important;
+ //   }
+ //   /*================ Headings ================*/
+ //   h1,
+ //   h2,
+ //   h3,
+ //   h4,
+ //   h5,
+ //   h6 {
+ //     font-family: $brand-font-stack-header !important;
+ //     a {
+ //     }
+ //   }
+
+
 
 // External libraries
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -14908,6 +14969,9 @@ $local-image-width: rem(48px);
 
 // For the Trees
 .for-the-trees {
+  h1.title {
+    color: $client-green;
+  }
     min-height: 400px;
     display: flex;
     align-items: center;
@@ -14915,7 +14979,8 @@ $local-image-width: rem(48px);
     margin: 1em 0;
     .trees-counter-box{
       span{
-        color: white !important;
+        color: $client-light-grey !important;
+        &.active {color: white !important;}
         background-color: $client-black;
         padding: 6px 10px;
         font-size: 16px;
