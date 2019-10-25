@@ -20,12 +20,18 @@
         {%- endcapture -%}
         background-color: {{ settings.color_text | color_mix: settings.color_background, 10 }};
         background-image: url('{{ bg_image | strip_newlines }}');
+        {%comment%}
+        {% if block.settings.show_overlay and block.settings.background and grad_direction != blank %}
+        {%endcomment%}  
+        background-color: linear-gradient(90deg, rgba(0,0,0,0) 0%, {{ settings.color_text | color_mix: settings.color_background, 10 }} 70%);
+
       {% endunless %}
     }
 
     {% if block.settings.show_overlay and block.settings.background != blank %}
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
+
 
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};
