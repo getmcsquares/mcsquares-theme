@@ -8,6 +8,7 @@
     .promo-block--{{ block.id }} {
       {% if block.settings.color != blank %}
         color: {{ block.settings.color }};
+        &:hover, &:active {color: {{ block.settings.color }};}
       {% endif %}
 
       {% unless block.settings.image %}
