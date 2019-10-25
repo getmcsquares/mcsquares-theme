@@ -20,7 +20,6 @@
         {%- endcapture -%}
         background-color: {{ settings.color_text | color_mix: settings.color_background, 10 }};
         background-image: url('{{ bg_image | strip_newlines }}');
-        background-color: linear-gradient({% if grad_direction == left %}-90deg{% elsif grad_direction == right %}90deg{% elsif grad_direction == up %}180deg{% elsif grad_direction == down %}-180deg{% endif %}, rgba(0,0,0,0) 0%, {{ settings.color_text | color_mix: settings.color_background, 10 }} 70%);
 
       {% endunless %}
     }
@@ -28,10 +27,11 @@
     {% if block.settings.show_overlay and block.settings.background != blank %}
       {% assign opacity = block.settings.opacity | times: 0.01 %}
       {% assign overlay = block.settings.background | color_modify: 'alpha', opacity %}
-
+      {% assign direction = block.settings.grad_direction %}
 
       .promo-block--{{ block.id }} .promo-block--content {
         background-color: {{ overlay }};
+        background: linear-gradient({% if {{direction}} == left %}-90deg{% elsif {{direction}} == right %}90deg{% elsif {{direction}} == up %}180deg{% elsif {{direction}} == down %}-180deg{% endif %}, rgba(0,0,0,0) 0%, {{ overlay }} 70%);
       }
 
     {% endif %}
