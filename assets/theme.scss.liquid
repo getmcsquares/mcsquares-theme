@@ -1829,7 +1829,7 @@ h5,
 h6 {
   font-family: 'Helvetica Neue';
 }
-h1, h1.propisi, h1.cursive {
+h1.propisi, h1.cursive {
   font-family: 'Propisi';
 }
 h4,
@@ -15012,6 +15012,9 @@ $local-image-width: rem(48px);
 
 // For the Trees
 .for-the-trees {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
   .section-block {
     width: 100%;
     .text-container {
@@ -15026,9 +15029,7 @@ $local-image-width: rem(48px);
   h1.section--title {
     color: $client-green;
   }
-    min-height: 400px;
-    display: flex;
-    align-items: center;
+  img {max-height: 240px;}
   .trees-counter.row {
     max-width: 220px;
     margin: 1.5em auto;
