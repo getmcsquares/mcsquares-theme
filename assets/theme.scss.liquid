@@ -1846,26 +1846,10 @@ body,
  textarea,
  button,
  select {
-   font-size: $font-size-base;
-   font-family: $font-stack-body;
-   font-style: $font-style-body;
-   font-weight: $font-weight-body;
-   color: $color-text;
+   font-family: 'Open Sans';
    line-height: 1.5;
-   @media only screen and ( min-width: 1400px ){
-    font-size: 16px !important;
-   }
  }
 
- // Prevent zoom on touch devices in active inputs
- @include media-query($medium-down) {
-   input,
-   textarea,
-   select,
-   button {
-     font-size: $font-size-mobile-input;
-   }
- }
 
  /*================ Headings ================*/
  h1,
