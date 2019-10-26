@@ -1,4 +1,5 @@
-<div class="for-the-trees page-width section-block--padding has-both-curve">
+{% assign bg_color = section.settings.bg_color %}
+<div class="for-the-trees page-width section-block--padding has-both-curve {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}" style="background-color: {{ bg_color }}">
   <div class="section-block">
     <div class="row d-flex align-items-center justify-content-center">
       <div class="col-12 col-md-4">
@@ -48,6 +49,31 @@
     "name": "For the Trees",
     "class": "index-section",
     "settings": [
+      {
+        "id": "curve",
+        "type": "select",
+        "label": "Does top or bottom need svg spacing?",
+        "options": [
+          {
+            "value": "top",
+            "label": "Top"
+          },
+          {
+            "value": "bottom",
+            "label": "Bottom"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
       {
         "type": "text",
         "id": "header",
