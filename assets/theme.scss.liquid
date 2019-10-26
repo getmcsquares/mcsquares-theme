@@ -942,12 +942,6 @@ $font-body: $type-body !default;
 $font-button: $type-button !default;
 $font-menu: $type-menu !default;
 $font-section: $type-section !default;
-//
-// $font-heading: 'Helvetica Neue';
-// $font-body: 'Open Sans';
-// $font-button: 'Open Sans';
-// $font-menu: 'Open Sans';
-// $font-cursive: 'Propisi';
 
 // Base Size
 $font-size-base: {{ settings.type_size_base }};
@@ -1824,6 +1818,27 @@ $color-featured-post-foreground: $color-background;
 
 #messageus_button {
   z-index:9999;
+}
+
+/* font assignments */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica Neue';
+}
+h1, h1.propisi, h1.cursive {
+  font-family: 'Propisi';
+}
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans';
+}
+body, p, a, blockquote, dl, ul, ol, li {
+  font-family: 'Open Sans';
 }
 
 .rte,
@@ -14892,10 +14907,11 @@ $local-image-width: rem(48px);
   // position: absolute;
   top: 0;
   width: auto;
-  padding: 3px 15px;
+  padding: 5px 15px;
   h5{
     margin-bottom: 0;
     color: white !important;
+    font-size: 1.15em;
   }
   &.green{
     background-color: $client-green;
@@ -14972,8 +14988,8 @@ $local-image-width: rem(48px);
         color: $client-grey !important;
         &.active {color: white !important;}
         background-color: $client-black;
-        padding: 6px 10px;
-        font-size: 16px;
+        padding: 8px 10px;
+        font-size: 18px;
         font-weight: bold;
       }
     }
