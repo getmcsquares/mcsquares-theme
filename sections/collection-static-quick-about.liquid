@@ -1,12 +1,12 @@
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve' %}
-<div style="background-color: {{ bg_color }}" class="container {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
+<div style="background-color: {{ bg_color }}" class="quick-about container {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
   <div class="row d-flex align-items-center ">
     {% for block in section.blocks %}
-    <div class="col-4 about-image-wrap text-left has-bar" style='padding: 1em;'>
-      <img class="logo-small" style=" max-height: 20px;" src="{{ block.settings.image | img_url: '50x' }}"/>
+    <div class="col-4 about-image-wrap text-left has-bar" style='padding: 1em 2em;'>
+      <img class="logo-small" src="{{ block.settings.image | img_url: '180x' }}"/>
       <h4>{{block.settings.header}}</h4>
-      {{block.settings.body}}
+      <p>{{block.settings.body}}</p>
     </div>
   {% endfor %}
     </div>

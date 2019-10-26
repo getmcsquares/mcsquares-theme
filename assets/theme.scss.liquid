@@ -6677,10 +6677,10 @@ $local-padding-medium: 20px;
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 160px;
-  background-color: $client-blue;
-  color: #fff;
+  background-color: $client-blue !important;
+  color: #fff !important;
   &:hover, &:active {
-    color: #fff;
+    color: #fff !important;
   }
 }
 
@@ -14911,14 +14911,14 @@ $local-image-width: rem(48px);
   };
 }
 .has-bottom-curve{
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 .has-top-curve{
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .has-both-curve{
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 //  PRODUCT INFO section
 
@@ -15041,6 +15041,19 @@ $local-image-width: rem(48px);
 }
 
 // static collection content
+.quick-about {
+  color: $client-blue;
+  h4 {
+    font-family: 'Helvetice Neue';
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 1em 0;
+  }
+  p {}
+  .logo-small {
+    max-height: 90px;
+  }
+}
 .static-content-outer{
   padding-left: unset !important;
   padding-right: unset !important;
