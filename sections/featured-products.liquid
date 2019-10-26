@@ -1,5 +1,5 @@
 {% assign bg_color = section.settings.bg_color %}
-<div style="background-color: {{ bg_color }}" class="page-width{% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
+<div style="background-color: {{ bg_color }}" class="page-width {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
   <div class="section-block">
     {% assign collection = collections[section.settings.collection] %}
     {% assign rows = section.settings.rows %}
