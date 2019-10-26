@@ -1841,6 +1841,132 @@ body, p, a, blockquote, dl, ul, ol, li {
   font-family: 'Open Sans';
 }
 
+body,
+ input,
+ textarea,
+ button,
+ select {
+   font-size: $font-size-base;
+   font-family: $font-stack-body;
+   font-style: $font-style-body;
+   font-weight: $font-weight-body;
+   color: $color-text;
+   line-height: 1.5;
+   @media only screen and ( min-width: 1400px ){
+    font-size: 16px !important;
+   }
+ }
+
+ // Prevent zoom on touch devices in active inputs
+ @include media-query($medium-down) {
+   input,
+   textarea,
+   select,
+   button {
+     font-size: $font-size-mobile-input;
+   }
+ }
+
+ /*================ Headings ================*/
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   // margin: 0 0 ($section-spacing-small / 2);
+   // font-family: 'DIN', Fallback, sans-serif;
+   // font-style: $font-style-header;
+   // font-weight: $font-weight-header;
+   // line-height: 1.2;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+
+   a {
+     color: inherit;
+     text-decoration: none;
+     font-weight: inherit;
+   }
+ }
+
+ h1 {
+   font-size: em(floor($font-size-header * 1.5));
+   text-transform: none;
+   letter-spacing: 0;
+
+   @include media-query($small) {
+     font-size: em(floor($font-size-header * 1.25));
+   }
+ }
+
+ h2 {
+   font-size: em(floor($font-size-header * 1.2));
+   text-transform: capitalize;
+   letter-spacing: 0.1em;
+
+   @include media-query($small) {
+     font-size: em(floor(($font-size-header * 1.2) * 0.9));
+   }
+ }
+
+ h3 {
+   font-size: em($font-size-header);
+   text-transform: none;
+   letter-spacing: 0;
+
+   @include media-query($small) {
+     font-size: em(floor($font-size-header * .9));
+   }
+ }
+
+ h4 {
+   font-size: em(floor($font-size-header * 0.78));
+
+   @include media-query($small) {
+     font-size: em(floor(($font-size-header * 0.78) * 0.9));
+   }
+ }
+
+ h5 {
+   font-size: em(floor($font-size-header * 0.68));
+
+   @include media-query($small) {
+     font-size: em(floor(($font-size-header * 0.68) * 0.9));
+   }
+ }
+
+ h6 {
+   font-size: em(floor($font-size-header * 0.54));
+
+   @include media-query($small) {
+     font-size: em(floor(($font-size-header * 0.54) * 0.9));
+   }
+ }
+
+ .h1 {
+   @extend h1;
+ }
+
+ .h2 {
+   @extend h2;
+ }
+
+ .h3 {
+   @extend h3;
+ }
+
+ .h4 {
+   @extend h4;
+ }
+
+ .h5 {
+   @extend h5;
+ }
+
+ .h6 {
+   @extend h6;
+ }
+
 .rte,
 %rte {
   @include font-size-body;
