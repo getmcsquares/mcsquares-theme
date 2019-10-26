@@ -14927,15 +14927,21 @@ $local-image-width: rem(48px);
 }
 
 // Quotes
+.testimonials {
+  .section-block__header {
+    h4 {margin-bottom: 1.5em;}
+  }
+}
 .quotes__wrap{
   padding: $space-xx-large;
 }
-.quote-row{
-  .card-container{
-    padding-left: unset !important;
-    padding-right: unset !important;
-    padding: 4px !important;
-  }
+.quotes-row {
+  margin-top: 3em;
+  // .card-container{
+  //   padding-left: unset !important;
+  //   padding-right: unset !important;
+  //   padding: 4px !important;
+  // }
 }
 .quote__card{
   @extend %box-shadow;
@@ -15044,7 +15050,7 @@ $local-image-width: rem(48px);
 .quick-about {
   color: $client-blue;
   h4 {
-    font-family: 'Helvetice Neue';
+    font-family: 'Helvetica Neue';
     font-size: 1.4rem;
     font-weight: bold;
     margin: 1em 0;
