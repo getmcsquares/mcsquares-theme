@@ -1,0 +1,53 @@
+<div class="page-width" style="background-color: {{section.settings.bg_color}}">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+        {{ section.settings.copy }}
+      <a href="{{section.settings.cta--link}}">
+        <button class="button-secondary">
+          {{ section.settings.cta-button-text }}
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "For the Trees",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      },
+      {
+        "type": "richtext",
+        "id": "copy",
+        "label": "Copy",
+        "default": "<p>We are a small team of designers and engineers dedicated to bring you tools that cultivate collaboration and inspire creativity.</p>"
+      },
+      {
+        "type": "text",
+        "id": "cta-button-text",
+        "label": "CTA Button text",
+        "default": "Contact Us"
+      },
+      {
+        "type": "page",
+        "id": "cta-link",
+        "label": "CTA Link"
+      }
+    ],
+    "presets": [
+      {
+        "name": {
+          "en": "Contact CTA"
+        },
+        "category": {
+          "en": "CTAs"
+        }
+      }
+    ]
+  }
+{% endschema %}
