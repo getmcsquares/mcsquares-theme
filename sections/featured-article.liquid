@@ -1,5 +1,6 @@
-{% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
-{% comment %} {%- assign article = section.settings.article  -%} {% endcomment %}
+<div class="featured-article-intro">
+  <h3>Blog</h3>
+</div>
 {% assign article = articles[section.settings.article] %}
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
