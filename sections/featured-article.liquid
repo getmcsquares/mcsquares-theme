@@ -29,12 +29,18 @@
       </div>
     </div>
   </div>
- </div> 
+</div>
 {% schema %}
 {
   "name": "Featured Whitepage",
   "class": "product--section-info section-pad",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_rss_link",
+      "label": "Show RSS link",
+      "default": true
+    },
     {
       "type": "article",
       "id": "article",
