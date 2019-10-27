@@ -5,6 +5,12 @@
 <div class="container">
 <div class="featured-article-intro">
   <h4>Blog</h4>
+    {% if section.settings.show_rss_link %}
+      <a href="{{ blog.url }}.atom">
+        {% include 'icon-rss' %}
+        <span class="visually-hidden">{{ 'general.accessibility.rss' | t: platform: title | escape }}</span>
+      </a>
+    {% endif %}
 </div>
   <div class="container round shadow">
     <div class="product-info-content row">
