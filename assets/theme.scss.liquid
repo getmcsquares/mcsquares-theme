@@ -903,7 +903,7 @@ $color-overlay-background: rgba({{ settings.color_overlay}}, {{ settings.overlay
 $color-background-light: mix($color-text, $color-background, 5%);
 
 $color-box-shadow-border: transparentize($color-border, 0.84);
-$color-box-shadow-shadow: transparentize($color-border, 0.89);
+$color-box-shadow-shadow: transparentize($color-border, 0.95);
 $color-box-shadow-border-focused: transparentize($color-border, 0.5);
 $color-box-shadow-shadow-focused: transparentize($color-border, 0.5);
 
@@ -942,12 +942,6 @@ $font-body: $type-body !default;
 $font-button: $type-button !default;
 $font-menu: $type-menu !default;
 $font-section: $type-section !default;
-//
-// $font-heading: 'Helvetica Neue';
-// $font-body: 'Open Sans';
-// $font-button: 'Open Sans';
-// $font-menu: 'Open Sans';
-// $font-cursive: 'Propisi';
 
 // Base Size
 $font-size-base: {{ settings.type_size_base }};
@@ -1588,7 +1582,7 @@ $color-featured-post-foreground: $color-background;
 
 %box-shadow {
   border: 1px solid $color-box-shadow-border;
-  box-shadow: 0 1px 4px $color-box-shadow-shadow;
+  box-shadow: 1px 2px 4px $color-box-shadow-shadow;
 }
 %round-corners {
   border-radius: 20px 0 20px 0 !important;
@@ -1826,6 +1820,77 @@ $color-featured-post-foreground: $color-background;
   z-index:9999;
 }
 
+/* font assignments */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica Neue';
+}
+h1.propisi, h1.cursive {
+  font-family: 'Propisi';
+}
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans';
+}
+body, p, a, blockquote, dl, ul, ol, li {
+  font-family: 'Open Sans';
+}
+
+body,
+ input,
+ textarea,
+ button,
+ select {
+   font-family: 'Open Sans';
+   line-height: 1.5;
+ }
+
+
+ /*================ Headings ================*/
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   // margin: 0 0 ($section-spacing-small / 2);
+   // font-family: 'DIN', Fallback, sans-serif;
+   // font-style: $font-style-header;
+   // font-weight: $font-weight-header;
+   // line-height: 1.2;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+
+   a {
+     color: inherit;
+     text-decoration: none;
+     font-weight: inherit;
+   }
+ }
+
+ .h1, h1 {
+ }
+
+ .h2, h2 {
+ }
+
+ .h3, h3 {
+ }
+
+ .h4, h4 {
+ }
+
+ .h5, h5 {
+ }
+
+ .h6, h6 {
+ }
+
 .rte,
 %rte {
   @include font-size-body;
@@ -1925,12 +1990,6 @@ $color-featured-post-foreground: $color-background;
   }
 }
 
-h1 {
-  //font-size: 2em;
-  //margin: 0.67em 0;
-  //font-family: 'Propisi', sans-serif;
-  //font-weight: 400;
-}
 .propisi {
   font-family: 'Propisi', sans-serif !important;
   font-weight: 400 !important;
@@ -5197,6 +5256,7 @@ $local-space-large: 20px;
 
   .promo-block {
     height: 100%;
+    @extend %box-shadow;
   }
 
   // The extra selectors are to beat out specificity rules :P
@@ -6578,7 +6638,7 @@ $local-photo-width: 165px;
   padding-top: 100%;
   background-position: center;
   background-size: cover;
-  box-shadow: 1px 2px 3px rgba(0,0,0,.30);
+  @extend %box-shadow;
 }
 
 $local-space-small: 10px;
@@ -6616,6 +6676,12 @@ $local-padding-medium: 20px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
+  max-width: 160px;
+  background-color: $client-blue !important;
+  color: #fff !important;
+  &:hover, &:active {
+    color: #fff !important;
+  }
 }
 
 .featured-collection--banner-outer {
@@ -9360,7 +9426,6 @@ $local-expander-width: rem(70px);
   position: relative;
   width: 100%;
   transition: font-size 0.23s $ease-bubble;
-
   .promo-block--content-align-top-center &,
   .promo-block--content-align-center-center &,
   .promo-block--content-align-bottom-center & {
@@ -9472,12 +9537,14 @@ $local-expander-width: rem(70px);
       cursor: default;
     }
   }
-
   @include media($min: $bp-large-home) {
     padding: $space-large;
   }
+  &:active, &:hover {color:unset;}
 }
-
+a.promo-block--content {
+  &:active, &:hover {color:unset;}
+}
 .promo-block--background {
   position: absolute;
   width: 100%;
@@ -14844,14 +14911,14 @@ $local-image-width: rem(48px);
   };
 }
 .has-bottom-curve{
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 .has-top-curve{
-  padding-top: 50px;
+  padding-top: 60px;
 }
 .has-both-curve{
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 //  PRODUCT INFO section
 
@@ -14860,15 +14927,21 @@ $local-image-width: rem(48px);
 }
 
 // Quotes
+.testimonials {
+  .section-block__header {
+    h4 {margin-bottom: 1.5em;}
+  }
+}
 .quotes__wrap{
   padding: $space-xx-large;
 }
-.quote-row{
-  .card-container{
-    padding-left: unset !important;
-    padding-right: unset !important;
-    padding: 4px !important;
-  }
+.quotes-row {
+  margin-top: 3em;
+  // .card-container{
+  //   padding-left: unset !important;
+  //   padding-right: unset !important;
+  //   padding: 4px !important;
+  // }
 }
 .quote__card{
   @extend %box-shadow;
@@ -14884,10 +14957,11 @@ $local-image-width: rem(48px);
   // position: absolute;
   top: 0;
   width: auto;
-  padding: 3px 15px;
+  padding: 5px 15px;
   h5{
     margin-bottom: 0;
     color: white !important;
+    font-size: 1.15em;
   }
   &.green{
     background-color: $client-green;
@@ -14938,30 +15012,35 @@ $local-image-width: rem(48px);
 
 // For the Trees
 .for-the-trees {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
   .section-block {
     width: 100%;
     .text-container {
       width: 90%;
-      max-width: 700px;
+      max-width: 680px;
+      @include media($bp-medium) {
+        width: 94%;
+        margin: 0 auto;
+      }
     }
   }
   h1.section--title {
     color: $client-green;
   }
-    min-height: 400px;
-    display: flex;
-    align-items: center;
+  img {max-height: 240px;}
   .trees-counter.row {
     max-width: 220px;
     margin: 1.5em auto;
     .trees-counter-box{
       padding: 0;
       span{
-        color: $client-light-grey !important;
+        color: $client-grey !important;
         &.active {color: white !important;}
         background-color: $client-black;
-        padding: 6px 10px;
-        font-size: 16px;
+        padding: 8px 10px;
+        font-size: 18px;
         font-weight: bold;
       }
     }
@@ -14969,6 +15048,19 @@ $local-image-width: rem(48px);
 }
 
 // static collection content
+.quick-about {
+  color: $client-blue;
+  h4 {
+    font-family: 'Helvetica Neue';
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 1em 0;
+  }
+  p {}
+  .logo-small {
+    max-height: 90px;
+  }
+}
 .static-content-outer{
   padding-left: unset !important;
   padding-right: unset !important;
@@ -15024,7 +15116,7 @@ $local-image-width: rem(48px);
 .limit-copy-width{
   max-width: 668px !important;
 }
-// ribbon image 
+// ribbon image
 .ribbon-image-box{
   height: 180px;
 }

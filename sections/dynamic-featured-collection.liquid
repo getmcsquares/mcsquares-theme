@@ -11,7 +11,7 @@
 </script>
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve' %}
-<div style="background-color: {{ bg_color }}">
+<div style="background-color: {{ bg_color }}" class="{% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
 <section class="product-row--container featured-collection--container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title text-left">
@@ -134,6 +134,26 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color"
+    },
+    {
+      "id": "curve",
+      "type": "select",
+      "label": "Does top or bottom need svg spacing?",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "none"
     }
   ],
   "presets": [
