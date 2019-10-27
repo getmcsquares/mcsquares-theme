@@ -10,9 +10,7 @@
 
 {%- capture excerpt_class -%}
   article--excerpt-wrapper
-  {% unless article.image or onboarding %}
-    article--excerpt-wrapper--centered
-  {% endunless %}
+  article--excerpt-wrapper--centered
 {%- endcapture -%}
 
 <li class="{{ excerpt_class | strip_newlines }}">
@@ -41,7 +39,6 @@
         %}
       </a>
     {% endif %}
-
     <div class="article--excerpt-content">
       {% if section.settings.show_date or section.settings.show_author %}
         <div class="article--excerpt-meta">
