@@ -159,11 +159,10 @@
           include 'article-excerpt',
           article: varticle
           %}
-        {% comment %} <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li> {% endcomment %}
       {% endcapture %}
-      {% comment %} {% if related_posts.size <= 3 %} {% endcomment %}
+      {% if related_posts.size <= 3 %}
         {% assign related_posts = related_posts | append:post %}
-      {% comment %} {% endif %} {% endcomment %}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endfor %}
@@ -173,19 +172,17 @@
 <ul class="blog--inner">
   {{ related_posts }}
 </ul>
-{% else %}
-  No related posts!
 {% endif %}
 </section>
       {% comment %} {% include 'article-comments' %} {% endcomment %}
-    </div>
   </div>
+</div>
 </section>
 
 {% schema %}
 {
   "name": "Article pages",
-  "class": "article--section has-graphic has-top-curve",
+  "class": "article--section has-graphic ",
   "settings": [
     {
       "type": "checkbox",
