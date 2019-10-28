@@ -3531,8 +3531,8 @@ $local-font-size-small: rem(13px);
 // FOOTER ***********************************************
 footer.page-footer {
  .logo-image {
-   min-width: 180px;
-   max-width: 250px;
+   min-width: 80px;
+   max-width: 100px;
    text-align: center;
    margin-top: 1.5em;
   }
@@ -8346,15 +8346,17 @@ $local-footer-accent: rgba($color-footer-text, 0.15);
     vertical-align: top;
 
     svg {
-      width: 28px;
-      height: 28px;
-      background-color: $local-footer-accent;
+      width: 30px;
+      height: 30px;
+      //background-color: $local-footer-accent;
+      background-color: transparent;
+      fill: #fff;
       border-radius: 100%;
-      transition: background-color 0.4s $ease-out-quad;
+      transition: fill 0.4s $ease-out-quad;
     }
 
     &:hover svg {
-      background-color: rgba($color-footer-text, 0.05);
+      fill: #ddd;
     }
   }
 }
