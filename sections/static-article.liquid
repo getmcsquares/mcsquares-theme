@@ -150,12 +150,11 @@
         </div>
       {% endif %}
 {% assign related_posts = "" %}
-
 {% for tag in article.tags %}
-  {% for article in blogs.blog.articles %}
-    {% if article.tags contains tag%}
+  {% for varticle in blogs.blog.articles %}
+    {% if varticle.tags contains tag %}
       {% capture post %}
-        <li><a href="{{ article.url }}"><p>{{ article.title }}</p></a></li>
+        <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li>
       {% endcapture %}
       {% assign related_posts = related_posts | append:post %}
     {% endif %}
