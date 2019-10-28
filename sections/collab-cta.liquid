@@ -3,6 +3,7 @@
 <div class="page-width home-section--content" style="background-color: {{bg_color}}">
   <div class="container">
     <div class="d-flex flex-column align-items-center text-center">
+    <img src="{{ section.settings.image | image_url: '50x' }}">
     <h4 class="text-center" style="color: {{ section.settings.text-color }}">
     {{ section.settings.heading }}
     </h4>
@@ -26,12 +27,17 @@
       {
         "type": "color",
         "id": "bg_color",
-        "label": "Background Image"
+        "label": "Background Color"
       },
       {
         "type": "color",
         "id": "text_color",
         "label": "Text color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
       },
       {
         "type": "text",
