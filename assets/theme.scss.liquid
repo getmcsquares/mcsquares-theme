@@ -3527,6 +3527,50 @@ $local-font-size-small: rem(13px);
   }
 }
 
+// FOOTER ***********************************************
+footer.page-footer {
+ .logo-image {
+   min-width: 180px;
+   max-width: 250px;
+   text-align: center;
+   margin-top: 1.5em;
+  }
+}
+.footer-socials{
+  margin: 1em auto;
+}
+.footer-wrapper{
+    padding: 0;
+    a{
+      color: white;
+    }
+}
+
+.social-link{
+  margin: 0 .5em;
+}
+.footer-upper{
+  padding: 1em 0 2em;
+  .footer-nav{
+    font-size: 11pt;
+    padding-right: 0;
+  }
+  ul:first-child{
+    margin-bottom: 1em;
+  }
+  .row{
+    padding: 1em 0;
+  }
+}
+.footer-lower{
+  background-color: $client-black;
+  padding: 2em 0 3em;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 56px;
+}
+
 .fourohfour--container {
   @extend %layout-container;
   margin-top: $space-xx-large * 2;
@@ -15135,6 +15179,6 @@ $local-image-width: rem(48px);
 .ribbon-image-wrap{
   position: relative;
   img{
-    
+
   }
 }
