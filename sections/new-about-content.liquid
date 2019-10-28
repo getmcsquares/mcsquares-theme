@@ -1,3 +1,6 @@
+
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
 <div class="section-inner about-content">
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
@@ -42,14 +45,9 @@
         }
       },
       {
-        "type": "text",
-        "id": "subtitle",
-        "label": {
-          "en": "Section subeading"
-        },
-        "default": {
-          "en": "Our blends are designed to heighten the highs, cushion the lows and complement the in-betweens of women’s everyday pursuits."
-        }
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
       }
     ],
     "blocks": [
