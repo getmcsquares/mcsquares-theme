@@ -120,60 +120,15 @@
               text-align-{{ block.settings.text_alignment }}
             "
           >
-            {% if block.settings.titleimg != blank %}
-                {% if block.settings.link != blank %}
-                  <a href="{{ block.settings.link }}" class="hero__link">
-                {% endif %}
-                  <img
-                  src="{{ block.settings.titleimg | img_url: '500x500' }}" alt="{{ article.title | escape }}" class="titleimg"
-                  data-src="{{ img_url }}"
-                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                  data-sizes="auto">
-                  <h1 class="hero__title visually-hidden propisi font">{{ article.title | escape }}</h1>
-                {% if block.settings.link != blank %}
-                  </a>
-                {% endif %}
-            {% else %}
-                <h1 class="hero__title propisi">
-
+                <h1 class="hero__title">
                   {{ article.title | escape }}
                 </h1>
-            {% endif %}
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
               </p>
             {% endif %}
             {% if block.settings.link != blank %}
-              </a>
-            {% endif %}
-
-            {% if block.settings.button_one_label != blank %}
-              <a
-                {% if block.settings.button_one_link != blank %}
-                  href="{{ block.settings.button_one_link }}"
-                {% endif %}
-                class="
-                  slideshow-button
-                  button-{{ block.settings.button_one_style }}
-                "
-              >
-                {{ block.settings.button_one_label | escape }}
-              </a>
-            {% endif %}
-
-            {% if block.settings.button_two_label != blank %}
-              <a
-                {% if block.settings.button_two_link != blank %}
-                  href="{{ block.settings.button_two_link }}"
-                {% endif %}
-                class="
-                  slideshow-button
-                  button-{{ block.settings.button_two_style }}
-                "
-              >
-                {{ block.settings.button_two_label | escape }}
               </a>
             {% endif %}
           </div>
@@ -267,34 +222,10 @@
           "default": "Slideshow"
         },
         {
-          "type": "image_picker",
-          "id": "titleimg",
-          "label": {
-            "pt-BR": "Title Imagem",
-            "it": "Title Immagine",
-            "en": "Title Image (replaces H1)",
-            "es": "Title Imagen",
-            "de": "Title Foto",
-            "ja": "Title 画像",
-            "fr": "Title Image"
-          }
-        },
-        {
-          "id": "text",
-          "type": "text",
-          "label": "Subheading",
-          "default": "Introduce customers to your shop with lifestyle and product imagery"
-        },
-        {
           "id": "color",
           "type": "color",
           "label": "Text color",
           "default": "#FFFFFF"
-        },
-        {
-          "id": "link",
-          "type": "url",
-          "label": "Background link"
         },
         {
           "id": "text_alignment",
@@ -319,59 +250,6 @@
         {
           "type": "header",
           "content": "Buttons"
-        },
-        {
-          "id": "button_one_label",
-          "type": "text",
-          "label": "Button 1 label",
-          "default": "Button"
-        },
-        {
-          "id": "button_one_link",
-          "type": "url",
-          "label": "Button 1 link"
-        },
-        {
-          "id": "button_one_style",
-          "type": "select",
-          "label": "Button 1 style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            }
-          ],
-          "default": "primary"
-        },
-        {
-          "id": "button_two_label",
-          "type": "text",
-          "label": "Button 2 label"
-        },
-        {
-          "id": "button_two_link",
-          "type": "url",
-          "label": "Button 2 link"
-        },
-        {
-          "id": "button_two_style",
-          "type": "select",
-          "label": "Button 2 style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            }
-          ],
-          "default": "primary"
         },
         {
           "type": "header",
