@@ -3403,7 +3403,8 @@ $local-font-size-small: rem(13px);
     transition: color 0.1s ease;
 
     &:hover {
-      color: $color-footer-link;
+      color: currentColor;
+      opacity: .8;
     }
   }
 
@@ -3550,7 +3551,7 @@ footer.page-footer {
   margin: 0 .5em;
 }
 .footer-upper{
-  padding: 1em 0 2em;
+  padding: 1em $space-small 2em;
   .footer-nav{
     font-size: 11pt;
     padding-right: 0;
@@ -3559,7 +3560,7 @@ footer.page-footer {
     margin-bottom: 1em;
   }
   .row{
-    padding: 1em 0;
+    padding: 1em;
   }
 }
 .footer-lower{
