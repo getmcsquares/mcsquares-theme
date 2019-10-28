@@ -3546,7 +3546,14 @@ footer.page-footer {
       color: white;
     }
 }
-  
+.social-links {
+  @include media($min: $bp-small) {
+    align-items: center !important;
+    ul {
+      padding: 0 !important;
+    }
+  }
+}
 .social-link {
   @include font-size-body-small;
   display: inline-block;
