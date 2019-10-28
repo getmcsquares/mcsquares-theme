@@ -150,8 +150,9 @@
         </div>
       {% endif %}
 {% assign related_posts = "" %}
+{% assign customBlog =  article.url | split: '/' %}
 {% for tag in article.tags %}
-  {% for varticle in blogs.blog.articles %}
+  {% for varticle in blogs[customBlog[1]].articles %}
     {% if varticle.tags contains tag %}
       {% capture post %}
         <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li>
