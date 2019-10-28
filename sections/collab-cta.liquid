@@ -1,4 +1,6 @@
-<div class="page-width home-section--content" style="background-image: url('{{section.settings.bg_image | img_url: '800x'}}'); background-position: center; background-size: cover;">
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve-flat' %}
+<div class="page-width home-section--content" style="background-color: {{bg_color}}">
   <div class="container">
     <div class="d-flex flex-column align-items-center text-center">
     <h4 class="text-center" style="color: {{ section.settings.text-color }}">
@@ -18,12 +20,12 @@
 
 {% schema %}
   {
-    "name": "Trees CTA",
+    "name": "Collaboration CTA",
     "class": "index-section",
     "settings": [
       {
-        "type": "image",
-        "id": "bg_image",
+        "type": "color",
+        "id": "bg_color",
         "label": "Background Image"
       },
       {
