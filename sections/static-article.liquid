@@ -155,14 +155,20 @@
   {% for varticle in blogs[customBlog[2]].articles %}
     {% if varticle.tags contains tag %}
       {% capture post %}
-        <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li>
+        {%
+          include 'article-excerpt',
+          article: varticle
+          %}
+        {% comment %} <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li> {% endcomment %}
       {% endcapture %}
       {% assign related_posts = related_posts | append:post %}
     {% endif %}
   {% endfor %}
 {% endfor %}
 {% if related_posts.size > 0 %}
-  <ul> {{ related_posts }} </ul>
+<ul class="blog--inner">
+  {{ related_posts }}
+</ul>
 {% else %}
   No related posts!
 {% endif %}
