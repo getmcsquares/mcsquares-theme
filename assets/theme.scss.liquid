@@ -3547,8 +3547,30 @@ footer.page-footer {
     }
 }
 
-.social-link{
+.social-link {
+  @include font-size-body-small;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  overflow: hidden;
+  line-height: 1.8;
+  vertical-align: top;
   margin: 0 .5em;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    //background-color: $local-footer-accent;
+    background-color: transparent;
+    fill: #fff;
+    border-radius: 100%;
+    transition: fill 0.4s $ease-out-quad;
+  }
+
+  &:hover svg {
+    fill: #ddd;
+  }
 }
 .footer-upper{
   padding: 1em $space-small 2em;
@@ -11043,20 +11065,21 @@ $local-image-width: rem(100px);
   height: 36px;
   padding: 4px;
   overflow: hidden;
-  color: $color-text;
   line-height: 1.8;
   vertical-align: top;
 
   svg {
-    width: 28px;
-    height: 28px;
-    background-color: $local-footer-accent;
+    width: 30px;
+    height: 30px;
+    //background-color: $local-footer-accent;
+    background-color: transparent;
+    fill: #fff;
     border-radius: 100%;
-    transition: background-color 0.4s $ease-out-quad;
+    transition: fill 0.4s $ease-out-quad;
   }
 
   &:hover svg {
-    background-color: rgba($color-footer-text, 0.05);
+    fill: #ddd;
   }
 }
 
