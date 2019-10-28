@@ -151,7 +151,7 @@
       {% endif %}
 {% assign related_posts = "" %}
 {% assign customBlog =  article.url | split: '/' %}
-<p>{{ customBlog[1] }}</p>
+<p>{{ customBlog[2] }}</p>
 {% for tag in article.tags %}
   {% for varticle in blogs[customBlog[1]].articles %}
     {% if varticle.tags contains tag %}
