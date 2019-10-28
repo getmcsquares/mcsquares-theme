@@ -161,9 +161,9 @@
           %}
         {% comment %} <li><a href="{{ varticle.url }}"><p>{{ varticle.title }}</p></a></li> {% endcomment %}
       {% endcapture %}
-      {% if related_posts.size <= 3 %}
-      {% assign related_posts = related_posts | append:post %}
-      {% endif %}
+      {% comment %} {% if related_posts.size <= 3 %} {% endcomment %}
+        {% assign related_posts = related_posts | append:post %}
+      {% comment %} {% endif %} {% endcomment %}
     {% endif %}
   {% endfor %}
 {% endfor %}
