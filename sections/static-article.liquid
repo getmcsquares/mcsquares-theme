@@ -160,7 +160,7 @@
           article: varticle
           %}
       {% endcapture %}
-      {% if related_posts.size <= 3 %}
+      {% if related_posts.size <= 4 %}
         {% assign related_posts = related_posts | append:post %}
       {% endif %}
     {% endif %}
