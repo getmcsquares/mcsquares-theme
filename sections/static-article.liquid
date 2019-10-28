@@ -57,7 +57,7 @@
       </div>
     {% endif %}
 
-    <div class="article--inner">
+    <div class="article--inner container">
       {% if section.settings.show_date or section.settings.show_author %}
         <div class="article--meta">
           {% if section.settings.show_date %}
@@ -149,7 +149,23 @@
           {% endif %}
         </div>
       {% endif %}
+{% assign related_posts = "" %}
 
+{% for tag in article.tags %}
+  {% for article in blogs.blog.articles %}
+    {% if article.tags contains tag%}
+      {% capture post %}
+        <li><a href="{{ article.url }}"><p>{{ article.title }}</p></a></li>
+      {% endcapture %}
+      {% assign related_posts = related_posts | append:post %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if related_posts.size > 0 %}
+  <ul> {{ related_posts }} </ul>
+{% else %}
+  No related posts!
+{% endif %}
       {% comment %} {% include 'article-comments' %} {% endcomment %}
     </div>
   </div>
