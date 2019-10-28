@@ -23,7 +23,8 @@
     social_url: social_url
   -%}
 {%- endcapture  -%}
-
+{% assign bg_color = '#fff' %}
+{% include 'svg-curve' %}
 <section class="article--outer">
   {% if article.image %}
     <figure
