@@ -123,10 +123,9 @@
             "
           >
             <div class="col-md-6">
-            {% comment %} <video width="320" height="240" controls="controls">
-              <source src="{{block.settings.video_url}}" type="video/mp4" />
-            </video> {% endcomment %}
-            <iframe width="560" height="315" src="{{ block.settings.video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <div class="video-container">
+                <iframe width="560" height="315" src="{{ block.settings.video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
               <h1 class="hero__title" style="color: {{ block.settings.color }}">
