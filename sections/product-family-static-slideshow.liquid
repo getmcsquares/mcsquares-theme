@@ -54,21 +54,6 @@
         {% if section.settings.slideshow_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
-
-        <div
-          class="
-            background-target
-            slideshow-background
-            slideshow-dynamic
-            slideshow-background--{{ block.id }}
-          ">
-        </div>
-
-        {% if page.title != blank
-          or block.settings.text != blank
-          or block.settings.button_one_label != blank
-          or block.settings.button_two_label != blank
-        %}
           <div
             class="
               slideshow-slide-content
@@ -102,7 +87,6 @@
             {% endif %}
             </div>
           </div>
-        {% endif %}
       </div>
     {% endfor %}
 
