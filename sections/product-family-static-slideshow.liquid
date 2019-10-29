@@ -54,7 +54,7 @@
         {% if section.settings.slideshow_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
-
+      <div class="slide-content-wrap">
         <div
           class="
             background-target
@@ -94,6 +94,7 @@
             {% endif %}
             </div>
           </div>
+      </div>
       </div>
     {% endfor %}
 </div>
