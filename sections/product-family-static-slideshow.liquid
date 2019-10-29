@@ -55,59 +55,6 @@
           {% assign slideshow_crop = false %}
         {% endif %}
 
-        <div
-          class="
-            background-target
-            slideshow-background
-            slideshow-dynamic
-            slideshow-background--{{ block.id }}
-            {% if block.settings.background_image == blank %}
-              placeholder--image
-            {% endif %}
-          "
-          {% if block.settings.background_image %}
-            {%
-              include 'rimg',
-              img: block.settings.background_image,
-              size: '2000x2000',
-              crop: slideshow_crop,
-              lazy: true,
-              background: true,
-            %}
-          {% else %}
-            style="background-image: url('{{ placeholder_slide_image | strip }}')"
-          {% endif %}
-          data-themecolor="{{ settings.color_text }}"
-          data-slidecolor="{{ block.settings.color }}"
-        >
-          {% if block.settings.background_image %}
-            {%
-              include 'rimg',
-              img: block.settings.background_image,
-              class: 'slideshow-image',
-              size: '2000x2000',
-              crop: slideshow_crop,
-              lazy: true,
-              canvas: true,
-            %}
-          {% else %}
-            <img
-              class="slideshow-image"
-              src="{{ placeholder_slide_image | strip }}"
-              alt=""
-            >
-          {% endif %}
-
-          {% if block.settings.show_overlay %}
-            <div
-              class="
-                slideshow-slide-overlay
-                slideshow-slide-overlay--{{ block.id }}
-              "
-            ></div>
-          {% endif %}
-        </div>
-
         {% if page.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
@@ -129,16 +76,16 @@
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
               <h1 class="hero__title" style="color: {{ block.settings.color }}">
-                {{ page.title | escape }}
+                {{ collection.image | img_url: '300x' }}
               </h1>
-            {% if block.settings.text != blank %}
-              <p class="slideshow-slide-text">
-                {{ block.settings.text  }}
-              </p>
+            {% if block.settings.heading != blank %}
+              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+                {{ block.settings.heading }}
+              </h1>
             {% endif %}
-            {% if block.settings.byline != blank %}
+            {% if block.settings.copy != blank %}
               <p class="slideshow-slide-text">
-                {{ block.settings.byline  }}
+                {{ block.settings.copy  }}
               </p>
             {% endif %}
             {% if block.settings.link != blank %}
@@ -209,22 +156,16 @@
           "info": "From the 'embed' option under the share menu"
         },
         {
-          "id": "title",
           "type": "text",
+          "id": "heading",
           "label": "Heading",
-          "default": "Slideshow"
+          "default": "Designed to Innovate Your Classroom"
         },
         {
           "type": "text",
-          "id": "text",
-          "label": "Header subtext",
-          "default": "We passionately believe that everyone has the ability to be creative and that effective collaboration is the master key that unlocks creativity and innovation."
-        },
-        {
-          "type": "text",
-          "id": "byline",
-          "label": "Header Byline",
-          "default": "Anthony Franco    Founder"
+          "id": "copy",
+          "label": "Header Copy",
+          "default": "In today's modern classroom, students have dozens of distractions vying for their attention. Boredom and disengagement are constant problems in the traditional classroom setting, and now students are consumed with ever increasing screen time as opposed to interacting with their teachers and peers. mcSquares enhance student learning experiences through haptic and kinesthetic learning, as well as allowing students to engage with each their classmates as well as their teachers."
         },
         {
           "id": "color",
@@ -259,28 +200,6 @@
         {
           "type": "header",
           "content": "Overlay"
-        },
-        {
-          "id": "show_overlay",
-          "type": "checkbox",
-          "label": "Show overlay",
-          "default": true
-        },
-        {
-          "id": "overlay_color",
-          "type": "color",
-          "label": "Color",
-          "default": "#000000"
-        },
-        {
-          "id": "overlay_opacity",
-          "type": "range",
-          "label": "Opacity",
-          "min": 1,
-          "max": 100,
-          "step": 1,
-          "unit": "%",
-          "default": 50
         }
       ]
     }
