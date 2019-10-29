@@ -119,11 +119,16 @@
               article-slide
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
+              row
             "
           >
-                <h1 class="hero__title" style="color: {{ block.settings.color }}">
-                  {{ page.title | escape }}
-                </h1>
+            <div class="col-md-6">
+            
+            </div>
+            <div class="col-md-6">
+              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+                {{ page.title | escape }}
+              </h1>
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
@@ -132,6 +137,7 @@
             {% if block.settings.link != blank %}
               </a>
             {% endif %}
+            </div>
           </div>
         {% endif %}
       </div>
@@ -215,6 +221,14 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Image (Mobile View)"
+        },
+        {
+          "id": "video_url",
+          "type": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+          "info": "Video"
         },
         {
           "id": "title",
