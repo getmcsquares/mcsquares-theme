@@ -75,11 +75,11 @@
               </div>
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
-              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+              <h1 class="hero__title" style="" alt="{{collection.handle}}">
                 {{ collection.image | img_url: '300x' }}
               </h1>
             {% if block.settings.heading != blank %}
-              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+              <h1 class="hero__title" style="">
                 {{ block.settings.heading }}
               </h1>
             {% endif %}
