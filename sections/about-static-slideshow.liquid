@@ -123,9 +123,10 @@
             "
           >
             <div class="col-md-6">
-            <video width="320" height="240" controls="controls">
+            {% comment %} <video width="320" height="240" controls="controls">
               <source src="{{block.settings.video_url}}" type="video/mp4" />
-            </video>
+            </video> {% endcomment %}
+            <iframe width="560" height="315" src="{{ section.settings.video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="col-md-6">
               <h1 class="hero__title" style="color: {{ block.settings.color }}">
@@ -230,7 +231,7 @@
           "label": "Video URL",
           "accept": ["youtube", "vimeo"],
           "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-          "info": "Video"
+          "info": "From the 'embed' option under the share menu"
         },
         {
           "id": "title",
