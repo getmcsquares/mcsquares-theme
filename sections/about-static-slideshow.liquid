@@ -42,7 +42,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-height-{{ section.settings.slideshow_height }}
+              slideshow-dynamic
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -59,8 +59,8 @@
           class="
             background-target
             slideshow-background
+            slideshow-dynamic
             slideshow-background--{{ block.id }}
-            slideshow-height-{{ section.settings.slideshow_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
@@ -183,34 +183,6 @@
       "step": 1,
       "unit": "sec",
       "default": 8
-    },
-    {
-      "id": "slideshow_height",
-      "type": "select",
-      "label": "Slideshow height",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "fullscreen",
-          "label": "Fullscreen"
-        },
-        {
-          "value": "original",
-          "label": "Original aspect ratio"
-        }
-      ],
-      "default": "medium"
     }
   ],
   "blocks": [
