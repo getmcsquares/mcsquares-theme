@@ -64,6 +64,7 @@
           ">
           <div
             class="
+              slideshow-slide-content
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
               row
@@ -75,16 +76,16 @@
               </div>
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
-              <div class="hero__title" style="" alt="{{collection.handle}}">
-                <img src="url('{{ collection.image | img_url: '300x' }}')">
-              </div>
+              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+                <img src="{{ collection.image | img_url: '300x' }}">
+              </h1>
             {% if block.settings.heading != blank %}
-              <h1 class="hero__title" style="">
+              <h1 class="hero__title" style="color: {{ block.settings.color }}">
                 {{ block.settings.heading }}
               </h1>
             {% endif %}
             {% if block.settings.copy != blank %}
-              <p class="slideshow-slide-text">
+              <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
                 {{ block.settings.copy  }}
               </p>
             {% endif %}
