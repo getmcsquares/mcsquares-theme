@@ -54,6 +54,14 @@
         {% if section.settings.slideshow_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
+
+        <div
+          class="
+            background-target
+            slideshow-background
+            slideshow-dynamic
+            slideshow-background--{{ block.id }}
+          ">
           <div
             class="
               slideshow-slide-content
