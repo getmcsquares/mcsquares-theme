@@ -136,6 +136,11 @@
                 {{ block.settings.text | escape }}
               </p>
             {% endif %}
+            {% if block.settings.byline != blank %}
+              <p class="slideshow-slide-text">
+                {{ block.settings.byline | escape }}
+              </p>
+            {% endif %}
             {% if block.settings.link != blank %}
               </a>
             {% endif %}
@@ -236,6 +241,18 @@
           "type": "text",
           "label": "Heading",
           "default": "Slideshow"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Header subtext",
+          "default": "<p>We passionately believe that everyone has the ability to be creative and that effective collaboration is the master key that unlocks creativity and innovation.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "byline",
+          "label": "Header Byline",
+          "default": "<p>Anthony Franco    Founder</p>"
         },
         {
           "id": "color",
