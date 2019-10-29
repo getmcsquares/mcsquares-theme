@@ -101,7 +101,20 @@
           {{ 'contact.form.phone' | t }}
         </label>
       </div>
+      <div class="form-field">
+        {% assign value = '' %}
 
+        <input
+          class="form-field-input form-field-text {% if form.errors contains 'phone' %}form-field-error{% endif %}"
+          id="contact_company"
+          name="contact[company]"
+          type="text"
+          value="{{ value }}">
+
+        <label class="form-field-title" for="contact_company">
+          {{ 'contact.form.company' | t }}
+        </label>
+      </div>
       <div class="form-field">
         {% assign value = '' %}
         {%- if form.body -%}
