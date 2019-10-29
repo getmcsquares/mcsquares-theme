@@ -26,7 +26,7 @@
 {% assign bg_color = '#fff' %}
 {% include 'svg-curve' %}
 <section class="article--outer">
-  {% if article.image %}
+  {% comment %} {% if article.image %}
     <figure
       class="article-image"
       {%
@@ -47,7 +47,7 @@
         canvas: true
       %}
     </figure>
-  {% endif %}
+  {% endif %} {% endcomment %}
 
   <div class="article--container">
 
