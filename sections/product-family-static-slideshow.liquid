@@ -55,6 +55,15 @@
           {% assign slideshow_crop = false %}
         {% endif %}
 
+        <div
+          class="
+            background-target
+            slideshow-background
+            slideshow-dynamic
+            slideshow-background--{{ block.id }}
+          ">
+        </div>
+
         {% if page.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
@@ -101,7 +110,7 @@
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% include 'header-image-helper' %}
+    {% comment %} {% include 'header-image-helper' %} {% endcomment %}
   </section>
 {% endif %}
 {% schema %}
@@ -196,10 +205,6 @@
         {
           "type": "header",
           "content": "Buttons"
-        },
-        {
-          "type": "header",
-          "content": "Overlay"
         }
       ]
     }
