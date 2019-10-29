@@ -5125,9 +5125,9 @@ $local-slideshow-large: 560px;
 .slideshow-height-small {
   height: 30vw;
 
-  // @include media($min: $bp-large) {
-  //   height: $local-slideshow-small;
-  // }
+  @include media($max: $bp-medium) {
+    height: auto !important;
+  }
 }
 
 .slideshow-height-medium {
