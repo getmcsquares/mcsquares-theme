@@ -16,7 +16,9 @@
       </div>
       <div class="col">
         <p style="width:100%;"><span class="tex-blue">{{block.settings.author}}</span> <span class="text-small text-grey">Verifed Buyer</span><span class="review-date text-grey" style="float:right">{{ block.settings.date }}</span></p>
-        <span class="stars"></span>
+        {% for i in (1..block.settings.star-count) %}
+        <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
+        {% endfor %}
         <h5>{{block.settings.heading}}</h5>
         <p>{{block.settings.copy}}</p>
       </div>
@@ -74,6 +76,16 @@
           "type": "image_picker",
           "id": "avatar",
           "label": "Reviewer Avatar"
+        },
+        {
+          "type":      "range",
+          "id":        "star-count",
+          "min":       1,
+          "max":        5,
+          "step":       1,
+          "unit":       "sts",
+          "label":     "Stars",
+          "default":   4
         }
       ]
     }
