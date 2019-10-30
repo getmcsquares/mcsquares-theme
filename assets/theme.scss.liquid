@@ -2628,6 +2628,7 @@ img[data-rimg="loading"] {
   &.propisi {
     font-family: 'Propisi';
     font-size: 5.25em !important;
+  }
 }
 
 .slideshow-image {
@@ -5143,6 +5144,7 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-small {
   height: 30vw;
+  max-height: $local-slideshow-small;
   @include media($max: $bp-large) {
     height: auto !important;
   }
@@ -5150,7 +5152,7 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-medium {
   height: 48vw;
-
+  max-height: $local-slideshow-medium;
   @include media($min: $bp-large) {
     height: $local-slideshow-medium;
   }
@@ -5158,11 +5160,12 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-large {
   height: 54vw;
-
+  max-height: $local-slideshow-large;
   @include media($min: $bp-large) {
     height: $local-slideshow-large;
   }
 }
+
 .slideshow-height-fullscreen {
   height: 100vh;
 }
@@ -15211,7 +15214,7 @@ $local-image-width: rem(48px);
   }
   p {}
   .logo-small {
-    max-height: 90px;
+    max-height: 80px;
   }
 }
 .static-content-outer{
