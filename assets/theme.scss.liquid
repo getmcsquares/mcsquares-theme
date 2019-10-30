@@ -2624,9 +2624,12 @@ img[data-rimg="loading"] {
   }
 }
 .hero__title{
-  font-size: 4em !important;
-  font-family: 'Propisi';
+  font-size: 3.25em !important;
+  &.propisi {
+    font-family: 'Propisi';
+    font-size: 5.25em !important;
 }
+
 .slideshow-image {
   width: 100%;
   height: 100%;
@@ -4592,28 +4595,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     padding-right: $space-x-small;
     vertical-align: middle;
   }
-  .newsletter-input {
-    input {
-      background-color: #ddd;
-      border: 1px solid #ddd;
-      &:active, &:focus {
-        background-color: #fff;
-        border: 1px solid #fff;
-      }
-    }
-    .form-field-title {
-      color: $client-blue;
-    }
-  }
-  .newsletter-submit {
-    .button-primary {
-      @include button-size(large);
-      display: block;
-      width: 100%;
-      background-color: $client-blue;
-      border-color: $client-blue;
-    }
-  }
+
   .newsletter .newsletter-submit {
     display: table-cell;
     width: auto;
@@ -4737,6 +4719,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     }
   }
 }
+
 
 .product--container {
   @extend %layout-container;
@@ -8271,6 +8254,31 @@ $local-max-width: 680px;
 $local-footer-accent: rgba($color-footer-text, 0.15);
 
 // Footer blocks
+.footer-upper .newsletter {
+  .newsletter-input {
+    input {
+      background-color: #ddd;
+      border: 1px solid #ddd;
+      &:active, &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+    .form-field-title {
+      color: $client-blue;
+    }
+  }
+  .newsletter-submit {
+    .button-primary {
+      @include button-size(large);
+      display: block;
+      width: 100%;
+      background-color: $client-blue;
+      border-color: $client-blue;
+    }
+  }
+}
+
 .site-footer-blocks {
   @include media($min: $bp-large) {
     display: flex;
