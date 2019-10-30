@@ -3713,7 +3713,7 @@ $local-max-width: 700px;
   background-size: cover;
 
   @include media($min: $bp-smaller) {
-    height: 350px;
+    height: 340px;
   }
 
   @include media($min: $bp-medium) {
@@ -3721,7 +3721,7 @@ $local-max-width: 700px;
   }
 
   @include media($min: $bp-large) {
-    height: 500px;
+    height: 560px;
   }
 }
 
@@ -4591,19 +4591,29 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     max-width: none;
     padding-right: $space-x-small;
     vertical-align: middle;
+  }
+  .newsletter-input {
     input {
       background-color: #ddd;
       border: 1px solid #ddd;
       &:active, &:focus {
         background-color: #fff;
-        border: 1px solid #fff;    
+        border: 1px solid #fff;
       }
     }
     .form-field-title {
       color: $client-blue;
     }
   }
-
+  .newsletter-submit {
+    .button-primary {
+      @include button-size(large);
+      display: block;
+      width: 100%;
+      background-color: $client-blue;
+      border-color: $client-blue;
+    }
+  }
   .newsletter .newsletter-submit {
     display: table-cell;
     width: auto;
@@ -5072,8 +5082,8 @@ $local-space-large: 20px;
   width: 100%;
 }
 
-$local-slideshow-small: 440px;
-$local-slideshow-medium: 500px;
+$local-slideshow-small: 340px;
+$local-slideshow-medium: 400px;
 $local-slideshow-large: 560px;
 
 .slideshow {
@@ -8432,7 +8442,8 @@ $local-footer-accent: rgba($color-footer-text, 0.15);
     }
 
     &:hover svg {
-      fill: #ddd;
+      fill: #eee;
+      opacity: .8;
     }
   }
 }
