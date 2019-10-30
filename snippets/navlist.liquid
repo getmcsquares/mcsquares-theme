@@ -62,7 +62,6 @@
             {% if targetCollection.title == title and targetCollection.image != blank %}
               <img src="{{ targetCollection.image | img_url: '300x' }}" alt="{{targetCollection.handle}} logo">
             {% endif %}
-          {% endfor %}
       {% else %}
           {{ menu_item.title }}
       {% endif %}
