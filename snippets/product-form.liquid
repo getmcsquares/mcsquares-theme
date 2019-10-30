@@ -105,11 +105,8 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-    
+    {{ form | payment_button }}
   </div>
-  {% if product_smart_buttons or quickshop_smart_buttons %}{{ form | payment_button }}{% endif %}
-
-
   {% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}
   {% endif %}
@@ -243,4 +240,5 @@
     {{atc}}
   </div>
 </div>
+{{ form | payment_button }}
 {% endform %}
