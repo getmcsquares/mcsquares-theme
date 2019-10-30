@@ -4591,6 +4591,17 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     max-width: none;
     padding-right: $space-x-small;
     vertical-align: middle;
+    input {
+      background-color: #ddd;
+      border: 1px solid #ddd;
+      &:active, &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;    
+      }
+    }
+    .form-field-title {
+      color: $client-blue;
+    }
   }
 
   .newsletter .newsletter-submit {
