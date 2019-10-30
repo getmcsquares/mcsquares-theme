@@ -39,6 +39,7 @@
     social_url: social_url
   -%}
 {%- endcapture  -%}
+{% form 'product', product, class: product_form_class, data-product-form: '' %}
 
 {% capture atc %}
   <div class="product-form--atc">
@@ -112,7 +113,6 @@
   {% endif %}
 {% endcapture %}
 
-{% form 'product', product, class: product_form_class, data-product-form: '' %}
 <div class="row">
 <div class="col-lg-7">
 <div class="product-details" data-product-details>
@@ -240,5 +240,4 @@
     {{atc}}
   </div>
 </div>
-{{ form | payment_button }}
 {% endform %}
