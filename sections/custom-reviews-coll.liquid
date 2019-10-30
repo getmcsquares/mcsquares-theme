@@ -1,17 +1,8 @@
-<script
-  type="application/json"
-  data-section-id="{{ section.id }}"
-  data-section-type="dynamic-promo-mosaic"
-  data-section-data
->
-  {
-    "compress_blocks": {{ section.settings.compress_blocks | json }}
-  }
-</script>
+
 {% assign bg_color = section.settings.bg_color %}
-{% include 'svg-curve-transparent' %}
-<div style="background-color: {{ bg_color }}">
-<section class="promo-mosaic--container">
+{% include 'svg-curve-flat' %}
+<section style="background-color: {{ bg_color }}">
+<div class="container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
       {{ section.settings.title | escape }}
@@ -25,15 +16,17 @@
       </div>
       <div class="col">
         <p><span class="tex-blue">{{block.settings.author}}</span> <span class="text-small text-grey">Verifed Buyer</span></p>
-        <span class="stars"></span>
+        {% for i in (1..block.settings.star-count) %}
+        <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
+        {% endfor %}
         <h5>{{block.settings.heading}}</h5>
         <p>{{block.settings.copy}}</p>
       </div>
     </div>
   {% endfor %}
   </div>
+  </div>
 </section>
-</div>
 {% schema %}
 {
   "name": "Reviews Products Coll",
@@ -83,6 +76,16 @@
           "type": "image_picker",
           "id": "avatar",
           "label": "Reviewer Avatar"
+        },
+        {
+          "type":      "range",
+          "id":        "star-count",
+          "min":       1,
+          "max":        5,
+          "step":       1,
+          "unit":       "sts",
+          "label":     "Stars",
+          "default":   4
         }
       ]
     }
