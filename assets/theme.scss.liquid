@@ -5144,6 +5144,7 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-small {
   height: 30vw;
+  max-height: $local-slideshow-small;
   @include media($max: $bp-large) {
     height: auto !important;
   }
@@ -5151,7 +5152,7 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-medium {
   height: 48vw;
-
+  max-height: $local-slideshow-medium;
   @include media($min: $bp-large) {
     height: $local-slideshow-medium;
   }
@@ -5159,7 +5160,7 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-large {
   height: 54vw;
-
+  max-height: $local-slideshow-large;
   @include media($min: $bp-large) {
     height: $local-slideshow-large;
   }
