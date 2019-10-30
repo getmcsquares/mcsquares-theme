@@ -57,7 +57,12 @@
           href="{{ menu_item.url }}"
         >
       {% if menu_item.type == 'collection_link' %}
-          collection test
+          {% assign title = menu_item.title %}
+          {% for collection in collections %}
+          {% if collection.title == title and collection.image != blank %}
+            <img src="{{collection.image | img_url: '300x' }}" alt="{{collection.handle}} logo">
+          {% endif %}
+          {% endfor %}
       {% else %}
           {{ menu_item.title }}
       {% endif %}
