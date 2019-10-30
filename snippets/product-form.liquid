@@ -5,6 +5,7 @@
 
   @param selected_variant
 {% endcomment %}
+{% assign enable_social_sharing = settings.product_social_sharing %}
 
 {% if is_product_modal and settings.quickshop_show_dcb %}
   {% assign quickshop_smart_buttons = true %}
@@ -21,24 +22,25 @@
 
 {% assign product_form_class = '' %}
 {% if product_smart_buttons or quickshop_smart_buttons %}
-  {% assign product_form_class = 'smart-payment-enabled' %}
+  {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
 {% endif %}
 
-{% form 'product', product, class: product_form_class, data-product-form: '' %}
-  {% if product.has_only_default_variant %}
-    <input
-      name="id"
-      value="{{ product.variants[0].id }}"
-      type="hidden">
-  {% else %}
-    {%
-      include 'product-options',
-      product: product,
-      selected_variant: selected_variant,
-      style: settings.product_option_style
-    %}
+{%- capture share_buttons -%}
+  {% assign social_image = false %}
+  {% if product.featured_image %}
+    {% assign social_image = product.featured_image | img_url: '1024x' %}
   {% endif %}
+  {% assign social_url = shop.url | append: product.url %}
+  {%-
+    include 'share-buttons',
+    snippet_title: 'general.share_buttons.title',
+    social_image: social_image,
+    social_title: product.title,
+    social_url: social_url
+  -%}
+{%- endcapture  -%}
 
+{% capture atc %}
   <div class="product-form--atc">
     <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
       <div class="form-field form-field--qty-select">
@@ -105,8 +107,140 @@
     </button>
     {{ form | payment_button }}
   </div>
+  {% comment %} {% if product_smart_buttons or quickshop_smart_buttons %}{% endif %} {% endcomment %}
 
-  {% if product_smart_buttons or quickshop_smart_buttons %}
-    {{ form | payment_button }}
+
+  {% if enable_social_sharing %}
+    {{ share_buttons | strip_newlines }}
   {% endif %}
+{% endcapture %}
+
+{% form 'product', product, class: product_form_class, data-product-form: '' %}
+<div class="row">
+<div class="col-lg-7">
+<div class="product-details" data-product-details>
+      {% if is_product_modal %}
+        <h2 class="product-title">
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </h2>
+      {% else %}
+        {% if template == 'index' %}
+          <h2 class="product-title">
+        {% else %}
+          <h1 class="product-title">
+        {% endif %}
+          {% unless onboarding %}
+            {{ product.title }}
+          {% else %}
+            {{ 'onboarding.product.title' | t }}
+          {% endunless %}
+        {% if template == 'index' %}
+          </h2>
+        {% else %}
+          </h1>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
+        <div class="product-vendor">
+          {% unless onboarding %}
+            {%- capture vendor_link -%}
+              {{ product.vendor | link_to_vendor }}
+            {%- endcapture -%}
+            {{ 'product.general.by_vendor_html' | t: vendor_link: vendor_link }}
+          {% else %}
+            {{ 'onboarding.product.by_vendor' | t }}
+          {% endunless %}
+        </div>
+      {% endif %}
+
+      {% if settings.product_ratings_reviews %}
+        <div class="product-ratings">
+          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">
+            <span class="spr-badge">
+              <span class="spr-starrating spr-badge-starrating">
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+              </span>
+            </span>
+          </span>
+        </div>
+      {% endif %}
+
+      <div class="product-pricing" aria-live="polite">
+        {%
+          include 'product-badge',
+          class_root: 'product',
+          product_available: product_available,
+          on_sale: on_sale,
+          price: price,
+          compare_at_price: compare_at_price,
+          show_saved: true
+        %}
+
+        {%
+          include 'product-price',
+          class_root: 'product',
+          price: price,
+          price_varies: false,
+          compare_at_price: compare_at_price,
+          compare_at_price_varies: false,
+          on_sale: on_sale,
+          emphasize_price: false,
+          show_original: true
+        %}
+      </div>
+
+      {% if settings.product_show_sku == true %}
+        {% unless onboarding %}
+          <div
+            class="
+              product-sku
+              {% if sku == empty %}product-sku--empty{% endif %}
+            "
+          >
+            {{ 'product.general.sku_html' | t: sku: sku | strip_newlines }}
+          </div>
+        {% endunless %}
+      {% endif %}
+
+        {% if hide_description %}
+          <a
+            href="{{ product.url | within: collection }}"
+            class="product-link"
+          >
+            {{ 'product.buttons.view_details' | t }}
+          </a>
+        {% endif %}
+        </div>
+
+  {% if product.has_only_default_variant %}
+    <input
+      name="id"
+      value="{{ product.variants[0].id }}"
+      type="hidden">
+  {% else %}
+    {%
+      include 'product-options',
+      product: product,
+      selected_variant: selected_variant,
+      style: settings.product_option_style
+    %}
+  {% endif %}
+  <div class="small-show">
+  {{atc}}
+  </div>
+  {% unless product.description == blank or hide_description %}
+    <div class="product-description rte" data-product-description>
+      {{ product.description }}
+    </div>
+  {% endunless %}
+    </div>
+  <div class="small-hide tester col-lg-5">
+    {{atc}}
+  </div>
+</div>
 {% endform %}
