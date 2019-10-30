@@ -58,9 +58,9 @@
         >
       {% if menu_item.type == 'collection_link' %}
           {% assign title = menu_item.object.title %}
-          {% for collection in collections %}
-            {% if collection.title == title and collection.image != blank %}
-              <img src="{{ collection.image | img_url: '300x' }}" alt="{{collection.handle}} logo">
+          {% assign targetCollection = collections[title] %}
+            {% if targetCollection.title == title and targetCollection.image != blank %}
+              <img src="{{ targetCollection.image | img_url: '300x' }}" alt="{{targetCollection.handle}} logo">
             {% endif %}
           {% endfor %}
       {% else %}
