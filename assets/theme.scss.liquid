@@ -1582,7 +1582,8 @@ $color-featured-post-foreground: $color-background;
 
 %box-shadow {
   border: 1px solid $color-box-shadow-border;
-  box-shadow: 1px 2px 4px $color-box-shadow-shadow;
+  //box-shadow: 1px 2px 4px $color-box-shadow-shadow;
+  box-shadow: 1px 2px 4px transparentize($color-text, 0.95);
 }
 %round-corners {
   border-radius: 20px 0 20px 0 !important;
@@ -6988,7 +6989,9 @@ $local-padding-medium: 20px;
   }
 
   .product-main {
-    text-align: center;
+    .product-details {
+      text-align: center;
+    }
   }
 
   .product-pricing {
@@ -9645,7 +9648,7 @@ $local-expander-width: rem(70px);
   &:active, &:hover {color:unset;}
 }
 a.promo-block--content {
-  &:active, &:hover {color:unset;}
+  &:active, &:hover {color:unset;text-decoration: none;opacity:.95;}
 }
 .promo-block--background {
   position: absolute;
