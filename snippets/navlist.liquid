@@ -56,7 +56,18 @@
           class="navmenu-link {% if menu_item.active %}navmenu-link-active{% endif %}"
           href="{{ menu_item.url }}"
         >
+      {% if menu_item.type == 'collection_link' %}
+          {% assign title = menu_item.title %}
+          {% for collection in collections %}
           {{ menu_item.title }}
+          {{ collection.title }}
+            {% if collection.title == title and collection.image != blank %}
+              <img src="{{ collection.image | img_url: '300x' }}" alt="{{collection.handle}} logo">
+            {% endif %}
+          {% endfor %}
+      {% else %}
+          {{ menu_item.title }}
+      {% endif %}
         </a>
       </li>
     {% else %}
