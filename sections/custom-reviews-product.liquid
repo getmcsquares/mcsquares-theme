@@ -1,8 +1,7 @@
 
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve-transparent' %}
-<div style="background-color: {{ bg_color }}">
-<section class="container">
+<section class="container" style="background-color: {{ bg_color }}">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
       {{ section.settings.title | escape }}
@@ -26,7 +25,6 @@
   {% endfor %}
   </div>
 </section>
-</div>
 {% schema %}
 {
   "name": "Reviews Products",
