@@ -1,7 +1,8 @@
 
 {% assign bg_color = section.settings.bg_color %}
-{% include 'svg-curve' %}
-<section class="container" style="background-color: {{ bg_color }}">
+{% include 'svg-curve-flat' %}
+<section style="background-color: {{ bg_color }}">
+<div class="container">
   {% if section.settings.title != blank %}
     <h2 class="home-section--title">
       {{ section.settings.title | escape }}
@@ -23,6 +24,7 @@
       </div>
     </div>
   {% endfor %}
+  </div>
   </div>
 </section>
 {% schema %}
