@@ -33,20 +33,6 @@
   on_sale: on_sale
 %}
 
-{% comment %} {%- capture share_buttons -%}
-  {% assign social_image = false %}
-  {% if product.featured_image %}
-    {% assign social_image = product.featured_image | img_url: '1024x' %}
-  {% endif %}
-  {% assign social_url = shop.url | append: product.url %}
-  {%-
-    include 'share-buttons',
-    snippet_title: 'general.share_buttons.title',
-    social_image: social_image,
-    social_title: product.title,
-    social_url: social_url
-  -%}
-{%- endcapture  -%} {% endcomment %}
 
 <article class="product--outer row">
   {% comment %}
@@ -72,7 +58,7 @@
 
         {% unless onboarding %}
           {%
-            include 'product-form-alt',
+            include 'product-form',
             product: product,
             selected_variant: selected_variant
           %}
@@ -86,6 +72,6 @@
     If is a 3 column layout, the form will move here at $bp-large (layout.isBreakpoint('L'))
   {% endcomment %}
   {% if layout == 'layout--three-col' %}
-    <div class="product-form--alt" data-product-form-alt></div>
+    <div class="product-form" data-product-form></div>
   {% endif %}
 </article>

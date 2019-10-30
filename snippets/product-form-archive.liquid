@@ -22,7 +22,7 @@
 
 {% assign product_form_class = '' %}
 {% if product_smart_buttons or quickshop_smart_buttons %}
-  {% assign product_form_class = 'smart-payment-enabled product-form-alt' %}
+  {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
 {% endif %}
 
 {%- capture share_buttons -%}
@@ -105,11 +105,10 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-  </div>
-{% comment %} 
-  {% if product_smart_buttons or quickshop_smart_buttons %} {% endcomment %}
     {{ form | payment_button }}
-  {% comment %} {% endif %} {% endcomment %}
+  </div>
+  {% comment %} {% if product_smart_buttons or quickshop_smart_buttons %}{% endif %} {% endcomment %}
+
 
   {% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}
@@ -244,7 +243,4 @@
     {{atc}}
   </div>
 </div>
-
-
-
 {% endform %}
