@@ -61,10 +61,12 @@
           {% assign targetCollection = collections[title] %}
             {% if targetCollection.title == title and targetCollection.image != blank %}
               <img src="{{ targetCollection.image | img_url: '300x' }}" alt="{{targetCollection.handle}} logo" style="max-width: 100%; max-height: 24px;">
+              {% else %}
+              {{ menu_item.title }}
             {% endif %}
-      {% else %}
-          {{ menu_item.title }}
-      {% endif %}
+          {% else %}
+              {{ menu_item.title }}
+          {% endif %}
         </a>
       </li>
     {% else %}
