@@ -1,10 +1,14 @@
-<div class="section-inner about-content">
+
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div  style="background-color:{{bg_color}}">
+<div class="section-inner about-content container">
   <div class="text-center limitcopywidth">
   <h1 class="section-header">{{ section.settings.section_title }}</h1>
   <p class="subtitle">{{ section.settings.subtitle }}</p>
   </div>
   {% for block in section.blocks %}
-  {% capture cycle_var %}{% cycle 'odd', 'even' %}{% endcapture %}
+  {% capture cycle_var %}{% cycle 'even', 'odd' %}{% endcapture %}
   {% capture image_layout %}
   <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5em;'>
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
@@ -15,10 +19,23 @@
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
       <p>{{ block.settings.text_content }}</p>
+      {% if block.settings.cta_link != blank or block.settings.cta_link_2 != blank %}
+      <div class="d-flex align-items-center justify-content-start">
+      {% if block.settings.cta_link != blank %}
+        <a href="{{block.settings.cta_link}}"><button class="button-primary" style="margin-right: .5rem;"><span>{{block.settings.cta_text}}</span></button></a>
+      {% endif  %}
+      {% if block.settings.cta_link_2 != blank %}
+        <a href="{{block.settings.cta_link_2}}"><button class="button-secondary"><span>{{block.settings.cta_text_2}}</span></button></a>
+      {% endif %}
+      </div>
+      {% endif %}
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
+
     </div>
   {% endfor %}
+
+</div>
 </div>
 {% if section.blocks.size == 0 %}
   {% include 'no-blocks' %}
@@ -42,19 +59,14 @@
         }
       },
       {
-        "type": "text",
-        "id": "subtitle",
-        "label": {
-          "en": "Section subeading"
-        },
-        "default": {
-          "en": "Our blends are designed to heighten the highs, cushion the lows and complement the in-betweens of women’s everyday pursuits."
-        }
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background"
       }
     ],
     "blocks": [
       {
-        "type": "quote",
+        "type": "block",
         "name": "About block",
         "settings": [
           {
@@ -75,6 +87,26 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
+          },
+          {
+            "type": "page",
+            "id": "cta_link",
+            "label": "CTA Link 1"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text 1"
+          },
+          {
+            "type": "page",
+            "id": "cta_link_2",
+            "label": "CTA Link 2"
+          },
+          {
+            "type": "text",
+            "id": "cta_text_2",
+            "label": "CTA Text 247"
           }
         ]
       }

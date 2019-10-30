@@ -23,9 +23,10 @@
     social_url: social_url
   -%}
 {%- endcapture  -%}
-
+{% assign bg_color = '#fff' %}
+{% include 'svg-curve' %}
 <section class="article--outer">
-  {% if article.image %}
+  {% comment %} {% if article.image %}
     <figure
       class="article-image"
       {%
@@ -46,7 +47,7 @@
         canvas: true
       %}
     </figure>
-  {% endif %}
+  {% endif %} {% endcomment %}
 
   <div class="article--container">
 
@@ -56,7 +57,7 @@
       </div>
     {% endif %}
 
-    <div class="article--inner">
+    <div class="article--inner container">
       {% if section.settings.show_date or section.settings.show_author %}
         <div class="article--meta">
           {% if section.settings.show_date %}
@@ -148,16 +149,38 @@
           {% endif %}
         </div>
       {% endif %}
-
-      {% include 'article-comments' %}
-    </div>
+{% assign related_posts = "" %}
+{% assign customBlog =  article.url | split: '/' %}
+{% for tag in article.tags %}
+  {% for varticle in blogs[customBlog[2]].articles %}
+    {% if varticle.tags contains tag %}
+      {% capture post %}
+        {%
+          include 'article-excerpt',
+          article: varticle
+          %}
+      {% endcapture %}
+        {% assign related_posts = related_posts | append:post %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% if related_posts.size > 0 %}
+<section class="blog--container container">
+<h4 class="text-center">Related Posts</h4>
+<ul class="blog--inner">
+  {{ related_posts }}
+</ul>
+{% endif %}
+</section>
+      {% comment %} {% include 'article-comments' %} {% endcomment %}
   </div>
+</div>
 </section>
 
 {% schema %}
 {
   "name": "Article pages",
-  "class": "article--section",
+  "class": "article--section has-graphic",
   "settings": [
     {
       "type": "checkbox",

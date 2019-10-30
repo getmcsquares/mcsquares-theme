@@ -1,10 +1,13 @@
-<article class="site-page" data-template-page data-template-contact>
 
-  <header class="page-masthead">
-    <h1 class="page-title">
-      {{ page.title }}
-    </h1>
-  </header>
+{% section 'page-static-slideshow' %}
+{% assign bg_color = '#fff' %}
+{% include 'svg-curve' %}
+<article class="site-page container contact-page-content has-bottom-curve" data-template-page data-template-contact>
+  <h3>Give us a shout! We’d love to help you with your Whiteboarding needs.</h3>
+<p>Use the form below to send us an email or check out these pages for more information:</p>
+<p><a href="/pages/frequently_asked_questions">FAQs</a>  - Frequently asked questions about our products and customer service</p>
+<p><a href="/blogs/news">BLOG</a> - Our recent articles about collaboration, creativity and whiteboarding</p>
+<p><a href="/blogs/whitepapers">WHITE PAPERS</a> - How educators are using mcSquares to engage students in classrooms</p>
   {% form 'contact' %}
 
     {% if page.content != blank %}
@@ -13,7 +16,7 @@
       </div>
     {% endif %}
 
-    <div class="contact-page-content">
+    <div class="">
       {% assign has_message = false %}
 
       {% if form.errors != blank %}
@@ -101,7 +104,20 @@
           {{ 'contact.form.phone' | t }}
         </label>
       </div>
+      <div class="form-field">
+        {% assign value = '' %}
 
+        <input
+          class="form-field-input form-field-text {% if form.errors contains 'phone' %}form-field-error{% endif %}"
+          id="contact_company"
+          name="contact[company]"
+          type="text"
+          value="{{ value }}">
+
+        <label class="form-field-title" for="contact_company">
+          {{ 'contact.form.company' | t }}
+        </label>
+      </div>
       <div class="form-field">
         {% assign value = '' %}
         {%- if form.body -%}
@@ -124,4 +140,8 @@
       </div>
     </div>
   {% endform %}
+  <p><strong>mcSquares Corporate Headquarters </strong></p>
+  <p>2150 Market St. Denver, CO 80205</p>
+  <p>info@mcsquares.com</p>
 </article>
+{% section 'collection-static-quick-about' %}

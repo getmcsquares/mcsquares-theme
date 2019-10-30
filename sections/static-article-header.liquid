@@ -1,0 +1,22 @@
+<div style="background-image:{{ section.settings.bg_image }}; background-position: center; background-size: cover; background-repeat:no-repeat;">
+  <div class="hero__title-wrap">
+    <h1 class="hero__title">
+      {{ article.title | escape }}
+    </h1>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article Header",
+  "class": "blog--section page-width",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Header Background Image"
+    }
+  ]
+}
+
+{% endschema %}
