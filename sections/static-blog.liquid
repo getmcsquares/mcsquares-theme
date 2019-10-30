@@ -10,26 +10,12 @@
 {% assign show_featured = false %}
 {% if featured_post != '' and featured_post != blank %}
   {% assign show_featured = true %}
-
-  {% comment %}
-    Don't show highlighted post if is not first page, or if tags are active
-  {% endcomment %}
   {% if paginate.current_page != 1 and current_tags != blank %}
     {% assign show_featured = false %}
   {% endif %}
 {% endif %}
 
 <section class="blog--container container">
-  {% comment %} <header class="blog-title">
-    <h1>{{ blog.title }}</h1>
-    {% if section.settings.show_rss_link %}
-      <a href="{{ blog.url }}.atom">
-        {% include 'icon-rss' %}
-        <span class="visually-hidden">{{ 'general.accessibility.rss' | t: platform: title | escape }}</span>
-      </a>
-    {% endif %}
-  </header> {% endcomment %}
-
   {% paginate blog.articles by paginate_by %}
 
     {% if show_featured %}
