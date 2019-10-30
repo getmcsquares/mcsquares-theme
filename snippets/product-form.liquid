@@ -105,9 +105,9 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-    {{ form | payment_button }}
+    
   </div>
-  {% comment %} {% if product_smart_buttons or quickshop_smart_buttons %}{% endif %} {% endcomment %}
+  {% if product_smart_buttons or quickshop_smart_buttons %}{{ form | payment_button }}{% endif %}
 
 
   {% if enable_social_sharing %}
