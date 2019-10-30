@@ -64,12 +64,7 @@
           aria-expanded="false"
         {% endif %}
       >
-      {% if menu_item.type == 'collection_link' %}
-          collection test
-      {% else %}
         {{ menu_item.title }}
-        {{ menu_item.type }}
-        {% endif %}
         {% if show_subnav and is_mobile != true %}
           <span
             class="navmenu-icon navmenu-icon-depth-1"
