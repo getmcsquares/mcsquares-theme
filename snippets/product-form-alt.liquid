@@ -106,10 +106,9 @@
       </span>
     </button>
   </div>
-{% comment %} 
-  {% if product_smart_buttons or quickshop_smart_buttons %} {% endcomment %}
+  {% comment %} {% if product_smart_buttons or quickshop_smart_buttons %}{% endif %} {% endcomment %}
     {{ form | payment_button }}
-  {% comment %} {% endif %} {% endcomment %}
+
 
   {% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}
