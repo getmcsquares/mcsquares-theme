@@ -4592,28 +4592,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     padding-right: $space-x-small;
     vertical-align: middle;
   }
-  .newsletter-input {
-    input {
-      background-color: #ddd;
-      border: 1px solid #ddd;
-      &:active, &:focus {
-        background-color: #fff;
-        border: 1px solid #fff;
-      }
-    }
-    .form-field-title {
-      color: $client-blue;
-    }
-  }
-  .newsletter-submit {
-    .button-primary {
-      @include button-size(large);
-      display: block;
-      width: 100%;
-      background-color: $client-blue;
-      border-color: $client-blue;
-    }
-  }
+
   .newsletter .newsletter-submit {
     display: table-cell;
     width: auto;
@@ -4737,6 +4716,7 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
     }
   }
 }
+
 
 .product--container {
   @extend %layout-container;
@@ -8271,6 +8251,31 @@ $local-max-width: 680px;
 $local-footer-accent: rgba($color-footer-text, 0.15);
 
 // Footer blocks
+.footer-upper .newsletter {
+  .newsletter-input {
+    input {
+      background-color: #ddd;
+      border: 1px solid #ddd;
+      &:active, &:focus {
+        background-color: #fff;
+        border: 1px solid #fff;
+      }
+    }
+    .form-field-title {
+      color: $client-blue;
+    }
+  }
+  .newsletter-submit {
+    .button-primary {
+      @include button-size(large);
+      display: block;
+      width: 100%;
+      background-color: $client-blue;
+      border-color: $client-blue;
+    }
+  }
+}
+
 .site-footer-blocks {
   @include media($min: $bp-large) {
     display: flex;
