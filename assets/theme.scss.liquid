@@ -2023,7 +2023,7 @@ $local-input-padding-vertical-top: $local-input-padding-vertical-base + rem(9px)
   color: $color-input-text;
   background-color: $color-input-background;
   border: 1px solid $color-input-border;
-  border-radius: 3px;
+  border-radius: 1px;
 
   &:focus {
     border-color: $color-input-border-hover;
@@ -3548,6 +3548,12 @@ footer.page-footer {
     padding: 0;
     a{
       color: white;
+      outline: 0;
+      &:hover, &:active {
+        opacity: .6;
+        color: white;
+        outline: 0;
+      }
     }
 }
 .social-links {
@@ -8660,9 +8666,16 @@ $local-max-width: 680px;
     text-decoration: none;
 
     &:focus {
-      outline: solid rgba($color-header-text, 0.5);
+      //outline: solid rgba($color-header-text, 0.5);
+      outline: 0;
       outline-offset: -5px;
     }
+    &:active {
+      opacity: .6;
+      color: white;
+      outline: 0;
+    }
+  }
 
     &.navmenu-item-active:focus {
       outline: 0;
