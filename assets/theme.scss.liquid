@@ -2632,6 +2632,12 @@ img[data-rimg="loading"] {
     font-family: 'Propisi';
     font-size: 5.25em !important;
   }
+  img{
+    max-width: 100%;
+  }
+  @include media($max: $bp-medium) {
+    margin-top: 1rem;
+  }
 }
 .titleimg {
   max-width: 550px;
@@ -5169,6 +5175,7 @@ $local-slideshow-large: 560px;
   max-height: $local-slideshow-small;
   @include media($max: $bp-large) {
     height: auto !important;
+    max-height: unset;
   }
 }
 
@@ -15088,7 +15095,7 @@ $local-image-width: rem(48px);
   background-attachment: fixed !important;
   background-position: top !important;
   background-repeat: no-repeat !important;
-  background-size: contain !important;
+  background-size: cover !important;
   @include media($bp-medium){
     background-position: center !important;
     background-size: cover !important;
