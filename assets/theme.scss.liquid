@@ -1584,7 +1584,7 @@ $color-featured-post-foreground: $color-background;
 }
 
 %box-shadow {
-  border: 1px solid $color-box-shadow-border;
+  border: 0px solid $color-box-shadow-border;
   //box-shadow: 1px 2px 4px $color-box-shadow-shadow;
   box-shadow: 1px 2px 4px transparentize($color-text, 0.95);
 }
@@ -13460,6 +13460,8 @@ $local-thumbnail-space: 3px;
   overflow: hidden;
   touch-action: pan-y;
   @extend %box-shadow;
+  box-shadow: 1px 3px 5px rgba(0,0,0,.4);
+  border: 0px transparent;
   @extend %round-corners;
   .flickity-viewport {
     height: auto;
