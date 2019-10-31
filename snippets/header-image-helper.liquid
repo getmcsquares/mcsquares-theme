@@ -13,13 +13,7 @@
         console.log(
             "image loaded from helper"
         )
-    }
-    $(window).resize(function() {
-        applyImage(),
-    });
-    $(document).ready(function() {
-        applyImage(),
-    });
+    };
     var applyTitleImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
@@ -34,9 +28,11 @@
         )
     }
         $(window).resize(function() {
+            applyImage(),
             applyTitleImage()
         });
         $(document).ready(function() {
+            applyImage(),
             applyTitleImage()
         });
     </script>

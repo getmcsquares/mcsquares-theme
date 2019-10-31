@@ -421,7 +421,7 @@ a:active,
 a:hover,
 a:focus {
   outline-width: 0;
-  outline: thin dotted #ccc !important;
+  outline: 0px dotted #ccc !important;
   cursor: pointer;
 }
 
@@ -4753,6 +4753,15 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
   @include media($max: $bp-small) {
     padding-right: $gutter-outer-small;
     padding-left: $gutter-outer-small;
+  }
+}
+.featured-product--inner {
+  .product-gallery--slider,
+  .product-main {
+    @include media($max: $bp-small) {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 }
 
