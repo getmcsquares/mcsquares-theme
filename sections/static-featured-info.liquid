@@ -18,7 +18,7 @@
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">
   {% if featured_image %}
-    <img style="max-width: 300px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+    <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   {% else %}
     <img style="max-width: 300px;" src="{{ 'mcsqs-logo.png' | asset_img_url: }}
 " alt="mcsquares logo" id="logo-{{ section.id }}">
@@ -41,6 +41,11 @@
   "class": "product--section-info",
   "settings": [
     {
+      "type": "color",
+      "id": "svg_color",
+      "label": "Background"
+    },
+    {
       "type": "image_picker",
       "id": "hero",
       "label": "Hero Image"
@@ -53,7 +58,7 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Background Color"
+      "label": "lower Background Color"
     },
     {
       "type": "richtext",
