@@ -23,10 +23,8 @@
     <img style="max-width: 160px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
   {% endif %}
   </div>
-  <div class="product-info-text col-md-7">
-  <p style="color: {{ section.settings.font_color }}">
+  <div class="product-info-text col-md-7" style="color: {{ section.settings.font_color }} !important;">
     {{section.settings.text_content}}
-  </p>
   <p>
   <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
   </p>
@@ -63,7 +61,7 @@
       "type": "richtext",
       "id": "text_content",
       "label": "Text content",
-      "default": "The monkey-rope is found in all whalers; but it was only in the Pequod that the monkey and his holder were ever tied together. This improvement upon the original usage was introduced by no less a man than Stubb, in order to afford the imperilled harpooneer the strongest possible guarantee for the faithfulness and vigilance of his monkey-rope holder.So strongly and metaphysically did I conceive of my situation then, that while earnestly watching his motions, I seemed distinctly to perceive that my own individuality was now merged"
+      "default": "<p>The monkey-rope is found in all whalers; but it was only in the Pequod that the monkey and his holder were ever tied together. This improvement upon the original usage was introduced by no less a man than Stubb, in order to afford the imperilled harpooneer the strongest possible guarantee for the faithfulness and vigilance of his monkey-rope holder.</p>"
     },
     {
       "type": "collection",
