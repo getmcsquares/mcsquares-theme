@@ -42,7 +42,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-dynamic
+              slideshow-height-{{ section.settings.slideshow_height }}
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -59,8 +59,8 @@
           class="
             background-target
             slideshow-background
-            slideshow-dynamic
             slideshow-background--{{ block.id }}
+            slideshow-height-{{ section.settings.slideshow_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
@@ -108,7 +108,7 @@
           {% endif %}
         </div>
 
-        {% if page.title != blank
+        {% if blog.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
           or block.settings.button_two_label != blank
@@ -119,32 +119,19 @@
               article-slide
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
-              row
             "
           >
-            <div class="col-12 offset-md-0 col-md-6">
-              <div class="video-container">
-                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-            </div>
-            <div class="col-md-6 d-flex flex-column justify-content-center">
-              <h1 class="hero__title" style="color: {{ block.settings.color }}">
-                {{ page.title | escape }}
-              </h1>
+                <h1 class="hero__title" style="color: {{ block.settings.color }}">
+                  {{ blog.title | escape }}
+                </h1>
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
-                {{ block.settings.text  }}
-              </p>
-            {% endif %}
-            {% if block.settings.byline != blank %}
-              <p class="slideshow-slide-text">
-                {{ block.settings.byline  }}
+                {{ block.settings.text | escape }}
               </p>
             {% endif %}
             {% if block.settings.link != blank %}
               </a>
             {% endif %}
-            </div>
           </div>
         {% endif %}
       </div>
@@ -159,7 +146,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "FAQ Slideshow",
+  "name": "FAQ header slideshow",
   "class": "slideshow--section",
   "settings": [
     {
@@ -230,29 +217,10 @@
           "label": "Image (Mobile View)"
         },
         {
-          "id": "video_url",
-          "type": "text",
-          "label": "Video URL",
-          "default": "https://www.youtube.com/embed/K538gxU8-Po",
-          "info": "From the 'embed' option under the share menu"
-        },
-        {
           "id": "title",
           "type": "text",
           "label": "Heading",
           "default": "Slideshow"
-        },
-        {
-          "type": "text",
-          "id": "text",
-          "label": "Header subtext",
-          "default": "We passionately believe that everyone has the ability to be creative and that effective collaboration is the master key that unlocks creativity and innovation."
-        },
-        {
-          "type": "text",
-          "id": "byline",
-          "label": "Header Byline",
-          "default": "Anthony Franco    Founder"
         },
         {
           "id": "color",
