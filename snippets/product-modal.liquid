@@ -1,0 +1,77 @@
+{% comment %}
+  @param layout {String}
+    Layout type
+
+  @param is_product_modal {Bool}
+    Is the snippet being loaded in a QuickShop
+
+  @param hide_description {Bool}
+    If true, hide the product description
+{% endcomment %}
+
+{% assign enable_social_sharing = settings.product_social_sharing %}
+{% assign selected_variant = product.selected_or_first_available_variant %}
+{% assign selected_image = selected_variant.image | default: product.featured_image %}
+{% assign compare_at_price = selected_variant.compare_at_price %}
+{% assign price = selected_variant.price %}
+{% assign sku = selected_variant.sku %}
+{% assign product_available = product.available %}
+
+{% if onboarding %}
+  {% assign compare_at_price = 2999 %}
+  {% assign price = 1999 %}
+{% endif %}
+
+{% assign on_sale = false %}
+{% if compare_at_price > price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{%
+  include 'consistent-savings',
+  variants: product.variants,
+  on_sale: on_sale
+%}
+
+
+<article class="product--outer row modal-product">
+  {% comment %}
+    Product slideshow, never moves
+  {% endcomment %}
+  <div class="product-gallery col-md-4" data-product-gallery>
+    {%
+      include 'product-gallery',
+      selected_image: selected_image,
+      is_product_modal: is_product_modal,
+      onboarding: onboarding
+    %}
+  </div>
+  <div class="col-md-8">
+    {% comment %}
+      Product form original location, will remain unless is 3 column layout
+    {% endcomment %}
+    <div class="product-form--regular " data-product-form-regular>
+      <div data-product-form-area class="col-12">
+        {% if is_product_modal %}
+          <div data-product-quickshop-message class="product-message--container"></div>
+        {% endif %}
+
+        {% unless onboarding %}
+          {%
+            include 'product-form',
+            product: product,
+            selected_variant: selected_variant
+          %}
+        {% endunless %}
+      </div>
+  </div>
+
+  </div>
+
+  {% comment %}
+    If is a 3 column layout, the form will move here at $bp-large (layout.isBreakpoint('L'))
+  {% endcomment %}
+  {% if layout == 'layout--three-col' %}
+    <div class="product-form" data-product-form></div>
+  {% endif %}
+</article>
