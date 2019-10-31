@@ -18,7 +18,7 @@
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">
   {% if featured_image %}
-    <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+    <img style="max-width: 300px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   {% else %}
     <img style="max-width: 160px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
   {% endif %}
