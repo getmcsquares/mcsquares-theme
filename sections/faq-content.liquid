@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
     <div class="col-6 d-flex align-items-start justify-content-start">
-        <h3 class="faq-category-title">Category 1</h3>
+        <h3 class="faq-category-title">Payment</h3>
     </div>
     <div class="col-6">
         <div id="accordian-1">
@@ -33,7 +33,7 @@
     </div>
     <div class="row">
     <div class="col-6 d-flex align-items-start justify-content-start">
-        <h3 class="faq-category-title">Category 2</h3>
+        <h3 class="faq-category-title">Orders</h3>
     </div>
     <div class="col-6">
     <div id="accordian-2">
@@ -60,7 +60,7 @@
     </div>
     <div class="row">
     <div class="col-6 d-flex align-items-start justify-content-start">
-        <h3 class="faq-category-title">Category 3</h3>
+        <h3 class="faq-category-title">Refunds</h3>
     </div>
     <div class="col-6">
     <div id="accordian-3">
@@ -87,7 +87,7 @@
     </div>
     <div class="row">
     <div class="col-6 d-flex align-items-start justify-content-start">
-        <h3 class="faq-category-title">Category 4</h3>
+        <h3 class="faq-category-title">Delivery</h3>
     </div>
     <div class="col-6">
         <div id="accordian-4">
@@ -114,7 +114,7 @@
     </div>
     <div class="row">
     <div class="col-6 d-flex align-items-start justify-content-start">
-        <h3 class="faq-category-title">Category 5</h3>
+        <h3 class="faq-category-title">Wholesale</h3>
     </div>
     <div class="col-6">
     <div id="accordian-5">
@@ -139,6 +139,33 @@
     </div>
     </div>
     </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Stickies</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-6">
+    {% for block in section.blocks %}
+    {% if block.type == 'technical' %}
+        <div class="faq-card">
+            <div class="" id="headingSix">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-6-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-6-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-6-{{ forloop.index }}" data-parent="#accordion-6">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
 </div>
 {% schema %}
 {
@@ -146,8 +173,8 @@
     ],
     "blocks": [
         {
-        "type": "allergies",
-        "name": "Allergies & Lifestyle",
+        "type": "payment",
+        "name": "Payment",
         "settings": [
             {
             "id": "faq_title",
@@ -162,8 +189,8 @@
         ]
         },
         {
-        "type": "ingredients",
-        "name": "Ingredients",
+        "type": "orders",
+        "name": "Orders",
         "settings": [
             {
             "id": "faq_title",
@@ -178,8 +205,8 @@
         ]
         },
         {
-        "type": "certifications",
-        "name": "Certifications & Ratings",
+        "type": "refunds",
+        "name": "Refunds",
         "settings": [
             {
             "id": "faq_title",
@@ -194,8 +221,8 @@
         ]
         },
         {
-        "type": "billing",
-        "name": "Billing",
+        "type": "delivery",
+        "name": "Delivery",
         "settings": [
             {
             "id": "faq_title",
@@ -210,8 +237,8 @@
         ]
         },
         {
-        "type": "technical",
-        "name": "Website & Technical",
+        "type": "wholesale",
+        "name": "Wholesale",
         "settings": [
             {
             "id": "faq_title",
@@ -224,7 +251,119 @@
             "label": "FAQ copy"
             }
         ]
-        }
+      },
+      {
+      "type": "stickies",
+      "name": "Stickies",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "tiles",
+      "name": "Tiles",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "tablets",
+      "name": "Tablets",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "floating whiteboards",
+      "name": "Floating whiteboards",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "surfaces",
+      "name": "Surfaces",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "tackie markers",
+      "name": "Tackie markers",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      },
+      {
+      "type": "anti-gravity markers",
+      "name": "Anti-gravity markers",
+      "settings": [
+          {
+          "id": "faq_title",
+          "type": "text",
+          "label": "FAQ title"
+          },
+          {
+          "id": "faq_copy",
+          "type": "text",
+          "label": "FAQ copy"
+          }
+      ]
+      }
     ]
 }
 
