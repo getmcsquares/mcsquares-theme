@@ -184,18 +184,18 @@
           </div>
         {% endif %}
       </div>
+      {% include 'header-image-helper' %}
     {% endfor %}
 
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% include 'header-image-helper' %}
   </section>
 {% endif %}
 {% schema %}
 {
-  "name": "Slideshow",
+  "name": "Slideshow Homepage",
   "class": "slideshow--section",
   "settings": [
     {
