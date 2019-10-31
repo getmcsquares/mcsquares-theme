@@ -5,15 +5,15 @@
     <div class="image-content__image-container">
       <div class="image-content__image-wrapper ribbon-image-wrap" style="">
         {% assign img_url = section.settings.image | img_url: '800x'  %}
-        <img
+        <div
           class="image-content__image curve-clip lazyload"
-          src="{{ img_url }}"
-          data-src="{{ img_url }}"
+          src=""
           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
           data-aspectratio="{{ section.settings.image.aspect_ratio }}"
           data-sizes="auto"
           alt="{{ section.settings.image.alt | escape }}"
-          style="width: 100%">
+          style="background: url('{{ img_url }}');">
+        </div>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
 </style>
 {% schema %}
   {
-    "name": "Collection Ribbon Image",
+    "name": "Collection Parallax Ribbon Image",
     "class": "section",
     "settings": [
       {
