@@ -14,11 +14,26 @@
             "image loaded from helper"
         )
     }
+    var applyTitleImage = function () {
+        windowsize = $(window).width();
+        if (windowsize < 750) {
+            $(".titleimg").attr("src", "{{block.settings.titleimg_mobile | img_url: '500x500'}}");
+        } else if (windowsize >= 750){
+            $(".titleimg").attr("src", "{{block.settings.titleimage | img_url: '1800x1800' }}");
+        }else {
+            $(".titleimg").attr("src", "{{block.settings.titleimage | img_url: '1800x1800'}}");
+        }
+        console.log(
+            "title image loaded from helper"
+        )
+    }
         $(window).resize(function() {
-            applyImage()
+            applyImage(),
+            applyTitleImage()
         });
         $(document).ready(function() {
-            applyImage()
+            applyImage(),
+            applyTitleImage()
         });
     </script>
 {% endif %}
