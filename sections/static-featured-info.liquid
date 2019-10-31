@@ -5,13 +5,13 @@
 {% endif %}
 {% endfor %}
 {%- assign bg_color = section.settings.bg_color -%}
-<div class="product-info-inner product-info-hero-wrap">
-<div class="container">
-<div class="" style="position: relative;">
-    <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
+<div class="product-info-inner product-info-hero-wrap" style="background: linear-gradient(to bottom, #fafafa 0%, #fafafa 20%, {{ section.settings.upper_bg_color }} 20%, {{ section.settings.upper_bg_color }} 100%)">
+  <div class="container">
+    <div class="" style="position: relative;">
+      <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
+      </div>
     </div>
-</div>
-</div>
+  </div>
 </div>
 <div class="product-info-inner" style="background-color: {{ section.settings.bg_color }}">
 <div class="container">
@@ -20,12 +20,12 @@
   {% if featured_image %}
     <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   {% else %}
-    <img style="max-width: 300px;" src="{{ 'mcsqs-logo.png' | asset_img_url: '600x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
+    <img style="max-width: 300px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '600x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
   {% endif %}
   </div>
   <div class="product-info-text col-md-7">
   <p style="color: {{ section.settings.font_color }}">
-    {{sections.settings.text_content}}
+    {{section.settings.text_content}}
   </p>
   <p>
   <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
@@ -41,8 +41,8 @@
   "settings": [
     {
       "type": "color",
-      "id": "svg_color",
-      "label": "Background"
+      "id": "upper_bg_color",
+      "label": "upper Background"
     },
     {
       "type": "image_picker",
