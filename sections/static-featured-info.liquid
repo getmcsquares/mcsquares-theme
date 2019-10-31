@@ -20,13 +20,12 @@
   {% if featured_image %}
     <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
   {% else %}
-    <img style="max-width: 300px;" src="{{ 'mcsqs-logo.png' | asset_img_url: '600x' }}
-" alt="mcsquares logo" id="logo-{{ section.id }}">
+    <img style="max-width: 300px;" src="{{ 'mcsqs-logo.png' | asset_img_url: '600x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
   {% endif %}
   </div>
   <div class="product-info-text col-md-7">
   <p style="color: {{ section.settings.font_color }}">
-  {{sections.settings.text_content}}
+    {{sections.settings.text_content}}
   </p>
   <p>
   <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
