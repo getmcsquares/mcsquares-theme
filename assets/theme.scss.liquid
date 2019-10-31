@@ -15230,10 +15230,11 @@ $local-image-width: rem(48px);
 
 // static collection content
 .quick-about {
+  text-align: left;
   color: $client-blue;
   h4 {
     font-family: 'Helvetica Neue';
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: bold;
     margin: 1em 0;
   }
@@ -15241,6 +15242,7 @@ $local-image-width: rem(48px);
   .logo-small {
     max-height: 80px;
   }
+  @include media($bp-small) {  text-align: center;}
 }
 .static-content-outer{
   padding-left: unset !important;
