@@ -108,7 +108,7 @@
           {% endif %}
         </div>
 
-        {% if blog.title != blank
+        {% if page.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
           or block.settings.button_two_label != blank
@@ -122,7 +122,7 @@
             "
           >
                 <h1 class="hero__title" style="color: {{ block.settings.color }}">
-                  {{ blog.title | escape }}
+                  {{ page.title | escape }}
                 </h1>
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
