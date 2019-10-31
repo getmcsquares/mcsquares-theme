@@ -3568,9 +3568,15 @@ footer.page-footer {
     }
 }
 .social-links {
-  @include media($min: $bp-small) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  @include media($bp-small) {
     align-items: center !important;
+    justify-content: center;
     ul {
+      margin: 1em 0;
       padding: 0 !important;
     }
   }
