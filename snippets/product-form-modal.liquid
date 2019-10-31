@@ -1,0 +1,240 @@
+{% comment %}
+  Product form
+
+  @param product
+
+  @param selected_variant
+{% endcomment %}
+{% assign enable_social_sharing = settings.product_social_sharing %}
+
+{% if is_product_modal and settings.quickshop_show_dcb %}
+  {% assign quickshop_smart_buttons = true %}
+{% endif %}
+
+{% if is_product_modal == false and section.settings.show_dcb %}
+  {% assign product_smart_buttons = true %}
+{% endif %}
+
+{% if selected_variant.available == false %}
+  {% assign quickshop_smart_buttons = false %}
+  {% assign product_smart_buttons = false %}
+{% endif %}
+
+{% assign product_form_class = '' %}
+{% if product_smart_buttons or quickshop_smart_buttons %}
+  {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
+{% endif %}
+
+{%- capture share_buttons -%}
+  {% assign social_image = false %}
+  {% if product.featured_image %}
+    {% assign social_image = product.featured_image | img_url: '1024x' %}
+  {% endif %}
+  {% assign social_url = shop.url | append: product.url %}
+  {%-
+    include 'share-buttons',
+    snippet_title: 'general.share_buttons.title',
+    social_image: social_image,
+    social_title: product.title,
+    social_url: social_url
+  -%}
+{%- endcapture  -%}
+{% form 'product', product, class: product_form_class, data-product-form: '' %}
+
+{% capture atc %}
+  <div class="product-form--atc">
+    <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
+      <div class="form-field form-field--qty-select">
+        <div class="form-field-select-wrapper">
+          <select
+            id="product-quantity-select"
+            class="form-field-input form-field-select"
+            aria-label="{{ 'general.general.quantity' | t }}"
+            data-quantity-select
+          >
+            {% for i in (1..9) %}
+              <option {% if i == 1 %}selected {% endif %}value="{{ i }}">
+                {{ i }}
+              </option>
+            {% endfor %}
+            <option value="10+">
+              10+
+            </option>
+          </select>
+          <label
+            for="product-quantity-select"
+            class="form-field-title"
+          >
+            {{ 'general.general.quantity' | t }}
+          </label>
+          {% include 'icon-chevron-down-small' %}
+        </div>
+      </div>
+      <div class="form-field form-field--qty-input hidden">
+        <input
+          id="product-quantity-input"
+          class="form-field-input form-field-number form-field-filled"
+          value="1"
+          name="quantity"
+          type="text"
+          pattern="\d*"
+          aria-label="{{ 'general.general.quantity' | t }}"
+          data-quantity-input
+        >
+        <label
+          for="product-quantity-input"
+          class="form-field-title"
+        >
+          {{ 'general.general.quantity' | t }}
+        </label>
+      </div>
+    </div>
+
+    <button
+      class="button-primary product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
+      type="submit"
+      {% unless selected_variant.available %}disabled{% endunless %}
+      data-product-atc>
+      <span class="atc-button--text">
+        {% if selected_variant.available %}
+          {{ 'product.buttons.add_to_cart' | t }}
+        {% else %}
+          {{ 'product.buttons.sold_out' | t }}
+        {% endif %}
+      </span>
+      <span class="atc-button--icon">
+        {%- include 'icon-spinner' -%}
+      </span>
+    </button>
+    {{ form | payment_button }}
+  </div>
+  {% if enable_social_sharing %}
+    {{ share_buttons | strip_newlines }}
+  {% endif %}
+{% endcapture %}
+
+<div class="row">
+<div class="col-12">
+<div class="product-details" data-product-details>
+      {% if is_product_modal %}
+        <h2 class="product-title">
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </h2>
+      {% else %}
+        {% if template == 'index' %}
+          <h2 class="product-title">
+        {% else %}
+          <h1 class="product-title">
+        {% endif %}
+          {% unless onboarding %}
+            {{ product.title }}
+          {% else %}
+            {{ 'onboarding.product.title' | t }}
+          {% endunless %}
+        {% if template == 'index' %}
+          </h2>
+        {% else %}
+          </h1>
+        {% endif %}
+      {% endif %}
+
+      {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
+        <div class="product-vendor">
+          {% unless onboarding %}
+            {%- capture vendor_link -%}
+              {{ product.vendor | link_to_vendor }}
+            {%- endcapture -%}
+            {{ 'product.general.by_vendor_html' | t: vendor_link: vendor_link }}
+          {% else %}
+            {{ 'onboarding.product.by_vendor' | t }}
+          {% endunless %}
+        </div>
+      {% endif %}
+
+      {% if settings.product_ratings_reviews %}
+        <div class="product-ratings">
+          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">
+            <span class="spr-badge">
+              <span class="spr-starrating spr-badge-starrating">
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+                <i class="spr-icon spr-icon-star-empty"></i>
+              </span>
+            </span>
+          </span>
+        </div>
+      {% endif %}
+    {% unless template == 'index' %}
+      <div class="product-pricing" aria-live="polite">
+        {%
+          include 'product-badge',
+          class_root: 'product',
+          product_available: product_available,
+          on_sale: on_sale,
+          price: price,
+          compare_at_price: compare_at_price,
+          show_saved: true
+        %}
+
+        {%
+          include 'product-price',
+          class_root: 'product',
+          price: price,
+          price_varies: false,
+          compare_at_price: compare_at_price,
+          compare_at_price_varies: false,
+          on_sale: on_sale,
+          emphasize_price: false,
+          show_original: true
+        %}
+      </div>
+    {% endunless %}
+      {% if settings.product_show_sku == true %}
+        {% unless onboarding %}
+          <div
+            class="
+              product-sku
+              {% if sku == empty %}product-sku--empty{% endif %}
+            "
+          >
+            {{ 'product.general.sku_html' | t: sku: sku | strip_newlines }}
+          </div>
+        {% endunless %}
+      {% endif %}
+
+        {% if hide_description %}
+          <a
+            href="{{ product.url | within: collection }}"
+            class="product-link"
+          >
+            {{ 'product.buttons.view_details' | t }}
+          </a>
+        {% endif %}
+        </div>
+
+  {% if product.has_only_default_variant %}
+    <input
+      name="id"
+      value="{{ product.variants[0].id }}"
+      type="hidden">
+  {% else %}
+    {%
+      include 'product-options',
+      product: product,
+      selected_variant: selected_variant,
+      style: settings.product_option_style
+    %}
+  {% endif %}
+  <div class="">
+  {{atc}}
+  </div>
+  {% unless product.description == blank or hide_description %}
+    <div class="product-description rte" data-product-description>
+      {{ product.description }}
+    </div>
+  {% endunless %}
+    </div>
+</div>
+{% endform %}
