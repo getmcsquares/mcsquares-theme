@@ -3570,7 +3570,7 @@ footer.page-footer {
 .social-links {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: flex-end;
   @include media($bp-small) {
     align-items: center !important;
@@ -8287,6 +8287,7 @@ $local-footer-accent: rgba($color-footer-text, 0.15);
 
 // Footer blocks
 .footer-upper .newsletter {
+  width: unset;
   .newsletter-input {
     input {
       background-color: #ddd;
