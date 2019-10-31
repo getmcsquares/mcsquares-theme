@@ -1,10 +1,10 @@
 {% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
 {%- assign featured_image = collection.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
-<div class="product-info-inner collection-info-hero-wrap" style="background: linear-gradient(to bottom, #fafafa 0%, #fafafa 20%, {{ section.settings.upper_bg_color }} 20%, {{ section.settings.upper_bg_color }} 100%)">
+<div class="product-info-inner collection-info-hero-wrap" style="background: linear-gradient(to bottom, #fafafa 0%, #fafafa 20%, {{ section.settings.upper_bg_color }} 20%, {{ section.settings.upper_bg_color }} 100%);">
   <div class="container">
     <div class="" style="position: relative;">
-      <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}')">
+      <div class="product-info-hero rounded" style="background-image: url('{{ section.settings.hero | img_url: '1000x' }}');">
       </div>
     </div>
   </div>
@@ -14,13 +14,13 @@
 <div class="product-info-content row">
   <div class="product-info-logo col-md-5 text-center">
     {% if featured_image %}
-      <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+      <img style="max-width: 300px;" src="{{ featured_image | asset_img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }};">
     {% else %}
       <img style="max-width: 160px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
     {% endif %}
   </div>
   <div class="product-info-text col-md-7">
-    <p style="color: {{ section.settings.font_color }}">
+    <p style="color: {{ section.settings.font_color }} !important;">
       {{section.settings.text_content}}
     </p>
   <p>
@@ -32,7 +32,7 @@
 </div>
 {% schema %}
 {
-  "name": "Static Product Info",
+  "name": "Coll Static Product Info",
   "class": "product--section-info index-section",
   "settings": [
     {
