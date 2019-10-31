@@ -166,7 +166,7 @@
           </span>
         </div>
       {% endif %}
-
+    {% unless template == 'index' %}
       <div class="product-pricing" aria-live="polite">
         {%
           include 'product-badge',
@@ -190,7 +190,7 @@
           show_original: true
         %}
       </div>
-
+    {% endunless %}
       {% if settings.product_show_sku == true %}
         {% unless onboarding %}
           <div
