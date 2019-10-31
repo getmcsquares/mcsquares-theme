@@ -19,9 +19,9 @@
         if (windowsize < 750) {
             $(".titleimg").attr("src", "{{block.settings.titleimg_mobile | img_url: '500x500'}}");
         } else if (windowsize >= 750){
-            $(".titleimg").attr("src", "{{block.settings.titleimage | img_url: '1800x1800' }}");
+            $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800' }}");
         }else {
-            $(".titleimg").attr("src", "{{block.settings.titleimage | img_url: '1800x1800'}}");
+            $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800'}}");
         }
         console.log(
             "title image loaded from helper"
