@@ -150,7 +150,7 @@
               </span>
             </div>
           {% endif %}
-
+{% comment %} 
           <div class="product-pricing" aria-live="polite">
             {%
               include 'product-badge',
@@ -173,7 +173,7 @@
               emphasize_price: false,
               show_original: true
             %}
-          </div>
+          </div> {% endcomment %}
 
           {% if settings.product_show_sku == true %}
             {% unless onboarding %}
