@@ -28,14 +28,14 @@
             <p class="text-center">{{ section.settings.subheader }}</p>
             <div class="odometer odometer-target">
             </div>
-              <div class="trees-counter row">
+              {% comment %} <div class="trees-counter row">
                 <div class="col trees-counter-box text-center"><span class="numscroller">0</span></div>
                 <div class="col trees-counter-box text-center"><span class="numscroller">0</span></div>
-                <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="0" data-max="3456" data-delay="2" data-increment="1"></span></div>
-                {% comment %} <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="1" data-max="4" data-delay="2" data-increment="1">4</span></div>
+                <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="0" data-max="3456" data-delay="2" data-increment="2">0</span></div>
+                <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="1" data-max="4" data-delay="2" data-increment="1">4</span></div>
                 <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="1" data-max="5" data-delay="2" data-increment="1">5</span></div>
-                <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="1" data-max="6" data-delay="2" data-increment="1">6</span></div> {% endcomment %}
-              </div>
+                <div class="col trees-counter-box text-center"><span class="numscroller active" data-min="1" data-max="6" data-delay="2" data-increment="1">6</span></div>
+              </div> {% endcomment %}
             {{ section.settings.content }}
           </div>
         </div>
@@ -43,7 +43,22 @@
     </div>
   </div>
 </div>
-{{ 'jquery.scroller.js' | asset_url | script_tag }}
+{{ 'scroller.js' | asset_url | script_tag }}
+<script type="text/javascript">
+var clockScroller=Scroller.getNewInstance({
+	width:360,
+	amount:40,
+	interval:600,
+	separatorType:Scroller.SEPARATOR.THOUSAND,
+	separator:","
+});
+clockScroller.appendTo(document.getElementById("odometer"));
+clockScroller.start("000000");
+setInterval(function(){
+	var timeStr=003586;
+	clockScroller.scrollTo(timeStr);
+},1000);
+</script>
 {% schema %}
   {
     "name": "For the Trees",
