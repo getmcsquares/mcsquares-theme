@@ -27,13 +27,21 @@
             <h1 class="section--title text-center">{{ section.settings.header }}</h1>
             <p class="text-center">{{ section.settings.subheader }}</p>
             <div class="trees-counter row odometer">
-              {% comment %} <div class="col trees-counter-box text-center"><span class="">0</span></div>
+              <div class="col trees-counter-box text-center"><span class="">0</span></div>
               <div class="col trees-counter-box text-center"><span class="">0</span></div>
               <div class="col trees-counter-box text-center"><span class="active">3</span></div>
               <div class="col trees-counter-box text-center"><span class="active">4</span></div>
               <div class="col trees-counter-box text-center"><span class="active">5</span></div>
-              <div class="col trees-counter-box text-center"><span class="active">6</span></div> {% endcomment %}
+              <div class="col trees-counter-box text-center"><span class="active">6</span></div>
             </div>
+              {% comment %} <div class="trees-counter row">
+                <div class="col trees-counter-box text-center"><span class="">0</span></div>
+                <div class="col trees-counter-box text-center"><span class="">0</span></div>
+                <div class="col trees-counter-box text-center"><span class="active">3</span></div>
+                <div class="col trees-counter-box text-center"><span class="active">4</span></div>
+                <div class="col trees-counter-box text-center"><span class="active">5</span></div>
+                <div class="col trees-counter-box text-center"><span class="active">6</span></div>
+              </div> {% endcomment %}
             {{ section.settings.content }}
           </div>
         </div>
@@ -42,7 +50,7 @@
   </div>
 </div>
 <script type="text/javascript">
-$(window).on(‘resize scroll’, function() {
+var addDigits = function(){
     var elementTop = $('.odometer').offset().top;
     var elementBottom = elementTop + $('.odometer').outerHeight();
     var viewportTop = $(window).scrollTop();
@@ -51,6 +59,9 @@ $(window).on(‘resize scroll’, function() {
       $('.odometer').html(0003456)
     }
 };
+  $(window).scroll(function() {
+    addDigits(),
+  });
 </script>
 {{ 'odometer-theme-default.css' | asset_url | stylesheet_tag }}
 {{ 'odometer.js' | asset_url | script_tag }}
