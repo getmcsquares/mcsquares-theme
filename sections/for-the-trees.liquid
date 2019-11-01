@@ -50,7 +50,7 @@
   </div>
 </div>
 <script type="text/javascript">
-var addDigits = function(){
+var addDigits = function() {
     var elementTop = $('.odometer').offset().top;
     var elementBottom = elementTop + $('.odometer').outerHeight();
     var viewportTop = $(window).scrollTop();
@@ -60,7 +60,7 @@ var addDigits = function(){
     }
 };
   $(window).scroll(function() {
-    addDigits(),
+    addDigits()
   });
 </script>
 {{ 'odometer-theme-default.css' | asset_url | stylesheet_tag }}
