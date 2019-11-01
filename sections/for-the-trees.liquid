@@ -52,12 +52,13 @@ var clockScroller=Scroller.getNewInstance({
 	separatorType:Scroller.SEPARATOR.THOUSAND,
 	separator:","
 });
-clockScroller.appendTo(document.getElementById("odometer"));
-clockScroller.start("000000");
+
 setInterval(function(){
 	var timeStr=003586;
-	clockScroller.scrollTo(timeStr);
-},1000);
+	clockScroller.scrollFromTo( "0000" , timeStr);
+},3000);
+clockScroller.appendTo(document.getElementById("odometer"));
+clockScroller.start("0000");
 </script>
 {% schema %}
   {
