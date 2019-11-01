@@ -46,11 +46,12 @@
 {{ 'scroller.js' | asset_url | script_tag }}
 <script type="text/javascript">
 $(window).scroll(function() {
+  if ($(".odometer-target")[0].hasAttribute('id')){
     var top_of_element = $("#odometer").offset().top;
     var bottom_of_element = $("#odometer").offset().top + $("#odometer").outerHeight();
     var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
     var top_of_screen = $(window).scrollTop();
-    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && $(".odometer-target")[0].hasAttribute('id')){
+    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
         var clockScroller=Scroller.getNewInstance({
           width:360,
           amount:40,
@@ -66,6 +67,7 @@ $(window).scroll(function() {
         },3000);
       $(".odometer-target").removeAttr('id')
     }
+  }
 });
 
 
