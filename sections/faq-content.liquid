@@ -11,7 +11,7 @@
     <div class="col-6">
         <div id="accordian-1">
     {% for block in section.blocks %}
-    {% if block.type == 'allergies' %}
+    {% if block.type == 'payment' %}
         <div class="faq-card">
             <div class="" id="headingOne">
             <h5 class="mb-0">
@@ -38,7 +38,7 @@
     <div class="col-6">
     <div id="accordian-2">
     {% for block in section.blocks %}
-    {% if block.type == 'ingredients' %}
+    {% if block.type == 'orders' %}
         <div class="faq-card">
             <div class="" id="headingTwo">
             <h5 class="mb-0">
@@ -65,7 +65,7 @@
     <div class="col-6">
     <div id="accordian-3">
     {% for block in section.blocks %}
-    {% if block.type == 'certifications' %}
+    {% if block.type == 'refunds' %}
         <div class="faq-card">
             <div class="" id="headingThree">
             <h5 class="mb-0">
@@ -92,7 +92,7 @@
     <div class="col-6">
         <div id="accordian-4">
     {% for block in section.blocks %}
-    {% if block.type == 'billing' %}
+    {% if block.type == 'delivery' %}
         <div class="faq-card">
             <div class="" id="headingFour">
             <h5 class="mb-0">
@@ -119,7 +119,7 @@
     <div class="col-6">
     <div id="accordian-5">
     {% for block in section.blocks %}
-    {% if block.type == 'technical' %}
+    {% if block.type == 'wholesale' %}
         <div class="faq-card">
             <div class="" id="headingFive">
             <h5 class="mb-0">
@@ -146,7 +146,7 @@
     <div class="col-6">
     <div id="accordian-6">
     {% for block in section.blocks %}
-    {% if block.type == 'technical' %}
+    {% if block.type == 'stickies' %}
         <div class="faq-card">
             <div class="" id="headingSix">
             <h5 class="mb-0">
@@ -156,6 +156,60 @@
             </h5>
             </div>
             <div id="collapse-6-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-6-{{ forloop.index }}" data-parent="#accordion-6">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Tiles</h3>
+    </div>
+    <div class="col-7">
+    <div id="accordian-7">
+    {% for block in section.blocks %}
+    {% if block.type == 'tiles' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-7-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-7-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-7-{{ forloop.index }}" data-parent="#accordion-7">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Tablets</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-8">
+    {% for block in section.blocks %}
+    {% if block.type == 'tablets' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-8-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-8-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-8-{{ forloop.index }}" data-parent="#accordion-8">
             <div class="card-body">
             {{ block.settings.faq_copy }}
             </div>
