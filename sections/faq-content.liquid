@@ -220,6 +220,114 @@
     </div>
     </div>
     </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Floating Whiteboards</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-9">
+    {% for block in section.blocks %}
+    {% if block.type == 'whiteboards' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-9-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-9-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-9-{{ forloop.index }}">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Surfaces</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-a">
+    {% for block in section.blocks %}
+    {% if block.type == 'surfaces' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-a-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-1-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-a-{{ forloop.index }}">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Tackie Markers</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-b">
+    {% for block in section.blocks %}
+    {% if block.type == 'markers' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-b-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-b-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-b-{{ forloop.index }}">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6 d-flex align-items-start justify-content-start">
+        <h3 class="faq-category-title">Anti-Gravity Markers</h3>
+    </div>
+    <div class="col-6">
+    <div id="accordian-c">
+    {% for block in section.blocks %}
+    {% if block.type == 'anti-gravity-markers' %}
+        <div class="faq-card">
+            <div class="" id="headingSeven">
+            <h5 class="mb-0">
+                <a class="accordian-btn" data-toggle="collapse" data-target="#collapse-c-{{ forloop.index }}" aria-expanded="true" aria-controls="collapseOne">
+            <h5>{{ block.settings.faq_title }}</h5>
+                </a>
+            </h5>
+            </div>
+            <div id="collapse-c-{{ forloop.index }}" class="collapse" aria-labelledby="#collapse-c-{{ forloop.index }}">
+            <div class="card-body">
+            {{ block.settings.faq_copy }}
+            </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
 </div>
 {% schema %}
 {
@@ -355,7 +463,7 @@
         ]
         },
         {
-        "type": "floating-whiteboards",
+        "type": "whiteboards",
         "name": "Floating whiteboards",
         "settings": [
             {
@@ -387,7 +495,7 @@
         ]
         },
         {
-        "type": "tackie-markers",
+        "type": "markers",
         "name": "Tackie markers",
         "settings": [
             {
