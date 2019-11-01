@@ -58,7 +58,8 @@ $(window).scroll(function() {
           separatorType:Scroller.SEPARATOR.THOUSAND,
           separator:","
         });
-        clockScroller.appendTo(document.getElementById("odometer"));
+        clockScroller.appendTo($(".odometer-target"));
+        $(".odometer-target").removeClass('odometer-target')
         clockScroller.start("0000");
         setInterval(function(){
           var timeStr=3586;
