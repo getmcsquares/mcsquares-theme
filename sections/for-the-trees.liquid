@@ -50,7 +50,7 @@ $(window).scroll(function() {
     var bottom_of_element = $("#odometer").offset().top + $("#odometer").outerHeight();
     var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
     var top_of_screen = $(window).scrollTop();
-    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)){
+    if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element) && $(".odometer-target").hasAttr('id')){
         var clockScroller=Scroller.getNewInstance({
           width:360,
           amount:40,
@@ -58,14 +58,14 @@ $(window).scroll(function() {
           separatorType:Scroller.SEPARATOR.THOUSAND,
           separator:","
         });
-        clockScroller.appendTo($(".odometer-target"));
-        $(".odometer-target").removeClass('odometer-target')
+        clockScroller.appendTo(document.getElementById("odometer"));
         clockScroller.start("0000");
         setInterval(function(){
           var timeStr=3586;
           clockScroller.scrollTo( timeStr);
         },3000);
     }
+    $(".odometer-target").removeAttr('id')
 });
 
 
