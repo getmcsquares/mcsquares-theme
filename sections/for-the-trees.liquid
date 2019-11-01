@@ -42,7 +42,18 @@
   </div>
 </div>
 <script type="text/javascript">
-$('.odometer').html(0003456)
+$(window).on(‘resize scroll’, function() {
+  $.fn.isInViewport = function() {
+    var elementTop = $('.odometer').offset().top;
+    var elementBottom = elementTop + $('.odometer').outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    if( elementBottom > viewportTop && elementTop < viewportBottom ){
+      $('.odometer').html(0003456)
+    }
+
+  });
+};
 </script>
 {{ 'odometer-theme-default.css' | asset_url | stylesheet_tag }}
 {{ 'odometer.js' | asset_url | script_tag }}
