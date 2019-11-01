@@ -27,12 +27,6 @@
             <h1 class="section--title text-center">{{ section.settings.header }}</h1>
             <p class="text-center">{{ section.settings.subheader }}</p>
             <div class="trees-counter row odometer odometer-target">
-              {% comment %} <div class="col trees-counter-box text-center"><span class="">0</span></div>
-              <div class="col trees-counter-box text-center"><span class="">0</span></div>
-              <div class="col trees-counter-box text-center"><span class="active">3</span></div>
-              <div class="col trees-counter-box text-center"><span class="active">4</span></div>
-              <div class="col trees-counter-box text-center"><span class="active">5</span></div>
-              <div class="col trees-counter-box text-center"><span class="active">6</span></div> {% endcomment %}
             </div>
               {% comment %} <div class="trees-counter row">
                 <div class="col trees-counter-box text-center"><span class="">0</span></div>
@@ -57,6 +51,7 @@ var addDigits = function() {
     var viewportTop = $(window).scrollTop();
     var viewportBottom = viewportTop + $(window).height();
     if( elementBottom > viewportTop && elementTop < viewportBottom ){
+      console.log('fired')
       $('.odometer-target').html(0003456)
       $('.odometer-target').removeClass('odometer-target')
     }
