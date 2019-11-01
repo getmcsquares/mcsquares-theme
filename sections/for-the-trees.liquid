@@ -48,17 +48,17 @@
 var clockScroller=Scroller.getNewInstance({
 	width:360,
 	amount:40,
-	interval:2000,
+	interval: 2000,
 	separatorType:Scroller.SEPARATOR.THOUSAND,
 	separator:","
 });
-
-setInterval(function(){
-	var timeStr=003586;
-	clockScroller.scrollFromTo( "0000" , timeStr);
-},3000);
 clockScroller.appendTo(document.getElementById("odometer"));
 clockScroller.start("0000");
+setInterval(function(){
+	var timeStr=3586;
+	clockScroller.scrollTo( timeStr);
+},3000);
+
 </script>
 {% schema %}
   {
