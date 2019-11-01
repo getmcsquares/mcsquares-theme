@@ -52,6 +52,7 @@
 <script type="text/javascript">
 var addDigits = function() {
     var elementTop = $('.odometer').offset().top;
+    console.log(elementTop)
     var elementBottom = elementTop + $('.odometer').outerHeight();
     var viewportTop = $(window).scrollTop();
     var viewportBottom = viewportTop + $(window).height();
