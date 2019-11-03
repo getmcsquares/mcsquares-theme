@@ -64,14 +64,14 @@ $(window).scroll(function() {
           separator:","
         });
         clockScroller.appendTo(document.getElementById("odometer"));
-        clockScroller.start("0000");
+        clockScroller.start("000000");
         setInterval(function(){
           var timeStr={{section.settings.count}};
           clockScroller.scrollTo( timeStr);
-          prependZero()
-          prependZero()
         },3000);
       $(".odometer-target").removeAttr('id')
+      prependZero()
+      prependZero()
     }
   }
 });
