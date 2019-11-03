@@ -68,10 +68,10 @@ $(window).scroll(function() {
         setInterval(function(){
           var timeStr={{section.settings.count}};
           clockScroller.scrollTo( timeStr);
+          prependZero()
+          prependZero()
         },3000);
       $(".odometer-target").removeAttr('id')
-      prependZero()
-      prependZero()
     }
   }
 });
