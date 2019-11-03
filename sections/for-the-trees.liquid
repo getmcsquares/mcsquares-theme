@@ -45,6 +45,10 @@
 </div>
 {{ 'scroller.js' | asset_url | script_tag }}
 <script type="text/javascript">
+var prependZero = function () {
+  var el = $('.scroller-table tr')
+  el.prepend('<td><div class="scroller" style="position:relative;overflow:hidden;width:45px;text-align:center;height:25px;line-height:25px;"><div class="scroller-inner-pane" style="position: absolute; width: 45px; text-align: center; top: 0px; transition-timing-function: linear !important; transition-duration: 0ms !important; transform: translateY(0px) scaleX(1) !important;"><span class="scroller-span" style="position:absolute;height:25px;line-height:25px;left:0px;top:0px;width:45px;">0</span></div></div></td>')
+}
 $(window).scroll(function() {
   if ($(".odometer-target")[0].hasAttribute('id')){
     var top_of_element = $("#odometer").offset().top;
@@ -66,6 +70,8 @@ $(window).scroll(function() {
           clockScroller.scrollTo( timeStr);
         },3000);
       $(".odometer-target").removeAttr('id')
+      prependZero()
+      prependZero()
     }
   }
 });
