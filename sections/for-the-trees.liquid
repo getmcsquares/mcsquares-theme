@@ -66,7 +66,7 @@ $(window).scroll(function() {
         clockScroller.appendTo(document.getElementById("odometer"));
         clockScroller.start("0000");
         setInterval(function(){
-          var timeStr=3586;
+          var timeStr= {{ section.settings.count }};
           clockScroller.scrollTo( timeStr);
         },3000);
       $(".odometer-target").removeAttr('id')
@@ -119,6 +119,11 @@ $(window).scroll(function() {
         "id": "subheader",
         "label": "Subtitle",
         "default": "We plant a tree for every pack of Stickies we sell."
+      },
+      {
+        "type": "text",
+        "id": "count",
+        "label": "Count to how many?"
       },
       {
         "type": "richtext",
