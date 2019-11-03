@@ -67,11 +67,11 @@ $(window).scroll(function() {
         clockScroller.start("000000");
         setInterval(function(){
           var timeStr={{section.settings.count}};
-          clockScroller.scrollTo( timeStr);
+          clockScroller.scrollTo("00"+timeStr);
         },3000);
       $(".odometer-target").removeAttr('id')
-      prependZero()
-      prependZero()
+      //prependZero()
+      //prependZero()
     }
   }
 });
