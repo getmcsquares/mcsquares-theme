@@ -27,8 +27,6 @@
             <h1 class="section--title text-center">{{ section.settings.header }}</h1>
             <p class="text-center">{{ section.settings.subheader }}</p>
             <div id="odometer" class="odometer odometer-target">
-            {% comment %} <div class="col trees-counter-box text-center"><span class="numscroller">0</span></div>
-                <div class="col trees-counter-box text-center"><span class="numscroller">0</span></div> {% endcomment %}
             </div>
               {% comment %} <div class="trees-counter row">
                 <div class="col trees-counter-box text-center"><span class="numscroller">0</span></div>
@@ -59,15 +57,14 @@ $(window).scroll(function() {
           amount:15,
           interval: 2000,
           separatorType:Scroller.SEPARATOR.THOUSAND,
-          separator:",",
-          amount: "30"
+          separator:","
         });
         clockScroller.appendTo(document.getElementById("odometer"));
         clockScroller.start("0000");
         setInterval(function(){
           var timeStr=3586;
           clockScroller.scrollTo( timeStr);
-        },1000);
+        },3000);
       $(".odometer-target").removeAttr('id')
     }
   }
