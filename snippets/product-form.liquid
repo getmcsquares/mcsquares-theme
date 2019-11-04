@@ -232,11 +232,14 @@
   <div class="small-show">
   {{atc}}
   </div>
-  {% unless product.description == blank or hide_description %}
+  {% unless product.description == blank or hide_description or template == 'index' %}
     <div class="product-description rte" data-product-description>
       {{ product.description }}
     </div>
   {% endunless %}
+  {% if template == 'index' %}
+    <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></a></p>
+  {% endif %}
     </div>
   <div class="small-hide tester col-lg-5">
     {{atc}}
