@@ -5,7 +5,7 @@
 {%- assign bg_color = section.settings.bg_color -%}
   <div class="container round shadow">
     <div class="product-info-content row">
-      <div class="featured-whitepage-content col-md-7">
+      <div class="featured-product-info-content col-md-7">
       <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
         <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
         <p style="color: {{ section.settings.font_color }}">
@@ -23,7 +23,7 @@
 {% schema %}
 {
   "name": "Featured Whitepage",
-  "class": "product--section-info section-pad has-graphic",
+  "class": "product--section-info section-pad",
   "settings": [
     {
       "type": "article",
