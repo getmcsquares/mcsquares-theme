@@ -14158,7 +14158,8 @@ $local-thumbnail-space: 3px;
 //scss-lint:disable SelectorFormat
 .shopify-payment-button {
   margin-top: $space-small;
-  @extend %button-primary;
+  @extend %atc-button;
+  background-color: #fff;
   .shopify-payment-button__button {
     margin-right: auto;
     margin-left: auto;
@@ -15456,6 +15457,6 @@ $local-image-width: rem(48px);
 }
 // BOOTSTRAP OVERRIDES
 .row {
-  margin-left: unset;
-  margin-right: unset;
+  margin-left: unset !important;
+  margin-right: unset !important;
 }
