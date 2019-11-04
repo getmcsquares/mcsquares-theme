@@ -190,7 +190,7 @@
                 {% endunless %}
               </span>
             </button>
-            {% if section.settings.enable_payment_button %}
+            {% if section.settings.enable_payment_button  and template != 'index' %}
               {{ form | payment_button }}
             {% endif %}
           </div>
