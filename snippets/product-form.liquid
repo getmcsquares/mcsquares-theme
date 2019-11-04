@@ -106,7 +106,7 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-    {% unless template != 'index' %}
+    {% unless template == 'index' %}
     {{ form | payment_button }}
     {% endunless %}
   </div>
@@ -237,9 +237,9 @@
       {{ product.description }}
     </div>
   {% endunless %}
-  {% if template == 'index' %}
-    <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></a></p>
-  {% endif %}
+    {% if template == 'index' %}
+      <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
+    {% endif %}
     </div>
   <div class="small-hide tester col-lg-5">
     {{atc}}
