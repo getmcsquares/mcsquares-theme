@@ -10506,7 +10506,7 @@ $local-space-large: 15px;
   width: 100%;
   padding: $space-medium;
   white-space: normal;
-
+  background: #fff;
   .article--excerpt-wrapper--centered & {
     align-self: center;
     padding-top: $space-xx-large;
@@ -15247,20 +15247,21 @@ $local-image-width: rem(48px);
 
 // Graphic background
 
-.has-graphic{
+.has-graphic {
   background-color: inherit;
-  background: url('glyph-bg.png');
-  background-position: bottom center;
-  background-repeat: no-repeat;
+  background: url('glyph-bg.png') !important;
+  background-position: bottom center !important;
+  background-repeat: repeat-x !important;
+  background-size: 1200px  !important;
   @media screen and (min-resolution: 192dpi) {
-    background: url('glyph-bg@2x.png');
+    background: url('glyph-bg@2x.png') !important;
   }
   @media screen and (-webkit-device-pixel-ratio:3) {
-    background: url('glyph-bg@2x.png');
+    background: url('glyph-bg@2x.png') !important;
   }
-  padding-bottom: 10em;
+  padding-bottom: 6em;
   @include media($bp-medium) {
-    padding-bottom: 8em;
+    padding-bottom: 5em;
   }
 }
 
