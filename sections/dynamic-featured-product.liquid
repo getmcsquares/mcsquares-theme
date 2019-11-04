@@ -224,12 +224,14 @@
         {% comment %}
           Product description field, never moves
         {% endcomment %}
-        {% unless product.description == blank or hide_description %}
+        {% unless product.description == blank or hide_description or template == 'index'%}
           <div class="product-description rte" data-product-description>
             {{ product.description }}
           </div>
         {% endunless %}
-
+          {% if template == 'index' %}
+            <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
+          {% endif %}
         {% if enable_social_sharing and is_product_modal %}
           {{ share_buttons | strip_newlines }}
         {% endif %}

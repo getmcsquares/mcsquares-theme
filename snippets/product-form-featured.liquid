@@ -106,7 +106,7 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-    {% unless template != 'index' %}
+    {% unless template == 'index' %}
     {{ form | payment_button }}
     {% endunless %}
   </div>
