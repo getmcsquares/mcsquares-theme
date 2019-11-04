@@ -231,11 +231,11 @@
   {% endif %}
   {{atc}}
   {% unless product.description == blank or hide_description %}
-          {% unless template == 'index' %}
-            <div class="product-description rte test-2" data-product-description>
-              {{ product.description }}
-            </div>
-          {% endunless %}
+    {% unless template == 'index' %}
+      <div class="product-description rte test-2" data-product-description>
+        {{ product.description }}
+      </div>
+    {% endunless %}
   {% endunless %}
     </div>
 </div>
