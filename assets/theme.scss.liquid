@@ -15248,6 +15248,16 @@ $local-image-width: rem(48px);
 // Graphic background
 
 .has-graphic{
+  background-color: inherit;
+  background: url('glyph-bg.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  @media screen and (min-resolution: 192dpi) {
+    background: url('glyph-bg@2x.png');
+  }
+  @media screen and (-webkit-device-pixel-ratio:3) {
+    background: url('glyph-bg@2x.png');
+  }
   padding-bottom: 10em;
   @include media($bp-medium) {
     padding-bottom: 8em;
