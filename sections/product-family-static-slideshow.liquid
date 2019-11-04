@@ -31,7 +31,6 @@
       <div
         class="
           slideshow-slide
-          slideshow-height-{{ section.settings.slideshow_height }}
         "
         tabindex="0"
         aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
@@ -131,34 +130,6 @@
       "step": 1,
       "unit": "sec",
       "default": 8
-    },
-    {
-      "id": "slideshow_height",
-      "type": "select",
-      "label": "Slideshow height",
-      "options": [
-        {
-          "value": "small",
-          "label": "Small"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "fullscreen",
-          "label": "Fullscreen"
-        },
-        {
-          "value": "original",
-          "label": "Original aspect ratio"
-        }
-      ],
-      "default": "small"
     }
   ],
   "blocks": [
