@@ -4392,8 +4392,8 @@ $local-cart-sidebar-width: 280px;
   }
 }
 .section-pad{
-  padding-top: $space-medium;
-  padding-bottom: $space-medium;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 .collection--image {
   position: relative;
@@ -15248,16 +15248,16 @@ $local-image-width: rem(48px);
 // Graphic background
 
 .has-graphic {
-  background-color: inherit;
   background: url('glyph-bg.png') !important;
   background-position: bottom center !important;
   background-repeat: repeat-x !important;
   background-size: 1200px  !important;
+  background-color: inherit !important;
   @media screen and (min-resolution: 192dpi) {
-    background: url('glyph-bg@2x.png') !important;
+    background-image: url('glyph-bg@2x.png') !important;
   }
   @media screen and (-webkit-device-pixel-ratio:3) {
-    background: url('glyph-bg@2x.png') !important;
+    background-image: url('glyph-bg@2x.png') !important;
   }
   padding-bottom: 6em;
   @include media($bp-medium) {
@@ -15382,6 +15382,7 @@ $local-image-width: rem(48px);
 // whitepages
 .featured-whitepage-content{
   padding: $space-xxx-large $space-large;
+  background-color: #fff;
 }
 .limit-copy-width{
   max-width: 668px !important;
