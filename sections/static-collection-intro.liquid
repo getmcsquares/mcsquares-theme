@@ -3,6 +3,7 @@
     <div class="flex flex--grid flex--no-gutter">
       {% assign flex_size = 'medium-up--one-half' %}
         <div class="row" {{ block.shopify_attributes }}>
+        {% if collection.image != blank %}
               <div class="col-md-6" style="padding: 2em;">
                   <noscript>
                     <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
@@ -20,7 +21,8 @@
                     </div>
                   </div>
               </div>
-              <div class="col-md-6 image-content__text text-left">
+            {% endif %}
+              <div class="{% if collection.image != blank %} col-md-6 text-left{% else %} col-12 text-center{% endif %} image-content__text ">
                 <div class="rte-setting">{{ collection.description }}</div>
               </div>
         </div>
