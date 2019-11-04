@@ -4765,7 +4765,6 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
 }
 
 // Column structure
-.product-gallery--slider,
 .product-main {
   @include media($max: $bp-small) {
     padding-right: $gutter-outer-small;
@@ -15454,4 +15453,9 @@ $local-image-width: rem(48px);
     margin-bottom: 6em;
     border-bottom: 1px solid black;
   }
+}
+// BOOTSTRAP OVERRIDES
+.row {
+  margin-left: unset;
+  margin-right: unset;
 }
