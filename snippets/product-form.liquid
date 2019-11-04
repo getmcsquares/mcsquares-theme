@@ -233,9 +233,11 @@
   {{atc}}
   </div>
   {% unless product.description == blank or hide_description or template == 'index' %}
-    <div class="product-description rte" data-product-description>
-      {{ product.description }}
-    </div>
+    {% unless template == 'index' %}
+      <div class="product-description rte" data-product-description>
+        {{ product.description }}
+      </div>
+    {% endunless %}
   {% endunless %}
     {% if template == 'index' %}
       <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
