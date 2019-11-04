@@ -14076,7 +14076,7 @@ $local-thumbnail-space: 3px;
 }
 
 .product-form--atc-button {
-  @extend %button-primary, %atc-button;
+  @extend %atc-button;
   @include button-size(large);
   width: calc(100% - #{$space-x-small + $quantity-width});
   padding-right: rem(5px);
@@ -14159,7 +14159,7 @@ $local-thumbnail-space: 3px;
 //scss-lint:disable SelectorFormat
 .shopify-payment-button {
   margin-top: $space-small;
-
+  @extend %button-primary;
   .shopify-payment-button__button {
     margin-right: auto;
     margin-left: auto;
