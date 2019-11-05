@@ -15110,6 +15110,11 @@ $local-image-width: rem(48px);
 .about-image{
   max-width: 100%;
 }
+.about-image-wrap.text-left{
+  @include media($max: $bp-medium){
+    text-align: center;
+  }
+}
 // Curve SVG +*+*+*+*+*+*+*+*
 #shopify-section-collection-ribbon-image {
   margin-top: 50px;
@@ -15249,6 +15254,9 @@ $local-image-width: rem(48px);
   position:absolute;
   left:-2px;
   top:20px;
+  @include media($max: $bp-medium){
+    width: 0 !important;
+  }
 }
 
 
