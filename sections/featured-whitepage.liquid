@@ -3,7 +3,7 @@
 {% assign article = articles[section.settings.article] %}
 {%- assign featured_image = article.image  -%}
 {%- assign bg_color = section.settings.bg_color -%}
-  <div class="container round shadow">
+  <div class="round shadow">
     <div class="product-info-content row">
       <div class="featured-product-info-content col-md-7">
       <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
@@ -23,7 +23,7 @@
 {% schema %}
 {
   "name": "Featured Whitepage",
-  "class": "product--section-info section-pad",
+  "class": "product--section-info section-pad container",
   "settings": [
     {
       "type": "article",
