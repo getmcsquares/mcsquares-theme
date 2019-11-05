@@ -72,7 +72,7 @@
             <div class="col-12 offset-md-0 col-md-6">
             {% if block.settings.video_url != blank %}
               <div class="video-container">
-                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             {% else %}
             <h1 class="hero__title" style="color: {{ block.settings.color }}">
@@ -82,14 +82,14 @@
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
             {% unless block.settings.video_url == blank %}
-              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+              <h2 class="" style="color: {{ block.settings.color }}">
                 <img src="{{ collection.image | img_url: '300x' }}">
-              </h1>
+              </h2>
               {% endunless %}
             {% if block.settings.heading != blank %}
-              <h1 class="hero__title" style="color: {{ block.settings.color }}">
+              <h2 class="" style="color: {{ block.settings.color }}">
                 {{ block.settings.heading }}
-              </h1>
+              </h2>
             {% endif %}
             {% if block.settings.copy != blank %}
               <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
