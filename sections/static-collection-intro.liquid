@@ -2,7 +2,7 @@
   <div class="section-block section-block--padding">
     <div class="flex flex--grid flex--no-gutter">
       {% assign flex_size = 'medium-up--one-half' %}
-        <div class="row" {{ block.shopify_attributes }}>
+        <div class="row d-flex align-items-center" {{ block.shopify_attributes }}>
         {% if collection.image != blank %}
               <div class="col-md-6" style="padding: 2em;">
                   <noscript>
@@ -23,7 +23,7 @@
               </div>
             {% endif %}
               <div class="{% if collection.image != blank %} col-md-6 text-left{% else %} col-12 text-center{% endif %} image-content__text ">
-                <div class="rte-setting">{{ collection.description }}</div>
+                <p class="slideshow-slide-text">{{ collection.description }}</p>
               </div>
         </div>
     </div>
