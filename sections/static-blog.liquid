@@ -3,10 +3,10 @@
   data-section-type="static-blog"
   data-section-id="{{ section.id }}">
 </script>
+
+{% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
 {% comment %}
 {% assign featured_post = section.settings.featured_post %}
-{% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
-
 {% assign show_featured = false %}
 {% if featured_post != '' and featured_post != blank %}
   {% assign show_featured = true %}
