@@ -5361,7 +5361,11 @@ $local-slideshow-large: 560px;
     @include font-size-heading-large($font-heading-capitalize, -2);
   }
 }
-
+.image-content__image-container{
+  @include media($max: $bp-small) {
+    text-align:center;
+  }
+}
 .slideshow-slide-text {
   @include font-size-body-medium;
   // margin-top: $space-x-small;
@@ -5370,6 +5374,9 @@ $local-slideshow-large: 560px;
 
   @include media($min: $bp-large) {
     @include font-size-body-large;
+  }
+  @include media($max: $bp-small) {
+    text-align:center;
   }
 }
 
