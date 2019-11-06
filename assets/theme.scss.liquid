@@ -15348,6 +15348,9 @@ $local-image-width: rem(48px);
   padding-left: unset !important;
   padding-right: unset !important;
   padding: 2rem !important;
+  @include media($bp-small) {
+    padding: 2rem 1rem !important;
+  }
 }
 .static-content-box{
   padding-left: unset;
@@ -15402,6 +15405,9 @@ $local-image-width: rem(48px);
     color: inherit !important;
   }
 }
+.text-blue{
+  color: #026172 !important;
+}
 // whitepages
 .featured-whitepage-content{
   padding: $space-xxx-large $space-large;
@@ -15409,6 +15415,7 @@ $local-image-width: rem(48px);
 }
 .limit-copy-width{
   max-width: 668px !important;
+  @include media($bp-small) {  text-align: center;}
 }
 // ribbon image
 .ribbon-image-box{
