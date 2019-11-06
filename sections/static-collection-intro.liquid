@@ -4,31 +4,30 @@
       {% assign flex_size = 'medium-up--one-half' %}
         <div class="row d-flex align-items-center" {{ block.shopify_attributes }}>
         {% if collection.image != blank %}
-              <div class="col-12 col-md-6" style="padding:1rem">
-                  <noscript>
-                    <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
-                  </noscript>
-                  <div class="image-content__image-container">
-                    <div class="image-content__image-wrapper" style="max-width: 100%;">
-                      {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                      <img class="image-content__image lazyload"
-                        src="{{ collection.image | img_url: '300x300' }}"
-                        data-src="{{ img_url }}"
-                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                        data-aspectratio="{{ collection.image.aspect_ratio }}"
-                        data-sizes="auto"
-                        alt="{{ collection.image.alt | escape }}"
-                        style="max-width: 100%">
-                    </div>
-                  </div>
+          <div class="col-12 col-sm-6 col-md-4" style="padding:1rem">
+              <noscript>
+                <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
+              </noscript>
+              <div class="image-content__image-container">
+                <div class="image-content__image-wrapper" style="max-width: 100%;">
+                  {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                  <img class="image-content__image lazyload"
+                    src="{{ collection.image | img_url: '300x300' }}"
+                    data-src="{{ img_url }}"
+                    data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                    data-aspectratio="{{ collection.image.aspect_ratio }}"
+                    data-sizes="auto"
+                    alt="{{ collection.image.alt | escape }}"
+                    style="max-width: 100%">
+                </div>
               </div>
-            {% endif %}
-              <div class="{% if collection.image != blank %} col-md-6 text-left{% else %} col-12 text-center{% endif %} image-content__text " style="padding:1rem">
-                <p class="slideshow-slide-text">{{ collection.description }}</p>
-              </div>
+          </div>
+        {% endif %}
+          <div class="{% if collection.image != blank %} col-sm-6 col-md-8 text-left{% else %} col-12 text-center{% endif %} image-content__text " style="padding:1rem">
+            <p class="slideshow-slide-text">{{ collection.description }}</p>
+          </div>
         </div>
     </div>
-
   </div>
 </div>
 {% schema %}
