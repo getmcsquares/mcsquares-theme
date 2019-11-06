@@ -5,17 +5,17 @@
 {%- assign bg_color = section.settings.bg_color -%}
 <div class="section-pad has-graphic" style="background-color: {{bg_color}}">
 <div class="container">
-<h3 class="text-left text-blue">Featured Whitepage</h3>
+<h5 class="text-left text-blue text-bold">Featured Whitepage</h5>
   <div class="round shadow">
     <div class="row" style="background-color: #fff;">
       <div class="featured-product-info-content col-md-7 product-info-content ">
       <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
-        <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
+        <h5>{{ article.title }}</h5>
         <p style="color: {{ section.settings.font_color }}">
           {{ article.excerpt }}
         </p>
         <p>
-          <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
+          <a href="{{article.url}}"><button class="button-secondary">Read More</button></a>
         </p>
       </div>
       <div class="col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; min-height: 200px;">
