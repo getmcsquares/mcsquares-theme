@@ -14,7 +14,7 @@
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
   </div>
   {% endcapture %}
-    <div class="row d-flex align-items-center" style='padding: 3em 0;'>
+    <div class="row d-flex align-items-center">
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
