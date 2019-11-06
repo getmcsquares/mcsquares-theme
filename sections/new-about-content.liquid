@@ -10,7 +10,7 @@
   {% for block in section.blocks %}
   {% capture cycle_var %}{% cycle 'even', 'odd' %}{% endcapture %}
   {% capture image_layout %}
-  <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: 0;'>
+  <div class="col-sm-5 about-image-wrap {% if cycle_var == 'even' %}order-1 order-sm-2 order-md-2{% endif %}" style='padding: .5rem;'>
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
   </div>
   {% endcapture %}
