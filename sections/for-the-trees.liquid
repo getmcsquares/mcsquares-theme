@@ -64,7 +64,7 @@ $(window).scroll(function() {
           separator:","
         });
         clockScroller.appendTo(document.getElementById("odometer"));
-        clockScroller.start("000000");
+        clockScroller.start("0000000");
         setInterval(function(){
           var timeStr={{section.settings.count}};
           clockScroller.scrollTo("00"+timeStr);
