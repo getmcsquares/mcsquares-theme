@@ -9,19 +9,19 @@
     <div class="col-sm-6">
       <div class="row">
         <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h4>{{linklists[footer_linklist_1].title}}</h4>
+          <h5 class="text-white">{{linklists[footer_linklist_1].title}}</h5>
           {% for link in linklists[footer_linklist_1].links %}
           <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h4>{{linklists[footer_linklist_2].title}}</h4>
+          <h5 class="text-white">{{linklists[footer_linklist_2].title}}</h5>
           {% for link in linklists[footer_linklist_2].links %}
           <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
         </ul>
         <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h4>{{linklists[footer_linklist_3].title}}</h4>
+          <h5 class="text-white">{{linklists[footer_linklist_3].title}}</h5>
           {% for link in linklists[footer_linklist_3].links %}
           <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
