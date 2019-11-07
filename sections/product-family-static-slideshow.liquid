@@ -93,7 +93,7 @@
             {% endif %}
             {% if block.settings.copy != blank %}
               <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
-                {{ block.settings.copy  }}
+                {{ block.settings.copy | strip_newlines | escape }}
               </p>
             {% endif %}
             {% if block.settings.link != blank %}
