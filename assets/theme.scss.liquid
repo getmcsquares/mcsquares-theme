@@ -4842,6 +4842,24 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
 $local-space-small: 10px;
 $local-space-large: 20px;
 
+.template-blog {
+  a {
+    color: $color-link;
+    &:active, &:hover {
+      opacity: .6;
+      //color: white;
+      outline: 0;
+    }
+  }
+}
+
+.featured-article-intro {
+    margin-bottom: 1em;
+    h4.breadcrumb {
+      .75em;
+    }
+}
+
 .blog-title {
   margin-top: $space-x-small;
   margin-bottom: $space-small;
@@ -15178,6 +15196,9 @@ $local-image-width: rem(48px);
 }
 .product-info-content {
   padding: 50px 0 10px;
+  @include media($bp-small){
+    padding: 25px 0 10px;
+  }
 }
 .product-info-logo{
   @include media($bp-medium){
@@ -15321,6 +15342,9 @@ $local-image-width: rem(48px);
         font-weight: bold;
       }
     }
+  }
+  .odometer {
+    margin-bottom: 1em;
   }
 }
 .scroller-span{

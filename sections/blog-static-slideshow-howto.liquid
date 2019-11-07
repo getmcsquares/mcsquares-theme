@@ -69,11 +69,20 @@
             {%
               include 'rimg',
               img: block.settings.background_image,
-              size: '2000x2000',
+              size: '1500x1500',
               crop: slideshow_crop,
               lazy: true,
               background: true,
             %}
+          {% elsif article.image %}
+              {%
+                include 'rimg',
+                img: article.image,
+                size: '1500x1500',
+                crop: 'center',
+                lazy: true,
+                canvas: true
+              %}
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
           {% endif %}
