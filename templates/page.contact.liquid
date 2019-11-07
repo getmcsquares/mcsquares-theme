@@ -50,7 +50,10 @@
           {%- elsif customer -%}
             {% assign value = customer.name %}
           {%- endif -%}
-          <div>
+          <label class="form-field-title" for="form-radios">
+            I am a:
+          </label>
+          <div id="form-radios">
             <input type="radio" id="ContactFormCustomer" name="contact[Type]" value="Customer"/> Customer<br>
             <input type="radio" id="contactFormSchool" name="contact[Type]" value="School"/> School or University<br/>
             <input type="radio" id="contactFormCorporate" name="contact[Type]" value="Corporate"/> Corporate Buyer<br/>
@@ -61,6 +64,7 @@
             <input type="radio" id="contactFormMedia" name="contact[Type]" value="Media"/> Media<br/>
             <input type="radio" id="contactFormOther" name="contact[Type]" value="Other"/> Other<br/>
           </div>
+
           <input
             class="form-field-input form-field-text {% if form.errors contains 'name' %}form-field-error{% endif %}"
             id="contact_name"
