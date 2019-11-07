@@ -92,9 +92,9 @@
               </h5>
             {% endif %}
             {% if block.settings.copy != blank %}
-              <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
+              {% comment %} <p class="slideshow-slide-text" style="color: {{ block.settings.color }}"> {% endcomment %}
                 {{ block.settings.copy | strip_newlines | escape }}
-              </p>
+              {% comment %} </p> {% endcomment %}
             {% endif %}
             {% if block.settings.link != blank %}
               </a>
