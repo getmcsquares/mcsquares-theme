@@ -51,15 +51,18 @@
 
   <div class="article--container">
 
-    {% if has_share %}
+    {% comment %}{% if has_share %}
       <div class="article--sidebar">
         {{- share_buttons -}}
       </div>
-    {% endif %}
+    {% endif %}{% endcomment %}
 
     <div class="article--inner container">
       {% if section.settings.show_date or section.settings.show_author %}
         <div class="article--meta">
+          {% if has_share %}
+              {{- share_buttons -}}
+          {% endif %}
           {% if section.settings.show_date %}
             <span class="article--meta-item">
               {{ article.published_at | date: format: 'month_day_year' }}
@@ -74,7 +77,7 @@
         </div>
       {% endif %}
 
-      <h1 class="article--title">
+      <h1 class="article--title hidden">
         {{ article.title }}
       </h1>
 

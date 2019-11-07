@@ -1,3 +1,18 @@
-hello
-{% section 'article-static-slideshow' %}
-{% section 'static-article' %}
+{% if article.url contains "news" %}
+  {% layout 'theme' %}
+  {% section 'article-static-slideshow' %}
+  {% section 'static-article' %}
+  related posts
+  {% section 'contact-cta' %}
+{% elsif article.url contains "whitepapers" %}
+  {% section 'article-static-slideshow' %}
+  {% section 'static-article' %}
+  {% section 'contact-cta' %}
+  featured products
+  related posts
+{% else %}
+  {% section 'article-static-slideshow' %}
+  {% section 'static-article' %}
+  related posts
+  {% section 'contact-cta' %}
+{% endif %}

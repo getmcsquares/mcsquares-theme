@@ -550,6 +550,13 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
 /* Forms
    ========================================================================== */
 
@@ -3833,6 +3840,8 @@ $local-max-width: 700px;
 .article--meta {
   font-size: 0;
   color: $color-text-light;
+  margin-bottom: 2em;
+  height: 60px;
 }
 
 .article--meta-item {
@@ -10865,8 +10874,10 @@ $local-space-large: 15px;
 }
 
 .share-buttons {
-  margin-top: $space-large;
-
+  margin: 0 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   @include media($min: $bp-small) {
     margin-top: $space-x-large;
   }
@@ -10880,7 +10891,7 @@ $local-space-large: 15px;
   }
 
   .share-buttons--list {
-    margin-top: $space-small;
+    margin-left: $space-small;
     font-size: 0;
 
     @include media($min: $bp-small) {

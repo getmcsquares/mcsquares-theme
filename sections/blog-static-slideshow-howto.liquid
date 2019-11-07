@@ -74,15 +74,6 @@
               lazy: true,
               background: true,
             %}
-          {% elsif article.image %}
-              {%
-                include 'rimg',
-                img: article.image,
-                size: '1500x1500',
-                crop: 'center',
-                lazy: true,
-                canvas: true
-              %}
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
           {% endif %}
