@@ -93,7 +93,7 @@
             {% endif %}
             {% if block.settings.copy != blank %}
               <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
-                {{ block.settings.copy  }}
+                {{ block.settings.text  }}
               </p>
             {% endif %}
             {% if block.settings.link != blank %}
@@ -160,7 +160,7 @@
         },
         {
           "type": "richtext",
-          "id": "copy",
+          "id": "text",
           "label": "Header Copy",
           "default": "<p>In today's modern classroom, students have dozens of distractions vying for their attention. Boredom and disengagement are constant problems in the traditional classroom setting, and now students are consumed with ever increasing screen time as opposed to interacting with their teachers and peers. mcSquares enhance student learning experiences through haptic and kinesthetic learning, as well as allowing students to engage with each their classmates as well as their teachers.</p>"
         },
