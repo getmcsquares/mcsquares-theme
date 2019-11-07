@@ -43,10 +43,10 @@
       {% endif %}
 
       <div class="form-fields-columns">
-      <div class="form-field form-field--half">
-        <label class="form-field-title" for="form-radios">
+      <div class="form-field">
+          <p class="form-field-title" for="form-radios">
             I am a:
-          </label>
+          </p>
           <div id="form-radios">
             <input type="radio" id="ContactFormCustomer" name="contact[Type]" value="Customer"/> Customer<br>
             <input type="radio" id="contactFormSchool" name="contact[Type]" value="School"/> School or University<br/>
@@ -59,6 +59,8 @@
             <input type="radio" id="contactFormOther" name="contact[Type]" value="Other"/> Other<br/>
           </div>
           </div>
+        </div>
+        <div class="form-fields-columns">
         <div class="form-field form-field--half">
           {% assign value = '' %}
           {%- if form.name -%}
