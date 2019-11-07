@@ -5278,7 +5278,7 @@ $local-slideshow-large: 560px;
   z-index: 1;
   width: 100%;
   max-width: 100%;
-  margin: $gutter-outer * 2 auto;
+  padding: $gutter-outer * 2;
   text-align: center;
   text-shadow: 0px 1px 3px rgba(0,0,0,.6);
 
@@ -5291,7 +5291,7 @@ $local-slideshow-large: 560px;
   }
 
   @include media($max: $bp-small) {
-    max-width: 90%;
+    // max-width: 90%;
     text-align: center;
   }
   @include media($min: $bp-small) {
