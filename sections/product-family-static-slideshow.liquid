@@ -69,7 +69,7 @@
               d-flex align-items-center
             "
           >
-            <div class="col-12 offset-md-0 col-md-6">
+            <div class="col-12 offset-md-0 col-sm-6 col-md-4">
             {% if block.settings.video_url != blank %}
               <div class="video-container">
                 <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -80,16 +80,16 @@
             </h1>
             {% endif %}
             </div>
-            <div class="col-md-6 d-flex flex-column justify-content-center">
+            <div class="col-sm-6 col-md-8 d-flex flex-column justify-content-center" style="padding: 1em;">
             {% unless block.settings.video_url == blank %}
               <h2 class="" style="color: {{ block.settings.color }}">
                 <img src="{{ collection.image | img_url: '300x' }}">
               </h2>
               {% endunless %}
             {% if block.settings.heading != blank %}
-              <h2 class="" style="color: {{ block.settings.color }}">
+              <h5 class="" style="color: {{ block.settings.color }}">
                 {{ block.settings.heading }}
-              </h2>
+              </h5>
             {% endif %}
             {% if block.settings.copy != blank %}
               <p class="slideshow-slide-text" style="color: {{ block.settings.color }}">
