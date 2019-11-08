@@ -65,36 +65,43 @@
               placeholder--image
             {% endif %}
           "
-          {% if block.settings.background_image %}
-            {%
-              include 'rimg',
-              img: block.settings.background_image,
-              size: '1500x1500',
-              crop: slideshow_crop,
-              lazy: true,
-              background: true,
-            %}
-            {% elsif article.image %}
+          {% if article.image %}
+              {%
+                include 'rimg',
+                img: article.image,
+                size: '2000x2000',
+                crop: 'center',
+                lazy: true,
+                canvas: true
+              %}
+            {% elsif block.settings.background_image %}
                 {%
                   include 'rimg',
-                  img: article.image,
-                  size: '1500x1500',
-                  crop: 'center',
+                  img: block.settings.background_image,
+                  size: '2000x2000',
+                  crop: slideshow_crop,
                   lazy: true,
-                  canvas: true
+                  background: true,
                 %}
-            {% else %}
-            style="background-image: url('{{ placeholder_slide_image | strip }}')"
-          {% endif %}
+            {% endif %}
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
-          {% if block.settings.background_image %}
+          {% if article.image %}
+            {%
+              include 'rimg',
+              img: article.image,
+              size: '2000x2000',
+              crop: 'center',
+              lazy: true,
+              canvas: true
+            %}
+          {% elsif block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
-              size: '1500x1500',
+              size: '2000x2000',
               crop: slideshow_crop,
               lazy: true,
               canvas: true,
