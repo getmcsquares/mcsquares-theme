@@ -87,7 +87,7 @@
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
-          {% article.image %}
+          {% if article.image %}
             {%
               include 'rimg',
               img: article.image,
