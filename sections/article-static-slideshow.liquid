@@ -60,20 +60,11 @@
             slideshow-background
             slideshow-background--{{ block.id }}
             slideshow-height-{{ section.settings.hero_height }}
-            {% comment %}{% if block.settings.background_image == blank %}{% endcomment %}
+            {% if block.settings.background_image == blank %}
               placeholder--image
-            {% comment %}{% endif %}{% endcomment %}
+            {% endif %}
           "
-          {% if article.image %}
-              {%
-                include 'rimg',
-                img: article.image,
-                size: '2000x2000',
-                crop: 'center',
-                lazy: true,
-                canvas: true
-              %}
-            {% elsif block.settings.background_image %}
+          {% if block.settings.background_image %}
                 {%
                   include 'rimg',
                   img: block.settings.background_image,
@@ -93,7 +84,7 @@
               include 'rimg',
               img: article.image,
               size: '2000x2000',
-              crop: 'center',
+              crop: slideshow_crop,
               lazy: true,
               canvas: true
             %}
