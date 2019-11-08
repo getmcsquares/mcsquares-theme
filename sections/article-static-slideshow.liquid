@@ -10,11 +10,10 @@
   }
 </script>
 
-{% if section.settings.show_slideshow %}
   <section
     class="
       slideshow
-      slideshow-dots-{{ section.settings.slideshow_height }}
+      slideshow-dots-{{ section.settings.hero_height }}
     "
     aria-label="Slide show"
   >
@@ -31,7 +30,7 @@
       <div
         class="
           slideshow-slide
-          slideshow-height-{{ section.settings.slideshow_height }}
+          slideshow-height-{{ section.settings.hero_height }}
         "
         tabindex="0"
         aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
@@ -42,7 +41,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-height-{{ section.settings.slideshow_height }}
+              slideshow-height-{{ section.settings.hero_height }}
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -51,7 +50,7 @@
 
         {% assign slideshow_crop = 'center' %}
 
-        {% if section.settings.slideshow_height == 'original' %}
+        {% if section.settings.hero_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
 
@@ -60,7 +59,7 @@
             background-target
             slideshow-background
             slideshow-background--{{ block.id }}
-            slideshow-height-{{ section.settings.slideshow_height }}
+            slideshow-height-{{ section.settings.hero_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
@@ -83,7 +82,9 @@
                   lazy: true,
                   background: true,
                 %}
-            {% endif %}
+              {% else %}
+                style="background-image: url('{{ placeholder_slide_image | strip }}')"
+              {% endif %}
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
@@ -158,38 +159,16 @@
     %}
     {% include 'header-image-helper' %}
   </section>
-{% endif %}
+
 {% schema %}
 {
-  "name": "Slideshow",
+  "name": "article hero",
   "class": "slideshow--section",
   "settings": [
     {
-      "id": "show_slideshow",
-      "type": "checkbox",
-      "label": "Enable slideshow",
-      "default": true
-    },
-    {
-      "id": "enable_autoplay",
-      "type": "checkbox",
-      "label": "Autoplay slideshow",
-      "default": true
-    },
-    {
-      "id": "autoplay_duration",
-      "type": "range",
-      "label": "Autoplay slide duration",
-      "min": 5,
-      "max": 12,
-      "step": 1,
-      "unit": "sec",
-      "default": 8
-    },
-    {
-      "id": "slideshow_height",
+      "id": "hero_height",
       "type": "select",
-      "label": "Slideshow height",
+      "label": "Hero height",
       "options": [
         {
           "value": "small",
