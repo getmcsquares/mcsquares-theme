@@ -60,9 +60,9 @@
             slideshow-background
             slideshow-background--{{ block.id }}
             slideshow-height-{{ section.settings.hero_height }}
-            {% if block.settings.background_image == blank %}
+            {% comment %}{% if block.settings.background_image == blank %}{% endcomment %}
               placeholder--image
-            {% endif %}
+            {% comment %}{% endif %}{% endcomment %}
           "
           {% if article.image %}
               {%
