@@ -3853,13 +3853,13 @@ $local-max-width: 700px;
   }
 
   &:nth-child(2) {
-    padding-left: 11px;
-    margin-left: 10px;
-    border-left: 1px solid transparentize($color-border, 0.65);
+    //padding-left: 11px;
+    margin-top: 10px;
+    //border-left: 1px solid transparentize($color-border, 0.65);
 
     @include media($max: $bp-small) {
-      padding-left: 6px;
-      margin-left: 5px;
+      //padding-left: 6px;
+      //margin-left: 5px;
     }
   }
 }
@@ -10878,6 +10878,7 @@ $local-space-large: 15px;
 
 .share-buttons {
   margin: 0 0 1em;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -10895,10 +10896,11 @@ $local-space-large: 15px;
 
   .share-buttons--list {
     margin-left: $space-small;
+    margin-top: 0;
     font-size: 0;
 
     @include media($min: $bp-small) {
-      margin-top: $space-x-small;
+      //margin-top: $space-x-small;
     }
   }
 
