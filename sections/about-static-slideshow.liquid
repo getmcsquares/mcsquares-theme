@@ -129,16 +129,16 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-7 d-flex flex-column justify-content-center text-left" style="padding: 1em">
-              <h2 class="" style="color: {{ block.settings.color }}">
-                {{ page.title | escape }}
+              <h2 class="propisi" style="color: {{ block.settings.color }}">
+                {{ block.settings.title | escape }}
               </h2>
             {% if block.settings.text != blank %}
-              <p class="text-white">
+              <p class="text-white" style="color: {{ block.settings.color }}">
                 {{ block.settings.text  }}
               </p>
             {% endif %}
             {% if block.settings.byline != blank %}
-              <p class="text-white">
+              <p class="text-white" style="color: {{ block.settings.color }}">
                 {{ block.settings.byline  }}
               </p>
             {% endif %}
