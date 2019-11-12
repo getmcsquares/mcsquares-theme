@@ -15,8 +15,10 @@
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="static-content-outer text-left col-sm-6 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <div class="static-content-box">
-        <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
-        <p>{{ block.settings.text_content }}</p>
+        <div>
+          <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
+          <p>{{ block.settings.text_content }}</p>
+        </div>
       </div>
       </div>
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
