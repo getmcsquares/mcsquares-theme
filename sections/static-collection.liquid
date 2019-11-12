@@ -190,10 +190,11 @@
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
-          <h3>{{ tag | capitalize }}</h3>
+          <h3>{{ tag | capitalize | remove: 'sort-by' }}</h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
+            {% if product_tag contains 'sort-by' %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
               {% assign indexer = indexer | plus: 1 %}
@@ -201,6 +202,7 @@
                   include 'product-grid-item',
                   product: product
                 %}
+                {% endif %}
               {% endif %}
             {% endfor %}
           {% endfor %}
