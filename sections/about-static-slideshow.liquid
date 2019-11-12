@@ -61,6 +61,7 @@
             slideshow-background
             slideshow-dynamic
             slideshow-background--{{ block.id }}
+            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
@@ -174,6 +175,12 @@
       "type": "checkbox",
       "label": "Autoplay slideshow",
       "default": true
+    },
+    {
+      "id": "sticky",
+      "type": "checkbox",
+      "label": "Keep text content in slideshow on mobile?",
+      "default": false
     },
     {
       "id": "autoplay_duration",

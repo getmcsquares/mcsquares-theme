@@ -5299,11 +5299,13 @@ $local-slideshow-large: 560px;
   div{
     outline: none !important;
   }
+
+}
+.slideshow-background-sticky{
   @include media($max: $bp-small) {
     position: absolute;
   }
 }
-
 .slideshow-slide-overlay {
   position: absolute;
   top: 0;
@@ -5311,13 +5313,13 @@ $local-slideshow-large: 560px;
   bottom: 0;
   left: 0;
 
-  @include media($max: $bp-small) {
-    .slideshow-height-small &,
-    .slideshow-height-medium &,
-    .slideshow-height-large & {
-      display: none;
-    }
-  }
+  // @include media($max: $bp-small) {
+  //   .slideshow-height-small &,
+  //   .slideshow-height-medium &,
+  //   .slideshow-height-large & {
+  //     display: none;
+  //   }
+  // }
 }
 
 .slideshow-slide-content {

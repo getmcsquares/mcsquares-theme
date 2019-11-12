@@ -58,6 +58,7 @@
           class="
             background-target
             slideshow-dynamic
+            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             slideshow-background--{{ block.id }}
           ">
           <div
@@ -127,6 +128,12 @@
       "type": "checkbox",
       "label": "Autoplay slideshow",
       "default": true
+    },
+    {
+      "id": "sticky",
+      "type": "checkbox",
+      "label": "Keep text content in slideshow on mobile?",
+      "default": false
     },
     {
       "id": "autoplay_duration",

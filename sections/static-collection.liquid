@@ -186,15 +186,62 @@
         </nav>
       {% endif %}
 
+      {% assign indexer = 0 %}
+      {% assign otherProducts = '' | split: ',' %}
       {% if collection.products.size > 0 %}
-        <ul class="productgrid--items">
+        {% for tag in collection.all_tags %}
+
+
+          {% if tag contains 'sort-by' %}
+          {% capture current_tag %}/{{ tag }}/{% endcapture %}
+          {% assign words =  tag | remove: 'sort-by' | split: '-' %}
+          <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
+
+
+          <ul class="productgrid--items">
           {% for product in collection.products %}
-            {%
-              include 'product-grid-item',
-              product: product
-            %}
+            {% for product_tag in product.tags %}
+              {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
+              {% if current_tag contains current_tag2 %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
+                {% else %}
+                {% assign tempHandle = product.handle | split: ',' %}
+                {% assign checkHandle = product.handle %}
+                  {% for productHandle in otherProducts %}
+                    {% if productHandle contains checkHandle %}
+                      {% break %}
+                    {% else %}
+                      {% assign otherProducts = otherProducts | concat: tempHandle %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+            {% endfor %}
           {% endfor %}
-        </ul>
+          </ul>
+
+
+          {% endif %}
+        {% endfor %}
+
+
+        {% if otherProducts.size > 0 %}
+          <h3>Other</h3>
+            <ul class="productgrid--items">
+            {% assign limit = otherProducts.size %}
+              {% for i in (0..limit) %}
+              {% assign producto = all_products[otherProducts[i]] %}
+                {%
+                  include 'product-grid-item',
+                  product: producto
+                %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
