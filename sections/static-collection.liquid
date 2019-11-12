@@ -201,7 +201,7 @@
 
           <ul class="productgrid--items">
           {% for product in collection.products %}
-            {% for 1 in product.tags %}
+            {% for product_tag in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
                 {%
@@ -217,6 +217,7 @@
                     {% if productHandle contains checkHandle %}
                     <p>{{productHandle}}, {{checkHandle}}, break</p>
                       {% break %}
+
                     {% else %}
                     <p> array, {{ otherProducts }}</p>
                       {% assign otherProducts = otherProducts | concat: tempHandle %}
