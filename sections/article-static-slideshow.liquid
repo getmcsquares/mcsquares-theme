@@ -59,6 +59,7 @@
             background-target
             slideshow-background
             slideshow-background--{{ block.id }}
+            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             slideshow-height-{{ section.settings.hero_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
@@ -156,6 +157,12 @@
   "name": "article hero",
   "class": "slideshow--section",
   "settings": [
+    {
+      "id": "sticky",
+      "type": "checkbox",
+      "label": "Keep text content in slideshow on mobile?",
+      "default": false
+    },
     {
       "id": "hero_height",
       "type": "select",
