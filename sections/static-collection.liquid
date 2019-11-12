@@ -201,22 +201,22 @@
 
           <ul class="productgrid--items">
           {% for product in collection.products %}
-            {% for product_tag in product.tags %}
+            {% for 1 in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
                 {%
                   include 'product-grid-item',
                   product: product
                 %}
-                {% else %}
+              {% else %}
 
                 {% assign tempHandle = product.handle | split: ',' %}
                 {% assign checkHandle = product.handle %}
-
+                  <p>{{productHandle}}, {{checkHandle}}, outside loop</p>
                   {% for productHandle in otherProducts %}
                     {% if productHandle contains checkHandle %}
+                    <p>{{productHandle}}, {{checkHandle}}, break</p>
                       {% break %}
-                      <p>{{productHandle}}, {{checkHandle}}, break</p>
                     {% else %}
                     <p> array, {{ otherProducts }}</p>
                       {% assign otherProducts = otherProducts | concat: tempHandle %}
