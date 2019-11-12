@@ -188,6 +188,7 @@
 
       {% assign indexer = 0 %}
       {% assign otherProducts = '' | split: ',' %}
+
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
 
@@ -208,16 +209,21 @@
                   product: product
                 %}
                 {% else %}
+
                 {% assign tempHandle = product.handle | split: ',' %}
                 {% assign checkHandle = product.handle %}
+
                   {% for productHandle in otherProducts %}
                     {% if productHandle contains checkHandle %}
                       {% break %}
+                      <p>{{productHandle}}, {{checkHandle}}, break</p>
                     {% else %}
+                    <p> array, {{ otherProducts }}</p>
                       {% assign otherProducts = otherProducts | concat: tempHandle %}
                     {% endif %}
                   {% endfor %}
-                {% endif %}
+
+              {% endif %}
             {% endfor %}
           {% endfor %}
           </ul>
@@ -226,9 +232,9 @@
           {% endif %}
         {% endfor %}
 
-
+          <h3>Other size (outer): {{ otherProducts.size }}</h3>
         {% if otherProducts.size > 0 %}
-          <h3>Other</h3>
+          <h3>Other size: {{otherProducts.size }}</h3>
             <ul class="productgrid--items">
             {% assign limit = otherProducts.size %}
               {% for i in (0..limit) %}
