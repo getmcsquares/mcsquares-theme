@@ -205,7 +205,7 @@
                   product: product
                 %}
                 {% else %}
-                {% assign tempHandle = product.handle | split: ','%}
+                {% assign tempHandle = product.handle | split: ',' %}
                 {% assign otherProducts = otherProducts | concat: tempHandle %}
                 {% endif %}
             {% endfor %}
@@ -216,7 +216,7 @@
         {% if otherProducts.size > 0 %}
           <h3>Other</h3>
             <ul class="productgrid--items">
-            {% assign my_products = otherProducts | remove_last: ';' | split: ';' %}
+            {% assign my_products = otherProducts  | split: ',' %}
             {% assign limit = my_products.size %}
               {% for i in (0..limit) %}
               {% assign producto = all_products[my_products[i]] %}
