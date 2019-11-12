@@ -190,29 +190,42 @@
       {% assign otherProducts = '' | split: ',' %}
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
+
+
           {% if tag contains 'sort-by' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'sort-by' | split: '-' %}
           <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
+
+
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
-              {% assign indexer = indexer | plus: 1 %}
                 {%
                   include 'product-grid-item',
                   product: product
                 %}
                 {% else %}
                 {% assign tempHandle = product.handle | split: ',' %}
-                {% assign otherProducts = otherProducts | concat: tempHandle %}
+                  {% for productHandle in otherProducts %}
+                    {% if productHandle contains tempHandle %}
+                      {% break %}
+                    {% else %}
+                      {% assign otherProducts = otherProducts | concat: tempHandle %}
+                    {% endif %}
+                  {% endfor %}
                 {% endif %}
             {% endfor %}
           {% endfor %}
           </ul>
+
+
           {% endif %}
         {% endfor %}
+
+
         {% if otherProducts.size > 0 %}
           <h3>Other</h3>
             <ul class="productgrid--items">
@@ -226,6 +239,8 @@
               {% endfor %}
             </ul>
           {% endif %}
+
+
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
