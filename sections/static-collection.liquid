@@ -187,6 +187,7 @@
       {% endif %}
 
       {% assign indexer = 0 %}
+      {% assign otherProducts %}
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
           {% if tag contains 'sort-by' %}
@@ -203,22 +204,22 @@
                   include 'product-grid-item',
                   product: product
                 %}
+                {% else %}
+                {% assign otherProducts = otherProducts | concat: product %}
                 {% endif %}
             {% endfor %}
           {% endfor %}
           </ul>
           {% endif %}
         {% endfor %}
-        {% if indexer > 0 and indexer < collection.products.size %}
+        {% if otherProducts.size > 0 %}
           <h3>Other</h3>
             <ul class="productgrid--items">
-              {% for product in collection.products %}
-                {% if product.tags.size == 0 %}
-                  {%
-                    include 'product-grid-item',
-                    product: product
-                  %}
-                {% endif %}
+              {% for product in otherProducts %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
               {% endfor %}
             </ul>
           {% endif %}
