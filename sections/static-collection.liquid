@@ -204,6 +204,17 @@
           {% endfor %}
           </ul>
         {% endfor %}
+        {% for product in collection.products %}
+        {% if product.tags.size == 0 %}
+        <h3>{{ tag }}</h3>
+          <ul class="productgrid--items">
+          {%
+            include 'product-grid-item',
+            product: product
+          %}
+          </ul>
+        {% endif %}
+        {% endfor %}
           {% comment %} {% for product in collection.products %}
             {%
               include 'product-grid-item',
