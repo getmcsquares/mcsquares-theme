@@ -188,12 +188,27 @@
 
       {% if collection.products.size > 0 %}
         <ul class="productgrid--items">
+        {% for tag in collection.all_tags %}
+          {% capture current_tag %}/{{ tag }}/{% endcapture %}
+          <h3>{{ tag }}</h3>
           {% for product in collection.products %}
+            {% for product_tag in product.tags %}
+              {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
+              {% if current_tag contains current_tag2 %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+          {% comment %} {% for product in collection.products %}
             {%
               include 'product-grid-item',
               product: product
             %}
-          {% endfor %}
+          {% endfor %} {% endcomment %}
         </ul>
       {% else %}
         <div class="productgrid--no-results">
