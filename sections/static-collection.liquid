@@ -196,7 +196,7 @@
             {% for product_tag in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
-              {% assign indexer = indexer | plus: 1 %}
+              {% increment indexer %}
                 {%
                   include 'product-grid-item',
                   product: product
@@ -206,26 +206,20 @@
           {% endfor %}
           </ul>
         {% endfor %}
-        {% if indexer < collection.products.size %}
-        <h3>Other</h3>
-          <ul class="productgrid--items">
-        {% for product in collection.products %}
-        {% if product.tags.size == 0 %}
-          {%
-            include 'product-grid-item',
-            product: product
-          %}
-        {% endif %}
-        {% endfor %}
-          </ul>
+        <h1>{{indexer}}, {{ collection.products.size | lowercase }}</h1>
+        {% if indexer > 0 and indexer < collection.products.size %}
+          <h3>Other</h3>
+            <ul class="productgrid--items">
+              {% for product in collection.products %}
+                {% if product.tags.size == 0 %}
+                  {%
+                    include 'product-grid-item',
+                    product: product
+                  %}
+                {% endif %}
+              {% endfor %}
+            </ul>
           {% endif %}
-          {% comment %} {% for product in collection.products %}
-            {%
-              include 'product-grid-item',
-              product: product
-            %}
-          {% endfor %} {% endcomment %}
-
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
