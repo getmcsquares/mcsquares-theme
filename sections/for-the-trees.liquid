@@ -5,9 +5,9 @@
       <div class="col-12 col-md-4">
         <div class="row d-flex align-items-center">
           <div class="col offset-md-4 col-md-10 text-center d-flex align-items-center justify-content-center">
-          {% if section.blocks.size > 1 %}
+          {% if section.blocks.size >= 2 %}
             {% assign max = section.blocks.size %}
-            {% assign min = 1 %}
+            {% assign min = '1' %}
             {% assign diff = max | minus: min %}
             {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min | downcase %}
           {% else %}
