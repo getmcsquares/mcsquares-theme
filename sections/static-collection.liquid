@@ -218,7 +218,7 @@
             <ul class="productgrid--items">
             {% assign my-products = otherProducts | remove_last: ';' | split: ';' %}
               {% for handle in my-products %}
-              {% assign producto = all_products[handle] %}
+              {% assign producto = all_products.handle %}
                 {%
                   include 'product-grid-item',
                   product: producto
