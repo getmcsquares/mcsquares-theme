@@ -205,7 +205,7 @@
                   product: product
                 %}
                 {% else %}
-                {% assign tempHandle = | append: product.handle | append: ';' | split: '_'%}
+                {% assign tempHandle = product.handle | append: ';' | split: '_'%}
                 {% assign otherProducts = otherProducts | concat: tempHandle %}
                 {% endif %}
             {% endfor %}
