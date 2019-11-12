@@ -216,10 +216,9 @@
         {% if otherProducts.size > 0 %}
           <h3>Other</h3>
             <ul class="productgrid--items">
-            {% assign my_products = otherProducts  | split: ',' %}
-            {% assign limit = my_products.size %}
+            {% assign limit = otherProducts.size %}
               {% for i in (0..limit) %}
-              {% assign producto = all_products[my_products[i]] %}
+              {% assign producto = all_products[otherProducts[i]] %}
                 {%
                   include 'product-grid-item',
                   product: producto
