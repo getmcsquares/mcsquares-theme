@@ -207,7 +207,7 @@
           </ul>
         {% endfor %}
         <h1>{{indexer}}, {{ collection.products.size | lowercase }}</h1>
-        {% if indexer > 0 and indexer < collection.products.size %}
+        {% if indexer > collection.products.size %}
           <h3>Other</h3>
             <ul class="productgrid--items">
               {% for product in collection.products %}
