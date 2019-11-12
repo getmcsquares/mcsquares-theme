@@ -15,7 +15,7 @@
         <img src="{{ block.settings.avatar | img_url: '80x' }}" style="max-width: 100%; border-radius: 50%;">
       </div>
       <div class="col">
-        <p><span class="tex-blue">{{block.settings.author}}</span> <span class="text-small text-grey">Verifed Buyer</span></p>
+        <p><span class="tex-blue">{{block.settings.author}}</span>&nbsp;<span class="text-small text-grey">Verifed Buyer</span></p>&nbsp;{% if block.settings.date %}{{block.settings.date}}{% endif %}
         {% for i in (1..block.settings.star-count) %}
         <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
         {% endfor %}
