@@ -196,7 +196,7 @@
             {% for product_tag in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
               {% if current_tag contains current_tag2 %}
-              {% increment indexer %}
+              {% assign indexer = indexer | plus: 1 %}
                 {%
                   include 'product-grid-item',
                   product: product
