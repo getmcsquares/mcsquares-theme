@@ -187,10 +187,10 @@
       {% endif %}
 
       {% if collection.products.size > 0 %}
-        <ul class="productgrid--items">
         {% for tag in collection.all_tags %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           <h3>{{ tag }}</h3>
+          <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
               {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
@@ -202,6 +202,7 @@
               {% endif %}
             {% endfor %}
           {% endfor %}
+          </ul>
         {% endfor %}
           {% comment %} {% for product in collection.products %}
             {%
@@ -209,7 +210,7 @@
               product: product
             %}
           {% endfor %} {% endcomment %}
-        </ul>
+
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
