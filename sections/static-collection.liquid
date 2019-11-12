@@ -190,7 +190,7 @@
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
-          <h3>{{ tag | capitalize | remove: 'sort-by' }}</h3>
+          <h3>{{ tag | remove: 'sort-by' | replace: '-', ' ' | capitalize }}</h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
