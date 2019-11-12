@@ -11,7 +11,7 @@
             {% assign diff = max | minus: min %}
             {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
           {% else %}
-          {% assign randomNumber = 1 %}
+          {% assign randomNumber = '1' %}
           {% endif %}
           {% assign block = section.blocks[randomNumber] %}
           {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
@@ -31,6 +31,7 @@
       <div class="col-12 col-md-8">
         <div class="row d-flex align-items-center text-container">
           <div class="col text-center">
+          {% assign randomNumber = '14' %}
           <p>{{randomNumber}}</p>
             <h1 class="section--title text-center">{{ section.settings.header }}</h1>
             <p class="text-center">{{ section.settings.subheader }}</p>
