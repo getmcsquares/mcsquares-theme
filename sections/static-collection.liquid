@@ -209,8 +209,9 @@
                 %}
                 {% else %}
                 {% assign tempHandle = product.handle | split: ',' %}
+                {% assign checkHandle = product.handle %}
                   {% for productHandle in otherProducts %}
-                    {% if productHandle contains tempHandle %}
+                    {% if productHandle contains checkHandle %}
                       {% break %}
                     {% else %}
                       {% assign otherProducts = otherProducts | concat: tempHandle %}
