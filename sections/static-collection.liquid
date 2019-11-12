@@ -191,7 +191,8 @@
         {% for tag in collection.all_tags %}
           {% if tag contains 'sort-by' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
-          <h3>{{ tag | remove: 'sort-by' | replace: '-', ' ' | capitalize }}</h3>
+          {% assign words =  tag | remove: 'sort-by' | split: '-' %}
+          <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
