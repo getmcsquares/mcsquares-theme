@@ -211,10 +211,9 @@
           {% endif %}
         {% endfor %}
 
-      {% if indexer < collectio.products.size %}
+      {% if indexer < collection.products.size %}
       <h3>Other</h3>
       <ul class="productgrid--items">
-      {% endif %}
             {% for product in collection.products %}
             {% assign hasSort = false %}
               {% for product_tag in product.tags %}
@@ -230,7 +229,6 @@
                 %}
               {% endif %}
             {% endfor %}
-      {% if indexer < collectio.products.size %}
         </ul>
       {% endif %}
       {% else %}
