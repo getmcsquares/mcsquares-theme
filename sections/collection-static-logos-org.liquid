@@ -1,0 +1,49 @@
+<div class="section-inner about-content container" style="">
+  {% if section.settings.section_title != blank %}
+    <div class="text-center limitcopywidth">
+    <h1 class="section-header">{{ section.settings.section_title }}</h1>
+    </div>
+  {% endif %}
+
+  <div class="row d-flex align-items-center">
+    {% for block in section.blocks %}
+    <div class="col-6 col-sm-3 about-image-wrap text-center" style='padding: 1em;'>
+      <img class="logo" style="max-width: 100%; max-height: 30px;" src="{{ block.settings.image | img_url: '250x' }}"/>
+    </div>
+  {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": {
+      "en": "Collection Static Logos"
+    },
+    "class": "index-section section-pad",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": {
+          "en": "Section Heading"
+        },
+        "default": {
+          "en": "Optional Section Heading"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Static block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
