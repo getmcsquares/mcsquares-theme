@@ -209,29 +209,10 @@
           </ul>
           {% endif %}
         {% endfor %}
-{% comment %} 
-        {% for tag in collection.all_tags %}
-          {% if tag contains 'sort-by' %}
-          {% capture current_tag %}/{{ tag }}/{% endcapture %}
-          <h3>Other</h3>
-            <ul class="productgrid--items">
-            {% for product in collection.products %}
-              {% for product_tag in product.tags %}
-                {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
-                {% unless current_tag contains current_tag2 %}
-                  {%
-                    include 'product-grid-item',
-                    product: product
-                  %}
-                {% endunless %}
-              {% endfor %}
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endfor %} {% endcomment %}
       <h3>Other</h3>
       <ul class="productgrid--items">
             {% for product in collection.products %}
+            {% assign hasSort = false %}
               {% for product_tag in product.tags %}
                 {% if product_tag contains 'sort-by' %}
                   {% assign hasSort = true %}
@@ -239,10 +220,10 @@
                 {% endif %}
               {% endfor %}
               {% if hasSort != true %}
-              {%
-                include 'product-grid-item',
-                product: product
-              %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
               {% endif %}
             {% endfor %}
         </ul>
