@@ -10,6 +10,7 @@
   {% endcomment %}
 
   {% for tag in collection.all_tags %}
+  {% unless tag contains 'sort-by' %}
     {% assign is_advanced_tag = false %}
     {% assign cat = tag | split: '_' | first %}
     {% unless cat == tag %}
@@ -52,6 +53,7 @@
         {{ tag_text | link_to_tag: tag | replace: '" title="', '&grid_list" title=""' }}
       {% endif %}
     </li>
+    {% endunless %}
   {% endfor %}
 
   {% if collection.all_tags.size > tag_limit %}
