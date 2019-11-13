@@ -186,19 +186,14 @@
         </nav>
       {% endif %}
 
-      {% assign indexer = 0 %}
-      {% assign otherProducts = '' | split: ',' %}
+      {% assign otherProducts = '' | split: ';' %}
 
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
-
-
           {% if tag contains 'sort-by' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'sort-by' | split: '-' %}
           <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
-
-
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
@@ -209,39 +204,35 @@
                   product: product
                 %}
               {% else %}
-
-                {% assign tempHandle = product.handle | split: ',' %}
-                {% assign checkHandle = product.handle %}
-                  <p>{{tempHandle}}, {{checkHandle}}, outside loop</p>
-                  {% for productHandle in otherProducts %}
-                    {% unless productHandle contains checkHandle %}
-                      {% assign otherProducts = otherProducts | concat: tempHandle %}
-                    {% endunless %}
-                  {% endfor %}
-
+                {% skip %}
               {% endif %}
             {% endfor %}
           {% endfor %}
           </ul>
-
-
           {% endif %}
         {% endfor %}
 
-          <h3>Other size (outer): {{ otherProducts.size }}</h3>
-        {% if otherProducts.size > 0 %}
-          <h3>Other size: {{otherProducts.size }}</h3>
-            <ul class="productgrid--items">
-            {% assign limit = otherProducts.size %}
-              {% for i in (0..limit) %}
-              {% assign producto = all_products[otherProducts[i]] %}
+          {% for tag in collection.all_tags %}
+          {% if tag contains 'sort-by' %}
+          {% capture current_tag %}/{{ tag }}/{% endcapture %}
+          {% assign words =  tag | remove: 'sort-by' | split: '-' %}
+          <h3>Other</h3>
+          <ul class="productgrid--items">
+          {% for product in collection.products %}
+            {% for product_tag in product.tags %}
+              {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
+              {% unless current_tag contains current_tag2 %}
                 {%
                   include 'product-grid-item',
-                  product: producto
+                  product: product
                 %}
-              {% endfor %}
-            </ul>
+              {% endunless %}
+            {% endfor %}
+          {% endfor %}
+          </ul>
           {% endif %}
+        {% endfor %}
+
 
 
       {% else %}
