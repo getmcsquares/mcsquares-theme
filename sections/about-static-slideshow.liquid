@@ -126,7 +126,12 @@
           >
             <div class="col-12 col-sm-6 col-md-5">
               <div class="video-container">
-                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {% comment %} <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {% endcomment %}
+                {% assign url = block.settings.url %}
+                {%
+                  include 'video',
+                  url: url
+                %}
               </div>
             </div>
             <div class="col-sm-6 col-md-7 d-flex flex-column justify-content-center text-left" style="padding: 1em">
@@ -243,6 +248,13 @@
           "label": "Video URL",
           "default": "https://www.youtube.com/embed/K538gxU8-Po",
           "info": "From the 'embed' option under the share menu"
+        },
+        {
+          "type": "video_url",
+          "id": "url",
+          "label": "Link",
+          "accept": ["youtube", "vimeo"],
+          "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
         },
         {
           "id": "title",
