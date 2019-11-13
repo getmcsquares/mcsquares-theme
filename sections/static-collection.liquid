@@ -212,16 +212,11 @@
 
                 {% assign tempHandle = product.handle | split: ',' %}
                 {% assign checkHandle = product.handle %}
-                  <p>{{productHandle}}, {{checkHandle}}, outside loop</p>
+                  <p>{{tempHandle}}, {{checkHandle}}, outside loop</p>
                   {% for productHandle in otherProducts %}
-                    {% if productHandle contains checkHandle %}
-                    <p>{{productHandle}}, {{checkHandle}}, break</p>
-                      {% break %}
-
-                    {% else %}
-                    <p> array, {{ otherProducts }}</p>
+                    {% unless productHandle contains checkHandle %}
                       {% assign otherProducts = otherProducts | concat: tempHandle %}
-                    {% endif %}
+                    {% endunless %}
                   {% endfor %}
 
               {% endif %}
