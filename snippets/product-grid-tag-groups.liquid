@@ -18,6 +18,7 @@
       Loop through collection tags
     {% endcomment %}
     {% for tag in collection.all_tags %}
+    {% unless tag contains 'sort-by' %}
       {% assign cat = tag | split: '_' | first %}
       {% if cat != tag and cat_item == cat %}
         {% assign tag_count = tag_count | plus: 1 %}
@@ -58,6 +59,7 @@
           {% endif %}
         </li>
       {% endif %}
+      {% endunless %}
     {% endfor %}
 
     {% if tag_count > tag_limit %}
