@@ -187,7 +187,7 @@
       {% endif %}
 
       {% assign otherProducts = '' | split: ';' %}
-
+      {% assign indexer = 0 %}
       {% if collection.products.size > 0 %}
         {% for tag in collection.all_tags %}
           {% if tag contains 'sort-by' %}
@@ -203,14 +203,18 @@
                   include 'product-grid-item',
                   product: product
                 %}
+                {% assign indexer = indexer | plus: 1 %}
               {% endif %}
             {% endfor %}
           {% endfor %}
           </ul>
           {% endif %}
         {% endfor %}
+
+      {% if indexer < collectio.products.size %}
       <h3>Other</h3>
       <ul class="productgrid--items">
+      {% endif %}
             {% for product in collection.products %}
             {% assign hasSort = false %}
               {% for product_tag in product.tags %}
@@ -226,7 +230,9 @@
                 %}
               {% endif %}
             {% endfor %}
+      {% if indexer < collectio.products.size %}
         </ul>
+      {% endif %}
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
