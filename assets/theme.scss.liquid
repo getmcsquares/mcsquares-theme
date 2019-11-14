@@ -424,7 +424,9 @@ a:focus {
   outline: 0px dotted #ccc !important;
   cursor: pointer;
 }
-
+a:hover{
+  opacity: 0.8;
+}
 /**
  * 1. Remove the bottom border in Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -12259,6 +12261,9 @@ $local-link-padding: rem(3px);
     display: block;
     color: $color-background;
     background: $color-link;
+    &:hover{
+      color: $color-background;
+    }
   }
 
   .filter-icon--remove,
