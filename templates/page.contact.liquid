@@ -4,16 +4,12 @@
 {% include 'svg-curve' %}
 
 <article class="site-page container contact-page-content has-bottom-curve" data-template-page data-template-contact>
-<div class="contact-page-content">
-  {{page.content}}
-</div>
+{% if page.content != blank %}
+  <div class="page-content rte contact-page-content">
+    {{ page.content }}
+  </div>
+{% endif %}
   {% form 'contact' %}
-
-    {% if page.content != blank %}
-      <div class="page-content rte">
-        {{ page.content }}
-      </div>
-    {% endif %}
 
     <div class="">
       {% assign has_message = false %}
