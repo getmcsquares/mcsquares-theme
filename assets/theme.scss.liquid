@@ -924,7 +924,7 @@ $color-success: #51a551;
 $color-warning: #dfa354;
 $color-highlight: #fffbd9;
 $color-notice: $color-text;
-$color-sale: #de0101;
+$color-sale: #cf2b2f;
 $color-star: #f6c347;
 $color-star-empty: mix($color-text, $color-background, 50%);
 
@@ -1096,7 +1096,13 @@ $color-featured-post-foreground: $color-background;
     @media screen and (min-width: $min) { @content; }
   }
 }
-
+.featured-whitepage-content > a {
+  color: $client-grey;
+  &:hover, &:active {
+    color: $client-grey;
+    opacity: .8;
+  }
+}
 // Reusable button style for changing button sizes at different break points
 @mixin button-size($button-size) {
   $padding: false;
@@ -4124,12 +4130,12 @@ $local-cart-sidebar-width: 280px;
   height: 358px;
   padding: $space-medium;
   text-align: center;
-  border: 1px solid $color-border-soft;
-  box-shadow: 0 1px 4px 0 rgba($color-black, 0.06);
+  border: none; //1px solid $color-border-soft;
+  box-shadow: none; //0 1px 4px 0 rgba($color-black, 0.06);
 }
 
 .cartitems-empty--inner {
-
+  margin: 0;
   p {
     margin-top: 0;
     margin-bottom: $space-medium;
@@ -6487,6 +6493,9 @@ $logo-size-large: 160px;
   }
 }
 
+.logo-row {
+ justify-content: center;
+}
 $local-avatar-size: rem(45px);
 $local-tweet-width: 276px;
 
@@ -15242,6 +15251,9 @@ $local-image-width: rem(48px);
     padding: 25px 0 10px;
   }
 }
+.product-info-text, a, a:hover {
+  color:$client-light-grey;
+}
 .product-info-logo{
   @include media($bp-medium){
     margin-bottom: 1rem;
@@ -15528,9 +15540,9 @@ $local-image-width: rem(48px);
 }
 .accordian-btn{
   h5{
-    border-top: 1px solid #666;
+    border-top: 1px solid #ccc;
     margin-bottom: 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     letter-spacing: normal;
     color: #000000;
     padding: 1em 0;
@@ -15538,11 +15550,11 @@ $local-image-width: rem(48px);
 }
 .faq-category-title{
   padding: 1em 0;
-  border-top: 2px solid #666;
+  border-top: 1px solid #ccc;
   width: 90%;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: normal;
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #000000;
 }
 #accordian-1, #accordian-2, #accordian-3, #accordian-4, #accordian-5{
