@@ -2,12 +2,11 @@
 {% section 'page-static-slideshow' %}
 {% assign bg_color = '#fff' %}
 {% include 'svg-curve' %}
+
 <article class="site-page container contact-page-content has-bottom-curve" data-template-page data-template-contact>
-  <h3>Give us a shout! We’d love to help you with your Whiteboarding needs.</h3>
-<p>Use the form below to send us an email or check out these pages for more information:</p>
-<p><a href="/pages/frequently_asked_questions">FAQs</a>  - Frequently asked questions about our products and customer service</p>
-<p><a href="/blogs/news">BLOG</a> - Our recent articles about collaboration, creativity and whiteboarding</p>
-<p><a href="/blogs/whitepapers">WHITE PAPERS</a> - How educators are using mcSquares to engage students in classrooms</p>
+<div class="contact-page-content">
+  {{page.content}}
+</div>
   {% form 'contact' %}
 
     {% if page.content != blank %}
@@ -156,8 +155,11 @@
       </div>
     </div>
   {% endform %}
-  <p><strong>mcSquares Corporate Headquarters </strong></p>
-  <p>2150 Market St. Denver, CO 80205</p>
-  <p>info@mcsquares.com</p>
+  <hr/>
+  <div class="contact-form-lower">
+    <p><strong>mcSquares Corporate Headquarters </strong></p>
+    <p>2150 Market St. Denver, CO 80205</p>
+    <p>info@mcsquares.com</p>
+  </div>
 </article>
 {% section 'collection-static-quick-about' %}
