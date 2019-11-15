@@ -120,7 +120,6 @@
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
               row
-              container
               align-items-center
             "
           >
@@ -134,7 +133,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-7 d-flex flex-column justify-content-center text-left" style="padding: 1em">
-              <h1 class="propisi" style="color: {{ block.settings.color }}">
+              <h1 class="propisi header-size" style="color: {{ block.settings.color }}">
                 {{ block.settings.title | escape }}
               </h1>
             {% if block.settings.text != blank %}
