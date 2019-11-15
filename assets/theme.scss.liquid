@@ -924,7 +924,7 @@ $color-success: #51a551;
 $color-warning: #dfa354;
 $color-highlight: #fffbd9;
 $color-notice: $color-text;
-$color-sale: #de0101;
+$color-sale: #cf2b2f;
 $color-star: #f6c347;
 $color-star-empty: mix($color-text, $color-background, 50%);
 
@@ -1096,7 +1096,13 @@ $color-featured-post-foreground: $color-background;
     @media screen and (min-width: $min) { @content; }
   }
 }
-
+.featured-whitepage-content > a {
+  color: $client-grey;
+  &:hover, &:active {
+    color: $client-grey;
+    opacity: .8;
+  }
+}
 // Reusable button style for changing button sizes at different break points
 @mixin button-size($button-size) {
   $padding: false;
@@ -15238,6 +15244,9 @@ $local-image-width: rem(48px);
   @include media($bp-small){
     padding: 25px 0 10px;
   }
+}
+.product-info-text, a, a:hover {
+  color:$client-light-grey;
 }
 .product-info-logo{
   @include media($bp-medium){
