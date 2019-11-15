@@ -16,6 +16,11 @@
   {% endcapture %}
     <div class="row d-flex align-items-center">
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
+    {% if block.settings.image == blank %}
+    <div class="text-left col-12">
+    {% else %}
+    <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
+    {% endif %}
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
       {{ block.settings.text_content }}
