@@ -18,7 +18,7 @@
     {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
     <div class="text-left col-sm-7 {% if cycle_var == 'even' %}order-2 order-sm-1 order-md-1{% endif %}">
       <h2 class="about-subtitle">{{ block.settings.heading}}</h2>
-      <p>{{ block.settings.text_content }}</p>
+      {{ block.settings.text_content }}
       {% if block.settings.cta_link != blank or block.settings.cta_link_2 != blank %}
       <div class="d-flex align-items-center justify-content-start">
       {% if block.settings.cta_link != blank %}
@@ -78,10 +78,10 @@
             }
           },
           {
-            "type": "text",
+            "type": "richtext",
             "id": "text_content",
             "label": "Text Content",
-            "default": "lorem"
+            "default": "<p>Our vision is to create meaningful human connections in a time of increasing separation caused by technology. We are building an ecosystem of collaboration tools that empower face-to-face communication, discovery, and innovation.</p>"
           },
           {
             "type": "image_picker",
