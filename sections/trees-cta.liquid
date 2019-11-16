@@ -1,10 +1,10 @@
 <div class="page-width home-section--content" style="background-image: url('{{section.settings.bg_image | img_url: '800x'}}'); background-position: center; background-size: cover;">
-  <div class="container">
-    <div class="d-flex flex-column align-items-center text-center">
-    <h4 class="text-center" style="color: {{ section.settings.text-color }}">
+  <div class="container row">
+    <div class=" col-sm-8 offset-sm-2 d-flex flex-column align-items-center text-center">
+    <h4 class="text-center" style="color: {{ section.settings.text_color }} !important">
     {{ section.settings.heading }}
     </h4>
-    <p class="text-center" style="color: {{ section.settings.text-color }}">
+    <p class="text-center" style="color: {{ section.settings.text_color }} !important">
         {{ section.settings.copy }}
     </p>
       <a href="{{section.settings.cta--link}}">
