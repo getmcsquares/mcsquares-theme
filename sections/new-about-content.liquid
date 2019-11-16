@@ -15,7 +15,9 @@
   </div>
   {% endcapture %}
     <div class="row d-flex align-items-center">
-    {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
+    {% unless block.settings.image == blank %}
+      {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
+      {% endunless %}
     {% if block.settings.image == blank %}
     <div class="text-left col-12">
     {% else %}
@@ -34,8 +36,9 @@
       </div>
       {% endif %}
       </div>
+      {% unless block.settings.image == blank %}
       {% if cycle_var == 'even' %}{{ image_layout }}{% endif %}
-
+      {% endunless %}
     </div>
   {% endfor %}
 
