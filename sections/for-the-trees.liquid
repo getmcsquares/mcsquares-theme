@@ -44,6 +44,18 @@
 </div>
 {{ 'scroller.js' | asset_url | script_tag }}
 <script type="text/javascript">
+var d = new Date();
+var day = 86400000;
+var startTime = 1574110564936;
+var currentTime = d.getTime();
+var timeDifference = currentTime - startTime;
+var modTime = timeDifference % day;
+if ( modTime > day ){
+  var days = (modtime / day);
+  var multplier = Math.floor(days);
+} else {
+  var multplier = 1;
+}
 var prependZero = function () {
   var el = $('.scroller-table tr')
   el.prepend('<td><div class="scroller" style="position:relative;overflow:hidden;width:45px;text-align:center;height:30px;line-height:30px;"><div class="scroller-inner-pane" style="position: absolute; width: 45px; text-align: center; top: 0px; transition-timing-function: linear !important; transition-duration: 0ms !important; transform: translateY(0px) scaleX(1) !important;"><span class="scroller-span" style="position:absolute;height:30px;line-height:30px;left:0px;top:0px;width:45px;">0</span></div></div></td>')
@@ -65,8 +77,8 @@ $(window).scroll(function() {
         clockScroller.appendTo(document.getElementById("odometer"));
         clockScroller.start("0000000");
         setInterval(function(){
-          var timeStr={{section.settings.count}};
-          clockScroller.scrollTo("0"+timeStr);
+          var timeStr = 617 + (51*multplier) ;
+          clockScroller.scrollTo("0"+"0"+timeStr);
         },1000);
       $(".odometer-target").removeAttr('id')
     }
