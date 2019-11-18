@@ -1,0 +1,44 @@
+      {% assign otherProducts = '' | split: ';' %}
+      {% assign indexer = 0 %}
+{% for tag in collection.all_tags %}
+          {% if tag contains 'sort-by' %}
+          {% capture current_tag %}/{{ tag }}/{% endcapture %}
+          {% assign words =  tag | remove: 'sort-by' | split: '-' %}
+          <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
+          <ul class="productgrid--items">
+          {% for product in collection.products %}
+            {% for product_tag in product.tags %}
+              {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
+              {% if current_tag contains current_tag2 %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
+                {% assign indexer = indexer | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          </ul>
+          {% endif %}
+        {% endfor %}
+
+      {% if indexer < collection.products.size %}
+      <h3>Other</h3>
+      <ul class="productgrid--items">
+            {% for product in collection.products %}
+            {% assign hasSort = false %}
+              {% for product_tag in product.tags %}
+                {% if product_tag contains 'sort-by' %}
+                  {% assign hasSort = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% if hasSort != true %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
+              {% endif %}
+            {% endfor %}
+        </ul>
+      {% endif %}
