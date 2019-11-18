@@ -14,7 +14,7 @@
   <img class="about-image text-orange" src="{{ block.settings.image | img_url: '800x' }}"/>
   </div>
   {% endcapture %}
-    <div class="row d-flex align-items-center">
+    <div class="row d-flex align-items-center about-row">
     {% unless block.settings.image == blank %}
       {% if cycle_var == 'odd' %}{{ image_layout }}{% endif %}
       {% endunless %}
