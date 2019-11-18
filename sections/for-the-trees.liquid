@@ -52,9 +52,11 @@ var timeDifference = currentTime - startTime;
 var modTime = timeDifference % day;
 if ( modTime > day ){
   var days = (modtime / day);
-  var multplier = Math.floor(days);
+  var multiplier = Math.floor(days);
+  console.log ('mult:', multiplier)
 } else {
-  var multplier = 1;
+  var multiplier = 1;
+  console.log ('mult lower:', multiplier)
 }
 var prependZero = function () {
   var el = $('.scroller-table tr')
@@ -78,6 +80,7 @@ $(window).scroll(function() {
         clockScroller.start("0000000");
         setInterval(function(){
           var timeStr = 617 + (51*multplier) ;
+          console.log('start', timeStr)
           clockScroller.scrollTo("0"+"0"+timeStr);
         },1000);
       $(".odometer-target").removeAttr('id')
