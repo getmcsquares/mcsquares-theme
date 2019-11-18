@@ -15170,6 +15170,27 @@ $local-image-width: rem(48px);
 
 // About template *+*+*+*+*+*+*+*+*+
 
+.about-intro-text {
+    padding: 1em 3em;
+    max-width:
+    blockquote {
+      border-left: none;
+      margin: unset;
+      padding: unset;
+      quotes: "\201C""\201D""\2018""\2019";
+    }
+    blockquote:before {
+      color: #ccc;
+      content: open-quote;
+      font-size: 7em;
+      line-height: 0.1em;
+      margin-right: 0.25em;
+      vertical-align: -0.4em;
+    }
+    blockquote p {
+    }
+}
+
 .about-content {
   .text-left.col-sm-7 {
     padding: 0 3.5em;
