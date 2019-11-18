@@ -21,9 +21,9 @@
     aria-label="Recently viewed products"
     class="product-section--container product-recently-viewed--section"
   >
-    <div class="product-recently-viewed-wrapper">
-      <div class="product-recently-viewed-header">
-        <h2 class="product-recently-viewed-heading">
+    <div class=" product-recommendations--container">
+      <div class="product-section--title product-recently-viewed-header">
+        <h2 class="product-section--title product-recently-viewed-heading">
           {{ 'general.time.previous' | t }}
         </h2>
         <button
@@ -39,6 +39,7 @@
           product-section--content
           product-recently-viewed--content
           imagestyle--{{ settings.product_grid_image_style }}
+          product-row
         "
         data-recently-viewed-container
       ></ul>

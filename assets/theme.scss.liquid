@@ -2278,7 +2278,7 @@ input[name="address[default]"]:focus ~ .form-icon--checkbox {
   }
 
   .form-field--qty-select .form-field-select-wrapper {
-    position: absolute;
+    // position: absolute;
     width: 100%;
   }
 }
@@ -13360,20 +13360,21 @@ $local-stack: (100, 50);
 
     &:before,
     &:after {
+      display: none;
       content: '';
       position: absolute;
       top: 0;
-      left: -$gutter-content;
+      // left: -$gutter-content;
       right: 100%;
       bottom: 0;
-      background: linear-gradient( to right, $color-background-light 10%, rgba($color-background-light, 0) 100%);
+      // background: linear-gradient( to right, $color-background-light 10%, rgba($color-background-light, 0) 100%);
       z-index: 2;
     }
 
     &:after {
       left: 100%;
-      right: -$gutter-content;
-      background: linear-gradient( to left, $color-background-light 10%, rgba($color-background-light, 0) 100%);
+      // right: -$gutter-content;
+      // background: linear-gradient( to left, $color-background-light 10%, rgba($color-background-light, 0) 100%);
     }
   }
 
@@ -13412,12 +13413,14 @@ $local-stack: (100, 50);
     }
 
     &.next {
+      display: none;
       @include media($min: $bp-medium, $max: $bp-large) {
         right: rem(25px);
       }
     }
 
     &.previous {
+      display: none;
       @include media($min: $bp-medium, $max: $bp-large) {
         left: rem(25px);
       }

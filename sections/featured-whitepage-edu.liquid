@@ -1,0 +1,46 @@
+{% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
+{% comment %} {%- assign article = section.settings.article  -%} {% endcomment %}
+{% assign article = articles[section.settings.article] %}
+{%- assign featured_image = article.image  -%}
+{%- assign bg_color = section.settings.bg_color -%}
+<div class="section-pad has-graphic" style="background-color: {{bg_color}}">
+<div class="container">
+<h5 class="text-left text-blue text-bold">Featured Whitepaper</h5>
+  <div class="round shadow">
+    <div class="row" style="background-color: #fff;">
+      <div class="featured-product-info-content col-md-7 product-info-content ">
+      <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+        <h5>{{ article.title }}</h5>
+        <p style="color: {{ section.settings.font_color }}">
+          {{ article.excerpt }}
+        </p>
+        <p class="text-centers">
+          <a href="{{article.url}}"><button class="button-secondary">Read More</button></a>
+        </p>
+      </div>
+      <div class="col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; min-height: 200px;">
+        {% comment %} <img style="max-width: 300px;" src="" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}"> {% endcomment %}
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+{% schema %}
+{
+  "name": "Featured Whitepage",
+  "class": "product--section-info",
+  "settings": [
+    {
+      "type": "article",
+      "id": "article",
+      "label": "Featured Whitepaper/Blog"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    }
+  ]
+}
+
+{% endschema %}

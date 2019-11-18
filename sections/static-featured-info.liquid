@@ -14,23 +14,23 @@
   </div>
 </div>
 <div class="product-info-inner" style="background-color: {{ section.settings.bg_color }};">
-<div class="container">
-<div class="product-info-content row">
-  <div class="product-info-logo col-md-5 text-center">
-  {% if featured_image %}
-    <img style="max-width: 280px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
-  {% else %}
-    <img style="max-width: 100px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
-  {% endif %}
+  <div class="container">
+    <div class="product-info-content row">
+      <div class="product-info-logo col-md-5 text-center">
+      {% if featured_image %}
+        <img style="max-width: 280px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
+      {% else %}
+        <img style="max-width: 100px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
+      {% endif %}
+      </div>
+      <div class="product-info-text col-md-7" style="color: {{ section.settings.font_color }} !important;">
+        {{section.settings.text_content}}
+      <p>
+      <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
+      </p>
+      </div>
+    </div>
   </div>
-  <div class="product-info-text col-md-7" style="color: {{ section.settings.font_color }} !important;">
-    {{section.settings.text_content}}
-  <p>
-  <a target="_blank" href="{{ section.settings.cta_link }}"><strong>{{ section.settings.cta_text }}</strong></a>
-  </p>
-  </div>
-</div>
-</div>
 </div>
 {% schema %}
 {
@@ -55,7 +55,7 @@
     {
       "type": "color",
       "id": "bg_color",
-      "label": "lower Background Color"
+      "label": "Lower Background Color"
     },
     {
       "type": "richtext",
