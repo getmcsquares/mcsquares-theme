@@ -23,7 +23,9 @@
         {% endfor %}
 
       {% if indexer < collection.products.size %}
+      {% unless indexer == 0 %}
       <h3>Other</h3>
+      {% endunless %}
       <ul class="productgrid--items">
             {% for product in collection.products %}
             {% assign hasSort = false %}
