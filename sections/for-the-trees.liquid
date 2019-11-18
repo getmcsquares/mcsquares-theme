@@ -79,7 +79,7 @@ $(window).scroll(function() {
         clockScroller.appendTo(document.getElementById("odometer"));
         clockScroller.start("0000000");
         setInterval(function(){
-          var timeStr = 617 + (51*multplier) ;
+          var timeStr = 617 + (51*multiplier) ;
           console.log('start', timeStr)
           clockScroller.scrollTo("0"+"0"+timeStr);
         },1000);
