@@ -15172,21 +15172,28 @@ $local-image-width: rem(48px);
 
 
 // About template *+*+*+*+*+*+*+*+*+
-
+.about-header-bg {
+    background-size: 650px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    height: 500px;
+}
 .about-intro-text {
     padding: 1em 3em;
     max-width: 700px;
+    text-shadow: none;
     .propisi.header-size {
       color: $client-black;
+      line-height: .8em;
     }
     p {
       color: $client-grey;
     }
     p.cite {
-      font-weight: 400;
+      font-weight: 600;
       text-transform: uppercase;
-      font-stretch: normal;
       color: $client-grey;
+      font-size: .9em;
     }
     blockquote {
       border-left: none;
@@ -15208,11 +15215,14 @@ $local-image-width: rem(48px);
 
 .about-content {
   .text-left.col-sm-7 {
-    padding: 0 3.5em;
+    padding: 0 3.5em 0 0;
     @include media($bp-medium) {
-      padding: 1em 2em;
+      padding: 1em 2em 0 1em;
     }
   }
+}
+.about-row {
+  margin: 3em 0;
 }
 .about-subtitle{
   margin: 1em 0;

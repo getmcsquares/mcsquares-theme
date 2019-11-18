@@ -61,6 +61,7 @@
             slideshow-background
             slideshow-dynamic
             slideshow-background--{{ block.id }}
+            about-header-bg
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             {% if block.settings.background_image == blank %}
               placeholder--image
@@ -123,7 +124,7 @@
               align-items-center
             "
           >
-            <div class="col-12 col-sm-6 col-md-5">
+            <div class="col-12 col-sm-12 col-md-5">
               <div class="video-container">
               {% if block.settings.vid_type == 'youtube' %}
                 <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -132,7 +133,7 @@
               {% endif %}
               </div>
             </div>
-            <div class="col-sm-6 col-md-7 d-flex flex-column justify-content-center text-left about-intro-text" style="padding: 1em 3em">
+            <div class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-left about-intro-text">
               <blockquote>
                 <h1 class="propisi header-size" style="color: {{ block.settings.color }}">
                   {{ block.settings.title | escape }}
@@ -185,7 +186,7 @@
       "id": "sticky",
       "type": "checkbox",
       "label": "Keep text content in slideshow on mobile?",
-      "default": false
+      "default": true
     },
     {
       "id": "autoplay_duration",
@@ -282,7 +283,7 @@
           "id": "color",
           "type": "color",
           "label": "Text color",
-          "default": "#FFFFFF"
+          "default": "#3d4246"
         },
         {
           "id": "text_alignment",
