@@ -124,7 +124,7 @@
               align-items-center
             "
           >
-            <div class="col-12 col-sm-12 col-md-5">
+            <div class="col-12 col-md-12 col-lg-5">
               <div class="video-container">
               {% if block.settings.vid_type == 'youtube' %}
                 <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -133,7 +133,7 @@
               {% endif %}
               </div>
             </div>
-            <div class="col-sm-12 col-md-7 d-flex flex-column justify-content-center text-left about-intro-text">
+            <div class="col-md-12 col-lg-7 d-flex flex-column justify-content-center text-left about-intro-text">
               <blockquote>
                 <h1 class="propisi header-size" style="color: {{ block.settings.color }}">
                   {{ block.settings.title | escape }}
