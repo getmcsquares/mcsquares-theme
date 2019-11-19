@@ -2,11 +2,13 @@
   {% layout 'theme' %}
   {% section 'article-static-slideshow' %}
   {% section 'static-article' %}
-  {% section 'contact-cta' %}
+  {% comment %} {% section 'contact-cta' %} {% endcomment %}
+  {% section 'static-blog-related' %}
 {% elsif article.url contains "whitepapers" %}
   {% section 'article-static-slideshow' %}
   {% section 'static-article' %}
   {% section 'featured-products' %}
+  {% section 'static-blog-related-wp' %}
   {% section 'contact-cta' %}
 {% else %}
   {% section 'article-static-slideshow' %}

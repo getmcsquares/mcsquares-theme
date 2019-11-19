@@ -1,0 +1,89 @@
+<script
+  type="application/json"
+  data-section-type="static-blog"
+  data-section-id="{{ section.id }}">
+</script>
+
+{% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
+{% comment %}
+{% assign featured_post = section.settings.featured_post %}
+{% assign show_featured = false %}
+{% if featured_post != '' and featured_post != blank %}
+  {% assign show_featured = true %}
+  {% if paginate.current_page != 1 and current_tags != blank %}
+    {% assign show_featured = false %}
+  {% endif %}
+{% endif %}
+{% endcomment %}
+<section class="blog--container container">
+  {% paginate blog.articles by paginate_by %}
+    {% comment %}
+    {% if show_featured %}
+      {%
+        include 'article-excerpt-featured',
+        article: articles[featured_post]
+      %}
+    {% endif %}
+    {% endcomment %}
+
+    <ul class="blog--inner">
+      {% for article in blog.articles %}
+        {%
+          include 'article-excerpt',
+          article: article
+          %}
+      {% else %}
+        <article class="blog--no-results">
+          <h2 class="blog--no-results-title">
+            {{ 'blog.general.empty_blog' | t }}
+          </h2>
+        </article>
+      {% endfor %}
+    </ul>
+
+    {% include 'pagination' %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "Blog pages",
+  "class": "blog--section section-pad has-graphic",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_rss_link",
+      "label": "Show RSS link",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date published",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show post author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show post excerpt",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page_range",
+      "label": "Posts per page",
+      "min": 6,
+      "max": 12,
+      "step": 3,
+      "default": 9
+    }
+  ]
+}
+
+{% endschema %}
