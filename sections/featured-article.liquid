@@ -26,9 +26,9 @@
         </p>
       </div>
       {% if article.image == blank %}
-        <div class="col-md-5 text-center featured" style="background-image: url('{{ 'article-default.jpg' | asset_img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; min-height: 200px;">
+        <div class="col-md-5 text-center featured" style="background-image: url('{{ 'article-default.jpg' | asset_img_url: '500x500' }}'); background-size:cover;background-position:center;background-repeat: no-repeat; min-height: 200px;">
       {% else %}
-      <div class="col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;backround-position:center;background-repeat: no-repeat; min-height: 200px;">
+      <div class="col-md-5 text-center" style="background-image: url('{{ featured_image | img_url: '500x500' }}'); background-size:cover;background-position:center;background-repeat: no-repeat; min-height: 200px;">
       {% endif %}
         {% comment %} <img style="max-width: 300px;" src="" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}"> {% endcomment %}
       </div>

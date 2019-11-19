@@ -3658,7 +3658,7 @@ footer.page-footer {
     margin-bottom: 1em;
   }
   .row{
-    padding: 1em;
+    padding: 1em 0;
   }
 }
 .footer-lower{
@@ -5354,7 +5354,7 @@ $local-slideshow-large: 560px;
   @include media($max: $bp-small) {
     // max-width: 90%;
     text-align: center;
-    // background: $client-grey;
+    padding: 10px;
   }
   @media screen and (min-width: 992px) {
     position: absolute;
@@ -15305,6 +15305,9 @@ $local-image-width: rem(48px);
 
 .product-info-inner{
   padding-bottom: 50px;
+  @include media($bp-small){
+    padding: 0;
+  }
 }
 .product-info-content {
   padding: 50px 0 10px;
