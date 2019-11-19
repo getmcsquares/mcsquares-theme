@@ -10542,12 +10542,13 @@ $local-space-large: 15px;
 
   &.article--excerpt-wrapper--centered {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
     @extend %box-shadow;
     & .article-list-item {
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       width: 100%;
       & .article--excerpt-content {
         vertical-align: middle;
