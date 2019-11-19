@@ -1,9 +1,6 @@
 {% comment %} {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%} {% endcomment %}
-{% for image in product.images %}
-{% if image.alt contains 'logo' %}
-  {%- assign featured_image = image | default: product.featured_image -%}
-{% endif %}
-{% endfor %}
+{% assign coll = product.collections[0].handle %}
+{%- assign featured_image = section.settings.logo_img | default: collections[coll].image -%}
 {%- assign bg_color = section.settings.bg_color -%}
 <div class="product-info-inner product-info-hero-wrap" style="background: linear-gradient(to bottom, #fafafa 0%, #fafafa 20%, {{ section.settings.upper_bg_color }} 20%, {{ section.settings.upper_bg_color }} 100%);">
   <div class="container">
@@ -46,6 +43,11 @@
       "type": "image_picker",
       "id": "hero",
       "label": "Hero Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_img",
+      "label": "Logo Image"
     },
     {
       "type": "color",
