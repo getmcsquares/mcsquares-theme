@@ -5224,10 +5224,9 @@ $local-slideshow-large: 560px;
 
 .slideshow-height-small {
   height: 30vw;
-  max-height: 540px;
-  @media screen and (max-width: 992px) {
-    // height: auto !important;
-    max-height: unset;
+  max-height: $local-slideshow-small;
+  @include media($min: $bp-large) {
+    height: $local-slideshow-small;
   }
 }
 
@@ -5246,9 +5245,16 @@ $local-slideshow-large: 560px;
     height: $local-slideshow-large;
   }
 }
-
 .slideshow-height-fullscreen {
   height: 100vh;
+}
+.slideshow-height-dynamic {
+  height: 30vw;
+  max-height: 540px;
+  @media screen and (max-width: 992px) {
+    // height: auto !important;
+    max-height: unset;
+  }
 }
 .slide-content-wrap{
   padding: 1rem 3rem;
