@@ -77,11 +77,11 @@ $(window).scroll(function() {
           separator:","
         });
         clockScroller.appendTo(document.getElementById("odometer"));
-        clockScroller.start("00000");
+        clockScroller.start("000000");
         setInterval(function(){
-          var timeStr = 617 + (51*multiplier) ;
+          var timeStr = 6100 + (51*multiplier) ;
           console.log('start', timeStr)
-          clockScroller.scrollTo("0"+"0"+timeStr);
+          clockScroller.scrollTo("0"+timeStr);
         },1000);
       $(".odometer-target").removeAttr('id')
     }
