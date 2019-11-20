@@ -15,9 +15,9 @@
     };
     var applyTitleImage = function () {
         windowsize = $(window).width();
-        if (windowsize < 720) {
+        if (windowsize < 992) {
             $(".titleimg").attr("src", "{{block.settings.titleimg_mobile | img_url: '500x500'}}");
-        } else if (windowsize >= 720){
+        } else if (windowsize >= 992){
             $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800' }}");
         }else {
             $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800'}}");
