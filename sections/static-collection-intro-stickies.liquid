@@ -72,7 +72,11 @@
             <div class="col-12 col-sm-6 col-md-5" style="padding: 2rem">
             {% if block.settings.video_url != blank %}
               <div class="video-container">
+                {% if block.settings.vid_type == 'youtube' %}
                 <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              {% else %}
+                <iframe src="{{ block.settings.video_url}}" frameborder="0" allow="fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+              {% endif %}
               </div>
             {% else %}
             <h1 class="hero__title" style="color: {{ block.settings.color }}">
@@ -117,7 +121,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "About Slideshow",
+  "name": "Stickies Intro",
   "class": "slideshow--section",
   "settings": [
     {
@@ -138,6 +142,17 @@
           "label": "Video URL",
           "default": "https://www.youtube.com/embed/K538gxU8-Po",
           "info": "From the 'embed' option under the share menu"
+        },
+        {
+          "type":      "radio",
+          "id":        "vid_type",
+          "label":     "Video Type",
+          "options": [
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "vimeo", "label": "Vimeo" }
+          ],
+          "default":   "youtube",
+          "info":      "Choose a source for the video"
         },
         {
           "type": "header",
