@@ -59,8 +59,8 @@
           class="
             background-target
             slideshow-background
-            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             slideshow-background--{{ block.id }}
+            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
             slideshow-height-{{ section.settings.slideshow_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
@@ -70,7 +70,7 @@
             {%
               include 'rimg',
               img: block.settings.background_image,
-              size: '2000x2000',
+              size: '1500x1500',
               crop: slideshow_crop,
               lazy: true,
               background: true,
@@ -86,7 +86,7 @@
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
-              size: '2000x2000',
+              size: '1500x1500',
               crop: slideshow_crop,
               lazy: true,
               canvas: true,
@@ -109,7 +109,7 @@
           {% endif %}
         </div>
 
-        {% if page.title != blank
+        {% if blog.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
           or block.settings.button_two_label != blank
@@ -122,7 +122,7 @@
             "
           >
                 <h1 class="hero__title propisi" style="color: {{ block.settings.color }}">
-                  {{ page.title | escape }}
+                  {{ blog.title | escape }}
                 </h1>
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
@@ -146,7 +146,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "Internal Page Slideshow",
+  "name": "main blog slideshow",
   "class": "slideshow--section",
   "settings": [
     {

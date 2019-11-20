@@ -10,10 +10,11 @@
   }
 </script>
 
+{% if section.settings.show_slideshow %}
   <section
     class="
       slideshow
-      slideshow-dots-{{ section.settings.hero_height }}
+      slideshow-dots-{{ section.settings.slideshow_height }}
     "
     aria-label="Slide show"
   >
@@ -30,7 +31,7 @@
       <div
         class="
           slideshow-slide
-          slideshow-height-{{ section.settings.hero_height }}
+          slideshow-height-{{ section.settings.slideshow_height }}
         "
         tabindex="0"
         aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
@@ -41,7 +42,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-height-{{ section.settings.hero_height }}
+              slideshow-height-{{ section.settings.slideshow_height }}
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -50,7 +51,7 @@
 
         {% assign slideshow_crop = 'center' %}
 
-        {% if section.settings.hero_height == 'original' %}
+        {% if section.settings.slideshow_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
 
@@ -58,38 +59,29 @@
           class="
             background-target
             slideshow-background
-            slideshow-background--{{ block.id }}
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
-            slideshow-height-{{ section.settings.hero_height }}
+            slideshow-background--{{ block.id }}
+            slideshow-height-{{ section.settings.slideshow_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
           "
           {% if block.settings.background_image %}
-                {%
-                  include 'rimg',
-                  img: block.settings.background_image,
-                  size: '2000x2000',
-                  crop: slideshow_crop,
-                  lazy: true,
-                  background: true,
-                %}
-              {% else %}
-                style="background-image: url('{{ placeholder_slide_image | strip }}')"
-              {% endif %}
-          data-themecolor="{{ settings.color_text }}"
-          data-slidecolor="{{ block.settings.color }}"
-        >
-          {% if article.image %}
             {%
               include 'rimg',
-              img: article.image,
+              img: block.settings.background_image,
               size: '2000x2000',
               crop: slideshow_crop,
               lazy: true,
-              canvas: true
+              background: true,
             %}
-          {% elsif block.settings.background_image %}
+          {% else %}
+            style="background-image: url('{{ placeholder_slide_image | strip }}')"
+          {% endif %}
+          data-themecolor="{{ settings.color_text }}"
+          data-slidecolor="{{ block.settings.color }}"
+        >
+          {% if block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
@@ -117,7 +109,7 @@
           {% endif %}
         </div>
 
-        {% if article.title != blank
+        {% if page.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
           or block.settings.button_two_label != blank
@@ -129,8 +121,8 @@
               text-align-{{ block.settings.text_alignment }}
             "
           >
-                <h1 class="hero__title" style="color: {{ block.settings.color }}">
-                  {{ article.title | escape }}
+                <h1 class="hero__title propisi" style="color: {{ block.settings.color }}">
+                  {{ page.title | escape }}
                 </h1>
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
@@ -151,12 +143,24 @@
     %}
     {% include 'header-image-helper' %}
   </section>
-
+{% endif %}
 {% schema %}
 {
-  "name": "article hero",
+  "name": "Article Slideshow",
   "class": "slideshow--section",
   "settings": [
+    {
+      "id": "show_slideshow",
+      "type": "checkbox",
+      "label": "Enable slideshow",
+      "default": true
+    },
+    {
+      "id": "enable_autoplay",
+      "type": "checkbox",
+      "label": "Autoplay slideshow",
+      "default": true
+    },
     {
       "id": "sticky",
       "type": "checkbox",
@@ -164,9 +168,19 @@
       "default": false
     },
     {
-      "id": "hero_height",
+      "id": "autoplay_duration",
+      "type": "range",
+      "label": "Autoplay slide duration",
+      "min": 5,
+      "max": 12,
+      "step": 1,
+      "unit": "sec",
+      "default": 8
+    },
+    {
+      "id": "slideshow_height",
       "type": "select",
-      "label": "Hero height",
+      "label": "Slideshow height",
       "options": [
         {
           "value": "small",
@@ -187,9 +201,13 @@
         {
           "value": "original",
           "label": "Original aspect ratio"
+        },
+        {
+          "value": "dynamic",
+          "label": "Dynamic"
         }
       ],
-      "default": "small"
+      "default": "dynamic"
     }
   ],
   "blocks": [
