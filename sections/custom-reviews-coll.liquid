@@ -15,7 +15,7 @@
         <img src="{{ block.settings.avatar | img_url: '80x' }}" style="max-width: 100%; border-radius: 50%;">
       </div>
       <div class="col">
-        <p><span class="text-blue">{{block.settings.author}}</span>&nbsp;<span class="text-small text-grey">Verifed Buyer</span></p>&nbsp;{% if block.settings.date %}{{block.settings.date}}{% endif %}
+        <p style="width:100%;">{% if block.settings.link %}<a href="{{ block.settings.link }}" target="_blank">{% endif %}<span class="tex-blue">{{block.settings.author}}</span> <span class="text-small text-grey">Verifed Buyer</span>{% if block.settings.link %}</a>{% endif %}<span class="review-date text-grey" style="float:right">{{ block.settings.date }}</span></p>
         <div class="ratings-row">
           {% for i in (1..block.settings.star-count) %}
           <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
@@ -55,6 +55,11 @@
           "id": "author",
           "label": "Author",
           "default": "Gina G."
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link"
         },
         {
           "type": "text",
