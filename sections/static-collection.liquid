@@ -188,7 +188,15 @@
 
 
       {% if collection.products.size > 0 %}
-        {% include 'collection-sorted-list' %}
+        <ul class="productgrid--items">
+          {% for product in collection.products %}
+            {%
+              include 'product-grid-item',
+              product: product
+            %}
+          {% endfor %}
+          </ul>
+        {% endfor %}
       {% else %}
         <div class="productgrid--no-results">
           <h2 class="productgrid--no-results-title">
