@@ -49,10 +49,10 @@ var day = 86400000;
 var startTime = 1574110564936;
 var currentTime = d.getTime();
 var timeDifference = currentTime - startTime;
-var modTime = timeDifference % day;
-if ( modTime > day ){
-  var days = (modtime / day);
-  var multiplier = Math.floor(days);
+var modTime = timeDifference / day;
+if ( modTime > 1 ){
+  var days = (modTime / day);
+  var multiplier = Math.floor(modTime);
   console.log ('mult:', multiplier)
 } else {
   var multiplier = 1;
