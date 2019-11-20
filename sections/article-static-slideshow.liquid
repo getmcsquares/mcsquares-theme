@@ -66,16 +66,7 @@
               placeholder--image
             {% endif %}
           "
-          {% if article.image != blank %}
-          {%
-              include 'rimg',
-              img: article.image,
-              size: '2000x2000',
-              crop: slideshow_crop,
-              lazy: true,
-              background: true,
-            %}
-          {% elsif block.settings.background_image %}
+          {% if block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
@@ -90,16 +81,7 @@
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
-          {% if article.image != blank %}
-          {%
-              include 'rimg',
-              img: article.image,
-              size: '2000x2000',
-              crop: slideshow_crop,
-              lazy: true,
-              background: true,
-            %}
-          {% elsif block.settings.background_image %}
+          {% if block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
