@@ -2674,6 +2674,9 @@ img[data-rimg="loading"] {
     text-align: center;
     font-size: 1.75rem !important;
   }
+  @media screen and (max-width: 992px){
+    color: $client-black !important;
+  }
 }
 .titleimg {
   max-width: 550px;
@@ -5364,9 +5367,7 @@ $local-slideshow-large: 560px;
   }
 
   @include media($max: $bp-small) {
-    // max-width: 90%;
     text-align: center;
-    padding: 10px;
   }
   @media screen and (min-width: 992px) {
     position: absolute;
