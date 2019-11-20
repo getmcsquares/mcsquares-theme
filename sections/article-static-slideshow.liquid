@@ -75,7 +75,16 @@
               lazy: true,
               background: true,
             %}
-          
+          {% elsif block.settings.background_image %}
+          {%
+              include 'rimg',
+              img: block.settings.background_image,
+              class: 'slideshow-image',
+              size: '2000x2000',
+              crop: slideshow_crop,
+              lazy: true,
+              canvas: true,
+            %}
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
           {% endif %}
@@ -86,6 +95,16 @@
             {%
               include 'rimg',
               img: article.image,
+              class: 'slideshow-image',
+              size: '2000x2000',
+              crop: slideshow_crop,
+              lazy: true,
+              canvas: true,
+            %}
+          {% elsif block.settings.background_image %}
+          {%
+              include 'rimg',
+              img: block.settings.background_image,
               class: 'slideshow-image',
               size: '2000x2000',
               crop: slideshow_crop,
