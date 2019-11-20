@@ -66,10 +66,10 @@
               placeholder--image
             {% endif %}
           "
-          {% if article.image %}
+          {% if article.image != blank %}
             {%
               include 'rimg',
-              img: article.image.src,
+              img: article.image,
               size: '2000x2000',
               crop: slideshow_crop,
               lazy: true,
@@ -90,10 +90,10 @@
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
-          {% if article.image %}
+          {% if article.image != blank %}
             {%
               include 'rimg',
-              img: article.image.src,
+              img: article.image,
               size: '2000x2000',
               crop: slideshow_crop,
               lazy: true,
