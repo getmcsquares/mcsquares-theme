@@ -5445,10 +5445,12 @@ $local-slideshow-large: 560px;
   // margin-top: $space-x-small;
   margin-bottom: 0;
   line-height: 1.4;
-  @include media($max: $bp-small) {
-    text-align:center;
+  color: $client-black;
+  @media screen and (max-width: 992px) {
+    text-align: center;
     text-shadow: none;
     font-weight: 400;
+    padding-bottom: 2em;
   }
 }
 
