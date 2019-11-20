@@ -66,7 +66,16 @@
               placeholder--image
             {% endif %}
           "
-          {% if block.settings.background_image %}
+          {% if article.image != blank %}
+          {%
+              include 'rimg',
+              img: article.image,
+              size: '2000x2000',
+              crop: slideshow_crop,
+              lazy: true,
+              background: true,
+            %}
+          {% elsif block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
@@ -81,7 +90,16 @@
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
-          {% if block.settings.background_image %}
+          {% if article.image != blank %}
+          {%
+              include 'rimg',
+              img: article.image,
+              size: '2000x2000',
+              crop: slideshow_crop,
+              lazy: true,
+              background: true,
+            %}
+          {% elsif block.settings.background_image %}
             {%
               include 'rimg',
               img: block.settings.background_image,
@@ -219,7 +237,7 @@
           "id": "background_image",
           "type": "image_picker",
           "label": "Background image",
-          "info": "1800x1000 recommended"
+          "info": "1800x1000 recommended, this will set the fallback image for all articles when an article image is not present"
         },
         {
           "type": "image_picker",
