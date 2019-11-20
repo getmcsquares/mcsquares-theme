@@ -1,5 +1,8 @@
 {% layout 'theme' %}
 {% section 'collection-info' %}
+{% if collection.image %}
+  {% section 'static-collection-intro' %}
+{% endif %}
 {% section 'static-collection' %}
 {% comment %} {% section 'static-recently-viewed' %} {% endcomment %}
 {% section 'quotes' %}
