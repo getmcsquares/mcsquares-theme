@@ -1,0 +1,10 @@
+
+<ul class="productgrid--items">
+  {% for product in collection.products %}
+    {%
+      include 'product-grid-item',
+      product: product
+    %}
+    {% assign indexer = indexer | plus: 1 %}
+  {% endfor %}
+</ul>

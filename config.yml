@@ -1,4 +1,4 @@
-development:
+production:
   password: 0d1e460e75a9e993dbf8e9a3f9a464a0
   theme_id: "74031038519"
   store: https://mcsquares-dev.myshopify.com
