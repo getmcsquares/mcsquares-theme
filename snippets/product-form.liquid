@@ -24,7 +24,7 @@
 {% if product_smart_buttons or quickshop_smart_buttons %}
   {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
 {% endif %}
-{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %} smart-payment-enabled product-form{%- endcapture %}
+{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %} product-form{%- endcapture %}
 {%- capture share_buttons -%}
   {% assign social_image = false %}
   {% if product.featured_image %}
