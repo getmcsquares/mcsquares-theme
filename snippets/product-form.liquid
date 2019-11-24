@@ -106,9 +106,9 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-    {% unless template == 'index' %}
+    {% comment %} {% unless template == 'index' %}
       {{ form | payment_button }}
-    {% endunless %}
+    {% endunless %} {% endcomment %}
   </div>
   {% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}
