@@ -24,7 +24,7 @@
 {% if product_smart_buttons or quickshop_smart_buttons %}
   {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
 {% endif %}
-
+{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %} smart-payment-enabled product-form{%- endcapture %}
 {%- capture share_buttons -%}
   {% assign social_image = false %}
   {% if product.featured_image %}
@@ -39,7 +39,7 @@
     social_url: social_url
   -%}
 {%- endcapture  -%}
-{% form 'product', product, class: product_form_class, data-product-form: '' %}
+{% form 'product', product, class: form_class, data-product-form: '' %}
 
 {% capture atc %}
   <div class="product-form--atc">
@@ -107,7 +107,7 @@
       </span>
     </button>
     {% unless template == 'index' %}
-    {{ form | payment_button }}
+      {{ form | payment_button }}
     {% endunless %}
   </div>
   {% if enable_social_sharing %}
