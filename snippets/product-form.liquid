@@ -24,7 +24,7 @@
 {% if product_smart_buttons or quickshop_smart_buttons %}
   {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
 {% endif %}
-{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %} product-form{%- endcapture %}
+{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} smart-payment-enabled product-form  product-form--payment-button{% endif %} product-form{%- endcapture %}
 {%- capture share_buttons -%}
   {% assign social_image = false %}
   {% if product.featured_image %}
@@ -229,9 +229,11 @@
       style: settings.product_option_style
     %}
   {% endif %}
-  <div class="small-show">
+</div>
+  <div class="col-lg-5">
   {{atc}}
   </div>
+  <div class="col-lg-7">
   {% unless product.description == blank or hide_description or template == 'index' %}
     {% unless template == 'index' %}
       <div class="product-description rte test-1" data-product-description>
@@ -243,8 +245,8 @@
       <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
     {% endif %}
     </div>
-  <div class="small-hide tester col-lg-5">
+  {% comment %} <div class="small-hide tester col-lg-5">
     {{atc}}
-  </div>
+  </div> {% endcomment %}
 </div>
 {% endform %}
