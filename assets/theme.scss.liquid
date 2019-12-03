@@ -15578,6 +15578,14 @@ $local-image-width: rem(48px);
 // ribbon image
 .ribbon-image-box{
   height: 180px;
+  @include media($bp-small) {
+    height: 0;
+  }
+  .image-content__image{
+    @include media($bp-small) {
+      display: none;
+    }
+  }
 }
 .ribbon-image-wrap{
   z-index: -1;
