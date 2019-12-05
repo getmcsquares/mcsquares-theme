@@ -70,7 +70,7 @@
           <span class="option-name">{{ option.name }}</span>
         </legend>
 
-        <div class="option-values">
+        <div class="option-values inside-modal">
           {% assign optionIndex = forloop.index %}
 
             {% for value in option.values %}
@@ -92,7 +92,7 @@
                     tabindex="0"
                     aria-label="{{ value | escape }}"
                     {% if option.selected_value == value %}checked{% endif %}
-                    data-product-option="{{ 'option' | append: optionIndex }}"
+                    data-product-option="{{ 'option' | append: optionIndex }}-m"
                     id="data-product-option-{{ optionIndex }}-{{ forloop.index0 }}-m"
                   >
 
