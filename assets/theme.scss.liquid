@@ -8374,6 +8374,21 @@ $local-account-width-medium: 640px;
 }
 
 $local-max-width: 680px;
+.pipedriveWebForms {
+  body {
+    background-color: transparent !important;
+  }
+}
+form.pipedriveWebForm {
+    font-family: $font-body, 'Helvetica Neue', Helvetica !important;
+    background: none !important;
+    .formWrap, .formButtonWrap {
+      background: solid 1px transparent !important;
+    }
+    .cui-Radio .label, .cui-Checkbox .label {
+        text-transform: capitalize !important;
+    }
+}
 
 .contact-page-content {
   @extend %layout-container, %page-content;
