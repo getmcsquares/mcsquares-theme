@@ -88,11 +88,11 @@
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
-              size: '2000x2000',
+              size: '1000x1000',
               crop: slideshow_crop,
               lazy: false,
               canvas: true,
-              placeholder: '500x500',
+              placeholder: block.settings.background_image,
             %}
           {% else %}
             <img
