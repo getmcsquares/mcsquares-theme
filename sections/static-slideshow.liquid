@@ -70,9 +70,9 @@
             {%
               include 'rimg',
               img: block.settings.background_image,
-              size: '2000x2000',
+              size: '1500x1500',
               crop: slideshow_crop,
-              lazy: true,
+              lazy: false,
               background: true,
             %}
           {% else %}
@@ -86,9 +86,9 @@
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
-              size: '2000x2000',
+              size: '1500x1500',
               crop: slideshow_crop,
-              lazy: true,
+              lazy: false,
               canvas: true,
             %}
           {% else %}
