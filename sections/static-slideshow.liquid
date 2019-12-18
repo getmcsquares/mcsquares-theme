@@ -74,6 +74,7 @@
               crop: slideshow_crop,
               lazy: true,
               background: true,
+              placeholder: '500x500',
             %}
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
@@ -90,6 +91,7 @@
               crop: slideshow_crop,
               lazy: true,
               canvas: true,
+              placeholder: '500x500',
             %}
           {% else %}
             <img
