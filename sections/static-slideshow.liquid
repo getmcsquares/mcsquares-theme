@@ -84,16 +84,20 @@
           data-slidecolor="{{ block.settings.color }}"
         >
           {% if block.settings.background_image %}
-            {%
+            {% comment %} {%
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
               size: '1000x1000',
               crop: slideshow_crop,
-              lazy: false,
+              lazy: true,
               canvas: true,
-              placeholder: block.settings.background_image,
-            %}
+            %} {% endcomment %}
+            <img
+              class="slideshow-image"
+              src="{{ block.settings.background_image | img_url: '1000x1000' }}"
+              alt=""
+            >
           {% else %}
             <img
               class="slideshow-image"
