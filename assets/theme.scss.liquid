@@ -2674,8 +2674,10 @@ img[data-rimg="loading"] {
     text-align: center;
     font-size: 1.75rem !important;
   }
-  @media screen and (max-width: 992px){
-    color: $client-black !important;
+  &:not(.sticky){
+    @media screen and (max-width: 992px){
+      color: $client-black !important;
+    }
   }
 }
 .titleimg {
