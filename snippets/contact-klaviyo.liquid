@@ -109,14 +109,14 @@ $('input[type=radio][name=customer_type]').change(function() {
         $('.swappable-form').hide();
         $('#fd-form').fadeIn();
     }
-  else if (this.value == 'furnishing-manufacturer') {
+    else if (this.value == 'furnishing-manufacturer') {
         $('.swappable-form').hide();
         $('#fn-form').fadeIn();
     }
     else if (this.value == 'investor') {
         $('.swappable-form').hide();
         $('#investor-form').fadeIn();
-    }});
+    }
     else if (this.value == 'media') {
         $('.swappable-form').hide();
         $('#media-form').fadeIn();
@@ -125,4 +125,5 @@ $('input[type=radio][name=customer_type]').change(function() {
         $('.swappable-form').hide();
         $('#other-form').fadeIn();
     }
+    });
 </script>
