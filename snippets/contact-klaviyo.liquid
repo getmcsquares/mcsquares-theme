@@ -1,1 +1,128 @@
-<div class="klaviyo-form-LMMvcv"></div>
+<div class="form-selector-group">
+<div>
+  <input type="radio" id="home-organizer" name="customer_type" value="home-organizer" checked>
+  <label for="home-organizer">Home Organizer</label>
+</div>
+<div>
+  <input type="radio" id="school" name="customer_type" value="school">
+  <label for="school">School or University</label>
+</div>
+<div>
+  <input type="radio" id="corporate" name="customer_type" value="corporate">
+  <label for="corporate">Corporate Buyer</label>
+</div>
+<div>
+  <input type="radio" id="retail" name="customer_type" value="retail">
+  <label for="retail">Retail Store</label>
+</div>
+<div>
+  <input type="radio" id="furnishing-dealer" name="customer_type" value="furnishing-dealer">
+  <label for="furnishing-dealer">Furnishing Dealer</label>
+</div>
+<div>
+  <input type="radio" id="furnishing-manufacturer" name="customer_type" value="furnishing-manufacturer">
+  <label for="furnishing-manufacturer">Furnishing Manufacturer</label>
+</div>
+<div>
+  <input type="radio" id="investor" name="customer_type" value="investor">
+  <label for="investor">Investor</label>
+</div>
+<div>
+  <input type="radio" id="media" name="customer_type" value="media">
+  <label for="media">Media</label>
+</div>
+<div>
+  <input type="radio" id="other" name="customer_type" value="other">
+  <label for="other">Other</label>
+</div>
+</div>
+
+{% comment %} Original {% endcomment %}
+<div class="" id="original-form">
+  <div class="klaviyo-form-LMMvcv"></div>
+</div>
+
+{% comment %} Home Organizer {% endcomment %}
+<div class="swappable-form" id="home-organizer-form">
+<div class="klaviyo-form-QLnWat"></div>
+</div>
+
+{% comment %} School or University {% endcomment %}
+<div class="swappable-form" id="school-form">
+<div class="klaviyo-form-PZLSTC"></div>
+</div>
+
+{% comment %} Corporate Buyer {% endcomment %}
+<div class="swappable-form" id="cb-form">
+<div class="klaviyo-form-Kk33id"></div>
+</div>
+
+{% comment %} Retail Store {% endcomment %}
+<div class="swappable-form" id="retail-form">
+<div class="klaviyo-form-PVa8tc"></div>
+</div>
+
+{% comment %} Furnishing Dealer {% endcomment %}
+<div class="swappable-form" id="fd-form">
+<div class="klaviyo-form-PHq7yZ"></div>
+</div>
+
+{% comment %} Furnishing Manufacturer {% endcomment %}
+<div class="swappable-form" id="fm-form">
+<div class="klaviyo-form-HJqEv7"></div>
+</div>
+
+{% comment %} Investor {% endcomment %}
+<div class="swappable-form" id="investor-form">
+<div class="klaviyo-form-LrT7Nn"></div>
+</div>
+
+{% comment %} Media {% endcomment %}
+<div class="swappable-form" id="media-form">
+<div class="klaviyo-form-JiGWSS"></div>
+</div>
+
+{% comment %} Other {% endcomment %}
+<div class="swappable-form" id="other-form">
+<div class="klaviyo-form-HRiqXW"></div>
+</div>
+
+<script type="text/javascript">
+$('input[type=radio][name=customer_type]').change(function() {
+    if (this.value == 'home-organizer') {
+        $('.swappable-form').hide();
+        $('#home-organizer-form').fadeIn();
+    }
+    else if (this.value == 'school') {
+        $('.swappable-form').hide();
+        $('#school-form').fadeIn();
+    }
+    else if (this.value == 'corporate') {
+        $('.swappable-form').hide();
+        $('#cb-form').fadeIn();
+    }
+    else if (this.value == 'retail') {
+        $('.swappable-form').hide();
+        $('#retail-form').fadeIn();
+    }
+    else if (this.value == 'furnishing-dealer') {
+        $('.swappable-form').hide();
+        $('#fd-form').fadeIn();
+    }
+  else if (this.value == 'furnishing-manufacturer') {
+        $('.swappable-form').hide();
+        $('#fn-form').fadeIn();
+    }
+    else if (this.value == 'investor') {
+        $('.swappable-form').hide();
+        $('#investor-form').fadeIn();
+    }});
+    else if (this.value == 'media') {
+        $('.swappable-form').hide();
+        $('#media-form').fadeIn();
+    }
+    else if (this.value == 'other') {
+        $('.swappable-form').hide();
+        $('#other-form').fadeIn();
+    }
+</script>
