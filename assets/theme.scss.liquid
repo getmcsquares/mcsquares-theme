@@ -12596,12 +12596,12 @@ $local-stack: (100, 50);
   transition: opacity 0.20s ease 0s;
 
   .no-touch & {
-    position: absolute;
+    // position: absolute;
     right: 0;
     bottom: $local-padding-medium;
     left: 0;
-    opacity: 0;
-    visibility: hidden;
+    // opacity: 0;
+    // visibility: hidden;
   }
 
   .has-touch & {
@@ -12610,34 +12610,42 @@ $local-stack: (100, 50);
     margin-left: -1 * $space-xxx-small;
   }
 
-  @include media($min: $bp-large) {
+  // @include media($min: $bp-large) {
 
-    .productgrid--item:hover,
-    .productgrid--item.animating &,
-    .productgrid--item.visible & {
+  //   .productgrid--item:hover,
+  //   .productgrid--item.animating &,
+  //   .productgrid--item.visible & {
+  //     visibility: visible;
+  //   }
+
+  //   .productgrid--item.animating-in:not(.animating-out) & {
+  //     transition: opacity 0.2s ease 0.05s;
+  //   }
+
+  //   .productgrid--item.animating-in:not(.animating-out) &,
+  //   .productgrid--item.visible:not(.animating-out) &,
+  //   .productgrid--item.visible.animating-out:hover & {
+  //     opacity: 1;
+  //   }
+
+  //   // Occurs when user mouses in / out super quick
+  //   .productgrid--item.animating-in.animating-out & {
+  //     opacity: 0;
+  //   }
+
+  //   .has-touch & {
+  //     display: block;
+  //     width: 100%;
+  //   }
+  // }
+
+    .productgrid--item {
       visibility: visible;
-    }
-
-    .productgrid--item.animating-in:not(.animating-out) & {
-      transition: opacity 0.2s ease 0.05s;
-    }
-
-    .productgrid--item.animating-in:not(.animating-out) &,
-    .productgrid--item.visible:not(.animating-out) &,
-    .productgrid--item.visible.animating-out:hover & {
       opacity: 1;
-    }
-
-    // Occurs when user mouses in / out super quick
-    .productgrid--item.animating-in.animating-out & {
-      opacity: 0;
-    }
-
-    .has-touch & {
       display: block;
       width: 100%;
     }
-  }
+
 }
 
 .productitem--action {
