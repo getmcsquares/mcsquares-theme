@@ -6,10 +6,10 @@ production:
   - config/settings_data.json
   - theme.lock
 
-# production:
-#   password: d87ce454d3a1796df16838923197c5b4
-#   theme_id: "76938444887"
-#   store: https://mcsquares.myshopify.com
-#   ignore_files:
-#   - config/settings_data.json
-#   - theme.lock
+development:
+  password: 1d45a165db5b162b7fbbc5c46a5e325a
+  theme_id: "82465292427"
+  store: https://mcsquares-dev-v2.myshopify.com
+  ignore_files:
+  - config/settings_data.json
+  - theme.lock
