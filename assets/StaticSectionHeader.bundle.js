@@ -198,7 +198,7 @@ function () {
 
       this.menu.addEventListener('transitionend', this.navTransitionOutEvent);
       this.transitioning = true;
-      this.menu.setAttribute('style', "margin-top: -".concat(this.menu.getBoundingClientRect().height, "px;"));
+      // this.menu.setAttribute('style', "margin-top: -".concat(this.menu.getBoundingClientRect().height, "px;"));
       this.postMessage('nav:close-all');
     }
   }, {
