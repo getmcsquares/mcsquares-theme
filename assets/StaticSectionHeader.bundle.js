@@ -150,7 +150,7 @@ function () {
     this.transitioning = false;
     this.lastToggle = Date.now() - 1000;
     this.stickyClass = 'site-header-sticky';
-    this.scrolledClass = 'site-header-sticky--scrolled-remove';
+    this.scrolledClass = 'site-header-sticky--scrolled';
     this.navOpenClass = 'site-header-nav--open';
     this._toggleStickyHeader = this._toggleStickyHeader.bind(this);
     this._toggleMenu = this._toggleMenu.bind(this);
