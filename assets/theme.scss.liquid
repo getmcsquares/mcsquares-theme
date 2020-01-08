@@ -15697,5 +15697,7 @@ $local-image-width: rem(48px);
   display: none;
 }
 .swappable-form{
-  display: none;
+  &:not(:first-child){
+    display: none;
+  }
 }
