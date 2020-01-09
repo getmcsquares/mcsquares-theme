@@ -279,7 +279,7 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 /*============================================================================
 brand font definitions
 ==============================================================================*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=optional');
 
 @font-face {
   font-family: 'Helvetica Neue';
@@ -8389,6 +8389,7 @@ $local-max-width: 680px;
 }
 #pipedriveWebForm {
     font-family: $font-body, 'Helvetica Neue', Helvetica !important;
+    font-display: optional;
     background: none !important;
     .formWrap, .formButtonWrap {
       background: solid 1px transparent !important;
