@@ -133,5 +133,9 @@ $('input[type=radio][name=customer_type]').change(function() {
         $('.swappable-form').hide();
         $('#other-form').fadeIn();
     }
+    var button = $( "input[class*='ResetElements__Button']" );
+    button.click(function(){
+      $('.contact-page-text').hide();
+    })
     });
 </script>
