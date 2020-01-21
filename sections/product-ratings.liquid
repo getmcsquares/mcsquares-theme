@@ -1,0 +1,69 @@
+{%- comment -%}
+ this is a template for the section and schema. update functions here
+{%- endcomment -%}
+<div id="product-reviews" class="row contained product-reviews section-inner">
+    <div class="col-sm-6 offset-sm-3 d-flex flex-column align-items-center justify-content-center text-center">
+        <h3>{{ section.settings.title }}</h3>
+        {% comment %} {{ section.settings.text }}
+        <div class="yotpo-star-box yotpo">
+          <div class="yotpo bottomLine"
+            data-product-id="{{ product.id }}">
+          </div>
+        </div> {% endcomment %}
+        <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description=""></div>        </div>
+        {% if section.settings.cta_link != blank %}
+        <a class="small btn btn-text reviews-link" href="{{ section.settings.cta_link }}">
+        <span>{{ section.settings.cta_text }}</span>
+        </a>
+        {% endif %}
+    </div>
+</div>
+<style type="text/css">
+.yotpo-bottomline{
+    display: flex;
+    flex-direction: column;
+}
+.yotpo-first-review-stars{
+  display: none;
+}
+.yotpo-stars-and-sum-reviews{
+  text-align: center !important;
+}
+.yotpo-default-button{
+  background-color: #e0592a !important;
+}
+.yotpo-default-button:hover{
+  background-color: #bc451b !important;
+}
+</style>
+{% schema %}
+{
+  "name": {
+    "en": "Product Ratings Count"
+  },
+  "settings": [
+    {
+    "type": "text",
+    "id": "title",
+    "label": "Section Title",
+    "default": "Our Customers Love This Tea"
+    },
+    {
+    "type": "text",
+    "id": "cta_text",
+    "label": "Button Text"
+    },
+    {
+     "type": "url",
+     "id": "cta_link",
+     "label": "Button Link"
+    }
+  ],
+    "presets": [
+    {
+    "name": "Product Ratings Count",
+    "category": "Product"
+    }
+  ]
+}
+{% endschema %}
