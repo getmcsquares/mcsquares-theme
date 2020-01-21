@@ -135,8 +135,8 @@ $('input[type=radio][name=customer_type]').change(function() {
     }
 
     });
-    $(function(){
-      $( "input[class*='ResetElements__Button']" ).click(function(){
+    $( document ).ready(function(){
+      $( "button[class*='ResetElements__Button']" ).click(function(){
         $('.contact-page-text').hide();
       })
     })
