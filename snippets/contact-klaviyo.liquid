@@ -135,7 +135,15 @@ $('input[type=radio][name=customer_type]').change(function() {
     }
 
     });
-    $( document ).ready(function(){
+    window.addEventListener("klaviyoForms", function(e) {
+    if (e.detail.type == 'submit') {
+        $('.contact-page-text').hide();
+      }
+  }
+});
+</script>
+{% comment %} $( document ).ready(function(){
+      var buttons = undefined;
       do {
       var buttons = $( "button[class*='ResetElements__Button']" );
       if ( buttons != undefined ){
@@ -147,5 +155,4 @@ $('input[type=radio][name=customer_type]').change(function() {
       }
       }
       while ( buttons = undefined )
-    })
-</script>
+    }) {% endcomment %}
