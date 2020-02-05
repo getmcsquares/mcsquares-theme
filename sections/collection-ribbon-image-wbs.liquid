@@ -1,7 +1,7 @@
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve-transparent' %}
 <div style="background-color: {{ bg_color }}">
-  <div class="ribbon-image-box">
+  {% comment %} <div class="ribbon-image-box">
     <div class="image-content__image-container">
       <div class="image-content__image-wrapper ribbon-image-wrap" style="">
         {% assign img_url = section.settings.image | img_url: '1500x'  %}
@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
   <div class="d-flex flex-column justify-content-center align-items-center container limit-copy-width" style="margin-bottom: 1.5em;">
     <h1 class="text-blue propisi">{{section.settings.header}}</h1>
     <p class="text-center">{{section.settings.body}}</p>
