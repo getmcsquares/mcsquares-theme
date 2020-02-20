@@ -16,7 +16,7 @@
         {%- assign social_handle = social | handleize -%}
         {% capture social_icon %}icon-{{ social_handle }}{% endcapture %}
         {% for block in section.blocks %}
-        {% capture social_link %}{{block.settings.social_name | handleize }}{% endcapture %}
+        {% capture social_link %}{{ block.settings.social_name | handleize }}{% endcapture %}
         {% if social_link == social_handle %}
         <li class="social-link">
           <a href="{{ block.settings.link }}" target="_blank" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
