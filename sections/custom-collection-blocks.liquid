@@ -1,0 +1,131 @@
+
+{% assign bg_color = section.settings.bg_color %}
+{% include 'svg-curve' %}
+<div style="background-color: {{ bg_color }}" class="testimonials">
+<div class="page-width quotes__wrap">
+  <div class="section-block section-block--padding">
+    {% if section.settings.title != blank %}
+      <div class="section-block__header text-center container">
+        <h4 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h4>
+        {{ section.settings.subtext }}
+      </div>
+    {% endif %}
+    {% if section.blocks.size > 0 %}
+      <div class="">
+        <div class="quotes-row row" id="Quotes-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes">
+          {% for block in section.blocks %}
+          {% assign featured_collection = collections[block.settings.collection] %}
+            <a href="{{ featured_collection.url }}">
+              <div class="text-center col-lg-4 card-container">
+                {% assign image_src = block.settings.image %}
+                <img class="featured-card__image lazyload"
+                  src="{{ image_src | img_url: '420x' }}" alt="{{ image_src.alt | escape }}"
+                  srcset="
+                  {% if image_src.width > 640 %}{{ image_src | img_url: '640x' }} 640w{% endif %}
+                  {% if image_src.width > 720 %},{{ image_src | img_url: '720x' }} 720w{% endif %}
+                  {% if image_src.width > 900 %},{{ image_src | img_url: '900x' }} 900w{% endif %}"
+                  sizes="(min-width: 960px) 450px, (min-width: 720px) 50vw, 100vw"
+                  style="max-height: {{ maximum_height }}px;">
+                <div class="quote-title "><h5>{{ block.settings.title | escape }}</h5></div>
+                <div class="quote__image image-round"><img src="{{ block.settings.image | img_url: '500x500' }}"></div>
+              </div>
+              </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.blocks.size == 0 %}
+      {% include 'no-blocks' %}
+    {% endif %}
+  </div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "collection blocks",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": {
+          "pt-BR": "Título",
+          "it": "Heading",
+          "en": "Heading",
+          "es": "Título",
+          "de": "Titel",
+          "ja": "見出し",
+          "fr": "Titre"
+        }
+      },
+      {
+        "type": "richtext",
+        "id": "subtext",
+        "label": {
+          "pt-BR": "Título",
+          "it": "Heading",
+          "en": "Subheading",
+          "es": "Título",
+          "de": "Titel",
+          "ja": "見出し",
+          "fr": "Titre"
+        },
+        "default": {
+          "en": "<p>We believe humans are uniquely&nbsp;<strong>creative&nbsp;</strong>and innately social. Our highest forms of creativity happen socially, when we&nbsp;<strong>work together,</strong>&nbsp;communicating face to face. We apply the best of&nbsp;<strong>design thinking</strong>&nbsp;processes to the creation of&nbsp;<strong>products</strong>&nbsp;that are uniquely useful, elegantly designed, and beautifully made. We are thoroughly committed to your&nbsp;<strong>innovative success</strong>.</p>"
+        }
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": {
+          "pt-BR": "Citação",
+          "it": "Citazione",
+          "en": "Quote",
+          "es": "Cotización",
+          "de": "Zitat",
+          "ja": "引用",
+          "fr": "Citation"
+        },
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": {
+              "en": "Title"
+            }
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+              "en": "Image"
+            }
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "collection blocks",
+        "category": "collections",
+        "blocks": [
+          {
+            "type": "collections"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
