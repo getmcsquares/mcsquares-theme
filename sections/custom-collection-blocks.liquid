@@ -1,6 +1,4 @@
 
-{% assign bg_color = section.settings.bg_color %}
-{% include 'svg-curve' %}
 <div style="background-color: {{ bg_color }}" class="testimonials">
 <div class="page-width quotes__wrap">
   <div class="section-block section-block--padding">
@@ -27,7 +25,6 @@
                   sizes="(min-width: 960px) 450px, (min-width: 720px) 50vw, 100vw"
                   style="max-height: {{ maximum_height }}px;">
                 <div class="quote-title "><h5>{{ block.settings.title | escape }}</h5></div>
-                <div class="quote__image image-round"><img src="{{ block.settings.image | img_url: '500x500' }}"></div>
               </div>
               </a>
           {% endfor %}
