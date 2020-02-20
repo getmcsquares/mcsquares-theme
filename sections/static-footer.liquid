@@ -5,30 +5,6 @@
     {%- assign footer_linklist_1 = section.settings.footer_linklist_1 -%}
     {%- assign footer_linklist_2 = section.settings.footer_linklist_2 -%}
     {%- assign footer_linklist_3 = section.settings.footer_linklist_3 -%}
-    {% if linklists[footer_linklist_1].links.size > 0 %}
-    <div class="col-md-6">
-      <div class="row">
-        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h5 class="text-white">{{linklists[footer_linklist_1].title}}</h5>
-          {% for link in linklists[footer_linklist_1].links %}
-          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h5 class="text-white">{{linklists[footer_linklist_2].title}}</h5>
-          {% for link in linklists[footer_linklist_2].links %}
-          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
-          <h5 class="text-white">{{linklists[footer_linklist_3].title}}</h5>
-          {% for link in linklists[footer_linklist_3].links %}
-          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-    {% endif %}
     <div class="col-md-6 social-links">
     <div class="small-hide"  style="max-width: 100%">
       <span data-sumome-listbuilder-embed-id="1e51a6555ae5bc29000ff489679ae47a2744ba8114b856a83d0f7a1d7b5968a5"></span>
@@ -71,6 +47,31 @@
       {% endif %}
       {% include 'newsletter' %}
     </div>
+    {% if linklists[footer_linklist_1].links.size > 0 %}
+    <div class="col-md-6">
+      <div class="row">
+        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
+          <h5 class="text-white">{{linklists[footer_linklist_1].title}}</h5>
+          {% for link in linklists[footer_linklist_1].links %}
+          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
+          <h5 class="text-white">{{linklists[footer_linklist_2].title}}</h5>
+          {% for link in linklists[footer_linklist_2].links %}
+          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="footer-nav col-md-4 d-flex flex-column align-items-start">
+          <h5 class="text-white">{{linklists[footer_linklist_3].title}}</h5>
+          {% for link in linklists[footer_linklist_3].links %}
+          <li class=""><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+    
     <div class="col-12 d-flex align-items-center justify-content-center">
       <a href="/" class="logo-image footer-logo">
         {% if section.settings.logo != blank %}
