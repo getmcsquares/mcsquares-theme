@@ -24,7 +24,7 @@
                   {% if image_src.width > 900 %},{{ image_src | img_url: '900x' }} 900w{% endif %}"
                   sizes="(min-width: 960px) 450px, (min-width: 720px) 50vw, 100vw"
                   style="max-height: {{ maximum_height }}px;">
-                <div class="quote-title "><h5>{{ block.settings.title | escape }}</h5></div>
+                <div><h5 class="text-center">{{ block.settings.title | escape }}</h5></div>
               </div>
               </a>
           {% endfor %}
