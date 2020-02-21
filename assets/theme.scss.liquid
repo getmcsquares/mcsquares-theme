@@ -3140,15 +3140,12 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 .site-header-menu-toggle,
 .site-header-cart {
   position: absolute;
-  top: 10px;
-  bottom: auto;
+  bottom: 18px;
   z-index: $index-header-internal-icons;
   display: inline-block;
   height: $local-header-icon-height;
 
   @include media($min: $bp-large) {
-    top: 50%;
-    bottom: ($header-padding-vertical-mobile * 2) + $header-content-height;
     // Bottom padding is shorter, we need to subtract 1/4 of that to balance it
     margin-top: (-1 * $local-header-icon-height / 2) + ($header-padding-vertical / 4);
 
@@ -3158,7 +3155,10 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     }
   }
 }
-
+.header-subscribe-wrap{
+  max-width: 120px;
+  margin-left: auto;
+}
 .site-header-menu-toggle--button,
 .site-header-cart--button {
   display: inline-block;
