@@ -46,6 +46,12 @@
   >
     <input type="hidden" name="type" value="{{ search_type | replace: '  ', '' | strip_newlines }}">
     <div class="form-field no-label">
+    <button
+        class="live-search-takeover-cancel"
+        type="submit"
+        data-live-search-takeover-cancel>
+        {{ 'search.form.cancel' | t }}
+      </button>
       <input
         class="form-field-input live-search-form-field"
         type="text"
@@ -61,12 +67,7 @@
         {% endif %}
         autocomplete="off"
         data-live-search-input>
-      <button
-        class="live-search-takeover-cancel"
-        type="submit"
-        data-live-search-takeover-cancel>
-        {{ 'search.form.cancel' | t }}
-      </button>
+      
 
       <button
         class="live-search-button button-primary"
