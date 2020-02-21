@@ -15,7 +15,6 @@
           {% assign featured_collection = collections[block.settings.collection] %}
           <div class="text-center col-md-3 card-container">
             <a href="{{ featured_collection.url }}">
-              
                 {% assign image_src = block.settings.image %}
                 <img class="featured-card__image lazyload"
                   src="{{ image_src | img_url: '420x' }}" alt="{{ image_src.alt | escape }}"
@@ -26,7 +25,6 @@
                   sizes="(min-width: 960px) 450px, (min-width: 720px) 50vw, 100vw"
                   style="max-width: 100%;">
                 <div><h5 class="text-center">{{ block.settings.title | escape }}</h5></div>
-              
               </a>
               </div>
           {% endfor %}
