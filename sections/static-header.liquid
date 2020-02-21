@@ -63,7 +63,10 @@
         small-promo-enabled
       {% endif %}
     "
-  >
+  > 
+    <div class="header-subscribe-wrap">
+    <div class="klaviyo-form-Pps8gU"></div>
+    </div>
     <div class="site-header-logo">
       <a
         class="site-logo"
@@ -131,8 +134,6 @@
     %}
   </nav>
 </div>
-<div class="d-flex flex-column alitn-items-end">
-    <div class="klaviyo-form-Pps8gU"></div>
     {%
       include 'live-search-form',
       quick_links: linklists[section.settings.quick_links],
@@ -140,7 +141,6 @@
       enable_images: section.settings.enable_live_search_images,
       enable_content: section.settings.enable_live_search_articles_pages
     %}
-</div>
     {% if section.settings.small_promo_text != blank or section.settings.small_promo_heading != blank %}
       <div class="small-promo">
         {% if section.settings.small_promo_icon != 'none' or section.settings.image %}
