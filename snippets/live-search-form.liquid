@@ -52,6 +52,19 @@
         data-live-search-takeover-cancel>
         {{ 'search.form.cancel' | t }}
       </button>
+      <button
+        class="live-search-button button-primary"
+        type="{% if enable_live_search %}button{% else %}submit{% endif %}"
+        aria-label="{{ 'general.accessibility.search' | t }}"
+        data-live-search-submit
+      >
+        <span class="search-icon search-icon--inactive">
+          {% include 'icon-search' %}
+        </span>
+        <span class="search-icon search-icon--active">
+          {% include 'icon-spinner' %}
+        </span>
+      </button>
       <input
         class="form-field-input live-search-form-field"
         type="text"
@@ -69,19 +82,7 @@
         data-live-search-input>
       
 
-      <button
-        class="live-search-button button-primary"
-        type="{% if enable_live_search %}button{% else %}submit{% endif %}"
-        aria-label="{{ 'general.accessibility.search' | t }}"
-        data-live-search-submit
-      >
-        <span class="search-icon search-icon--inactive">
-          {% include 'icon-search' %}
-        </span>
-        <span class="search-icon search-icon--active">
-          {% include 'icon-spinner' %}
-        </span>
-      </button>
+      
     </div>
 
     <div class="search-flydown" data-live-search-flydown>
