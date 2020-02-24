@@ -3030,12 +3030,12 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   // padding-bottom: $header-padding-vertical-mobile;
   background-color: $color-header-background;
   transition: padding 0.15s $ease-bubble;
-
+  padding-top: $header-padding-vertical;
+  padding-bottom: $header-padding-vertical / 2;
   @include media($min: $bp-large) {
     // display: flex;
     align-items: center;
-    padding-top: $header-padding-vertical;
-    padding-bottom: $header-padding-vertical / 2;
+    
 
     .site-header-sticky--scrolled & {
       padding-top: $header-padding-vertical-sticky;
@@ -3074,7 +3074,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 
 .site-header-logo {
   margin-right: auto;
-  margin-left: auto;
+  // margin-left: auto;
   text-align: center;
   vertical-align: middle;
 
@@ -3158,6 +3158,12 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
 .header-subscribe-wrap{
   max-width: 300px;
   margin-left: auto;
+  @include media($max: $bp-large){
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    margin-left: unset;
+  }
 }
 .site-header-menu-toggle--button,
 .site-header-cart--button {
