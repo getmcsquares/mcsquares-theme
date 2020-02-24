@@ -130,9 +130,6 @@
           >
           <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.1 }}"></div>
             {% if block.settings.titleimg != blank %}
-                {% if block.settings.link != blank %}
-                  <a href="{{ block.settings.link }}" class="hero__link">
-                {% endif %}
                   <img
                   src="{{ block.settings.titleimg | img_url: '720x720' }}" alt="{{ block.settings.title | escape }}" class="titleimg"
                   data-src="{{ img_url }}"
@@ -141,26 +138,24 @@
                   data-sizes="auto">
                   <h1 class="hero__title visually-hidden propisi font">{{ block.settings.title | escape }}</h1>
                 {% if block.settings.link != blank %}
-                  </a>
                 {% endif %}
             {% else %}
                 <h1 class="hero__title propisi{% if block.settings.link != blank %} hero__title--has-link{% endif %}">
-                  {% if block.settings.link != blank %}
-                    <a href="{{ block.settings.link }}" class="hero__link">
-                  {% endif %}
                   {{ block.settings.title | escape }}
                   {% if block.settings.link != blank %}
-                    </a>
                   {% endif %}
                 </h1>
             {% endif %}
+            {% if block.settings.link != blank %}
+                  <a href="{{ block.settings.link }}" class="
+                  slideshow-button
+                  button">
+                  </a>
+                {% endif %}
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
               </p>
-            {% endif %}
-            {% if block.settings.link != blank %}
-              </a>
             {% endif %}
 
             {% if block.settings.button_one_label != blank %}
