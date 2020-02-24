@@ -3030,13 +3030,12 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   // padding-bottom: $header-padding-vertical-mobile;
   background-color: $color-header-background;
   transition: padding 0.15s $ease-bubble;
-  padding-top: $header-padding-vertical;
+  
   padding-bottom: $header-padding-vertical / 2;
   @include media($min: $bp-large) {
     // display: flex;
     align-items: center;
-    
-
+    padding-top: $header-padding-vertical;
     .site-header-sticky--scrolled & {
       padding-top: $header-padding-vertical-sticky;
       padding-bottom: $header-padding-vertical-sticky;
