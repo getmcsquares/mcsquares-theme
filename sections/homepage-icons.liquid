@@ -1,4 +1,9 @@
 <div style="background-color: {{ section.settings.section_bg }}" class="section-inner-small homepage-icons-section">
+{% if section.settings.title != blank %}
+      <div class="section-block__header text-center">
+        <h4 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h4>
+      </div>
+    {% endif %}
 <div style="clear: both;" class="row d-flex contained">
         <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
         <div class="row" >
@@ -49,6 +54,12 @@
         "en": "Homepage Icons"
     },
     "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title",
+          "default": "Featured Icons"
+        },
         {
         "type": "image_picker",
         "id": "interval_img_1",
