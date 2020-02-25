@@ -46,7 +46,23 @@
   >
     <input type="hidden" name="type" value="{{ search_type | replace: '  ', '' | strip_newlines }}">
     <div class="form-field no-label">
-    <button
+    
+      <input
+        class="form-field-input live-search-form-field"
+        type="text"
+        name="q"
+        aria-label="{{ 'search.form.label' | t }}"
+        placeholder="{{ placeholder_text | escape }}"
+        {% if search.performed %}
+          {%
+            include 'search-sanitizer',
+            search_terms: search.terms
+          %}
+          value="{{ sanitized_terms }}"
+        {% endif %}
+        autocomplete="off"
+        data-live-search-input>
+      <button
         class="live-search-takeover-cancel"
         type="submit"
         data-live-search-takeover-cancel>
@@ -65,22 +81,6 @@
           {% include 'icon-spinner' %}
         </span>
       </button>
-      <input
-        class="form-field-input live-search-form-field"
-        type="text"
-        name="q"
-        aria-label="{{ 'search.form.label' | t }}"
-        placeholder="{{ placeholder_text | escape }}"
-        {% if search.performed %}
-          {%
-            include 'search-sanitizer',
-            search_terms: search.terms
-          %}
-          value="{{ sanitized_terms }}"
-        {% endif %}
-        autocomplete="off"
-        data-live-search-input>
-      
 
       
     </div>
