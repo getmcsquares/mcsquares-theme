@@ -15770,3 +15770,101 @@ input[placeholder="Comments"]{
     margin: 1em .5em; //mobile
   }
 }
+/*================ Pangea Search ================*/
+.header-search {
+  margin-bottom: 0;
+}
+.header-search input {
+  // background-color: transparent;
+  border: none;
+  outline: none;
+  margin-bottom: 1em;
+  border-radius: 1px;
+  border-top-left-radius: 1px;
+  border-top-left-radius: 1px;
+  color: $color-btn-primary-text;
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: $color-btn-primary-text;
+   opacity: 1; /* Firefox */
+   }
+   &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color: $color-btn-primary-text;
+   }
+   &::-ms-input-placeholder { /* Microsoft Edge */
+       color: $color-btn-primary-text;
+   }
+   &:focus, &:hover {
+     //background-color: transparent;
+     outline: none;
+     background-color: #fff;
+     color: $color-text;
+     transition: background-color .25s ease-in-out;
+     -moz-transition: backgrbackground-coloround .25s ease-in-out;
+     -webkit-transition: background-color .25s ease-in-out;
+     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $color-text;
+      opacity: 1; /* Firefox */
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: $color-text;
+      }
+      &::-ms-input-placeholder { /* Microsoft Edge */
+          color: $color-text;
+      }
+   }
+}
+.header-search .input-group-prepend button{
+  background-color: transparent;
+}
+ /*================ Header Search ================*/
+ .search-header {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  max-width: calc(30em / 16);
+  vertical-align: middle;
+
+  &.search--focus {
+    max-width: 250px;
+  }
+}
+
+.search-header__input {
+  cursor: pointer;
+}
+
+.search--focus {
+  .search-header__input {
+    outline: none;
+    border-color: $color-border-form;
+    cursor: auto;
+  }
+
+  .search-header__submit {
+    pointer-events: auto;
+  }
+}
+
+.search-header__submit {
+  pointer-events: none;
+}
+
+.search-header,
+.search-header__submit {
+  transition: all 0.35s cubic-bezier(0.29, 0.63, 0.44, 1);
+}
+
+.no-svg {
+  .site-header__search {
+    display: inline-block;
+  }
+
+  .search-header {
+    max-width: none;
+  }
+
+  .search__input {
+    width: auto;
+    padding-left: 60px;
+  }
+}
