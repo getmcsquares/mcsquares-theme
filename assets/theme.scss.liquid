@@ -5496,7 +5496,7 @@ $local-slideshow-large: 560px;
 }
 
 .slideshow-button {
-  margin: -.5em 0 1.25rem;
+  margin: 0 0 1.25rem;
   color: white !important;
   @include media($min: $bp-small) {
     @include button-size(medium);
@@ -5506,7 +5506,16 @@ $local-slideshow-large: 560px;
     @include button-size(large);
   }
 }
-
+.slideshow-subcontent {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  @include media($max: $bp-large) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
 // Minimum tile heights for each layout (Small, Medium, Large)
 $local-mosaic-heights-layout: (
   (440px, 540px, 640px),
