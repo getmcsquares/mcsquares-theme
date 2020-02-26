@@ -8915,7 +8915,7 @@ $local-max-width: 680px;
     }
     &:active, &:hover {
       opacity: .6;
-      color: white;
+      // color: white;
       outline: 0;
     }
     &.navmenu-item-active:focus {
@@ -15782,16 +15782,16 @@ input[placeholder="Comments"]{
   border-radius: 1px;
   border-top-left-radius: 1px;
   border-top-left-radius: 1px;
-  color: green;
+  color: darkgrey;
   &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-   color: green;
+   color: darkgrey;
    opacity: 1; /* Firefox */
    }
    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-       color: green;
+       color: darkgrey;
    }
    &::-ms-input-placeholder { /* Microsoft Edge */
-       color: green;
+       color: darkgrey;
    }
    &:focus, &:hover {
      //background-color: transparent;
@@ -15815,6 +15815,9 @@ input[placeholder="Comments"]{
 }
 .header-search .input-group-prepend button{
   background-color: transparent;
+}
+.input-group{
+  width: auto;
 }
  /*================ Header Search ================*/
  .search-header {
@@ -15866,5 +15869,93 @@ input[placeholder="Comments"]{
   .search__input {
     width: auto;
     padding-left: 60px;
+  }
+}
+.icon-fallback-text {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+#search-box {
+  -webkit-transition: width .5s;
+      /* Safari */
+      transition: width .5s;
+  .search {
+    background-color: transparent;
+    color: #222;
+    font-size: 12px;
+    text-align: left;
+    -webkit-transition: width .5s;
+    /* Safari */
+    transition: width .5s;
+    input{
+      padding: 0;
+    }
+    .fa-search {
+      font-size: 1.4em;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .search-box-input {
+      background: white;
+      border: none;
+      color: #222;
+      visibility: hidden;
+      opacity: 0;
+      -webkit-transition: visibility .5s, opacity 0.5s linear, width .5s;
+      /* Safari */
+      transition: visibility .5s, opacity 0.5s linear, width .5s;
+      width: 0;
+    }
+    .header-search-button{
+      padding: 10px 10px;
+      background-color: transparent;
+      svg{
+        fill: #111;
+      }
+    }
+    &:hover, &:focus, &:focus-within {
+      width: 180px !important;
+      .search-box-input {
+        visibility: visible;
+        opacity: 1;
+        height: 44px;
+      }
+      input{
+        padding: 0 10px;
+      }
+    }
+
+    #search-box-input::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #fff;
+    }
+
+    #search-box-input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #fff;
+    }
+
+    #search-box-input:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #fff;
+    }
+
+    #search-box-input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #fff;
+    }
+
+    #search-box-input:focus {
+      box-shadow: none;
+      border: none;
+    }
   }
 }

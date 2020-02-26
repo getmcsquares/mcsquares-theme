@@ -126,12 +126,6 @@
 </div> {% endcomment %}
 <div id="search-box">
 <form  id="header-search" action="/search" method="get" role="search" class="input-group header-search d-flex align-items-center justify-content-end search alpine" >
-  <div class="input-group-prepend">
-    <button id="header-search-button" type="submit" class="btn btn-small header-search-button">
-      {% include 'icon-search' %}
-      <span class="icon-fallback-text">Submit</span>
-    </button>
-  </div>
   <input type="search"
   name="q"
   id="Search"
@@ -139,5 +133,11 @@
   value="{{ search.terms | escape }}"
   placeholder="{{ 'search.form.placeholder' | t }}">
   <label for='Search' style="visibility: hidden; height: 0px !important; width: 0px !important" aria-label='search' aria-labelledby="Search">Search</label>
+  <div class="input-group-prepend">
+    <button id="header-search-button" type="submit" class="btn btn-small header-search-button">
+      {% include 'icon-search' %}
+      <span class="icon-fallback-text">Submit</span>
+    </button>
+  </div>
 </form>
 </div>
