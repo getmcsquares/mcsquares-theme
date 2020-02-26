@@ -1,3 +1,10 @@
+{%- assign placeholder_text = blank -%}
+{%- if placeholder != blank -%}
+  {%- assign placeholder_text = placeholder -%}
+{% else %}
+  {%- assign placeholder_text = 'search.form.placeholder' | t -%}
+{%- endif -%}
+
 {% comment %} 
   @param quick_links {LinkedList}
     Handle of menu to display
@@ -28,12 +35,6 @@
   {% endif %}
 {%- endcapture -%}
 
-{%- assign placeholder_text = blank -%}
-{%- if placeholder != blank -%}
-  {%- assign placeholder_text = placeholder -%}
-{% else %}
-  {%- assign placeholder_text = 'search.form.placeholder' | t -%}
-{%- endif -%}
 
 <div class="live-search" data-live-search>
   <form
@@ -128,7 +129,7 @@
   <div class="input-group-prepend">
     <button id="header-search-button" type="submit" class="btn btn-small header-search-button">
       {% include 'icon-search' %}
-      <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+      <span class="icon-fallback-text">Submit</span>
     </button>
   </div>
   <input type="search"
@@ -136,6 +137,6 @@
   id="Search"
   class="form-control search-box-input"
   value="{{ search.terms | escape }}"
-  placeholder="{{ 'general.search.placeholder' | t }}">
+  placeholder="{{ 'search.form.placeholder' | t }}">
   <label for='Search' style="visibility: hidden; height: 0px !important; width: 0px !important" aria-label='search' aria-labelledby="Search">Search</label>
 </form>
