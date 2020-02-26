@@ -15891,9 +15891,9 @@ input[placeholder="Comments"]{
     color: #222;
     font-size: 12px;
     text-align: left;
-    // -webkit-transition: width .5s;
-    // /* Safari */
-    // transition: width .5s;
+    -webkit-transition: width ease-in-out .5s;
+    /* Safari */
+    transition: width ease-in-out .5s;
     input{
       padding: 0;
     }
@@ -15923,11 +15923,12 @@ input[placeholder="Comments"]{
       }
     }
     &:hover, &:focus, &:focus-within {
-      width: 180px !important;
+
       .search-box-input {
         visibility: visible;
         opacity: 1;
         height: 44px;
+        width: 180px !important;
       }
       input{
         padding: 0 10px;
