@@ -12630,53 +12630,53 @@ $local-stack: (100, 50);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  // margin: $space-xx-small ($local-padding-medium - $space-xxx-small) 0;
+  margin: $space-xx-small ($local-padding-medium - $space-xxx-small) 0;
   text-align: center;
   transition: opacity 0.20s ease 0s;
 
   .no-touch & {
-    // position: absolute;
+    position: absolute;
     right: 0;
     bottom: $local-padding-medium;
     left: 0;
-    // opacity: 0;
-    // visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
   }
 
-  // .has-touch & {
-  //   display: none;
-  //   margin-right: -1 * $space-xxx-small;
-  //   margin-left: -1 * $space-xxx-small;
-  // }
+  .has-touch & {
+    display: none;
+    margin-right: -1 * $space-xxx-small;
+    margin-left: -1 * $space-xxx-small;
+  }
 
-  // @include media($min: $bp-large) {
+  @include media($min: $bp-large) {
 
-  //   .productgrid--item:hover,
-  //   .productgrid--item.animating &,
-  //   .productgrid--item.visible & {
-  //     visibility: visible;
-  //   }
+    .productgrid--item:hover,
+    .productgrid--item.animating &,
+    .productgrid--item.visible & {
+      visibility: visible;
+    }
 
-  //   .productgrid--item.animating-in:not(.animating-out) & {
-  //     transition: opacity 0.2s ease 0.05s;
-  //   }
+    .productgrid--item.animating-in:not(.animating-out) & {
+      transition: opacity 0.2s ease 0.05s;
+    }
 
-  //   .productgrid--item.animating-in:not(.animating-out) &,
-  //   .productgrid--item.visible:not(.animating-out) &,
-  //   .productgrid--item.visible.animating-out:hover & {
-  //     opacity: 1;
-  //   }
+    .productgrid--item.animating-in:not(.animating-out) &,
+    .productgrid--item.visible:not(.animating-out) &,
+    .productgrid--item.visible.animating-out:hover & {
+      opacity: 1;
+    }
 
-  //   // Occurs when user mouses in / out super quick
-  //   .productgrid--item.animating-in.animating-out & {
-  //     opacity: 0;
-  //   }
+    // Occurs when user mouses in / out super quick
+    .productgrid--item.animating-in.animating-out & {
+      opacity: 0;
+    }
 
-  //   .has-touch & {
-  //     display: block;
-  //     width: 100%;
-  //   }
-  // }
+    .has-touch & {
+      display: block;
+      width: 100%;
+    }
+  }
 
     .productgrid--item {
       visibility: visible;
