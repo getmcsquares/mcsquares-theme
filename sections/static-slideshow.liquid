@@ -146,6 +146,12 @@
                   {% endif %}
                 </h1>
             {% endif %}
+            <div class="d-flex align-items-center justify-content-between">
+            {% if block.settings.text != blank %}
+              <p class="slideshow-slide-text">
+                {{ block.settings.text | escape }}
+              </p>
+            {% endif %}
             {% if block.settings.button_one_label != blank %}
               <a
                 {% if block.settings.button_one_link != blank %}
@@ -159,12 +165,8 @@
                 {{ block.settings.button_one_label | escape }}
               </a>
             {% endif %}
-            {% if block.settings.text != blank %}
-              <p class="slideshow-slide-text">
-                {{ block.settings.text | escape }}
-              </p>
-            {% endif %}
-
+            
+            </div>
             {% if block.settings.button_two_label != blank %}
               <a
                 {% if block.settings.button_two_link != blank %}
