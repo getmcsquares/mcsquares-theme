@@ -15769,10 +15769,19 @@ input[placeholder="Comments"]{
   max-height: 80px;
   margin-bottom: 1em;
 }
-.interval-image-round{
-  border-radius: 25%;
-  padding: 1em;
-  margin-bottom: 1em;
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular--landscape .interval-image-round {
+  width: auto;
+  height: 100%;
+  margin-left: -50px;
 }
 .where-find-us-section {
   .interval-image-small{
