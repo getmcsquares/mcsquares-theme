@@ -47,14 +47,6 @@
   data-site-header-main
   {% if section.settings.sticky_header %}data-site-header-sticky{% endif %}
 >
-  <a class="site-header-menu-toggle" href="#" data-menu-toggle>
-    <div class="site-header-menu-toggle--button" tabindex="-1">
-      <span class="toggle-icon--bar toggle-icon--bar-top"></span>
-      <span class="toggle-icon--bar toggle-icon--bar-middle"></span>
-      <span class="toggle-icon--bar toggle-icon--bar-bottom"></span>
-      <span class="visually-hidden">{{ 'general.accessibility.menu' | t }}</span>
-    </div>
-  </a>
    <div class="header-subscribe-wrap">
     <div class="klaviyo-form-Pps8gU"></div>
   </div>
@@ -201,7 +193,15 @@
     {% endif %}
   </div>
 
-  <div class="site-header-cart">
+  <div class="site-header-cart d-flex align-items-between">
+   <a class="site-header-menu-toggle" href="#" data-menu-toggle>
+    <div class="site-header-menu-toggle--button" tabindex="-1">
+      <span class="toggle-icon--bar toggle-icon--bar-top"></span>
+      <span class="toggle-icon--bar toggle-icon--bar-middle"></span>
+      <span class="toggle-icon--bar toggle-icon--bar-bottom"></span>
+      <span class="visually-hidden">{{ 'general.accessibility.menu' | t }}</span>
+    </div>
+  </a>
     <a class="site-header-cart--button" href="/cart">
       <span
         class="site-header-cart--count {% if cart.item_count > 0 %}visible{% endif %}"
