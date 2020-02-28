@@ -4,6 +4,7 @@
 <section class="promo-mosaic--container">
   <div class="home-section--content hover-feature-content d-flex align-items-center" style="padding-top: 10px;">
       <div class="hover-feature-image-wrap">
+      <img src="{{ section.settings.bg_image | | img_url: '800x800' }}">
       </div>
       <div class="hover-feature-text-wrap" style="background-color: {{ bg_color }}">
       </div>
@@ -23,9 +24,19 @@
       "default": "Main text"
     },
     {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
       "type": "color",
       "id": "bg_color",
       "label": "Background color"
+    },
+    {
+    "type": "image_picker",
+    "id": "bg_image",
+    "label": "Background Image"
     }
   ],
   "presets": [
