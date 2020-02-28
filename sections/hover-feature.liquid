@@ -1,0 +1,39 @@
+
+{% assign bg_color = section.settings.bg_color %}
+<div style="background-color: {{ bg_color }}">
+<section class="promo-mosaic--container">
+  <div class="home-section--content hover-feature-content d-flex align-items-center" style="padding-top: 10px;">
+      <div class="hover-feature-image-wrap">
+      </div>
+      <div class="hover-feature-text-wrap" style="background-color: {{ bg_color }}">
+      </div>
+  </div>
+
+</section>
+</div>
+{% schema %}
+{
+  "name": "Hover Feature",
+  "class": "hover-feature-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Main text"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hover Feature",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}
