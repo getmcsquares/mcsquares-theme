@@ -1,12 +1,14 @@
 
 {% assign bg_color = section.settings.bg_color %}
-<div style="background-color: {{ bg_color }}">
+<div>
 <section class="promo-mosaic--container">
   <div class="home-section--content hover-feature-content d-flex align-items-center" style="padding-top: 10px;">
       <div class="hover-feature-image-wrap">
       <img src="{{ section.settings.bg_image | img_url: '800x800' }}">
       </div>
-      <div class="hover-feature-text-wrap" style="background-color: {{ bg_color }}">
+      <div class="hover-feature-text-wrap d-flex flex-column align-items-start justify-content-around" style="background-color: {{ bg_color }}">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.copy }}</p>
       </div>
   </div>
 
@@ -22,6 +24,11 @@
       "id": "title",
       "label": "Heading",
       "default": "Main text"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Main Copy"
     },
     {
       "type": "url",
