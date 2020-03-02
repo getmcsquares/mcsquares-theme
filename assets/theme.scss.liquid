@@ -15977,7 +15977,7 @@ input[placeholder="Comments"]{
   }
 }
 .hover-feature-content {
-  
+  padding: 1em; 
   .hover-feature-text-wrap{
     background-color: transparent;
     color: $color-heading;
@@ -15986,12 +15986,12 @@ input[placeholder="Comments"]{
     align-items: stretch;
     align-content: stretch;
     flex: 1;
+    transition: all .2s ease-in-out;
   }
   &:hover{
     .hover-feature-text-wrap{
-      background-color: unset;
-      color: unset;
+      background-color: unset !important;
+      color: unset !important;
     }
-
   }
 }
