@@ -15977,11 +15977,21 @@ input[placeholder="Comments"]{
   }
 }
 .hover-feature-content {
+  
   .hover-feature-text-wrap{
+    background-color: transparent;
+    color: $color-heading;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
     align-content: stretch;
     flex: 1;
+  }
+  &:hover{
+    .hover-feature-text-wrap{
+      background-color: unset;
+      color: unset;
+    }
+
   }
 }
