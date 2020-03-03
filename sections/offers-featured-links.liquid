@@ -1,0 +1,103 @@
+<div style="background-color: {{ section.settings.section_bg }}" class=" homepage-icons-section shopify-section home-section--content">
+
+<div style="clear: both;" class="row d-flex contained">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+        <div class="row" >
+            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+              <a href="{{section.settings.link_1}}">
+              <div class="circular-landscape">
+                {% if section.settings.interval_img_1 %}<img class="interval-image-round" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
+                </div>
+                {% if section.settings.text_1 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</p>{% endif %}
+              </a>
+            </div>
+            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+              <a href="{{section.settings.link_2}}">
+              <div class="circular-landscape">
+                {% if section.settings.interval_img_2 %}<img class="interval-image-round" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
+                </div>
+                {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
+              </a>
+            </div>
+            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+              <a href="{{section.settings.link_3}}">
+              <div class="circular-landscape">
+                {% if section.settings.interval_img_3 %}<img class="interval-image-round" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
+                </div>
+                {% if section.settings.text_3 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</p>{% endif %}
+              </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Featured Links"
+    },
+    "settings": [
+        {
+        "type": "image_picker",
+        "id": "interval_img_1",
+        "label": "Icon 1"
+        },
+        {
+        "type": "text",
+        "id": "text_1",
+        "label": "Text 1"
+        },
+        {
+        "type": "url",
+        "id": "link_1",
+        "label": "Icon Link"
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_2",
+        "label": "Icon 2"
+        },
+        {
+        "type": "text",
+        "id": "text_2",
+        "label": "Text 2"
+        },
+        {
+        "type": "url",
+        "id": "link_2",
+        "label": "Icon Link"
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_3",
+        "label": "Icon 3"
+        },
+        {
+        "type": "text",
+        "id": "text_3",
+        "label": "Text 3"
+        },
+        {
+        "type": "url",
+        "id": "link_3",
+        "label": "Icon Link"
+        },
+        {
+        "type": "color",
+        "id": "section_bg",
+        "label": "Section Background"
+        },
+        {
+        "type": "color",
+        "id": "section_font",
+        "label": "Section Font Color"
+        }
+        ],
+        "presets": [
+        {
+        "name": "Featured Links",
+        "category": "Homepage"
+        }
+    ]
+}
+{% endschema %}
