@@ -279,32 +279,33 @@ $font-variables-named-styles: ({{ font_variable_named_styles | strip }});
 /*============================================================================
 brand font definitions
 ==============================================================================*/
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=optional');
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=optional');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap');
 
-@font-face {
-  font-family: 'Helvetica Neue';
-  font-display: optional;
-  src: url('./HelveticaNeue-01.ttf') format('truetype');
-  font-weight: normal;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  font-display: optional;
-  src: url('./HelveticaNeue-Bold-02.ttf') format('truetype');
-  font-weight: bold;
-}
-@font-face {
-  font-family: 'Helvetica Neue';
-  font-display: optional;
-  src: url('./HelveticaNeue-Light-08.ttf') format('truetype');
-  font-weight: 300;
-}
-@font-face {
-  font-family: 'Propisi';
-  font-display: optional;
-  font-weight: 400;
-  src: url('./Propisi-Medium.otf');
-}
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   font-display: optional;
+//   src: url('./HelveticaNeue-01.ttf') format('truetype');
+//   font-weight: normal;
+// }
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   font-display: optional;
+//   src: url('./HelveticaNeue-Bold-02.ttf') format('truetype');
+//   font-weight: bold;
+// }
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   font-display: optional;
+//   src: url('./HelveticaNeue-Light-08.ttf') format('truetype');
+//   font-weight: 300;
+// }
+// @font-face {
+//   font-family: 'Propisi';
+//   font-display: optional;
+//   font-weight: 400;
+//   src: url('./Propisi-Medium.otf');
+// }
 
 
 // External libraries
@@ -1851,7 +1852,8 @@ h6 {
   font-display: optional;
 }
 h1.propisi, h1.cursive {
-  font-family: 'Propisi';
+  //font-family: 'Propisi';
+  font-family: 'Raleway';
   font-display: optional;
 }
 h1.header-size{
@@ -1863,11 +1865,13 @@ h1.header-size{
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans';
+  //font-family: 'Open Sans';
+  font-family: 'Roboto';
   font-display: optional;
 }
 body, p, a, blockquote, dl, ul, ol, li {
-  font-family: 'Open Sans';
+  //font-family: 'Open Sans';
+  font-family: 'Roboto';
   font-display: optional;
 }
 
@@ -1876,7 +1880,8 @@ body,
  textarea,
  button,
  select {
-   font-family: 'Open Sans';
+   //font-family: 'Open Sans';
+   font-family: 'Roboto';
    line-height: 1.5;
    font-display: optional;
  }
@@ -2022,7 +2027,8 @@ body,
 }
 
 .propisi {
-  font-family: 'Propisi', sans-serif !important;
+  //font-family: 'Propisi', sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
   font-weight: 400 !important;
   // font-size: rem($font-heading-large * 1.75) !important;
 }
@@ -2668,7 +2674,8 @@ img[data-rimg="loading"] {
 .hero__title{
   font-size: 3.25rem !important;
   &.propisi {
-    font-family: 'Propisi';
+    //font-family: 'Propisi';
+    font-family: 'Raleway';
     font-size: 5.25em !important;
   }
   img{
@@ -3030,7 +3037,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   // padding-bottom: $header-padding-vertical-mobile;
   background-color: $color-header-background;
   transition: padding 0.15s $ease-bubble;
-  
+
   padding-bottom: $header-padding-vertical / 2;
   @include media($min: $bp-large) {
     // display: flex;

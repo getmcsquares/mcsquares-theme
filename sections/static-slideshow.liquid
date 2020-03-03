@@ -129,23 +129,11 @@
             "
           >
           <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.01 }}"></div>
-            {% comment %}{% if block.settings.titleimg != blank %}
-                  <img
-                  src="{{ block.settings.titleimg | img_url: '720x720' }}" alt="{{ block.settings.title | escape }}" class="titleimg"
-                  data-src="{{ img_url }}"
-                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                  data-sizes="auto">
-                  <h1 class="hero__title visually-hidden propisi font">{{ block.settings.title | escape }}</h1>
-                {% if block.settings.link != blank %}
-                {% endif %}
-            {% else %}{% endcomment %}
                 <h1 class="hero__title propisi{% if block.settings.link != blank %} hero__title--has-link{% endif %}">
                   {{ block.settings.title | escape }}
                   {% if block.settings.link != blank %}
                   {% endif %}
                 </h1>
-            {% comment %}{% endif %}{% endcomment %}
             <div class="slideshow-subcontent d-flex align-items-start justify-content-between">
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text text-center">
