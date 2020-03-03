@@ -128,27 +128,15 @@
               text-align-{{ block.settings.text_alignment }}
             "
           >
-          <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.1 }}"></div>
-            {% if block.settings.titleimg != blank %}
-                  <img
-                  src="{{ block.settings.titleimg | img_url: '720x720' }}" alt="{{ block.settings.title | escape }}" class="titleimg"
-                  data-src="{{ img_url }}"
-                  data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                  data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-                  data-sizes="auto">
-                  <h1 class="hero__title visually-hidden propisi font">{{ block.settings.title | escape }}</h1>
-                {% if block.settings.link != blank %}
-                {% endif %}
-            {% else %}
-                <h1 class="hero__title propisi{% if block.settings.link != blank %} hero__title--has-link{% endif %}">
+          <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.01 }}"></div>
+                <h1 class="hero__title {% if block.settings.link != blank %} hero__title--has-link{% endif %}">
                   {{ block.settings.title | escape }}
                   {% if block.settings.link != blank %}
                   {% endif %}
                 </h1>
-            {% endif %}
             <div class="slideshow-subcontent d-flex align-items-start justify-content-between">
             {% if block.settings.text != blank %}
-              <p class="slideshow-slide-text text-center">
+              <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
               </p>
             {% endif %}
@@ -165,7 +153,7 @@
                 {{ block.settings.button_one_label | escape }}
               </a>
             {% endif %}
-            
+
             </div>
             {% if block.settings.button_two_label != blank %}
               <a
@@ -287,33 +275,6 @@
           "type": "text",
           "label": "Heading",
           "default": "Slideshow"
-        },
-        {
-          "type": "image_picker",
-          "id": "titleimg",
-          "label": {
-            "pt-BR": "Title Imagem",
-            "it": "Title Immagine",
-            "en": "Title Image (replaces H1)",
-            "es": "Title Imagen",
-            "de": "Title Foto",
-            "ja": "Title 画像",
-            "fr": "Title Image"
-          }
-        },
-        {
-          "type": "image_picker",
-          "id": "titleimg_mobile",
-          "label": {
-            "pt-BR": "Title Imagem mobile",
-            "it": "Title Immagine (mobile view)",
-            "en": "Title Image mobile",
-            "es": "Title Imagen mobile",
-            "es": "Title Image mobile",
-            "de": "Title Foto mobile",
-            "ja": "Title 画像",
-            "fr": "Title Image"
-          }
         },
         {
           "id": "text",
