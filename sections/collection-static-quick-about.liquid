@@ -1,6 +1,6 @@
 {% assign bg_color = section.settings.bg_color %}
 {% include 'svg-curve' %}
-<div style="background-color: {{ bg_color }}" class="quick-about container {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
+<div style="background-color: {{ bg_color }}" class="quick-about container section-pad {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
   <div class="row d-flex align-items-start ">
     {% for block in section.blocks %}
     <div class="col-md-4 about-image-wrap quick has-bar" style='padding: 1em 2em;'>
