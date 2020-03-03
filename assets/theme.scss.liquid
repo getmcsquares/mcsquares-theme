@@ -15985,6 +15985,9 @@ input[placeholder="Comments"]{
   }
 }
 .hover-feature-content {
+  @include media($bp-small) {
+    flex-direction: column;
+  }
   .hover-feature-text-wrap{
     background-color: transparent;
     color: $color-heading;
