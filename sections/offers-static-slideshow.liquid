@@ -126,10 +126,12 @@
           >
             <div class="col-12 col-md-12 col-lg-5">
               <div class="video-container">
+              {% if block.settings.vid_url %}
               {% if block.settings.vid_type == 'youtube' %}
                 <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               {% else %}
                 <iframe src="{{ block.settings.video_url}}" frameborder="0" allow="fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
+              {% endif %}
               {% endif %}
               </div>
             </div>
