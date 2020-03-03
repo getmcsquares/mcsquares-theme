@@ -124,17 +124,6 @@
               align-items-center
             "
           >
-            <div class="col-12 col-md-12 col-lg-5">
-              <div class="video-container">
-              {% if block.settings.vid_url %}
-              {% if block.settings.vid_type == 'youtube' %}
-                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              {% else %}
-                <iframe src="{{ block.settings.video_url}}" frameborder="0" allow="fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
-              {% endif %}
-              {% endif %}
-              </div>
-            </div>
             <div class="col-md-12 col-lg-7 d-flex flex-column justify-content-center text-left about-intro-text">
               <blockquote>
                 <h1 class="propisi header-size" style="color: {{ block.settings.color }}">
@@ -248,13 +237,6 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Image (Mobile View)"
-        },
-        {
-          "id": "video_url",
-          "type": "text",
-          "label": "Video URL",
-          "default": "https://www.youtube.com/embed/K538gxU8-Po",
-          "info": "From the 'embed' option under the share menu"
         },
         {
           "type":      "radio",
