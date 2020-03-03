@@ -785,18 +785,18 @@ function () {
       // to close if another product card has received focus.
 
       var productHasFocus = this.$el.is($currentTarget) || this.$el.is($target) || this.$el.is($target.parents('.productgrid--item').first());
+      // PRODUCT CARD MOUSEOVERS
+      if (event.type === 'mouseenter' || event.type === 'mouseleave') {
+        openProductItem = event.type === 'mouseenter';
+      } else if (productHasFocus) {
+        openProductItem = true;
+      }
 
-      // if (event.type === 'mouseenter' || event.type === 'mouseleave') {
-      //   openProductItem = event.type === 'mouseenter';
-      // } else if (productHasFocus) {
-      //   openProductItem = true;
-      // }
-
-      // if (openProductItem) {
-      //   this._showActions();
-      // } else {
-      //   this._hideActions();
-      // }
+      if (openProductItem) {
+        this._showActions();
+      } else {
+        this._hideActions();
+      }
     }
   }, {
     key: "_showActions",
