@@ -15995,6 +15995,10 @@ input[placeholder="Comments"]{
     flex: 1;
     transition: all .2s ease-in-out;
     padding: 1em;
+    @include media($bp-small) {
+      width: 100%;
+      max-width: unset;
+    }
   }
   .hover-feature-image-wrap{
     max-width: 66%;
@@ -16005,8 +16009,12 @@ input[placeholder="Comments"]{
       margin-left: auto;
       margin-right: auto;
     }
+    @include media($bp-small) {
+      width: 100%;
+      max-width: unset;
+    }
   }
 }
 .hover-feature-content:hover .hover-feature-image-wrap img{
-  max-width: 110%;
+  width: 110%;
 }
