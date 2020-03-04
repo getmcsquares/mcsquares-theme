@@ -26,9 +26,7 @@
     "product": {% unless onboarding %}{{ product | json }}{% else %}false{% endunless} %}
   }
 </script>
-{% assign bg_color = section.settings.bg_color %}
-{% include 'svg-curve' %}
-<div style="background-color: {{ bg_color }}" class="{% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
+<div style="background-color: {{ bg_color }}" class="">
 <section  style="position: relative; margin-top: 0;" class="featured-product--container home-section--content" data-product-wrapper>
   <div class="featured-product--inner">
     {% comment %}
