@@ -16035,14 +16035,14 @@ input[placeholder="Comments"]{
   align-items: center;
 
 
-  @include media($small) {
+  @include media($bp-small) {
     flex-direction: column;
   }
 }
 
 .feature-row__item {
   @include flex(0 1 50%);
-  @include media($small) {
+  @include media($bp-small) {
     flex: 1;
     width: 100%;
     max-width: 100%;
@@ -16066,7 +16066,7 @@ input[placeholder="Comments"]{
     top: 0;
   }
 
-  @include media($small) {
+  @include media($bp-small) {
     order: 1;
   }
 }
@@ -16078,7 +16078,7 @@ input[placeholder="Comments"]{
   &.large {
     padding: 6em 1em;
   }
-  @include media($small) {
+  @include media($bp-small) {
     order: 2;
     // padding-bottom: 0; // always last element on mobile
   }
