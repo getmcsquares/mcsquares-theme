@@ -55,6 +55,9 @@
             {{ section.settings.button_label | escape }}
           </a>
         {% endif %}
+
+      {% include 'add-to-cart-button' %}
+
     {% if section.settings.inside_image != blank%}
       </div>
       <div class="col-12" style="padding: 2em 0 0;">
