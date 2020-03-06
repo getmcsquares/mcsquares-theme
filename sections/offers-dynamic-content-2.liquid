@@ -7,39 +7,11 @@
     </div>
   {% endcapture %}
 
-  {% capture inside_image_layout %}
-    <div class="" style="position: relative;">
-      {% if section.settings.inside_image != blank %}
-        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
-        {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
-        {%- assign img_url = section.settings.inside_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style' with image: section.settings.inside_image, width: 545, height: 545, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
-          <img id="{{ img_id }}"
-              class="blur-up responsive-image__image feature-row__image lazyload img img-responsive"
-              src="{{ section.settings.image | img_url: '300x', scale: 2 }}"
-              data-src="{{ img_url }}"
-              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-              data-aspectratio="{{ article.image.aspect_ratio }}"
-              data-sizes="auto"
-              alt="">
-        <noscript>
-          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
-        </noscript>
-      {% else %}
-        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-      {% endif %}
-    </div>
-  {% endcapture %}
-
     {% if section.settings.layout == 'left' %}
       {{ image_layout }}
     {% endif %}
 
-    <div {% if section.settings.inside_image != blank %}class="feature-row__item col-md-6 feature-row__text feature-row__text--{{ section.settings.layout }}"{% else %}class="narrow feature-row__item col-md-6 feature-row__text large feature-row__text--{{ section.settings.layout }}"{% endif %}>
-      {% if section.settings.inside_image != blank%}
-        <div class="row d-flex align-items-center">
-        <div class="col-12" style="padding: 1em 3em 0;">
-      {% endif %}
+    <div class="narrow feature-row__item col-md-6 feature-row__text large feature-row__text--{{ section.settings.layout }}">
         {% if section.settings.title != blank %}
           {% if section.settings.inside_image == blank%}
             <h2 class="h2">{{ section.settings.title | escape }}</h2>
@@ -57,14 +29,6 @@
         {% endif %}
 
       {% include 'add-to-cart-button' %}
-
-    {% if section.settings.inside_image != blank%}
-      </div>
-      <div class="col-12" style="padding: 2em 0 0;">
-      {{ inside_image_layout }}
-      </div>
-    </div>
-  {% endif %}
 
   </div>
       {% if section.settings.layout == 'right' %}
