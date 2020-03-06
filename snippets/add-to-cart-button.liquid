@@ -1,5 +1,5 @@
 
-{% assing product = collection.products.first %}
+{% assign product = collection.products.first %}
 {% form 'product', product, class:form_class, id:form_id %}
           {% comment %} {% unless product.has_only_default_variant %}
             {% for option in product.options_with_values %}
