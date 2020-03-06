@@ -1,7 +1,11 @@
-<div style="background-color: {{ section.settings.section_bg }}" class=" homepage-icons-section shopify-section home-section--content home-section--content">
-
+<div style="background-color: {{ section.settings.section_bg }}" class="homepage-icons-section shopify-section home-section--content home-section--content offer-featured-links">
+{% if section.settings.title != blank %}
+  <div class="section-block__header text-center">
+    <h4 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h4>
+  </div>
+{% endif %}
 <div style="clear: both;" class="row d-flex contained">
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+        <div class="col-12 col-sm-10 offset-sm-2 col-md-10 offset-md-2 col-lg-9 offset-lg-3 col-xl-9 offset-xl-3">
         <div class="row" >
             <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
               <a href="{{section.settings.link_1}}">
@@ -19,14 +23,6 @@
                 {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
               </a>
             </div>
-            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
-              <a href="{{section.settings.link_3}}">
-              <div class="featured-offer-image">
-                {% if section.settings.interval_img_3 %}<img class="interval-image-round" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
-                </div>
-                {% if section.settings.text_3 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</p>{% endif %}
-              </a>
-            </div>
         </div>
     </div>
 </div>
@@ -37,6 +33,12 @@
         "en": "Offers Links"
     },
     "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title",
+          "default": "Get One of Each! This offer includes:"
+        },
         {
         "type": "image_picker",
         "id": "interval_img_1",
@@ -65,21 +67,6 @@
         {
         "type": "url",
         "id": "link_2",
-        "label": "Icon Link"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_3",
-        "label": "Icon 3"
-        },
-        {
-        "type": "text",
-        "id": "text_3",
-        "label": "Text 3"
-        },
-        {
-        "type": "url",
-        "id": "link_3",
         "label": "Icon Link"
         },
         {
