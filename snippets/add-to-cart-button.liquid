@@ -45,7 +45,7 @@
                   {{ 'products.product.sold_out' | t }}
                 {% else %}
                   {% comment %} {{ 'products.product.add_to_cart' | t }} {% endcomment %}
-                  Add to Cart
+                  {% if section.settings.button_label %}{{section.settings.button_label}}{% else %}Add to Cart{% endif %}
                 {% endunless %}
               </span>
             </button>
