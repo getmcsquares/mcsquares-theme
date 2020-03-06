@@ -20,7 +20,7 @@
             {% endfor %}
           {% endunless %} {% endcomment %}
 
-          <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+          <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js d-none">
             {% for variant in product.variants %}
               <option {% if variant == current_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% unless variant.available %} disabled="disabled" {% endunless %}>
                 {% if variant.available %}
@@ -31,7 +31,7 @@
               </option>
             {% endfor %}
           </select>
-          <div class="product-form__item product-form__item--quantity">
+          <div class="product-form__item product-form__item--quantity d-none">
             <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
             <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input product-form__quantity">
           </div>
