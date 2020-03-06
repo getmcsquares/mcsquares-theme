@@ -1,6 +1,5 @@
 
 {% assign product = collection.products.first %}
-<p>{{product.title}}</p>
 {% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %}{%- endcapture %}
 {% capture "form_id" %}AddToCartForm-{{ section.id }}{%- endcapture %}
 {% form 'product', product, class:form_class, id:form_id %}
@@ -39,7 +38,7 @@
             <button type="submit"
               name="add"
               id="AddToCart-{{ section.id }}"
-              class="btn btn--full product-form__cart-submit{% unless product.available %} btn--sold-out{% endunless %}{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+              class="btn btn--full product-form__cart-submit{% unless product.available %} btn--sold-out{% endunless %}btn--secondary-accent"
               {% unless product.available %}disabled="disabled"{% endunless %}>
               <span id="AddToCartText-{{ section.id }}">
                 {% unless product.available %}
