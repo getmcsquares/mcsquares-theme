@@ -35,7 +35,7 @@
       {{ image_layout }}
     {% endif %}
 
-    <div {% if section.settings.inside_image != blank %}class="feature-row__item col-md-6 feature-row__text feature-row__text--{{ section.settings.layout }}"{% else %}class="narrow feature-row__item col-md-6 feature-row__text large feature-row__text--{{ section.settings.layout }}"{% endif %}>
+    <div {% if section.settings.inside_image != blank %}class="feature-row__item col-md-6 feature-row__text feature-row__text--{{ section.settings.layout }} order-2"{% else %}class="narrow feature-row__item col-md-6 feature-row__text large feature-row__text--{{ section.settings.layout }} order-1"{% endif %}>
       {% if section.settings.inside_image != blank%}
         <div class="row d-flex align-items-center">
         <div class="col-12" style="padding: 1em 3em 0;">
@@ -57,7 +57,7 @@
         {% endif %}
 
               {% include 'add-to-cart-button' %}
-              
+
     {% if section.settings.inside_image != blank%}
       </div>
       <div class="col-12" style="padding: 2em 0 0;">
