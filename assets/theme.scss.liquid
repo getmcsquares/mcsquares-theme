@@ -16087,18 +16087,12 @@ input[placeholder="Comments"]{
 .feature-row__text.narrow{
   max-width: 450px !important;
 }
-@include media($medium-up) {
+@include media($bp-small) {
   .feature-row__text--left {
-    padding-left: $section-spacing-small;
+    padding-left: 1em;
   }
 
   .feature-row__text--right {
-    padding-right: $section-spacing-small;
-  }
-}
-
-@include media($medium-up) {
-  .featured-row__subtext {
-    font-size: em($font-size-base + 2);
+    padding-right: 1em;
   }
 }
