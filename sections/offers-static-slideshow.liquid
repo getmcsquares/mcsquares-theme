@@ -126,6 +126,7 @@
               slideshow-slide-content
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
+              content-{{ block.settings.text_alignment }}
             "
           >
           <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.01 }}"></div>
@@ -134,7 +135,7 @@
                   {% if block.settings.link != blank %}
                   {% endif %}
                 </h1>
-            <div class="slideshow-subcontent d-flex align-items-start justify-content-between">
+            <div class="slideshow-subcontent d-flex">
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
@@ -182,7 +183,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "Slideshow Homepage",
+  "name": "Slideshow Offers",
   "class": "slideshow--section",
   "settings": [
     {
