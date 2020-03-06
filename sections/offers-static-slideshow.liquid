@@ -42,7 +42,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-dynamic
+              slideshow-height-{{ section.settings.slideshow_height }}
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -59,22 +59,24 @@
           class="
             background-target
             slideshow-background
-            slideshow-dynamic
             slideshow-background--{{ block.id }}
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
+            slideshow-height-{{ section.settings.slideshow_height }}
             {% if block.settings.background_image == blank %}
               placeholder--image
             {% endif %}
           "
           {% if block.settings.background_image %}
-            {%
+            {% comment %} {%
               include 'rimg',
               img: block.settings.background_image,
-              size: '1500x1500',
+              size: '2000x2000',
               crop: slideshow_crop,
               lazy: true,
               background: true,
-            %}
+              placeholder: '500x500',
+            %} {% endcomment %}
+            style="background-image: url('{{ block.settings.background_image | img_url: '1000x1000' }}')"
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
           {% endif %}
@@ -82,15 +84,20 @@
           data-slidecolor="{{ block.settings.color }}"
         >
           {% if block.settings.background_image %}
-            {%
+            {% comment %} {%
               include 'rimg',
               img: block.settings.background_image,
               class: 'slideshow-image',
-              size: '1500x1500',
+              size: '1000x1000',
               crop: slideshow_crop,
               lazy: true,
               canvas: true,
-            %}
+            %} {% endcomment %}
+            <img
+              class="slideshow-image"
+              src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+              alt=""
+            >
           {% else %}
             <img
               class="slideshow-image"
@@ -109,7 +116,7 @@
           {% endif %}
         </div>
 
-        {% if page.title != blank
+        {% if block.settings.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
           or block.settings.button_two_label != blank
@@ -119,43 +126,63 @@
               slideshow-slide-content
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
-              row
-              align-items-center
             "
           >
-            <div class="col-md-12 d-flex flex-column justify-content-center text-center about-intro-text">
-                <h1 class="propisi header-size" style="color: {{ block.settings.color }}">
+          <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.01 }}"></div>
+                <h1 class="hero__title {% if block.settings.link != blank %} hero__title--has-link{% endif %}">
                   {{ block.settings.title | escape }}
+                  {% if block.settings.link != blank %}
+                  {% endif %}
                 </h1>
-              {% if block.settings.text != blank %}
-                <p class="" style="color: {{ block.settings.color }}">
-                  {{ block.settings.text  }}
-                </p>
-              {% endif %}
-              {% if block.settings.byline != blank %}
-                <p class="cite" style="color: {{ block.settings.color }}">
-                  {{ block.settings.byline  }}
-                </p>
-              {% endif %}
-              {% if block.settings.link != blank %}
-                </a>
-              {% endif %}
+            <div class="slideshow-subcontent d-flex align-items-start justify-content-between">
+            {% if block.settings.text != blank %}
+              <p class="slideshow-slide-text">
+                {{ block.settings.text | escape }}
+              </p>
+            {% endif %}
+            {% if block.settings.button_one_label != blank %}
+              <a
+                {% if block.settings.button_one_link != blank %}
+                  href="{{ block.settings.button_one_link }}"
+                {% endif %}
+                class="
+                  slideshow-button
+                  button-{{ block.settings.button_one_style }}
+                "
+              >
+                {{ block.settings.button_one_label | escape }}
+              </a>
+            {% endif %}
+
             </div>
+            {% if block.settings.button_two_label != blank %}
+              <a
+                {% if block.settings.button_two_link != blank %}
+                  href="{{ block.settings.button_two_link }}"
+                {% endif %}
+                class="
+                  slideshow-button
+                  button-{{ block.settings.button_two_style }}
+                "
+              >
+                {{ block.settings.button_two_label | escape }}
+              </a>
+            {% endif %}
           </div>
         {% endif %}
       </div>
+      {% include 'header-image-helper' %}
     {% endfor %}
 
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% include 'header-image-helper' %}
   </section>
 {% endif %}
 {% schema %}
 {
-  "name": "Offers Slideshow",
+  "name": "Slideshow Homepage",
   "class": "slideshow--section",
   "settings": [
     {
@@ -174,7 +201,23 @@
       "id": "sticky",
       "type": "checkbox",
       "label": "Keep text content in slideshow on mobile?",
-      "default": true
+      "default": false
+    },
+    {
+      "id": "bg_color",
+      "type": "color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "id": "bg_opacity",
+      "type": "range",
+      "label": "background opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 4
     },
     {
       "id": "autoplay_duration",
@@ -193,23 +236,15 @@
       "options": [
         {
           "value": "small",
-          "label": "Small"
+          "label": "Small - 340"
         },
         {
           "value": "medium",
-          "label": "Medium"
+          "label": "Medium - 400"
         },
         {
           "value": "large",
-          "label": "Large"
-        },
-        {
-          "value": "fullscreen",
-          "label": "Fullscreen"
-        },
-        {
-          "value": "original",
-          "label": "Original aspect ratio"
+          "label": "Large - 560"
         },
         {
           "value": "dynamic",
@@ -236,39 +271,22 @@
           "label": "Image (Mobile View)"
         },
         {
-          "type":      "radio",
-          "id":        "vid_type",
-          "label":     "Video Type",
-          "options": [
-            { "value": "youtube", "label": "YouTube" },
-            { "value": "vimeo", "label": "Vimeo" }
-          ],
-          "default":   "youtube",
-          "info":      "Choose a source for the video"
-        },
-        {
           "id": "title",
           "type": "text",
           "label": "Heading",
           "default": "Slideshow"
         },
         {
-          "type": "text",
           "id": "text",
-          "label": "Header subtext",
-          "default": "We passionately believe that everyone has the ability to be creative and that effective collaboration is the master key that unlocks creativity and innovation."
-        },
-        {
           "type": "text",
-          "id": "byline",
-          "label": "Header Byline",
-          "default": "Anthony Franco    Founder"
+          "label": "Subheading",
+          "default": "Introduce customers to your shop with lifestyle and product imagery"
         },
         {
           "id": "color",
           "type": "color",
           "label": "Text color",
-          "default": "#3d4246"
+          "default": "#FFFFFF"
         },
         {
           "id": "text_alignment",
@@ -293,6 +311,59 @@
         {
           "type": "header",
           "content": "Buttons"
+        },
+        {
+          "id": "button_one_label",
+          "type": "text",
+          "label": "Button 1 label",
+          "default": "Button"
+        },
+        {
+          "id": "button_one_link",
+          "type": "url",
+          "label": "Button 1 link"
+        },
+        {
+          "id": "button_one_style",
+          "type": "select",
+          "label": "Button 1 style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "id": "button_two_label",
+          "type": "text",
+          "label": "Button 2 label"
+        },
+        {
+          "id": "button_two_link",
+          "type": "url",
+          "label": "Button 2 link"
+        },
+        {
+          "id": "button_two_style",
+          "type": "select",
+          "label": "Button 2 style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
         },
         {
           "type": "header",
