@@ -1,0 +1,56 @@
+
+{% assign product = collection.products.first %}
+{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} product-form--payment-button{% endif %}{%- endcapture %}
+{% capture "form_id" %}AddToCartForm-{{ section.id }}{%- endcapture %}
+{% form 'product', product, class:form_class, id:form_id %}
+          {% comment %} {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="selector-wrapper js product-form__item">
+                <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+                <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
+                  id="SingleOptionSelector-{{ forloop.index0 }}"
+                  data-name="{{ option.name }}"
+                  data-index="option{{ forloop.index }}">
+                  {% for value in option.values %}
+                    <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          {% endunless %} {% endcomment %}
+
+          <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js d-none">
+            {% for variant in product.variants %}
+              <option {% if variant == current_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}" {% unless variant.available %} disabled="disabled" {% endunless %}>
+                {% if variant.available %}
+                  {{ variant.title }} - {{ variant.price | money_with_currency }}
+                {% else %}
+                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                {% endif %}
+              </option>
+            {% endfor %}
+          </select>
+          <div class="product-form__item product-form__item--quantity d-none">
+            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" class="product-form__input product-form__quantity">
+          </div>
+          <div class="product-form__item product-form__item--submit">
+            <button type="submit"
+              name="add"
+              id="AddToCart-{{ section.id }}"
+              class=" btn--full product-form__cart-submit{% unless product.available %} btn--sold-out{% endunless %} button-primary slideshow-button"
+              {% unless product.available %}disabled="disabled"{% endunless %}>
+              <span id="AddToCartText-{{ section.id }}">
+                {% unless product.available %}
+                  {{ 'products.product.sold_out' | t }}
+                {% else %}
+                  {% comment %} {{ 'products.product.add_to_cart' | t }} {% endcomment %}
+                  {% if section.settings.button_label %}{{section.settings.button_label}}{% else %}Add to Cart{% endif %}
+                {% endunless %}
+              </span>
+            </button>
+            {% comment %} {% if section.settings.enable_payment_button  and template != 'index' %}
+              {{ form | payment_button }}
+            {% endif %} {% endcomment %}
+          </div>
+        {% endform %}
