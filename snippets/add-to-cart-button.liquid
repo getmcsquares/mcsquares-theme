@@ -45,7 +45,8 @@
                 {% unless product.available %}
                   {{ 'products.product.sold_out' | t }}
                 {% else %}
-                  {{ 'products.product.add_to_cart' | t }}
+                  {% comment %} {{ 'products.product.add_to_cart' | t }} {% endcomment %}
+                  Add to Cart
                 {% endunless %}
               </span>
             </button>
