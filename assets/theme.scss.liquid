@@ -5519,6 +5519,7 @@ $local-slideshow-large: 560px;
   }
 }
 .content-left {
+  max-width: 45%;
   text-align:left;
   .slideshow-subcontent {
     text-align:left;
@@ -5530,21 +5531,26 @@ $local-slideshow-large: 560px;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      max-width: 45%;
     }
+  }
+  @include media($max: $bp-large){
+    max-width: unset;
   }
 }
 .content-right {
+  max-width: 45%;
+  right: 5%;
+  left: unset;
   .slideshow-subcontent {
     text-align:right;
     align-items: flex-end;
     justify-content: space-between;
     @include media($max: $bp-large) {
-      max-width: 45%;
-      right: 5%;
-      left: unset;
       text-align:right;
     }
+  }
+  @include media($max: $bp-large){
+    max-width: unset;
   }
 }
 .content-center {
@@ -5555,10 +5561,12 @@ $local-slideshow-large: 560px;
     align-items: center;
     justify-content: space-between;
     @include media($max: $bp-large) {
-      max-width: 60%;
-      right: 20%;
-      left: 20%;
     }
+  }
+  @include media($max: $bp-large){
+    max-width: 60%;
+    right: 20%;
+    left: 20%;
   }
 }
 // Minimum tile heights for each layout (Small, Medium, Large)
@@ -6309,6 +6317,7 @@ $local-chevron-width: rem(14px);
 }
 .homepage-icon-wrap {
   a {
+    text-align: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -15803,6 +15812,11 @@ $local-image-width: rem(48px);
 }
 
 //  Klaviyo overrides
+.klaviyo-form {
+  button {
+    min-height: 24px !important;
+  }
+}
 input[placeholder="Comments"]{
   height: 100px !important;
 }
