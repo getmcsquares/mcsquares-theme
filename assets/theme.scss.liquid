@@ -16089,8 +16089,10 @@ input[placeholder="Comments"]{
     }
   }
 }
-.hover-feature-content.sidy-by-side {
-
+.hover-feature-section.sidy-by-side {
+  @include media($bp-small) {
+    flex-direction:column;
+  }
 }
 .hover-feature-content:hover .hover-feature-image-wrap img{
   width: 110%;
