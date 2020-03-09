@@ -1,8 +1,8 @@
 
 {% assign bg_color = section.settings.bg_color %}
 <div>
-<section class="promo-mosaic--container d-flex">
-  <div class="home-section--content hover-feature-content d-flex flex-column" style="padding: 10px;">
+<section class="promo-mosaic--container d-flex hover-feature-section sidy-by-side">
+  <div class="home-section--content hover-feature-content d-flex flex-column half" style="padding: 10px;">
   <div class="hover-feature-image-wrap half">
     <img src="{{ section.settings.bg_image | img_url: '800x800' }}">
   </div>
@@ -19,7 +19,7 @@
 
   </div>
 
-<div class="home-section--content hover-feature-content d-flex flex-column" style="padding: 10px;">
+<div class="home-section--content hover-feature-content d-flex flex-column half" style="padding: 10px;">
   <div class="hover-feature-image-wrap half">
     <img src="{{ section.settings.bg_image-2 | img_url: '800x800' }}">
   </div>
