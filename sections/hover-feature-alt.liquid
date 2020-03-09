@@ -1,0 +1,59 @@
+
+{% assign bg_color = section.settings.bg_color %}
+<div>
+<section class="promo-mosaic--container">
+  <div class="home-section--content hover-feature-content d-flex" style="padding-top: 10px;">
+      <div class="hover-feature-text-wrap d-flex flex-column align-items-center justify-content-around" style="">
+      <h2>{{ section.settings.title }}</h2>
+      <p>{{ section.settings.copy }}</p>
+      </div>
+      <div class="hover-feature-image-wrap">
+      <img src="{{ section.settings.bg_image | img_url: '800x800' }}">
+      </div>
+  </div>
+
+</section>
+</div>
+<style type="text/css">
+.hover-feature-content:hover > .hover-feature-text-wrap{
+  background-color: {{ bg_color }};
+  color: #fff;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Hover Feature Alt",
+  "class": "hover-feature-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Main text"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Main Copy"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+    "type": "image_picker",
+    "id": "bg_image",
+    "label": "Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hover Feature Alt",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}
