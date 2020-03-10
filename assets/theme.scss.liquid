@@ -16106,6 +16106,13 @@ input[placeholder="Comments"]{
       max-width: unset;
     }
   }
+}
+.hover-feature-section .sidy-by-side {
+  padding: 10px;
+  @include media($bp-small) {
+    flex-direction:column;
+    // padding: 0;
+  }
   .hover-feature-image-wrap.half{
     width: 100%;
     max-width: 100%;
@@ -16114,13 +16121,6 @@ input[placeholder="Comments"]{
     img{
       // height: 100%;
     }
-  }
-}
-.hover-feature-section.sidy-by-side {
-  padding: 10px;
-  @include media($bp-small) {
-    flex-direction:column;
-    // padding: 0;
   }
 }
 .hover-feature-content:hover .hover-feature-image-wrap img{
