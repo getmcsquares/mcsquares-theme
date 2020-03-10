@@ -16118,6 +16118,11 @@ input[placeholder="Comments"]{
     max-width: 100%;
     max-height: 350px;
     overflow: hidden;
+    padding: 10px;
+    @include media($bp-small) {
+      // flex-direction:column;
+      padding: 0;
+    }
     img{
       // height: 100%;
     }
