@@ -6,7 +6,7 @@
   {% if section.settings.link %}
   <a href="{{section.settings.link}}">
   {% endif %}
-      <div class="hover-feature-text-wrap d-flex flex-column align-items-center justify-content-around" style="">
+      <div class="hover-feature-text-wrap d-flex flex-column align-items-center justify-content-center" style="">
       <h2>{{ section.settings.title }}</h2>
       <p>{{ section.settings.copy }}</p>
       </div>
@@ -21,10 +21,7 @@
 </section>
 </div>
 <style type="text/css">
-.hover-feature-content:hover > .hover-feature-text-wrap{
-  background-color: {{ bg_color }};
-  color: #fff;
-}
+.hover-feature-content:hover > .hover-feature-text-wrap{background-color: {{ bg_color }}; color: #fff;}
 </style>
 
 {% schema %}

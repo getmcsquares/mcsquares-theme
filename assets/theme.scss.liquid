@@ -15543,7 +15543,7 @@ $local-image-width: rem(48px);
 .circular--landscape img {
   width: auto;
   height: 100%;
-  margin-left: -50px;
+  //margin-left: -50px;
 }
 // Side bar styles
 // .has-bar {
@@ -15858,12 +15858,21 @@ input[placeholder="Comments"]{
   height: 200px;
   overflow: hidden;
   border-radius: 50%;
+  @media only screen and (max-width: 700px) {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  @media only screen and (max-width: 600px) {
+{
+    width: 100px !important;
+    height: 100px !important;
+  }
 }
 
 .circular-landscape .interval-image-round {
   width: auto;
   height: 100%;
-  margin-left: -50px;
+  //margin-left: -50px;
 }
 .where-find-us-section {
   .interval-image-small{
@@ -16073,6 +16082,9 @@ input[placeholder="Comments"]{
     flex: 1;
     transition: all .2s ease-in-out;
     padding: 1em;
+    h2 {
+      margin-bottom: 1rem;
+    }
     @include media($bp-small) {
       width: 100%;
       max-width: unset;
