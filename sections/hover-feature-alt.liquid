@@ -21,9 +21,12 @@
 </section>
 </div>
 <style type="text/css">
-.hover-feature-content:hover > .hover-feature-text-wrap{background-color: {{ bg_color }}; color: #fff;}
+.hover-feature-content:hover > .hover-feature-text-wrap, .hover-feature-content:hover > a > .hover-feature-text-wrap{
+  background-color: {{ bg_color }};
+  color: #fff  !important;
+}
 .hover-feature-content:hover > .hover-feature-text-wrap > a , .hover-feature-content:hover > .hover-feature-text-wrap > p > a{
-  color: #fff !important;
+  color: #fff  !important;
 }
 </style>
 
