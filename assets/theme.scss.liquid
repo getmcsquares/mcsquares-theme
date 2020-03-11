@@ -16076,7 +16076,7 @@ input[placeholder="Comments"]{
   }
   .hover-feature-text-wrap{
     background-color: transparent;
-    color: $color-heading;
+    color: $color-heading !important;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -16085,6 +16085,12 @@ input[placeholder="Comments"]{
     flex: 1;
     transition: all .2s ease-in-out;
     padding: 1em;
+    a{
+      color: $color-heading !important;
+      &:hover{
+        color: lighten($color-heading, 10%)
+      }
+    }
     h2 {
       margin-bottom: 1rem;
     }
