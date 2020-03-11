@@ -6,10 +6,16 @@
       <div class="hover-feature-image-wrap">
       <img src="{{ section.settings.bg_image | img_url: '800x800' }}">
       </div>
+      {% if section.settings.link %}
+  <a href="{{section.settings.link}}">
+  {% endif %}
       <div class="hover-feature-text-wrap" style="">
       <h2>{{ section.settings.title }}</h2>
       <p>{{ section.settings.copy }}</p>
       </div>
+      {% if section.settings.link %}
+  </a>
+  {% endif %}
   </div>
 
 </section>
@@ -49,7 +55,12 @@
     "type": "image_picker",
     "id": "bg_image",
     "label": "Background Image"
-    }
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link (optional)"
+    },
   ],
   "presets": [
     {
