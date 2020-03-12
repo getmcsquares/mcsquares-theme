@@ -5,14 +5,14 @@
   </div>
 {% endif %}
 <div style="clear: both;" class="row contained">
-        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+        <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
         <div class="row" >
             <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
               <a href="{{section.settings.link_1}}">
               <div class="circular--landscape">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-round" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
                 </div>
-                {% if section.settings.text_1 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</p>{% endif %}
+                {% if section.settings.text_1 %}<h3 style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</h3>{% endif %}
               </a>
             </div>
             <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
@@ -20,7 +20,7 @@
               <div class="circular--landscape">
                 {% if section.settings.interval_img_2 %}<img class="interval-image-round" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
                 </div>
-                {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
+                {% if section.settings.text_2 %}<h3 style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</h3>{% endif %}
               </a>
             </div>
             <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
@@ -28,7 +28,7 @@
               <div class="circular--landscape">
                 {% if section.settings.interval_img_3 %}<img class="interval-image-round" src="{{ section.settings.interval_img_3 | img_url: '300x300' }}">{% endif %}
                 </div>
-                {% if section.settings.text_3 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</p>{% endif %}
+                {% if section.settings.text_3 %}<h3 style="color: {{section.settings.section_font}}">{{ section.settings.text_3 }}</h3>{% endif %}
               </a>
             </div>
         </div>

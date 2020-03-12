@@ -2682,7 +2682,7 @@ img[data-rimg="loading"] {
     max-width: 220px;
     margin: 1rem 0;
   }
-  @include media($max: $bp-medium) {
+  @include media($max: $bp-large) {
     margin-top: 1rem;
     text-align: center;
     font-size: 1.75rem !important;
@@ -3107,12 +3107,15 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   display: block;
   color: currentColor;
   text-decoration: none;
-
+  img {
+    margin-top: -40px;
+  }
   @include media($max: $bp-large) {
     display: table-cell;
     vertical-align: middle;
     img {
       max-height: 44px !important;
+      margin-top: 0px;
     }
   }
 
