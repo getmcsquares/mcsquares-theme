@@ -6337,7 +6337,6 @@ $local-chevron-width: rem(14px);
     color: $client-grey;
     &:hover {
       color: $client-grey;
-
     }
   }
 }
@@ -6851,7 +6850,6 @@ $local-padding-large: rem(25px);
 .tweet--footer--posted {
   margin-left: rem(8px);
   color: $color-text-light;
-
   &:hover {
     color: $color-link;
   }
@@ -9984,7 +9982,11 @@ $local-expander-width: rem(70px);
   &:active, &:hover {color:unset;}
 }
 a.promo-block--content {
-  &:active, &:hover {color:unset;text-decoration: none;opacity:.95;}
+  &:active, &:hover {
+    color:unset;
+    text-decoration: none;
+    opacity:.95;
+  }
 }
 .promo-block--background {
   position: absolute;
@@ -10322,7 +10324,6 @@ $local-total-width: rem(120px);
   margin-top: 0;
   margin-bottom: $space-xx-small;
   color: $color-heading;
-
   a {
     color: currentColor;
     text-decoration: none;
@@ -15490,7 +15491,7 @@ $local-image-width: rem(48px);
         color: inherit;
         text-decoration: none;
         img {
-          background: $client-light-grey;
+          background-color: $client-light-grey;
         }
       }
     }
@@ -16118,7 +16119,7 @@ input[placeholder="Comments"]{
     a {
       color: $color-heading !important;
       &:hover{
-        color: lighten($color-heading, 10%)
+        color: lighten($color-heading, 10%);
         text-decoration: none;
         color: inherit;
       }
@@ -16131,7 +16132,7 @@ input[placeholder="Comments"]{
       max-width: unset;
     }
   }
-  .hover-feature-image-wrap{
+  .hover-feature-image-wrap {
     a {
       &:hover {
         text-decoration: none;
