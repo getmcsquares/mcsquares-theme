@@ -9,7 +9,7 @@
       </div>
     {% endif %}
     {% if section.blocks.size > 0 %}
-      <div class="">
+      <div class="categories-section">
         <div class="quotes-row row" id="Quotes-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes">
           {% for block in section.blocks %}
           {% assign featured_collection = collections[block.settings.collection] %}
