@@ -28,6 +28,7 @@
     class="
       slideshow
       slideshow-dots-{{ section.settings.slideshow_height }}
+      col-8
     "
     aria-label="Slide show"
   >
@@ -98,7 +99,7 @@
 {% schema %}
 {
     "name": {
-        "en": "Offers Links"
+        "en": "Offers Slideshow"
     },
     "settings": [
         {
@@ -108,34 +109,38 @@
           "default": "Get One of Each! This offer includes:"
         },
         {
-        "type": "image_picker",
-        "id": "interval_img_1",
-        "label": "Icon 1"
+          "id": "autoplay_duration",
+          "type": "range",
+          "label": "Autoplay slide duration",
+          "min": 5,
+          "max": 12,
+          "step": 1,
+          "unit": "sec",
+          "default": 8
         },
         {
-        "type": "text",
-        "id": "text_1",
-        "label": "Text 1"
-        },
-        {
-        "type": "url",
-        "id": "link_1",
-        "label": "Icon Link"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_2",
-        "label": "Icon 2"
-        },
-        {
-        "type": "text",
-        "id": "text_2",
-        "label": "Text 2"
-        },
-        {
-        "type": "url",
-        "id": "link_2",
-        "label": "Icon Link"
+          "id": "slideshow_height",
+          "type": "select",
+          "label": "Slideshow height",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small - 340"
+            },
+            {
+              "value": "medium",
+              "label": "Medium - 400"
+            },
+            {
+              "value": "large",
+              "label": "Large - 560"
+            },
+            {
+              "value": "dynamic",
+              "label": "Dynamic"
+            }
+          ],
+          "default": "dynamic"
         },
         {
         "type": "color",
