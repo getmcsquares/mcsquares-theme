@@ -23,6 +23,74 @@
                 {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
               </a>
             </div>
+
+  <div
+    class="
+      slideshow
+      slideshow-dots-{{ section.settings.slideshow_height }}
+    "
+    aria-label="Slide show"
+  >
+    {% for block in section.blocks %}
+      {% capture placeholder_slide_image %}
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+        {% assign placeholder_style = 'lifestyle-' | append: current %}
+        {%-
+          include 'placeholder_svg_uri'
+          placeholder: placeholder_style
+        -%}
+      {% endcapture %}
+
+      <div
+        class="
+          slideshow-slide
+          slideshow-height-{{ section.settings.slideshow_height }}
+        "
+        tabindex="0"
+        aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
+        {{ block.shopify_attributes }}
+      >
+        {% assign slideshow_crop = 'center' %}
+
+        {% if section.settings.slideshow_height == 'original' %}
+          {% assign slideshow_crop = false %}
+        {% endif %}
+
+        <div
+          class="
+            background-target
+            slideshow-background
+            slideshow-background--{{ block.id }}
+            {% if block.settings.background_image == blank %}
+              placeholder--image
+            {% endif %}
+          "
+          {% if block.settings.background_image %}
+            style="background-image: url('{{ block.settings.background_image | img_url: '1000x1000' }}')"
+          {% else %}
+            style="background-image: url('{{ placeholder_slide_image | strip }}')"
+          {% endif %}
+        >
+          {% if block.settings.background_image %}
+            <img
+              class="slideshow-image"
+              src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+              alt=""
+            >
+          {% else %}
+            <img
+              class="slideshow-image"
+              src="{{ placeholder_slide_image | strip }}"
+              alt=""
+            >
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+
         </div>
     </div>
 </div>
@@ -80,6 +148,31 @@
         "label": "Section Font Color"
         }
         ],
+        "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "id": "background_image",
+          "type": "image_picker",
+          "label": "Background image",
+          "info": "800x600 recommended"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Slideshow"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Subheading",
+          "default": "Introduce customers to your shop with lifestyle and product imagery"
+        }
+      ]
+    }
         "presets": [
         {
         "name": "Offers Links",
