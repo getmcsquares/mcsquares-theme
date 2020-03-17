@@ -91,11 +91,11 @@
   </div> {% endcomment %}
 
 <div id="carouselExampleIndicators" class="carousel slide col-8" data-ride="carousel">
-  <ol class="carousel-indicators">
+  {% comment %} <ol class="carousel-indicators">
   {% for block in section.blocks %}
     <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index}}" {% if forloop.first %}class="active"{% endif %}></li>
   {% endfor %}
-  </ol>
+  </ol> {% endcomment %}
   <div class="carousel-inner">
   {% for block in section.blocks %}
   <div 
