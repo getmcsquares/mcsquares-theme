@@ -110,12 +110,12 @@
       src="{{ block.settings.background_image | img_url: '1500x1500' }}"
       alt=""
     >
-      <div class="slideshow-text">
+      <div class="slideshow-text limit-copy-width-sm">
       {% if block.settings.title %}
-      <h4 class="text-center">{{ block.settings.title }}</h4>
+      <h4 class="text-center">{{- block.settings.title -}}</h4>
       {% endif %}
       {% if block.settings.text %}
-      {{ block.settings.text }}
+      <div class="text-center">{{ block.settings.text }}</div>
       {% endif %}
       </div>
     </div>
