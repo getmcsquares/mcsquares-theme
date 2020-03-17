@@ -24,7 +24,7 @@
               </a>
             </div>
 
-  <div
+  {% comment %} <div
     class="
       slideshow
       slideshow-dots-{{ section.settings.slideshow_height }}
@@ -88,7 +88,34 @@
         </div>
       </div>
     {% endfor %}
+  </div> {% endcomment %}
+
+<div id="carouselExampleIndicators" class="carousel slide col-8" data-ride="carousel">
+  <ol class="carousel-indicators">
+  {% for block in section.settings.blocks %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index}}" {% if forloop.first %}class="active"{% endif %}></li>
+  {% endfor %}
+  </ol>
+  <div class="carousel-inner">
+  {% for block in section.settings.blocks %}
+  <div class="carousel-item active">
+            <img
+              class="slideshow-imaged-block w-100"
+              src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+              alt=""
+            >
+    </div>
+  {% endfor %}
   </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 
 
