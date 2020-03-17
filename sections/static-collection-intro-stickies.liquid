@@ -141,34 +141,7 @@
                 {{ block.settings.text | escape }}
               </p>
             {% endif %}
-            {% if block.settings.button_one_label != blank %}
-              <a
-                {% if block.settings.button_one_link != blank %}
-                  href="{{ block.settings.button_one_link }}"
-                {% endif %}
-                class="
-                  slideshow-button
-                  button-{{ block.settings.button_one_style }}
-                "
-              >
-                {{ block.settings.button_one_label | escape }}
-              </a>
-            {% endif %}
-
             </div>
-            {% if block.settings.button_two_label != blank %}
-              <a
-                {% if block.settings.button_two_link != blank %}
-                  href="{{ block.settings.button_two_link }}"
-                {% endif %}
-                class="
-                  slideshow-button
-                  button-{{ block.settings.button_two_style }}
-                "
-              >
-                {{ block.settings.button_two_label | escape }}
-              </a>
-            {% endif %}
           </div>
         {% endif %}
       </div>
@@ -308,63 +281,6 @@
             }
           ],
           "default": "center"
-        },
-        {
-          "type": "header",
-          "content": "Buttons"
-        },
-        {
-          "id": "button_one_label",
-          "type": "text",
-          "label": "Button 1 label",
-          "default": "Button"
-        },
-        {
-          "id": "button_one_link",
-          "type": "url",
-          "label": "Button 1 link"
-        },
-        {
-          "id": "button_one_style",
-          "type": "select",
-          "label": "Button 1 style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            }
-          ],
-          "default": "primary"
-        },
-        {
-          "id": "button_two_label",
-          "type": "text",
-          "label": "Button 2 label"
-        },
-        {
-          "id": "button_two_link",
-          "type": "url",
-          "label": "Button 2 link"
-        },
-        {
-          "id": "button_two_style",
-          "type": "select",
-          "label": "Button 2 style",
-          "options": [
-            {
-              "value": "primary",
-              "label": "Primary"
-            },
-            {
-              "value": "secondary",
-              "label": "Secondary"
-            }
-          ],
-          "default": "primary"
         },
         {
           "type": "header",
