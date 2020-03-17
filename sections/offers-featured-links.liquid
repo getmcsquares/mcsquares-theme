@@ -110,7 +110,14 @@
       src="{{ block.settings.background_image | img_url: '1500x1500' }}"
       alt=""
     >
-
+      <div class="slideshow-text">
+      {% if block.settings.title %}
+      <h4 class="text-center">{{ block.settings.title }}</h4>
+      {% endif %}
+      {% if block.settings.text %}
+      {{ block.settings.text }}
+      {% endif %}
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -206,9 +213,9 @@
               },
               {
                 "id": "text",
-                "type": "text",
+                "type": "richtext",
                 "label": "Subheading",
-                "default": "Introduce customers to your shop with lifestyle and product imagery"
+                "default": "<p>Introduce customers to your shop with lifestyle and product imagery</p>"
               }
             ]
           }
