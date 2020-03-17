@@ -98,7 +98,7 @@
   </ol>
   <div class="carousel-inner">
   {% for block in section.blocks %}
-  <{% if forloop.first %} class="carousel-item active"{% else %}class="carousel-item">
+  <{% if forloop.first %} class="carousel-item active"{% else %}class="carousel-item" {% endif %}>
     <img
       class="slideshow-image-block w-100"
       src="{{ block.settings.background_image | img_url: '1500x1500' }}"
