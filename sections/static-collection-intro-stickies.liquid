@@ -31,6 +31,7 @@
       <div
         class="
           slideshow-slide
+          slideshow-height-{{ section.settings.slideshow_height }}
         "
         tabindex="0"
         aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
@@ -41,7 +42,7 @@
             class="
               slideshow-link
               slideshow-background-link
-              slideshow-dynamic
+              slideshow-height-{{ section.settings.slideshow_height }}
             "
             href="{{ block.settings.link }}"
             tabindex="-1"
@@ -53,75 +54,136 @@
         {% if section.settings.slideshow_height == 'original' %}
           {% assign slideshow_crop = false %}
         {% endif %}
-      <div class="slide-content-wrap">
+
         <div
           class="
             background-target
-            slideshow-dynamic
-            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
+            slideshow-background
             slideshow-background--{{ block.id }}
-          ">
+            {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
+            slideshow-height-{{ section.settings.slideshow_height }}
+            {% if block.settings.background_image == blank %}
+              placeholder--image
+            {% endif %}
+          "
+          {% if block.settings.background_image %}
+            {% comment %} {%
+              include 'rimg',
+              img: block.settings.background_image,
+              size: '2000x2000',
+              crop: slideshow_crop,
+              lazy: true,
+              background: true,
+              placeholder: '500x500',
+            %} {% endcomment %}
+            style="background-image: url('{{ block.settings.background_image | img_url: '1000x1000' }}')"
+          {% else %}
+            style="background-image: url('{{ placeholder_slide_image | strip }}')"
+          {% endif %}
+          data-themecolor="{{ settings.color_text }}"
+          data-slidecolor="{{ block.settings.color }}"
+        >
+          {% if block.settings.background_image %}
+            {% comment %} {%
+              include 'rimg',
+              img: block.settings.background_image,
+              class: 'slideshow-image',
+              size: '1000x1000',
+              crop: slideshow_crop,
+              lazy: true,
+              canvas: true,
+            %} {% endcomment %}
+            <img
+              class="slideshow-image"
+              src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+              alt=""
+            >
+          {% else %}
+            <img
+              class="slideshow-image"
+              src="{{ placeholder_slide_image | strip }}"
+              alt=""
+            >
+          {% endif %}
+
+          {% if block.settings.show_overlay %}
+            <div
+              class="
+                slideshow-slide-overlay
+                slideshow-slide-overlay--{{ block.id }}
+              "
+            ></div>
+          {% endif %}
+        </div>
+
+        {% if block.settings.title != blank
+          or block.settings.text != blank
+          or block.settings.button_one_label != blank
+          or block.settings.button_two_label != blank
+        %}
           <div
             class="
+              slideshow-slide-content
               slideshow-slide-content--{{ block.id }}
               text-align-{{ block.settings.text_alignment }}
-              row
-              d-flex align-items-center
+              content-{{ block.settings.text_alignment }}
             "
           >
-            <div class="col-12 col-sm-6 col-md-5" style="padding: 2rem">
-            {% if block.settings.video_url != blank %}
-              <div class="video-container">
-                {% if block.settings.vid_type == 'youtube' %}
-                <iframe width="560" height="315" src="{{ block.settings.video_url}}?controls=0" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              {% else %}
-                <iframe src="{{ block.settings.video_url}}" frameborder="0" allow="fullscreen" allowfullscreen></iframe><script src="https://player.vimeo.com/api/player.js"></script>
-              {% endif %}
-              </div>
-            {% else %}
-            <h1 class="hero__title" style="color: {{ block.settings.color }}">
-              <img src="{{ collection.image | img_url: '300x' }}">
-            </h1>
+          <div class="slideshow-slide-background" style="background-color:{{ section.settings.bg_color }}; opacity: {{ section.settings.bg_opacity | times: 0.01 }}"></div>
+                <h1 class="hero__title {% if block.settings.link != blank %} hero__title--has-link{% endif %}">
+                  {{ block.settings.title | escape }}
+                  {% if block.settings.link != blank %}
+                  {% endif %}
+                </h1>
+            <div class="slideshow-subcontent d-flex">
+            {% if block.settings.text != blank %}
+              <p class="slideshow-slide-text">
+                {{ block.settings.text | escape }}
+              </p>
             {% endif %}
-            </div>
-            <div class="col-sm-6 col-md-7 text-left image-content__text " style="padding:1rem">
-            {% if collection.image != blank %}
-              <div style="padding:1rem 0">
-                  <noscript>
-                    <img src="{{ collection.image | img_url: '600x' }}" alt="{{ collection.image.alt }}" class="image-content__image">
-                  </noscript>
-                  <div class="image-content__image-container">
-                    <div class="image-content__image-wrapper" style="max-width: 100%;">
-                      {% assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-                      <img class="image-content__image lazyload"
-                        src="{{ collection.image | img_url: '300x300' }}"
-                        data-src="{{ img_url }}"
-                        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-                        data-aspectratio="{{ collection.image.aspect_ratio }}"
-                        data-sizes="auto"
-                        alt="{{ collection.image.alt | escape }}"
-                        style="max-width: 100%">
-                    </div>
-                  </div>
-              </div>
+            {% if block.settings.button_one_label != blank %}
+              <a
+                {% if block.settings.button_one_link != blank %}
+                  href="{{ block.settings.button_one_link }}"
+                {% endif %}
+                class="
+                  slideshow-button
+                  button-{{ block.settings.button_one_style }}
+                "
+              >
+                {{ block.settings.button_one_label | escape }}
+              </a>
             {% endif %}
-              <p class="slideshow-slide-text">{{ collection.description }}</p>
+
             </div>
+            {% if block.settings.button_two_label != blank %}
+              <a
+                {% if block.settings.button_two_link != blank %}
+                  href="{{ block.settings.button_two_link }}"
+                {% endif %}
+                class="
+                  slideshow-button
+                  button-{{ block.settings.button_two_style }}
+                "
+              >
+                {{ block.settings.button_two_label | escape }}
+              </a>
+            {% endif %}
           </div>
+        {% endif %}
       </div>
-      </div>
+      {% include 'header-image-helper' %}
     {% endfor %}
-</div>
+
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% comment %} {% include 'header-image-helper' %} {% endcomment %}
   </section>
 {% endif %}
 {% schema %}
 {
-  "name": "Stickies Intro",
+  "name": "Slideshow Homepage",
   "class": "slideshow--section",
   "settings": [
     {
@@ -129,6 +191,68 @@
       "type": "checkbox",
       "label": "Enable slideshow",
       "default": true
+    },
+    {
+      "id": "enable_autoplay",
+      "type": "checkbox",
+      "label": "Autoplay slideshow",
+      "default": true
+    },
+    {
+      "id": "sticky",
+      "type": "checkbox",
+      "label": "Keep text content in slideshow on mobile?",
+      "default": false
+    },
+    {
+      "id": "bg_color",
+      "type": "color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "id": "bg_opacity",
+      "type": "range",
+      "label": "background opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 4
+    },
+    {
+      "id": "autoplay_duration",
+      "type": "range",
+      "label": "Autoplay slide duration",
+      "min": 5,
+      "max": 12,
+      "step": 1,
+      "unit": "sec",
+      "default": 8
+    },
+    {
+      "id": "slideshow_height",
+      "type": "select",
+      "label": "Slideshow height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small - 340"
+        },
+        {
+          "value": "medium",
+          "label": "Medium - 400"
+        },
+        {
+          "value": "large",
+          "label": "Large - 560"
+        },
+        {
+          "value": "dynamic",
+          "label": "Dynamic"
+        }
+      ],
+      "default": "dynamic"
     }
   ],
   "blocks": [
@@ -137,26 +261,136 @@
       "name": "Slide",
       "settings": [
         {
-          "id": "video_url",
-          "type": "text",
-          "label": "Video URL",
-          "default": "https://www.youtube.com/embed/K538gxU8-Po",
-          "info": "From the 'embed' option under the share menu"
+          "id": "background_image",
+          "type": "image_picker",
+          "label": "Background image",
+          "info": "1800x1000 recommended"
         },
         {
-          "type":      "radio",
-          "id":        "vid_type",
-          "label":     "Video Type",
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (Mobile View)"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Heading",
+          "default": "Slideshow"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Subheading",
+          "default": "Introduce customers to your shop with lifestyle and product imagery"
+        },
+        {
+          "id": "color",
+          "type": "color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "id": "text_alignment",
+          "type": "select",
+          "label": "Text alignment",
           "options": [
-            { "value": "youtube", "label": "YouTube" },
-            { "value": "vimeo", "label": "Vimeo" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
-          "default":   "youtube",
-          "info":      "Choose a source for the video"
+          "default": "center"
         },
         {
           "type": "header",
           "content": "Buttons"
+        },
+        {
+          "id": "button_one_label",
+          "type": "text",
+          "label": "Button 1 label",
+          "default": "Button"
+        },
+        {
+          "id": "button_one_link",
+          "type": "url",
+          "label": "Button 1 link"
+        },
+        {
+          "id": "button_one_style",
+          "type": "select",
+          "label": "Button 1 style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "id": "button_two_label",
+          "type": "text",
+          "label": "Button 2 label"
+        },
+        {
+          "id": "button_two_link",
+          "type": "url",
+          "label": "Button 2 link"
+        },
+        {
+          "id": "button_two_style",
+          "type": "select",
+          "label": "Button 2 style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        },
+        {
+          "type": "header",
+          "content": "Overlay"
+        },
+        {
+          "id": "show_overlay",
+          "type": "checkbox",
+          "label": "Show overlay",
+          "default": true
+        },
+        {
+          "id": "overlay_color",
+          "type": "color",
+          "label": "Color",
+          "default": "#000000"
+        },
+        {
+          "id": "overlay_opacity",
+          "type": "range",
+          "label": "Opacity",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 50
         }
       ]
     }
@@ -174,4 +408,3 @@
 }
 
 {% endschema %}
-
