@@ -5,9 +5,9 @@
   </div>
 {% endif %}
 <div style="clear: both;" class="row d-flex contained">
-        <div class="col-12 col-sm-10 offset-sm-2 col-md-10 offset-md-2 col-lg-9 offset-lg-3 col-xl-9 offset-xl-3">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-3 offset-xl-4">
         <div class="row" >
-            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+            {% comment %} <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
               <a href="{{section.settings.link_1}}">
               <div class="featured-offer-image">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-round" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
@@ -22,7 +22,7 @@
                 </div>
                 {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
               </a>
-            </div>
+            </div> {% endcomment %}
 
   {% comment %} <div
     class="
@@ -90,7 +90,7 @@
     {% endfor %}
   </div> {% endcomment %}
 
-<div id="carouselExampleIndicators" class="carousel slide col-8" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   {% comment %} <ol class="carousel-indicators">
   {% for block in section.blocks %}
     <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index}}" {% if forloop.first %}class="active"{% endif %}></li>
