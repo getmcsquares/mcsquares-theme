@@ -7,7 +7,15 @@
 <div style="clear: both;" class="row d-flex contained">
         <div class="col-12 col-sm-10 offset-sm-1 col-md-10 offset-md-1 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
         <div class="row d-flex align-items-center justify-content-center m-3" >
-            <div class="homepage-icon-wrap col-md-3 col-lg-3 col-xl-3  col-sm-3 col-6" style="">
+        {% for block in section.blocks %}
+        <div class="homepage-icon-wrap col-md-3 col-lg-3 col-xl-3  col-sm-3 col-6" style="">
+              <a href="{{block.settings.link_1}}">
+                {% if block.settings.interval_img %}<img class="interval-image-small" src="{{ block.settings.interval_img | img_url: '300x300' }}">{% endif %}
+                {% if block.settings.text %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</h5>{% endif %}
+              </a>
+            </div>
+        {% endfor %}
+            {% comment %} <div class="homepage-icon-wrap col-md-3 col-lg-3 col-xl-3  col-sm-3 col-6" style="">
               <a href="{{section.settings.link_1}}">
                 {% if section.settings.interval_img_1 %}<img class="interval-image-small" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.text_1 %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</h5>{% endif %}
@@ -30,7 +38,7 @@
                 {% if section.settings.interval_img_4 %}<img class="interval-image-small" src="{{ section.settings.interval_img_4 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.text_4 %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_4 }}</h5>{% endif %}
               </a>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
     {% if section.settings.cta_link %}
@@ -55,76 +63,6 @@
           "default": "Featured Icons"
         },
         {
-        "type": "image_picker",
-        "id": "interval_img_1",
-        "label": "Icon 1"
-        },
-        {
-        "type": "text",
-        "id": "text_1",
-        "label": "Text 1"
-        },
-        {
-        "type": "url",
-        "id": "link_1",
-        "label": "Icon Link"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_2",
-        "label": "Icon 2"
-        },
-        {
-        "type": "text",
-        "id": "text_2",
-        "label": "Text 2"
-        },
-        {
-        "type": "url",
-        "id": "link_2",
-        "label": "Icon Link"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_3",
-        "label": "Icon 3"
-        },
-        {
-        "type": "text",
-        "id": "text_3",
-        "label": "Text 3"
-        },
-        {
-        "type": "url",
-        "id": "link_3",
-        "label": "Icon Link"
-        },
-        {
-        "type": "image_picker",
-        "id": "interval_img_4",
-        "label": "Icon 4"
-        },
-        {
-        "type": "text",
-        "id": "text_4",
-        "label": "Text 4"
-        },
-        {
-        "type": "url",
-        "id": "link_4",
-        "label": "Icon Link"
-        },
-        {
-        "type": "text",
-        "id": "text_5",
-        "label": "Text 5"
-        },
-        {
-        "type": "url",
-        "id": "link_5",
-        "label": "Icon Link"
-        },
-        {
         "type": "color",
         "id": "section_bg",
         "label": "Section Background"
@@ -146,10 +84,31 @@
         "label": "Button Link"
         }
         ],
+        "blocks": [
+    {
+      "type": "text",
+      "name": "Icon",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "interval_img",
+        "label": "Icon"
+        },
+        {
+          "id": "text",
+          "type": "text",
+          "label": "Text"
+        },
+        {
+        "type": "url",
+        "id": "link",
+        "label": "Icon Link"
+        }
+        ]
         "presets": [
         {
         "name": "Offers Icons",
-        "category": "Homepage"
+        "category": "Offers"
         }
     ]
 }
