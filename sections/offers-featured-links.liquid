@@ -98,11 +98,11 @@
   </ol> {% endcomment %}
   <div class="carousel-inner">
   {% for block in section.blocks %}
-  <div 
-  {% if forloop.first %} 
-  class="carousel-item active"
+  <div
+  {% if forloop.first %}
+  class="carousel-item active promo-slider"
   {% else %}
-  class="carousel-item"
+  class="carousel-item promo-slider"
   {% endif %}
   >
     <img
@@ -110,7 +110,7 @@
       src="{{ block.settings.background_image | img_url: '1500x1500' }}"
       alt=""
     >
-      <div class="slideshow-text limit-copy-width-sm">
+      <div class="slideshow-text limit-copy-width-sm promo-slider-text">
       {% if block.settings.title %}
       <h4 class="text-center">{{- block.settings.title -}}</h4>
       {% endif %}
