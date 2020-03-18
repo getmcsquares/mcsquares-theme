@@ -1,0 +1,196 @@
+<div style="background-color: {{ section.settings.section_bg }}" class="homepage-icons-section shopify-section home-section--content home-section--content offer-featured-links">
+{% if section.settings.title != blank %}
+  <div class="section-block__header text-center">
+    <h4 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h4>
+  </div>
+{% endif %}
+<div style="clear: both;" class="row d-flex contained">
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4">
+        <div class="row" >
+            {% comment %} <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+              <a href="{{section.settings.link_1}}">
+              <div class="featured-offer-image">
+                {% if section.settings.interval_img_1 %}<img class="interval-image-round" src="{{ section.settings.interval_img_1 | img_url: '300x300' }}">{% endif %}
+                </div>
+                {% if section.settings.text_1 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_1 }}</p>{% endif %}
+              </a>
+            </div>
+            <div class="homepage-icon-wrap col-4 d-flex flex-column align-items-center justify-content-start text-center" style="">
+              <a href="{{section.settings.link_2}}">
+              <div class="featured-offer-image">
+                {% if section.settings.interval_img_2 %}<img class="interval-image-round" src="{{ section.settings.interval_img_2 | img_url: '300x300' }}">{% endif %}
+                </div>
+                {% if section.settings.text_2 %}<p style="color: {{section.settings.section_font}}">{{ section.settings.text_2 }}</p>{% endif %}
+              </a>
+            </div> {% endcomment %}
+
+  {% comment %} <div
+    class="
+      slideshow
+      slideshow-dots-{{ section.settings.slideshow_height }}
+      col-8
+    "
+    aria-label="Slide show"
+  >
+    {% for block in section.blocks %}
+      {% capture placeholder_slide_image %}
+        {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+        {% assign placeholder_style = 'lifestyle-' | append: current %}
+        {%-
+          include 'placeholder_svg_uri'
+          placeholder: placeholder_style
+        -%}
+      {% endcapture %}
+
+      <div
+        class="
+          slideshow-slide
+          slideshow-height-{{ section.settings.slideshow_height }}
+        "
+        tabindex="0"
+        aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}"
+        {{ block.shopify_attributes }}
+      >
+        {% assign slideshow_crop = 'center' %}
+
+        {% if section.settings.slideshow_height == 'original' %}
+          {% assign slideshow_crop = false %}
+        {% endif %}
+
+        <div
+          class="
+            background-target
+            slideshow-background
+            slideshow-background--{{ block.id }}
+            {% if block.settings.background_image == blank %}
+              placeholder--image
+            {% endif %}
+          "
+          {% if block.settings.background_image %}
+            style="background-image: url('{{ block.settings.background_image | img_url: '1000x1000' }}')"
+          {% else %}
+            style="background-image: url('{{ placeholder_slide_image | strip }}')"
+          {% endif %}
+        >
+          {% if block.settings.background_image %}
+            <img
+              class="slideshow-image"
+              src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+              alt=""
+            >
+          {% else %}
+            <img
+              class="slideshow-image"
+              src="{{ placeholder_slide_image | strip }}"
+              alt=""
+            >
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  {% comment %} <ol class="carousel-indicators">
+  {% for block in section.blocks %}
+    <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.index}}" {% if forloop.first %}class="active"{% endif %}></li>
+  {% endfor %}
+  </ol> {% endcomment %}
+  <div class="carousel-inner">
+  {% for block in section.blocks %}
+  <div
+  {% if forloop.first %}
+  class="carousel-item active promo-slider"
+  {% else %}
+  class="carousel-item promo-slider"
+  {% endif %}
+  >
+    <img
+      class="slideshow-image-block w-100"
+      src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+      alt=""
+    >
+      <div class="slideshow-text limit-copy-width-sm promo-slider-text">
+      {% if block.settings.title %}
+      <h4 class="text-center">{{- block.settings.title -}}</h4>
+      {% endif %}
+      {% if block.settings.text %}
+      <div class="text-center">{{ block.settings.text }}</div>
+      {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+{% schema %}
+{
+    "name": {
+        "en": "Offers Slideshow"
+    },
+    "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title",
+          "default": "Get One of Each! This offer includes:"
+        },
+        {
+          "id": "autoplay_duration",
+          "type": "range",
+          "label": "Autoplay slide duration",
+          "min": 5,
+          "max": 12,
+          "step": 1,
+          "unit": "sec",
+          "default": 8
+        }
+        ],
+        "blocks": [
+          {
+            "type": "slide",
+            "name": "Slide",
+            "settings": [
+              {
+                "id": "background_image",
+                "type": "image_picker",
+                "label": "Background image",
+                "info": "800x600 recommended"
+              },
+              {
+                "id": "title",
+                "type": "text",
+                "label": "Heading",
+                "default": "Slideshow"
+              },
+              {
+                "id": "text",
+                "type": "richtext",
+                "label": "Subheading",
+                "default": "<p>Introduce customers to your shop with lifestyle and product imagery</p>"
+              }
+            ]
+          }
+        ],
+        "presets": [
+        {
+        "name": "Offers Links",
+        "category": "Homepage"
+        }
+    ]
+}
+{% endschema %}
