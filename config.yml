@@ -4,6 +4,7 @@ production:
   store: https://mcsquares-dev.myshopify.com
   ignore_files:
   - config/settings_data.json
+  - config/settings_schema.json
   - theme.lock
 
 development:
@@ -12,4 +13,5 @@ development:
   store: https://mcsquares-dev-v2.myshopify.com
   ignore_files:
   - config/settings_data.json
+  - config/settings_schema.json
   - theme.lock
