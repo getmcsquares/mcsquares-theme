@@ -57,8 +57,8 @@
           href="{{ menu_item.url }}"
         >
       {% if menu_item.type == 'collection_link' %}
-          {% assign title = menu_item.object.title %}
-          {% assign targetCollection = collections[title] %}
+          {% assign handle = menu_item.object.handle %}
+          {% assign targetCollection = collections[handle] %}
             {% if targetCollection.image != blank %}
               <img src="{{ targetCollection.image | img_url: '300x' }}" alt="{{targetCollection.handle}} logo" style="max-width: 100%; max-height: 24px;">
               {% else %}
