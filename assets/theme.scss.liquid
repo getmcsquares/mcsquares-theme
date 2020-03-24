@@ -15705,7 +15705,9 @@ $local-image-width: rem(48px);
   min-height: 340px;
   display: flex;
   align-items: center;
-  @extend %box-shadow;
+  &:not(.no-style){
+    @extend %box-shadow;
+  }
   // @extend %round-corners;
 }
 .product-info-inner{
