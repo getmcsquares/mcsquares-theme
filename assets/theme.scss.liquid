@@ -15700,13 +15700,14 @@ $local-image-width: rem(48px);
 .static-content-box{
   padding-left: unset;
   padding-right: unset;
-  background-color: $client-off-white;
+  background-color: transparent;
   padding: 3em 2em;
   min-height: 340px;
   display: flex;
   align-items: center;
   &:not(.no-style){
     @extend %box-shadow;
+    background-color: $client-off-white;
   }
   // @extend %round-corners;
 }
