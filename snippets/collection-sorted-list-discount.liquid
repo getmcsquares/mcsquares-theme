@@ -1,9 +1,29 @@
       {% assign otherProducts = '' | split: ';' %}
       {% assign indexer = 0 %}
-{% for tag in collection.all_tags %}
+  {% for tag in collection.all_tags %}
           {% if tag contains 'collection-sort-' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'collection-sort-' | split: '-' %}
+          {% if tag contains "extras" %}
+          {% capture extras_list %}
+          {% comment %} specifically capture the extras items {% endcomment %}
+            <h3><a href="/collections/{{ tag | remove: 'collection-sort-' }}">{{ section.settings.header-link-text }} {% for word in words %}{{ word | capitalize }} {% endfor %}</a></h3>
+          <ul class="productgrid--items">
+          {% for product in collection.products %}
+            {% for product_tag in product.tags %}
+              {% capture current_tag2 %}/{{ product_tag }}/{% endcapture %}
+              {% if current_tag contains current_tag2 %}
+                {%
+                  include 'product-grid-item',
+                  product: product
+                %}
+                {% assign indexer = indexer | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          </ul>
+          {% endcapture %}
+          {% else %}
           <h3><a href="/collections/{{ tag | remove: 'collection-sort-' }}">{{ section.settings.header-link-text }} {% for word in words %}{{ word | capitalize }} {% endfor %}</a></h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
@@ -20,8 +40,10 @@
           {% endfor %}
           </ul>
           {% endif %}
+          {% endif %}
         {% endfor %}
 
+        {{ extras_list }}
       {% if indexer < collection.products.size %}
       {% unless indexer == 0 %}
       <h3>Other</h3>
