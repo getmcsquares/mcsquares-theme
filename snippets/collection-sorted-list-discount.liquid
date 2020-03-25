@@ -4,7 +4,7 @@
           {% if tag contains 'collection-sort-' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'collection-sort-' | split: '-' %}
-          <h3><a href="/collections/{{ tag | remove: 'collection-sort-' }}">{% for word in words %}{{ word | capitalize }} {% endfor %}</a></h3>
+          <h3><a href="/collections/{{ tag | remove: 'collection-sort-' }}">{{ section.settings.header-link-text }} {% for word in words %}{{ word | capitalize }} {% endfor %}</a></h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
