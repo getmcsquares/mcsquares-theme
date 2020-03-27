@@ -136,6 +136,7 @@ $('input[type=radio][name=customer_type]').change(function() {
     window.addEventListener("klaviyoForms", function(e) {
     if (e.detail.type == 'submit') {
         $('.contact-page-text').hide();
+        $("html, body").animate({ scrollTop: 0 }, "slow");
       }
   })
 });
