@@ -54,7 +54,7 @@
     layout--no-sidebar
   {% endif %}
 {%- endcapture -%}
-
+{% if section.settings.show_section %}
 {% paginate collection.products by paginate_by %}
 
   <div class="productgrid--outer {{ collection_classes | strip_newlines }}">
@@ -211,7 +211,7 @@
     </div>
   </div>
 {% endpaginate %}
-
+{% endif %}
 {%- if section.settings.sort_by -%}
   {%-
     include 'product-grid-sortby',
@@ -223,9 +223,15 @@
 
 {% schema %}
 {
-  "name": "Discount Collection",
+  "name": "Discount Collection 3",
   "class": "has-graphic has-bottom-curve",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show collection section?",
+      "default": true
+    },
     {
       "type": "checkbox",
       "id": "show_collection_image",
