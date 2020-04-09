@@ -21,7 +21,7 @@
           {% endif %}
         </div>
     {% else %}
-    <div class="col-12 d-flex flex-column align-items-start justify-content-center text-center">
+    <div class="col-12 d-flex flex-column align-items-center justify-content-center text-center">
         <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
         {{- section.settings.button_label -}}
         </a>
