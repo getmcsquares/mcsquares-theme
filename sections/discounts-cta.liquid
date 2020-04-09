@@ -10,16 +10,26 @@
         <div class="col-6 d-flex align-items-center justify-content-center text-center">
           <img style="max-width: 100%;" src="{{ section.settings.featured_image | img_url: '500x500' }}" alt="{{ section.settings.featured_image | escape }}" id="ProductPhotoImg-{{ section.id }};">
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-left text-left">
+        <div class="col-6 d-flex flex-column align-items-start justify-content-center text-left">
           <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
             {{- section.settings.button_label -}}
           </a>
+          {% if section.settings.subtext %}
+            <div style="padding-top: .5em">
+            {{ section.settings.subtext }}
+            </div>
+          {% endif %}
         </div>
     {% else %}
-    <div class="col-12 d-flex align-items-center justify-content-center text-center">
+    <div class="col-12 d-flex flex-column align-items-start justify-content-center text-center">
         <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
         {{- section.settings.button_label -}}
         </a>
+        {% if section.settings.subtext %}
+          <div style="padding-top: .5em">
+          {{ section.settings.subtext }}
+          </div>
+        {% endif %}
     </div>
     {% endif %}
   </div>
@@ -74,6 +84,11 @@
         "type": "url",
         "id": "cta_link",
         "label": "Button Link"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext"
         }
         ],
         "presets": [
