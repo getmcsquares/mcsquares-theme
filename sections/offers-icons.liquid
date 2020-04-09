@@ -1,3 +1,4 @@
+{% if section.settings.show_section %}
 <div style="background-color: {{ section.settings.section_bg }}" class="section-inner-small homepage-icons-section home-section--content">
 {% if section.settings.title != blank %}
   <div class="section-block__header text-center">
@@ -30,12 +31,19 @@
     {% endif %}
 </div>
 </div>
+{% endif %}
 {% schema %}
 {
     "name": {
-        "en": "Offers Icons"
+        "en": "Offers Icons 1"
     },
     "settings": [
+      {
+          "id": "show_section",
+          "type": "checkbox",
+          "label": "Enable Section?",
+          "default": true
+        },
         {
           "type": "text",
           "id": "title",
