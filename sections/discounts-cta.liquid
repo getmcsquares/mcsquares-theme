@@ -5,8 +5,18 @@
         <h2 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h2>
       </div>
     {% endif %}
-  <div style="clear: both;" class="row d-flex contained">
-    <div class="col-12 d-flex align-items-center justify-content-center text-center" style="padding-top: 1.5em;">
+  <div style="clear: both; padding-top: 1.5em;" class="row d-flex contained align-items-center">
+    {% if section.settings.featured_image %}
+        <div class="col-6 d-flex align-items-center justify-content-center text-center">
+          <img style="max-width: 100%;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }};">
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center text-center">
+          <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
+            {{- section.settings.button_label -}}
+          </a>
+        </div>
+    {% else %}
+    <div class="col-12 d-flex align-items-center justify-content-center text-center">
         <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
         {{- section.settings.button_label -}}
         </a>
@@ -36,6 +46,11 @@
         "type": "color",
         "id": "section_bg",
         "label": "Section Background"
+        },
+        {
+          "type": "image",
+          "id": "featured_image",
+          "label": "Featured image"
         },
         {
         "type": "color",
