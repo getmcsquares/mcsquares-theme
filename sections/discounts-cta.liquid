@@ -8,9 +8,9 @@
   <div style="clear: both; padding-top: 1.5em;" class="row d-flex contained align-items-center">
     {% if section.settings.featured_image %}
         <div class="col-6 d-flex align-items-center justify-content-center text-center">
-          <img style="max-width: 100%;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }};">
+          <img style="max-width: 100%;" src="{{ section.settings.featured_image | img_url: '500x500' }}" alt="{{ section.settings.featured_image | escape }}" id="ProductPhotoImg-{{ section.id }};">
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-center text-center">
+        <div class="col-6 d-flex align-items-center justify-content-left text-left">
           <a class="slideshow-button button-primary" {% if section.settings.mail_to != "_blank" %}target="_blank" href="mailto:{{ section.settings.mail_to }}"{% else %}href="{{ section.settings.cta_link }}"{% endif %}>
             {{- section.settings.button_label -}}
           </a>
