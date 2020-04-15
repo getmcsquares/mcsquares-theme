@@ -4,16 +4,16 @@
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
-            console.log( "image:", image )
+            console.log( "image:", mobileimage )
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             $(".background-target").css("background-image", "url(" + mobileimage + ")");
         } else if (windowsize >= 750){
-            var image = "{{ block.settings.image | img_url: '1800x1800' }}"
+            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             console.log( "image:", image )
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             $(".background-target").css("background-image", "url(" + image + ")");
             }else {
-            var image = "{{ block.settings.image | img_url: '1800x1800' }}"
+            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             console.log( "image:", image )
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800'}}");
             $(".background-target").css("background-image", "url(" + image + ")");
