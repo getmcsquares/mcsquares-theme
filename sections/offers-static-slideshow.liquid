@@ -67,15 +67,6 @@
             {% endif %}
           "
           {% if block.settings.background_image %}
-            {% comment %} {%
-              include 'rimg',
-              img: block.settings.background_image,
-              size: '2000x2000',
-              crop: slideshow_crop,
-              lazy: true,
-              background: true,
-              placeholder: '500x500',
-            %} {% endcomment %}
             style="background-image: url('{{ block.settings.background_image | img_url: '1000x1000' }}')"
           {% else %}
             style="background-image: url('{{ placeholder_slide_image | strip }}')"
@@ -93,11 +84,11 @@
               lazy: true,
               canvas: true,
             %} {% endcomment %}
-            <img
+            {% comment %} <img
               class="slideshow-image"
               src="{{ block.settings.background_image | img_url: '1500x1500' }}"
               alt=""
-            >
+            > {% endcomment %}
           {% else %}
             <img
               class="slideshow-image"
@@ -183,7 +174,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "Slideshow Offers",
+  "name": "Slideshow Offers 1",
   "class": "slideshow--section",
   "settings": [
     {
