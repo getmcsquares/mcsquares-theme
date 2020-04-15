@@ -142,7 +142,7 @@
               </p>
             {% endif %}
             {% if block.settings.showScrollTo %}
-              <a class="slideshow-button button-primary" href="#shopify-section-static-collection-discount">{{ block.settings.scrollToText }}</a>
+              <a id="scrollTo" class="slideshow-button button-primary" >{{ block.settings.scrollToText }}</a>
             {% endif %}
             </div>
           </div>
@@ -157,6 +157,13 @@
     %}
   </section>
 {% endif %}
+<script type="text/javascript" async>
+$("#scrollTo").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#shopify-section-static-collection-discount").offset(100).top
+    }, 2000);
+});
+</script>
 {% schema %}
 {
   "name": "Slideshow Discount 1",
