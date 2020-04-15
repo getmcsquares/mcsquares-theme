@@ -1,24 +1,44 @@
 {% if block.settings.image_mobile != blank %}
+
 <script type="text/javascript">
+    {% if include.index > 0 %}
+        var index = {{ include.index }}
+    {% endif %}
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-            $(".background-target").css("background-image", "url(" + mobileimage + ")");
+            if ( index ){
+                $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
+            } else {
+                $(".background-target").css("background-image", "url(" + mobileimage + ")");
+            }
         } else if (windowsize >= 750){
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
-            if( currentBG != image ){
-                $(".background-target").css("background-image", "url(" + image + ")");
+            if ( index ){
+                if( currentBG != image ){
+                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                }
+            } else {
+                if( currentBG != image ){
+                    $(".background-target").css("background-image", "url(" + image + ")");
+                }
             }
             }else {
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
-            if( currentBG != image ){
-                $(".background-target").css("background-image", "url(" + image + ")");
+            if ( index ){
+                if( currentBG != image ){
+                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                }
+            } else {
+                if( currentBG != image ){
+                    $(".background-target").css("background-image", "url(" + image + ")");
+                }
             }
         }
     };

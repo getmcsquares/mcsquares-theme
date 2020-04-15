@@ -58,6 +58,7 @@
         <div
           class="
             background-target
+            background-target-{{ forloop.index }}
             slideshow-background
             slideshow-background--{{ block.id }}
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
@@ -172,7 +173,7 @@
           </div>
         {% endif %}
       </div>
-      {% include 'header-image-helper' %}
+      {% include 'header-image-helper' index=forloop.index %}
     {% endfor %}
 
     {%
