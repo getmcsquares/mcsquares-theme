@@ -4,10 +4,13 @@
         windowsize = $(window).width();
         if (windowsize < 750) {
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
+            $(".background-target").css("background-image", "url('{{block.settings.image_mobile | img_url: '800x800'}}')'");
         } else if (windowsize >= 750){
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
+            $(".background-target").css("background-image", "url('{{block.settings.image| img_url: '1800x1800'}}')'");
         }else {
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800'}}");
+            $(".background-target").css("background-image", "url('{{block.settings.image| img_url: '1800x1800'}}')'");
         }
         console.log(
             "image loaded from helper"
