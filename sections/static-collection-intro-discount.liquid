@@ -159,9 +159,9 @@
 {% endif %}
 <script type="text/javascript" async>
 $("#scrollTo").click(function() {
-    $([document.documentElement, document.body]).animate({
-        scrollTop: $("#shopify-section-static-collection-discount").offset(100).top
-    }, 2000);
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $("#shopify-section-static-collection-discount").offset().top - 140
+  }, 1000);
 });
 </script>
 {% schema %}
