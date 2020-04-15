@@ -135,11 +135,14 @@
                   {% if block.settings.link != blank %}
                   {% endif %}
                 </h1>
-            <div class="slideshow-subcontent d-flex">
+            <div class="slideshow-subcontent">
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
               </p>
+            {% endif %}
+            {% if block.settings.showScrollTo %}
+              <a class="slideshow-button button-primary" href="#shopify-section-static-collection-discount">{{ block.settings.scrollToText }}</a>
             {% endif %}
             </div>
           </div>
@@ -307,6 +310,18 @@
           "step": 1,
           "unit": "%",
           "default": 50
+        },
+        {
+          "id": "showScrollTo",
+          "type": "checkbox",
+          "label": "Show Scroll-to button?",
+          "default": false
+        },
+        {
+          "id": "scrollToText",
+          "type": "text",
+          "label": "Scroll-to button text",
+          "default": "Shop Now"
         }
       ]
     }
