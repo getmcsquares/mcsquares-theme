@@ -9,14 +9,15 @@
             $(".background-target").css("background-image", "url(" + mobileimage + ")");
         } else if (windowsize >= 750){
             var image = "{{ block.settings.image | img_url: '1800x1800' }}"
+            console.log( "image:", image )
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
-            $(".background-target").css("background-image", "url(" + image + ")");        }else {
+            $(".background-target").css("background-image", "url(" + image + ")");
+            }else {
             var image = "{{ block.settings.image | img_url: '1800x1800' }}"
+            console.log( "image:", image )
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800'}}");
-            $(".background-target").css("background-image", "url(" + image + ")");        }
-        console.log(
-            "image loaded from helper"
-        )
+            $(".background-target").css("background-image", "url(" + image + ")");
+        }
     };
     var applyTitleImage = function () {
         windowsize = $(window).width();
@@ -27,9 +28,6 @@
         }else {
             $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800'}}");
         }
-        console.log(
-            "title image loaded from helper"
-        )
     }
     $(window).resize(function() {
         applyImage(),
