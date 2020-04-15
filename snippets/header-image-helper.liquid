@@ -3,8 +3,10 @@
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
+            var image = {{block.settings.image_mobile | img_url: '800x800'}}
+            console.log( image )
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-            $(".background-target").css("background-image", "url('{{block.settings.image_mobile | img_url: '800x800'}}')'");
+            $(".background-target").css("background-image", "url('" + image + "')'");
         } else if (windowsize >= 750){
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             $(".background-target").css("background-image", "url('{{block.settings.image| img_url: '1800x1800'}}')'");
