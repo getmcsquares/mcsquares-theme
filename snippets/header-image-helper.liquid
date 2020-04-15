@@ -3,17 +3,17 @@
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
-            var image = "{{ block.settings.image_mobile | img_url: '800x800' }}"
+            var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
             console.log( "image:", image )
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-            $(".background-target").css("background-image", "url('" + image + "')'");
+            $(".background-target").css("background-image", "url(" + mobileimage + ")");
         } else if (windowsize >= 750){
+            var image = "{{ block.settings.image | img_url: '1800x1800' }}"
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
-            $(".background-target").css("background-image", "url('{{block.settings.image| img_url: '1800x1800'}}')'");
-        }else {
+            $(".background-target").css("background-image", "url(" + image + ")");        }else {
+            var image = "{{ block.settings.image | img_url: '1800x1800' }}"
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800'}}");
-            $(".background-target").css("background-image", "url('{{block.settings.image| img_url: '1800x1800'}}')'");
-        }
+            $(".background-target").css("background-image", "url(" + image + ")");        }
         console.log(
             "image loaded from helper"
         )
