@@ -1,6 +1,6 @@
 <div {% if section.settings.inside_image != blank %}class="row"{% else %}class="row"{% endif %}>
   {% capture image_layout %}
-    <div class="feature-row__item col-md-6  order-2 offers-image-wrap" style="position:relative;" >
+    <div class="feature-row__item col-md-6  order-2 order-sm-1 offers-image-wrap" style="position:relative;" >
       {% if section.settings.overlay_text %}<div style="position: absolute; bottom:0; top:0; right:0; left: 0; z-index: 3;" class="d-flex align-items-center justify-content-center text-white"><h1>{{ section.settings.overlay_text | upcase }}</h1></div>{% endif %}
       <div style="background-image: url({{ section.settings.image | img_url: '600x' }}); background-size: cover; background-position: center; position: absolute; top: 0;bottom:0;right:0;left:0;">
       </div>
