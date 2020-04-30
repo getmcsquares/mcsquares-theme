@@ -1,6 +1,6 @@
 {% if block.settings.image_mobile != blank %}
 <script type="text/javascript">
-        var index = {{ include.index }}
+    var index = {{ forloop.index }}
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
