@@ -8,6 +8,7 @@
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
             $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
+            $(".background-target").css("background-image", "url(" + mobileimage + ")");
             if ( index ){
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             } else {
