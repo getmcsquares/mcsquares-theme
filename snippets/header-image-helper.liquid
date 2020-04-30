@@ -20,11 +20,11 @@
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
-                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                    $(".background-target-" + index).css("background-image", "url({{ block.settings.background_image | img_url: '1800x1800' }})");
                 }
             } else {
                 if( currentBG != image ){
-                    $(".background-target").css("background-image", "url(" + image + ")");
+                    $(".background-target").css("background-image", "url({{ block.settings.background_image | img_url: '1800x1800' }})");
                 }
             }
             }else {
@@ -33,11 +33,11 @@
             $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
-                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                    $(".background-target-" + index).css("background-image", "url({{ block.settings.background_image | img_url: '1800x1800' }})");
                 }
             } else {
                 if( currentBG != image ){
-                    $(".background-target").css("background-image", "url(" + image + ")");
+                    $(".background-target").css("background-image", "url({{ block.settings.background_image | img_url: '1800x1800' }})");
                 }
             }
         }
