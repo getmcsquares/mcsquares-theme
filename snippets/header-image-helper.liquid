@@ -19,7 +19,6 @@
         } else if (windowsize >= 750){
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
-            $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
                     $(".background-target-" + index).css("background-image", "url(" + image + ")");
@@ -32,7 +31,6 @@
             }else {
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
-            $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
                     $(".background-target-" + index).css("background-image", "url(" + image + ")");
