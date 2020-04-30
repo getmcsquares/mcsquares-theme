@@ -109,7 +109,7 @@
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% comment %} {% include 'header-image-helper' %} {% endcomment %}
+    {% comment %} {% include 'header-image-helper' index=forloop.index %} {% endcomment %}
   </section>
 {% endif %}
 {% schema %}

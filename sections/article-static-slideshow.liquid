@@ -160,7 +160,7 @@
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
-    {% include 'header-image-helper' %}
+    {% include 'header-image-helper' index=forloop.index %}
   </section>
 {% endif %}
 {% schema %}
