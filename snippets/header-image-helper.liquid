@@ -1,52 +1,45 @@
 {% if block.settings.image_mobile != blank %}
 
 <script type="text/javascript">
-    var index = {{ include.index }}
+    {% if include.index > 0 %}
+        var index = {{ include.index }}
+    {% else %}
+        var index = ""
+    {% endif %}
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
-            $(".background-target
-background-target-{{ forloop.index }}").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
+            $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             if ( index ){
-                $(".background-target
-background-target-{{ forloop.index }}-" + index).css("background-image", "url(" + mobileimage + ")");
+                $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             } else {
-                $(".background-target
-background-target-{{ forloop.index }}").css("background-image", "url(" + mobileimage + ")");
+                $(".background-target").css("background-image", "url(" + mobileimage + ")");
             }
         } else if (windowsize >= 750){
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
-            var currentBG = $(".background-target
-background-target-{{ forloop.index }}").css("background-image");
-            $(".background-target
-background-target-{{ forloop.index }}").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
+            var currentBG = $(".background-target").css("background-image");
+            $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
-                    $(".background-target
-background-target-{{ forloop.index }}-" + index).css("background-image", "url(" + image + ")");
+                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
                 }
             } else {
                 if( currentBG != image ){
-                    $(".background-target
-background-target-{{ forloop.index }}").css("background-image", "url(" + image + ")");
+                    $(".background-target").css("background-image", "url(" + image + ")");
                 }
             }
             }else {
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
-            var currentBG = $(".background-target
-background-target-{{ forloop.index }}").css("background-image");
-            $(".background-target
-background-target-{{ forloop.index }}").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
+            var currentBG = $(".background-target").css("background-image");
+            $(".background-target").attr("src", "{{block.settings.image | img_url: '1800x1800' }}");
             if ( index ){
                 if( currentBG != image ){
-                    $(".background-target
-background-target-{{ forloop.index }}-" + index).css("background-image", "url(" + image + ")");
+                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
                 }
             } else {
                 if( currentBG != image ){
-                    $(".background-target
-background-target-{{ forloop.index }}").css("background-image", "url(" + image + ")");
+                    $(".background-target").css("background-image", "url(" + image + ")");
                 }
             }
         }
