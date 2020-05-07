@@ -136,3 +136,18 @@ $('input[type=radio][name=customer_type]').change(function() {
   })
 });
 </script>
+
+{% comment %} $( document ).ready(function(){
+      var buttons = undefined;
+      do {
+      var buttons = $( "button[class*='ResetElements__Button']" );
+      if ( buttons != undefined ){
+        $( "button[class*='ResetElements__Button']" ).click(function(){
+          $('.contact-page-text').hide();
+        })
+      } else {
+        console.log('searching')
+      }
+      }
+      while ( buttons = undefined )
+    }) {% endcomment %}
