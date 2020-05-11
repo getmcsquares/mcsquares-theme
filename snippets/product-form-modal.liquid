@@ -140,12 +140,12 @@
         {% for i in (1..5) %}
         <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
         {% endfor %}
-      {% comment %} {% include 'yotpo-head' %}
+      {% include 'yotpo-head' %}
         <div class="yotpo-star-box yotpo">
         <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
           data-product-id="{{ product.id }}">
         </div>
-        </div> {% endcomment %}
+        </div>
       {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
         <div class="product-vendor modal-vendor">
           {% unless onboarding %}
