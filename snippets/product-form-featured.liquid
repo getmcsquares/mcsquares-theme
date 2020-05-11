@@ -141,7 +141,7 @@
       {% endif %}
 
       {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
-        <div class="product-vendor">
+        <div class="product-vendor featured-vendor">
           {% unless onboarding %}
             {%- capture vendor_link -%}
               {{ product.vendor | link_to_vendor }}
@@ -168,6 +168,7 @@
           </span>
         </div>
       {% endif %}
+          <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description=""></div>
     {% unless template == 'index' %}
       <div class="product-pricing" aria-live="polite">
         {%
