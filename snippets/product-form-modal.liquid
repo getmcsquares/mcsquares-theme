@@ -166,14 +166,9 @@
           </span>
         </div>
       {% endif %}
-      <div class="yotpo-star-box yotpo">
-        <div  class="yotpo bottomLine productYotpo"
-          data-product-id="{{ product.id }}">
-        </div>
+      <div class="yotpo bottomLine yotpo-collection"
+        data-product-id="{{ product.id }}">
       </div>
-       <div class="yotpo bottomLine yotpo-collection"
-          data-product-id="{{ product.id }}">
-        </div>
       {% unless template == 'index' %}
       <div class="product-pricing" aria-live="polite">
         {%
