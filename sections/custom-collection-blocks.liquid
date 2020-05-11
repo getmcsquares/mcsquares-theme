@@ -13,7 +13,7 @@
         <div class="quotes-row row" id="Quotes-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="quotes">
           {% for block in section.blocks %}
           {% assign featured_collection = collections[block.settings.collection] %}
-          <div class="text-center col-md-3 card-container">
+          <div class="text-center col-6 col-md-3 card-container">
             <a href="{{ featured_collection.url }}">
                 {% assign image_src = block.settings.image %}
                 <img class="featured-card__image lazyload"

@@ -134,26 +134,11 @@
               {% endunless %}
             </div>
           {% endif %}
-        <div class="yotpo-star-box yotpo d-flex align-items-center">
+        <div class="yotpo-star-box yotpo d-flex align-items-center justify-content-center" style="margin-top: 1em;">
           <div  class="yotpo bottomLine productYotpo"
             data-product-id="{{ product.id }}">
           </div>
         </div>
-          {% if settings.product_ratings_reviews %}
-            <div class="product-ratings">
-              <span class="shopify-product-reviews-badge" data-id="{{ product.id }}">
-                <span class="spr-badge">
-                  <span class="spr-starrating spr-badge-starrating">
-                    <i class="spr-icon spr-icon-star-empty"></i>
-                    <i class="spr-icon spr-icon-star-empty"></i>
-                    <i class="spr-icon spr-icon-star-empty"></i>
-                    <i class="spr-icon spr-icon-star-empty"></i>
-                    <i class="spr-icon spr-icon-star-empty"></i>
-                  </span>
-                </span>
-              </span>
-            </div>
-          {% endif %}
 
           <div class="product-pricing" aria-live="polite">
             {%
