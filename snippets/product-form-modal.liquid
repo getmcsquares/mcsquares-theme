@@ -137,11 +137,9 @@
           </h1>
         {% endif %}
       {% endif %}
-        <div class="yotpo-star-box yotpo d-flex align-items-center justify-content-center" style="margin-top: 1em;">
-          <div  class="yotpo bottomLine productYotpo"
-            data-product-id="{{ product.id }}">
-          </div>
-        </div>
+        {% for i in (1..5) %}
+        <span class="ratings star star-{{ forloop.index }}"><i class="fa fa-star"></i></span>
+        {% endfor %}
       {% comment %} {% include 'yotpo-head' %}
         <div class="yotpo-star-box yotpo">
         <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo"{% else %} class="yotpo bottomLine else"{% endif %}
