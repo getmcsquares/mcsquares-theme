@@ -53,7 +53,7 @@
         applyTitleImage()
     });
     $(document).ready(function() {
-        for (var i; i <= {{ section.section.blocks[index].size }}; i++ ){
+        for (var i; i <= {{ section.blocks.size }}; i++ ){
             applyImage(i)
         }
         applyTitleImage()
