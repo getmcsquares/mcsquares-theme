@@ -5,36 +5,36 @@
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
-            var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
-            console.log( 'init mobile:', mobileimage )
+            var mobileimage{{forloop.index}} = "{{ block.settings.image_mobile | img_url: '800x800' }}"
+            console.log( 'init mobile:', mobileimage{{forloop.index}} )
             //$(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             if ( index > 0 ){
-                $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
+                $(".background-target-" + index).css("background-image", "url(" + mobileimage{{forloop.index}} + ")");
             } else {
-                $(".background-target").css("background-image", "url(" + mobileimage + ")");
+                $(".background-target").css("background-image", "url(" + mobileimage{{forloop.index}} + ")");
             }
         } else if (windowsize >= 750){
-            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
+            var image{{forloop.index}} = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
             if ( index > 0 ){
-                if( currentBG != image ){
-                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                if( currentBG != image{{forloop.index}} ){
+                    $(".background-target-" + index).css("background-image", "url(" + image{{forloop.index}} + ")");
                 }
             } else {
-                if( currentBG != image ){
-                    $(".background-target").css("background-image", "url(" + image + ")");
+                if( currentBG != image{{forloop.index}} ){
+                    $(".background-target").css("background-image", "url(" + image{{forloop.index}} + ")");
                 }
             }
             }else {
-            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
+            var image{{forloop.index}} = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
             if ( index ){
-                if( currentBG != image ){
-                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
+                if( currentBG != image{{forloop.index}} ){
+                    $(".background-target-" + index).css("background-image", "url(" + image{{forloop.index}} + ")");
                 }
             } else {
-                if( currentBG != image ){
-                    $(".background-target").css("background-image", "url(" + image + ")");
+                if( currentBG != image{{forloop.index}} ){
+                    $(".background-target").css("background-image", "url(" + image{{forloop.index}} + ")");
                 }
             }
         }
