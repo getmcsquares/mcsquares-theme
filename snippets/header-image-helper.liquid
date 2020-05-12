@@ -6,7 +6,7 @@
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
-            console.log('init mobile:' mobileimage)
+            console.log( 'init mobile:', mobileimage )
             //$(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             if ( index > 0 ){
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
