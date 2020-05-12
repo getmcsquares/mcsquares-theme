@@ -1,12 +1,14 @@
 {% if block.settings.image_mobile != blank %}
 <script type="text/javascript">
     var index = {{ forloop.index }}
+    console.log('index:', index)
     var applyImage = function () {
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
-            $(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
-            if ( index ){
+            console.log('init mobile:' mobileimage)
+            //$(".background-target").attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
+            if ( index > 0 ){
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             } else {
                 $(".background-target").css("background-image", "url(" + mobileimage + ")");
@@ -14,7 +16,7 @@
         } else if (windowsize >= 750){
             var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target").css("background-image");
-            if ( index ){
+            if ( index > 0 ){
                 if( currentBG != image ){
                     $(".background-target-" + index).css("background-image", "url(" + image + ")");
                 }
