@@ -116,7 +116,6 @@
             ></div>
           {% endif %}
         </div>
-      {% include 'header-image-helper' index=forloop.index %}
         {% if block.settings.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
@@ -181,6 +180,7 @@
       blocks: section.blocks
     %}
   </section>
+{% include 'header-image-helper' index=forloop.index %}
 {% endif %}
 {% schema %}
 {
