@@ -6,16 +6,16 @@
         console.log('index:', index, {{block}})
         windowsize = $(window).width();
         if (windowsize < 750) {
-            var mobileimage = "{{ section.blocks[" + index0 + "].settings.image_mobile | img_url: '800x800' }}"
+            var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
             console.log( 'init mobile:', index, mobileimage )
-            //$(".background-target-" + index).attr("src", "{{section.blocks[" + index0 + "].settings.image_mobile | img_url: '800x800'}}");
+            //$(".background-target-" + index).attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             if ( index > 0 ){
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             } else {
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             }
         } else if (windowsize >= 750){
-            var image = "{{ section.blocks[" + index0 + "].settings.background_image | img_url: '1800x1800' }}"
+            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target-" + index).css("background-image");
             if ( index > 0 ){
                 if( currentBG != image ){
@@ -27,7 +27,7 @@
                 }
             }
             } else {
-            var image = "{{ section.blocks[" + index0 + "].settings.background_image | img_url: '1800x1800' }}"
+            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target-" + index).css("background-image");
             if ( index ){
                 if( currentBG != image ){
@@ -43,11 +43,11 @@
     var applyTitleImage = function () {
         windowsize = $(window).width();
         if (windowsize < 992) {
-            $(".titleimg").attr("src", "{{section.blocks[" + index0 + "].settings.titleimg_mobile | img_url: '500x500'}}");
+            $(".titleimg").attr("src", "{{block.settings.titleimg_mobile | img_url: '500x500'}}");
         } else if (windowsize >= 992){
-            $(".titleimg").attr("src", "{{section.blocks[" + index0 + "].settings.titleimg | img_url: '1800x1800' }}");
+            $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800' }}");
         }else {
-            $(".titleimg").attr("src", "{{section.blocks[" + index0 + "].settings.titleimg | img_url: '1800x1800'}}");
+            $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800'}}");
         }
     }
     $(window).resize(function() {
