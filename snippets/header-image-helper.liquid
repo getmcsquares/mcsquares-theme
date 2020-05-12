@@ -2,7 +2,8 @@
     var applyImage = function (index) {
         var index = index
         var index0 = index - 1
-        console.log('index:', index, "section.blocks[" + index0 + "].settings.image_mobile")
+        {% assign block = section.blocks[index0] %}
+        console.log('index:', index, block)
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ section.blocks[" + index0 + "].settings.image_mobile | img_url: '800x800' }}"
