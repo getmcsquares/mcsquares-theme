@@ -1,7 +1,7 @@
 <script type="text/javascript">
     var applyImage = function (id) {
         var index = id
-        console.log('index:', index, {{block.id}}, {{block.settings.title}})
+        console.log('index:', index, '{{block.id}}', '{{block.settings.title}}')
         windowsize = $(window).width();
         if (windowsize < 750) {
             var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
