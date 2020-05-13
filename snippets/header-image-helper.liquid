@@ -38,6 +38,7 @@
             }
         }
     };
+
     var applyTitleImage = function () {
         windowsize = $(window).width();
         if (windowsize < 992) {
@@ -60,6 +61,8 @@
 </script>
 {% for block in section.blocks %}
 <script type="text/javascript">
-    applyImage('{{block.id}}')
+    $(document).ready(function() {
+        applyImage('{{block.id}}')
+    });
 </script>
 {% endfor %}
