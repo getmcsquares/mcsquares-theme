@@ -1,10 +1,11 @@
 <script type="text/javascript">
-    var applyImage = function (id) {
+    var applyImage = function (id, mobile_url, image_url ) {
         var index = id
-        console.log('index:', index, '{{block.id}}', '{{block.settings.title}}')
+        var image = image_url
+        var mobileimage = mobile_url
+        console.log('index:', index, image, mobileimage)
         windowsize = $(window).width();
         if (windowsize < 750) {
-            var mobileimage = "{{ block.settings.image_mobile | img_url: '800x800' }}"
             console.log( 'init mobile:', index, mobileimage )
             //$(".background-target-" + index).attr("src", "{{block.settings.image_mobile | img_url: '800x800'}}");
             if ( index > 0 ){
@@ -13,7 +14,6 @@
                 $(".background-target-" + index).css("background-image", "url(" + mobileimage + ")");
             }
         } else if (windowsize >= 750){
-            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target-" + index).css("background-image");
             if ( index > 0 ){
                 if( currentBG != image ){
@@ -25,7 +25,6 @@
                 }
             }
             } else {
-            var image = "{{ block.settings.background_image | img_url: '1800x1800' }}"
             var currentBG = $(".background-target-" + index).css("background-image");
             if ( index ){
                 if( currentBG != image ){
@@ -33,7 +32,7 @@
                 }
             } else {
                 if( currentBG != image ){
-                    $(".background-target-" + index).css("background-image", "url(" + image{{forloop.index}} + ")");
+                    $(".background-target-" + index).css("background-image", "url(" + image + ")");
                 }
             }
         }
@@ -62,7 +61,7 @@
 {% for block in section.blocks %}
 <script type="text/javascript">
     $(document).ready(function() {
-        applyImage('{{block.id}}')
+        applyImage('{{block.id}}', "{{ block.settings.image_mobile | img_url: '800x800' }}", "{{ block.settings.background_image | img_url: '1800x1800' }}" )
     });
 </script>
 {% endfor %}
