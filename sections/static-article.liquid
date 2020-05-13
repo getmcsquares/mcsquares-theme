@@ -167,14 +167,14 @@
     {% endif %}
   {% endfor %}
 {% endfor %}
-{% if related_posts.size > 0 %}
+{% comment %} {% if related_posts.size > 0 %}
 <section class="blog--container container">
 <h4 class="text-center">Related Posts</h4>
 <ul class="blog--inner">
   {{ related_posts }}
 </ul>
-{% endif %}
 </section>
+{% endif %} {% endcomment %}
       {% comment %} {% include 'article-comments' %} {% endcomment %}
   </div>
 </div>
