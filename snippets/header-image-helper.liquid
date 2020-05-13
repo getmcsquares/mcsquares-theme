@@ -48,10 +48,7 @@
             $(".titleimg").attr("src", "{{block.settings.titleimg | img_url: '1800x1800'}}");
         }
     }
-    $(window).resize(function() {
-        for (var i = 1; i <= {{ section.blocks.size }}; i++ ){
-            applyImage(i)
-        }
+    
         applyTitleImage()
     });
     $(document).ready(function() {
@@ -61,6 +58,9 @@
 {% for block in section.blocks %}
 <script type="text/javascript">
     $(document).ready(function() {
+        applyImage('{{block.id}}', "{{ block.settings.image_mobile | img_url: '800x800' }}", "{{ block.settings.background_image | img_url: '1800x1800' }}" )
+    });
+    $(window).resize(function() {
         applyImage('{{block.id}}', "{{ block.settings.image_mobile | img_url: '800x800' }}", "{{ block.settings.background_image | img_url: '1800x1800' }}" )
     });
 </script>
