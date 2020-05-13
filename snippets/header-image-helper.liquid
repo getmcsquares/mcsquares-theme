@@ -1,8 +1,9 @@
+{% assign blocks = include.blocks %}
 <script type="text/javascript">
     var applyImage = function (index) {
         var index = index
         var index0 = index - 1
-        {% assign block = section.blocks[index0] %}
+        {% assign block = blocks[index0] %}
         console.log('index:', index0, {{ block.settings.title }})
         windowsize = $(window).width();
         if (windowsize < 750) {
