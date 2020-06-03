@@ -172,6 +172,19 @@
           </span>
         </div>
       {% endif %}
+      {% if page.template_suffix contains 'show-inventory' %}
+          <div id="variant-inventory">
+              {% if product.variants.first.inventory_management == "shopify" %}
+                {% if product.variants.first.inventory_quantity > 0 %}
+                    {{ product.variants.first.inventory_quantity }} {{ 'products.product.in_stock_text' | t }}.
+                {% else %}
+                    {{ 'products.product.sold_out' | t }}.
+                {% endif %}
+              {% else %}
+                {{ 'products.product.available_product_text' | t }}.
+              {% endif %}
+          </div>
+      {% endif %}
     {% unless template == 'index' %}
       <div class="product-pricing" aria-live="polite">
         {%
