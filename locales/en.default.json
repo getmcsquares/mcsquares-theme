@@ -326,7 +326,8 @@
       "zoom": "Click or scroll to zoom",
       "zoomTap": "Tap or pinch to zoom",
       "zoomTapMobile": "Tap to zoom",
-      "discounts": "Discounts"
+      "discounts": "Discounts",
+      "in_stock_text": "left. Order soon!"
     },
     "item": {
       "badges": {
