@@ -172,7 +172,7 @@
           </span>
         </div>
       {% endif %}
-      {% if page.template_suffix contains 'show-inventory' %}
+      {% if page.template_suffix == 'show-inventory' %}
           <div id="variant-inventory">
               {% if product.variants.first.inventory_management == "shopify" %}
                 {% if product.variants.first.inventory_quantity > 0 %}
