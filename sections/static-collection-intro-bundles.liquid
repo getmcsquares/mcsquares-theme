@@ -146,13 +146,12 @@
           </div>
         {% endif %}
       </div>
-      {% include 'header-image-helper' index=forloop.index %}
     {% endfor %}
-
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
+    {% include 'header-image-helper' blocks: section.blocks %}
   </section>
 {% endif %}
 {% schema %}
