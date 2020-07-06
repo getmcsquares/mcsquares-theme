@@ -59,6 +59,7 @@
           class="
             background-target
             background-target-{{ forloop.index }}
+            background-target-{{ block.id }}
             slideshow-background
             slideshow-background-{{ block.id }}
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
@@ -136,38 +137,27 @@
                   {% if block.settings.link != blank %}
                   {% endif %}
                 </h1>
-            <div class="slideshow-subcontent">
+            <div class="slideshow-subcontent d-flex">
             {% if block.settings.text != blank %}
               <p class="slideshow-slide-text">
                 {{ block.settings.text | escape }}
               </p>
             {% endif %}
-            {% if block.settings.showScrollTo %}
-              <a id="scrollTo" class="slideshow-button button-primary" >{{ block.settings.scrollToText }}</a>
-            {% endif %}
             </div>
           </div>
         {% endif %}
       </div>
-      {% include 'header-image-helper' index=forloop.index %}
     {% endfor %}
-
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
+    {% include 'header-image-helper' blocks: section.blocks %}
   </section>
 {% endif %}
-<script type="text/javascript" async>
-$("#scrollTo").click(function() {
-  $([document.documentElement, document.body]).animate({
-    scrollTop: $("#shopify-section-static-collection-discount-3").offset().top - 140
-  }, 1000);
-});
-</script>
 {% schema %}
 {
-  "name": "Slideshow Discount 3",
+  "name": "Slideshow Discount",
   "class": "slideshow--section",
   "settings": [
     {
@@ -259,7 +249,7 @@ $("#scrollTo").click(function() {
           "id": "title",
           "type": "text",
           "label": "Heading",
-          "default": "Stickies"
+          "default": "Creativity"
         },
         {
           "id": "text",

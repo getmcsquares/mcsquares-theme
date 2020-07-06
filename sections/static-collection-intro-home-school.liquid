@@ -59,6 +59,7 @@
           class="
             background-target
             background-target-{{ forloop.index }}
+            background-target-{{ block.id }}
             slideshow-background
             slideshow-background-{{ block.id }}
             {% if section.settings.sticky %}slideshow-background-sticky{% endif %}
@@ -146,18 +147,17 @@
           </div>
         {% endif %}
       </div>
-      {% include 'header-image-helper' index=forloop.index %}
     {% endfor %}
-
     {%
       include 'slideshow-overlay',
       blocks: section.blocks
     %}
+    {% include 'header-image-helper' blocks: section.blocks %}
   </section>
 {% endif %}
 {% schema %}
 {
-  "name": "Slideshow Home School",
+  "name": "Slideshow Homeschool",
   "class": "slideshow--section",
   "settings": [
     {
