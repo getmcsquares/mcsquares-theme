@@ -142,7 +142,34 @@
       data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
     >
     </script>
-
+    {% comment %} RE:Amaze manual install {% endcomment %}
+    <script type="text/javascript">
+      var _support = _support || { 'ui': {}, 'user': {} };
+      _support['account'] = 'mcsquares';
+      _support['ui']['contactMode'] = 'mixed';
+      _support['ui']['enableKb'] = 'true';
+      _support['ui']['styles'] = {
+        widgetColor: 'rgb(0, 96, 116)',
+      };
+      _support['ui']['faces'] = ["https://cdn.shopify.com/s/files/1/0243/3695/7495/files/mm1.jpg?v=1590839246","https://cdn.shopify.com/s/files/1/0243/3695/7495/files/mm2.jpg?v=1590839246","https://cdn.shopify.com/s/files/1/0243/3695/7495/files/mm3.jpg?v=1590839246"];
+      _support['ui']['widget'] = {
+        icon: 'chat',
+        displayOn: 'all',
+        label: {
+          text: 'Let us know if you have any questions! &#128512;',
+          mode: "prompt-3",
+          delay: 3,
+          duration: 30,
+        },
+        position: 'bottom-right',
+        mobilePosition: 'bottom-right'
+      };
+      _support['apps'] = {
+        recentConversations: {},
+        faq: {"enabled":true},
+        orders: {"enabled":true}
+      };
+    </script>
     {% include 'structured-data' %}
     {% include 'klaviyo-helper' %}
   </body>
