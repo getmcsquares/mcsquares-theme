@@ -3,7 +3,7 @@
 
   {% assign product_limit = 5 %}
 
-  <script
+  {% comment %} <script
     type="application/json"
     data-section-type="static-product-recommendations"
     data-section-id="{{ section.id }}"
@@ -15,17 +15,14 @@
       },
       "productId": {{ product.id | json }}
     }
-  </script>
+  </script> {% endcomment %}
 
   <section
     class="product-section--container product-row--container product-recommendations--container "
-    data-html
-    data-product-recommendations
   >
 
       <ul
         class="product-section--content product-row"
-        data-product-row
       >
         {%- for block in section.blocks limit: product_limit -%}
         {% assign product = all_products[block.settings.product] %}
@@ -42,7 +39,14 @@
 {% schema %}
 {
   "name": "custom recommendations",
+  "class": "product-recommendations--section has-graphic",
   "settings": [
+    {
+      "type": "text",
+      "id": "product_recommendations_heading",
+      "label": "Heading",
+      "default": "You may also like"
+    }
   ],
     "blocks": [
       {
