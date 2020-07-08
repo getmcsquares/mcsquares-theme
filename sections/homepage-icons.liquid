@@ -31,10 +31,16 @@
                 {% if section.settings.text_4 %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_4 }}</h5>{% endif %}
               </a>
             </div>
-            <div class="homepage-icon-wrap col-6 offset-3 offset-sm-0 col-sm-2" style="">
+            <div class="homepage-icon-wrap col-6  col-sm-2" style="">
               <a href="{{section.settings.link_5}}">
                 {% if section.settings.interval_img_5 %}<img class="interval-image-small" src="{{ section.settings.interval_img_5 | img_url: '300x300' }}">{% endif %}
                 {% if section.settings.text_5 %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_5 }}</h5>{% endif %}
+              </a>
+            </div>
+            <div class="homepage-icon-wrap col-6  col-sm-2" style="">
+              <a href="{{section.settings.link_6}}">
+                {% if section.settings.interval_img_6 %}<img class="interval-image-small" src="{{ section.settings.interval_img_6 | img_url: '300x300' }}">{% endif %}
+                {% if section.settings.text_5 %}<h5 style="color: {{section.settings.section_font}}">{{ section.settings.text_6 }}</h5>{% endif %}
               </a>
             </div>
         </div>
@@ -118,6 +124,21 @@
         {
         "type": "url",
         "id": "link_4",
+        "label": "Icon Link"
+        },
+        {
+        "type": "image_picker",
+        "id": "interval_img_5",
+        "label": "Icon 5"
+        },
+        {
+        "type": "text",
+        "id": "text_5",
+        "label": "Text 5"
+        },
+        {
+        "type": "url",
+        "id": "link_5",
         "label": "Icon Link"
         },
         {
