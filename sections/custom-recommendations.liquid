@@ -1,16 +1,45 @@
 
   {% if section.blocks.size > 0 %}
-  <div class="product-recommendations__inner">
-    <ul class="grid grid--uniform grid--view-items">
-      {%- for block in section.blocks -%}
-      {% assign product = all_products[block.settings.product] %}
-        <li class="grid__item small--one-half medium-up--one-quarter">
-          {% include 'product-card-grid', max_height: 250 %}
-        </li>
-      {%- endfor -%}
-    </ul>
-  </div>
-  {% endif %}
+
+  {% assign product_limit = 5 %}
+
+  <script
+    type="application/json"
+    data-section-type="static-product-recommendations"
+    data-section-id="{{ section.id }}"
+    data-section-data
+  >
+    {
+      "settings": {
+        "limit": {{ product_limit }}
+      },
+      "productId": {{ product.id | json }}
+    }
+  </script>
+
+  <section
+    class="product-section--container product-row--container product-recommendations--container "
+    data-html
+    data-product-recommendations
+  >
+
+      <ul
+        class="product-section--content product-row"
+        data-product-row
+      >
+        {%- for block in section.blocks limit: product_limit -%}
+        {% assign product = all_products[block.settings.product] %}
+          {%
+            include 'product-grid-item',
+            product: product
+          %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+
+  {% include 'quick-shop' %}
+{% endif %}
 {% schema %}
 {
   "name": "custom recommendations",
