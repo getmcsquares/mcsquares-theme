@@ -2,7 +2,7 @@
   {% if section.blocks.size > 0 %}
   <div class="product-recommendations__inner">
     <ul class="grid grid--uniform grid--view-items">
-      {%- for block in section.block -%}
+      {%- for block in section.blocks -%}
       {% assign product = block.product %}
         <li class="grid__item small--one-half medium-up--one-quarter">
           {% include 'product-card-grid', max_height: 250 %}
