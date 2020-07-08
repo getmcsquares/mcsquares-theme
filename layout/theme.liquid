@@ -82,7 +82,22 @@
     </script>
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  </head>
+  
+  <!-- REAMAZE INTEGRATION START - DO NOT REMOVE -->
+{% include 'reamaze-config' %}
+{% include 'reamaze-sso' %}
+<!-- REAMAZE INTEGRATION END - DO NOT REMOVE -->
+<!-- Global site tag (gtag.js) - Google Ads: 946440132 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-946440132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-946440132');
+</script>
+
+</head>
 
   <body class="template-{{ template.name }}">
     {% include 'gtm-body' %}

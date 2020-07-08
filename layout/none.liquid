@@ -32,7 +32,13 @@
     </script>
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
-  </head>
+  
+  <!-- REAMAZE INTEGRATION START - DO NOT REMOVE -->
+{% include 'reamaze-config' %}
+{% include 'reamaze-sso' %}
+<!-- REAMAZE INTEGRATION END - DO NOT REMOVE -->
+
+</head>
 
   <body class="template-{{ template | split: '.' | first }}">
     <main class="site-main" aria-label="main content" tabindex="-1">

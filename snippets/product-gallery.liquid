@@ -9,7 +9,7 @@
 <div
   class="{{ classes | strip_newlines }}"
   data-product-slider
-  aria-label="{{ product.title | remove: '"' }} image. Click or Scroll to Zoom."
+  aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
   {% if product.images.size > 0 %}
     {% for image in product.images %}
@@ -177,7 +177,7 @@
       {%
         include 'rimg',
         img: product.images[0],
-        size: '1200x1200',
+        size: '800x800',
         lazy: true,
         canvas: true
       %}
