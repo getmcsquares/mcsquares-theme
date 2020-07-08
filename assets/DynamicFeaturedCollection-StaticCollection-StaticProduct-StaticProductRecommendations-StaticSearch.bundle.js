@@ -1328,7 +1328,7 @@ function () {
     value: function enableZoom(index) {
       var _this2 = this;
 
-      if (Layout["a" /* default */].isBreakpoint('XS')) {
+      if (Layout["a" /* default */].isBreakpoint('XL')) {
         this.unload();
         return;
       }
@@ -1361,7 +1361,7 @@ function () {
           var imageWidth = $newSlide.find('.pixelzoom--image').get(0).naturalWidth;
           var imageHeight = $newSlide.find('.pixelzoom--image').get(0).naturalHeight;
 
-          if (!Layout["a" /* default */].isBreakpoint('XS') && (imageWidth / $newSlide.width() >= 2 || imageHeight / $newSlide.height() >= 2)) {
+          if (!Layout["a" /* default */].isBreakpoint('XL') && (imageWidth / $newSlide.width() >= 2 || imageHeight / $newSlide.height() >= 2)) {
             _this2._toggleClass(jquery_default()('body'), 'pixelzoom--active');
           }
 
@@ -1455,7 +1455,7 @@ function () {
   }, {
     key: "_preventScroll",
     value: function _preventScroll(event) {
-      if (this.modalOpen || this.touched && !Layout["a" /* default */].isBreakpoint('XS')) {
+      if (this.modalOpen || this.touched && !Layout["a" /* default */].isBreakpoint('XL')) {
         event.preventDefault();
       }
     }
@@ -1652,7 +1652,7 @@ function () {
         draggable: false
       };
 
-      if (Layout["a" /* default */].isBreakpoint('XS')) {
+      if (Layout["a" /* default */].isBreakpoint('XL')) {
         flickityOptions = jquery_default.a.extend({}, optionsMobile, flickityOptions);
       } else {
         flickityOptions = jquery_default.a.extend({}, optionsDesktop, flickityOptions);
@@ -1735,7 +1735,7 @@ function () {
       $newSlide.addClass('image--selected').attr('aria-hidden', 'false').siblings('.image--selected').removeClass('image--selected').attr('aria-hidden', 'true');
       $newThumbnail.addClass('thumbnail--selected').siblings('.thumbnail--selected').removeClass('thumbnail--selected');
 
-      if (Layout["a" /* default */].isBreakpoint('XS')) {
+      if (Layout["a" /* default */].isBreakpoint('XL')) {
         Object(scrollLeft["a" /* default */])($newThumbnail);
       }
 
