@@ -31,9 +31,9 @@
       <ul
         class="product-section--content product-row"
       >
-      top {{ product.metafields["global"]["recommend_1"] }}
       {% for meta in product.metafields["global"]  limit: product_limit %}
-      {% assign handle = meta %}
+      {% assign key = 'recommend_' | append: forloop.index %}
+      {% assign handle = meta[key] %}
       inside {{ handle }}
       {% assign newproduct = all_products[handle] %}
           {%
