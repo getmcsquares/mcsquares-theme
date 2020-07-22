@@ -32,13 +32,16 @@
       <ul
         class="product-section--content product-row"
       >
-        {%- for block in section.blocks limit: product_limit -%}
-        {% assign newproduct = all_products[block.settings.product] %}
+      top {{ product.metafields["global"]["recommend_1"] }}
+      {% for meta in product.metafields["global"]  limit: product_limit %}
+      {% assign handle = meta %}
+      inside {{ handle }}
+      {% assign newproduct = all_products[handle] %}
           {%
             include 'product-grid-item',
             product: newproduct
           %}
-        {% endfor %}
+      {% endfor %}
       </ul>
   </section>
 
@@ -46,7 +49,7 @@
 {% endif %}
 {% schema %}
 {
-  "name": "custom recommendations",
+  "name": "META recommendations",
   "class": "product-recommendations--section has-graphic",
   "settings": [
     {
@@ -55,19 +58,6 @@
       "label": "Heading",
       "default": "You may also like"
     }
-  ],
-    "blocks": [
-      {
-        "type": "product",
-        "name": "product",
-        "settings": [
-          {
-            "type": "product",
-            "id": "product",
-            "label": "Product"
-          }
-        ]
-      }
-    ]
+  ]
 }
 {% endschema %}
