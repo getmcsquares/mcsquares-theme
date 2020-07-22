@@ -34,7 +34,6 @@
       {% for meta in product.metafields["global"]  limit: product_limit %}
       {% assign key = 'recommend_' | append: forloop.index %}
       {% assign handle = product.metafields["global"][key] %}
-      inside {{ key }}
       {% assign newproduct = all_products[handle] %}
           {%
             include 'product-grid-item',
