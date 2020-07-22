@@ -5,10 +5,10 @@
       </div>
     {% endif %}
   <div style="clear: both;" class="row contained">
-    <div class="col-12 offset-md-1 col-md-10 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-      <div class="row" >
+    <div class="col-12">
+      <div class="row align-items-center justify-content-center" >
         {% for block in section.blocks %}
-        <div class="homepage-icon-wrap col-4 col-sm-2" style="">
+        <div class="homepage-icon-wrap col-4 col-sm-2 text-center" style="">
           {% if block.settings.link != blank %}
             <a href="{{block.settings.link}}">
           {% endif %}
