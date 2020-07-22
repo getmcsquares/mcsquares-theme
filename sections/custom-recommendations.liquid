@@ -33,10 +33,10 @@
         class="product-section--content product-row"
       >
         {%- for block in section.blocks limit: product_limit -%}
-        {% assign product = all_products[block.settings.product] %}
+        {% assign newproduct = all_products[block.settings.product] %}
           {%
             include 'product-grid-item',
-            product: product
+            product: newproduct
           %}
         {% endfor %}
       </ul>

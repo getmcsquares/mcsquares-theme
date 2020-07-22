@@ -1,0 +1,59 @@
+
+
+  {% assign product_limit = 5 %}
+  <script
+    type="application/json"
+    data-section-type="static-meta-recommendations"
+    data-section-id="{{ section.id }}"
+    data-section-data
+  >
+    {
+      "settings": {
+        "limit": {{ product_limit }}
+      },
+      "productId": {{ product.id | json }}
+    }
+  </script>
+
+  <section
+    class="product-section--container product-row--container product-recommendations--container "
+    data-html
+    data-meta-recommendations
+  >
+      <ul
+        class="product-section--content product-row product-row-meta"
+        data-product-row
+      >
+      {% for meta in product.metafields["global"]  limit: product_limit %}
+      {% assign key = 'recommend_' | append: forloop.index %}
+      {% assign handle = product.metafields["global"][key] %}
+      {% assign newproduct = all_products[handle] %}
+          {%
+            include 'product-grid-item',
+            product: newproduct
+          %}
+      {% endfor %}
+      </ul>
+  </section>
+
+  {% include 'quick-shop' %}
+
+  <script>
+  $('.product-row-meta .productgrid--item').hover( function(){
+    console.log('hover meta rec')
+  })
+  </script>
+{% schema %}
+{
+  "name": "META recommendations",
+  "class": "product-recommendations--section has-graphic",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_recommendations_heading",
+      "label": "Heading",
+      "default": "You may also like"
+    }
+  ]
+}
+{% endschema %}
