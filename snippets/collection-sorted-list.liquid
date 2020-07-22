@@ -4,7 +4,7 @@
           {% if tag contains 'sort-by' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'sort-by' | split: '-' %}
-          <h3>{% for word in words %}{{ word | capitalize }} {% endfor %}</h3>
+          <h3>{% for word in words %}{{ word }} {% endfor %}</h3>
           <ul class="productgrid--items">
           {% for product in collection.products %}
             {% for product_tag in product.tags %}
