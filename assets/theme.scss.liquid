@@ -4526,6 +4526,15 @@ $local-cart-sidebar-width: 280px;
   }
   @include media($max: $bp-small) {
     display: none;
+    padding-left:  $space-small;
+    h1.collection--title{
+      font-size: 1.3rem;
+    }
+    h3{
+      margin-bottom: 0;
+      margin-right: 0;
+      padding-bottom: 0;
+    }
   }
 }
 .yotpo-collection {
@@ -5462,6 +5471,9 @@ $local-slideshow-large: 560px;
         // padding-left: 40%;
         text-align: right;
       }
+      @include media($max: $bp-small) {
+        left: 0%;
+        }
     //}
   }
 }
