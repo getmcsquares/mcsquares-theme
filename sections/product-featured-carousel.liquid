@@ -12,12 +12,8 @@
 
   <div class="carousel-inner">
   {% for meta in product.metafields['global'] %}
-  {% capture metaHandle %}
-  {{- meta | last -}}
-  {% endcapture %}
-  <p>{{metaHandle}}</p>
-  {% assign bundleProduct = all_products[metaHandle] %}
-  <p>{{bundleProduct.title}}</p>
+  {% assign handle = product.metafields["global"][key] %}
+  {% assign bundleProduct = all_products[handle] %}
   <div
   {% if forloop.first %}
   class="carousel-item active promo-slider"
