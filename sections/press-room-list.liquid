@@ -9,7 +9,9 @@
           </div>
           <div class="col-10 press-room-text">
               <h2>{{ block.settings.title }}</h2>
+              {% if block.settings.subtitle %}
               <p>{{ block.settings.subtitle }}</p>
+              {% endif %}
               <a href="{{ block.settings.press_link }}">Read More  <i class="fa fa-arrow-right" aria-hidden="true"></i>
               </a>
           </div>
