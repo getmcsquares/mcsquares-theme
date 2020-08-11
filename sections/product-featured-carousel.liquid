@@ -15,6 +15,7 @@
   {% capture metaHandle %}
   {{- meta | last -}}
   {% endcapture %}
+  <p>{{metaHandle}}</p>
   {% assign bundleProduct = all_products[metaHandle] %}
   <div
   {% if forloop.first %}
@@ -25,16 +26,16 @@
   >
     <img
       class="slideshow-image-block w-100"
-      src="{{ bundleProduct.background_image | img_url: '1500x1500' }}"
+      src="{{ bundleProduct.image | img_url: '1500x1500' }}"
       alt=""
     >
       <div class="slideshow-text limit-copy-width-sm promo-slider-text">
-      {% if bundleProduct.title %}
+      {% if bundleProduct.title != '' %}
       <h4 class="text-center">{{- bundleProduct.title -}}</h4>
       {% endif %}
-      {% if bundleProduct.text %}
+      <!-- {% if bundleProduct.text %}
       <div class="text-center">{{ bundleProduct.text }}</div>
-      {% endif %}
+      {% endif %} -->
       </div>
     </div>
     {% endfor %}
@@ -81,32 +82,6 @@
           "unit": "sec",
           "default": 8
         }
-        ],
-        "blocks": [
-          {
-            "type": "slide",
-            "name": "Slide",
-            "settings": [
-              {
-                "id": "background_image",
-                "type": "image_picker",
-                "label": "Background image",
-                "info": "800x600 recommended"
-              },
-              {
-                "id": "title",
-                "type": "text",
-                "label": "Heading",
-                "default": "Slideshow"
-              },
-              {
-                "id": "text",
-                "type": "richtext",
-                "label": "Subheading",
-                "default": "<p>Introduce customers to your shop with lifestyle and product imagery</p>"
-              }
-            ]
-          }
         ],
         "presets": [
         {
