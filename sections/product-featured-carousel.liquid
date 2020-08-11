@@ -17,6 +17,7 @@
   {% endcapture %}
   <p>{{metaHandle}}</p>
   {% assign bundleProduct = all_products[metaHandle] %}
+  <p>{{bundleProduct.title}}</p>
   <div
   {% if forloop.first %}
   class="carousel-item active promo-slider"
