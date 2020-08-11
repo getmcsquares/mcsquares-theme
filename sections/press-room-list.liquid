@@ -3,15 +3,16 @@
     {% comment %} <h4 class="h1 site-footer__section-title">{{ linklists[section.settings.link_list].title }}</h4> {% endcomment %}
     <div class="container row">
       {% for block in section.blocks %}
-        <div class="col-12 row"><a href="{{ block.settings.press_link }}">
+        <div class="col-12 row">
           <div class="col-3">
             <img src="{{ block.settings.image }}">
           </div>
           <div class="col-9">
+            <a href="{{ block.settings.press_link }}">
             <h2>{{ block.settings.title }}</h2>
             <p>{{ block.settings.subtitle }}</p>
+          </a>
           </div>
-        </a>
       </div>
       {% endfor %}
     </div>
@@ -23,6 +24,7 @@
 {% schema %}
 {
   "name": "Press Room List",
+  "class": "shopify-section product-section--container",
   "settings": [
     {
       "type": "text",
