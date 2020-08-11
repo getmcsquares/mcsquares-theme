@@ -15,7 +15,7 @@
   {% capture metaHandle %}
   {{- meta | last -}}
   {% endcapture %}
-  {% assign bundleProduct = all_products[meta] %}
+  {% assign bundleProduct = all_products[metaHandle] %}
   <div
   {% if forloop.first %}
   class="carousel-item active promo-slider"
