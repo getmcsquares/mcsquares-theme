@@ -4,10 +4,10 @@
     <div class="container row">
       {% for block in section.blocks %}
         <div class="col-12 row">
-          <div class="col-3">
-            <img src="{{ block.settings.image }}">
+          <div class="col-2">
+            <img src="{{ block.settings.image | img_url: '200x' }}">
           </div>
-          <div class="col-9">
+          <div class="col-10">
             <a href="{{ block.settings.press_link }}">
             <h2>{{ block.settings.title }}</h2>
             <p>{{ block.settings.subtitle }}</p>
