@@ -1,0 +1,13 @@
+<!-- TODO config this page and schema -->
+{% layout 'theme' %}
+{% comment %} {% section 'announcement-bar' %} {% endcomment %}
+{% section 'about-static-slideshow' %}
+<article class="site-page" data-template-page>
+  {% if page.content != blank %}
+    <div class="page-content rte">
+      {{ page.content }}
+    </div>
+  {% endif %}
+</article>
+{% section 'press-room-list' %}
+{% section 'contact-cta-press' %}

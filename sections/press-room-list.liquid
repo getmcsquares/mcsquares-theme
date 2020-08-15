@@ -1,0 +1,68 @@
+{% if section.blocks.size > 0 %}
+  <div class="page-width">
+    {% comment %} <h4 class="h1 site-footer__section-title">{{ linklists[section.settings.link_list].title }}</h4> {% endcomment %}
+    <div class="container row">
+      {% for block in section.blocks %}
+        <div class="col-12 press-room-row card row  d-flex align-items-center">
+          <div class="col-2">
+            <img style="max-width: 100%" src="{{ block.settings.image | img_url: '200x' }}">
+          </div>
+          <div class="col-10 press-room-text">
+              <h2>{{ block.settings.title }}</h2>
+              {% if block.settings.subtitle %}
+              <p>{{ block.settings.subtitle }}</p>
+              {% endif %}
+              <a href="{{ block.settings.press_link }}">Read More  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </a>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+
+
+{% schema %}
+{
+  "name": "Press Room List",
+  "class": "shopify-section product-section--container",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Press Room"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "link",
+    "name": "Press Link",
+    "settings":[
+    {
+      "type": "url",
+      "id": "press_link",
+      "label": "label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "placeholder": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "placeholder": "Subtitle"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+    ]
+  }
+  ]
+}
+{% endschema %}

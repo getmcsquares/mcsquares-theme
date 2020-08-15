@@ -11,7 +11,10 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
   <div class="carousel-inner">
-  {% for block in section.blocks %}
+  {% for meta in product.metafields['global'] %}
+  {% assign key = 'contains_' | append: forloop.index %}
+  {% assign handle = product.metafields["global"][key] %}
+  {% assign bundleProduct = all_products[handle] %}
   <div
   {% if forloop.first %}
   class="carousel-item active promo-slider"
@@ -19,19 +22,19 @@
   class="carousel-item promo-slider"
   {% endif %}
   >
+    <div class="slideshow-text limit-copy-width-sm promo-slider-text">
+      {% if bundleProduct.title != '' %}
+      <h4 class="text-center">{{- bundleProduct.title -}}</h4>
+      {% endif %}
+      <!-- {% if bundleProduct.text %}
+      <div class="text-center">{{ bundleProduct.text }}</div>
+      {% endif %} -->
+    </div>
     <img
       class="slideshow-image-block w-100"
-      src="{{ block.settings.background_image | img_url: '1500x1500' }}"
+      src="{{ bundleProduct.images[0] | img_url: '1500x1500' }}"
       alt=""
     >
-      <div class="slideshow-text limit-copy-width-sm promo-slider-text">
-      {% if block.settings.title %}
-      <h4 class="text-center">{{- block.settings.title -}}</h4>
-      {% endif %}
-      {% if block.settings.text %}
-      <div class="text-center">{{ block.settings.text }}</div>
-      {% endif %}
-      </div>
     </div>
     {% endfor %}
   </div>
@@ -52,7 +55,7 @@
 {% schema %}
 {
     "name": {
-        "en": "Offers Slideshow"
+        "en": "Bundle Slideshow"
     },
     "settings": [
       {
@@ -65,7 +68,7 @@
           "type": "text",
           "id": "title",
           "label": "title",
-          "default": "Get One of Each! This offer includes:"
+          "default": "This bundle includes:"
         },
         {
           "id": "autoplay_duration",
@@ -78,35 +81,9 @@
           "default": 8
         }
         ],
-        "blocks": [
-          {
-            "type": "slide",
-            "name": "Slide",
-            "settings": [
-              {
-                "id": "background_image",
-                "type": "image_picker",
-                "label": "Background image",
-                "info": "800x600 recommended"
-              },
-              {
-                "id": "title",
-                "type": "text",
-                "label": "Heading",
-                "default": "Slideshow"
-              },
-              {
-                "id": "text",
-                "type": "richtext",
-                "label": "Subheading",
-                "default": "<p>Introduce customers to your shop with lifestyle and product imagery</p>"
-              }
-            ]
-          }
-        ],
         "presets": [
         {
-        "name": "Product Carousel",
+        "name": "Bundle Carousel",
         "category": "Product"
         }
     ]
