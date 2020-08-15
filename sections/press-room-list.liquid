@@ -1,14 +1,14 @@
 {% if section.blocks.size > 0 %}
   <div class="page-width">
     {% comment %} <h4 class="h1 site-footer__section-title">{{ linklists[section.settings.link_list].title }}</h4> {% endcomment %}
-    <div class="container row">
+    <div class="row">
       {% for block in section.blocks %}
         <div class="col-12 press-room-row card row  d-flex align-items-center">
           <div class="col-2">
             <img style="max-width: 100%" src="{{ block.settings.image | img_url: '200x' }}">
           </div>
           <div class="col-10 press-room-text">
-              <h2>{{ block.settings.title }}</h2>
+              <h3>{{ block.settings.title }}</h3>
               {% if block.settings.subtitle %}
               <p>{{ block.settings.subtitle }}</p>
               {% endif %}
