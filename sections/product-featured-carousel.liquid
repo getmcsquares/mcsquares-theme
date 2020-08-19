@@ -2,7 +2,7 @@
 <div style="background-color: {{ section.settings.section_bg }}" class="homepage-icons-section shopify-section home-section--content home-section--content offer-featured-links">
 {% if section.settings.title != blank %}
   <div class="section-block__header text-center">
-    <h4 class="h1--mini section-block__title">{{ section.settings.title | escape }}</h4>
+    <h4 class="h1--mini section-block__title"  style="margin-bottom: .5rem">{{ section.settings.title | escape }}</h4>
   </div>
 {% endif %}
 <div style="clear: both;" class="row d-flex contained">
@@ -24,11 +24,8 @@
   >
     <div class="slideshow-text limit-copy-width-sm promo-slider-text">
       {% if bundleProduct.title != '' %}
-      <h4 class="text-center">{{- bundleProduct.title -}}</h4>
+      <h4 class="text-center" style="margin-bottom: .5rem">{{- bundleProduct.title -}}</h4>
       {% endif %}
-      <!-- {% if bundleProduct.text %}
-      <div class="text-center">{{ bundleProduct.text }}</div>
-      {% endif %} -->
     </div>
     <img
       class="slideshow-image-block w-100"
