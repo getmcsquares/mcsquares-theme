@@ -1,33 +1,44 @@
-{% assign bg_color = section.settings.bg_color %}
-{% include 'svg-curve' %}
-<div style="background-color: {{ bg_color }}" class="quick-about container section-pad {% if section.settings.curve == 'top' %} has-top-curve{% elsif section.settings.curve == 'bottom' %} has-bottom-curve{% endif %}">
-  <div class="row d-flex align-items-start ">
+{% if section.settings.show_section %}
+<div class="section-inner about-content container" style="">
+  {% if section.settings.section_title != blank %}
+    <div class="text-center limitcopywidth">
+    <h1 class="section-header">{{ section.settings.section_title }}</h1>
+    </div>
+  {% endif %}
+
+  <div class="row d-flex align-items-center logo-row">
     {% for block in section.blocks %}
-    <div class="col-md-4 about-image-wrap quick has-bar" style='padding: 1em 2em;'>
-      <img class="logo-small" src="{{ block.settings.image | img_url: '180x' }}"/>
-      <h4>{{block.settings.header}}</h4>
-      <p>{{block.settings.body}}</p>
+    <div class="col-6 col-sm-3 about-image-wrap text-center" style='padding: 1em;'>
+      <img class="logo" style="max-width: 100%; max-height: 30px;" src="{{ block.settings.image | img_url: '250x' }}"/>
     </div>
   {% endfor %}
     </div>
 </div>
-
+{% endif %}
 {% schema %}
   {
     "name": {
-      "en": "Collection Quick About"
+      "en": "Collection Static Logos"
     },
-    "class": "index-section",
+    "class": "index-section section-pad",
     "settings": [
       {
-        "type": "color",
-        "id": "bg_color",
+        "id": "show_section",
+        "type": "checkbox",
+        "label": "Enable Section?",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "section_title",
         "label": {
-          "en": "Background"
+          "en": "Section Heading"
+        },
+        "default": {
+          "en": "Optional Section Heading"
         }
       }
     ],
-    "max_blocks": 3,
     "blocks": [
       {
         "type": "quote",
@@ -36,29 +47,9 @@
           {
             "type": "image_picker",
             "id": "image",
-            "label": "Logo Image"
-          },
-          {
-            "type": "text",
-            "id": "header",
-            "label": "Heading"
-          },
-          {
-            "type": "richtext",
-            "id": "body",
-            "label": "Main Copy"
+            "label": "Image"
           }
         ]
-      }
-    ],
-    "presets": [
-      {
-        "name": {
-          "en": "Collection Quick About"
-        },
-        "category": {
-          "en": "Custom"
-        }
       }
     ]
   }
