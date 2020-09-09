@@ -1854,7 +1854,7 @@ h6 {
 h1.propisi, h1.cursive {
   //font-family: 'Propisi';
   font-family: 'Raleway';
-  font-display: optional;
+  font-display: swap;
 }
 h1.header-size{
   font-size: 5rem;
@@ -3841,6 +3841,10 @@ $local-max-width: 700px;
   @extend %layout-container;
   position: relative;
   margin-top: $space-x-large;
+  .article--content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
   @include media($max: $bp-large) {
     @extend %layout-container;
@@ -5446,6 +5450,17 @@ $local-slideshow-large: 560px;
     text-align: center;
     right: 0 !important;
   }
+  &.blog {
+    left: 0%;
+    max-width: unset;
+    position: relative;
+    transform: none;
+    padding: 25px 50px;
+  }
+  &.article {
+    max-width: 900px !important;
+    margin: 0 auto;
+  }
   &:not(.slideshow-slide-content-bottom){
     //@media screen and (min-width: 992px) {
       position: absolute;
@@ -5472,7 +5487,11 @@ $local-slideshow-large: 560px;
         // padding-left: 40%;
         text-align: right;
       }
+<<<<<<< HEAD
       .blog {
+=======
+      &.blog {
+>>>>>>> 1bde6f4c0e75488efe63854362dbf97df2e405e4
         left: 0%;
         max-width: unset;
         position: relative;
@@ -5483,6 +5502,7 @@ $local-slideshow-large: 560px;
         max-width: unset;
         position: relative;
         transform: none;
+        padding: 25px 50px;
       }
     //}
   }
@@ -10900,7 +10920,8 @@ $local-space-large: 15px;
   margin-bottom: $space-small;
   line-height: 1.3;
   color: $color-heading;
-
+  font-family: 'Raleway';
+  font-display: swap;
   &:first-child {
     margin-top: 0;
   }
