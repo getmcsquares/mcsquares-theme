@@ -17,7 +17,7 @@
     <div class="row">
       <div class="featured-product-info-content product-info-content col-md-7">
       <p style="color: {{ section.settings.font_color }}">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
-        <a href="{{article.url}}"><h4>{{ article.title }}</h4></a>
+        <h3 class="article--excerpt-title"><a href="{{article.url}}">{{ article.title }}</a></h3>
         <p style="color: {{ section.settings.font_color }}">
           {{ article.excerpt }}
         </p>
