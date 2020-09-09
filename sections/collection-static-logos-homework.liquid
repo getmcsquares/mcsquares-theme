@@ -1,3 +1,4 @@
+{% if section.settings.show_section %}
 <div class="section-inner about-content container" style="">
   {% if section.settings.section_title != blank %}
     <div class="text-center limitcopywidth">
@@ -13,14 +14,20 @@
   {% endfor %}
     </div>
 </div>
-
+{% endif %}
 {% schema %}
   {
     "name": {
-      "en": "Coll Stat Logos HWork"
+      "en": "Collection Static Logos"
     },
     "class": "index-section section-pad",
     "settings": [
+      {
+        "id": "show_section",
+        "type": "checkbox",
+        "label": "Enable Section?",
+        "default": true
+      },
       {
         "type": "text",
         "id": "section_title",
