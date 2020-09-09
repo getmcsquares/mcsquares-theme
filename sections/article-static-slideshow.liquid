@@ -56,6 +56,42 @@
           {% assign slideshow_crop = false %}
         {% endif %}
 
+        {% if article.title != blank
+          or block.settings.text != blank
+          or block.settings.button_one_label != blank
+          or block.settings.button_two_label != blank
+        %}
+          <div
+            class="
+              slideshow-slide-content
+              slideshow-slide-content-bottom
+              slideshow-slide-content--{{ block.id }}
+              text-align-{{ block.settings.text_alignment }}
+              text-center container
+            "
+          >
+                <h1 class="hero__title" style="{% if block.settings.color %}color: {{ block.settings.color }}{% else %}color: #333;margin-top:.5em;{% endif %}">
+                  {{ article.title | escape }}
+                </h1>
+            {% if block.settings.text != blank %}
+              <p class="slideshow-slide-text">
+                {{ block.settings.text | escape }}
+              </p>
+            {% endif %}
+            {% if block.settings.link != blank %}
+              </a>
+            {% endif %}
+            <span class="article--meta-item">
+              {{ article.published_at | date: format: 'month_day_year' }}
+            </span>
+
+            <span class="article--meta-item">
+              {{ article.author }}
+            </span>
+          </div>
+        {% endif %}
+
+
          <div
           class="
             background-target
@@ -130,33 +166,7 @@
           {% endif %}
         </div>
 
-        {% if article.title != blank
-          or block.settings.text != blank
-          or block.settings.button_one_label != blank
-          or block.settings.button_two_label != blank
-        %}
-          <div
-            class="
-              slideshow-slide-content
-              slideshow-slide-content-bottom
-              slideshow-slide-content--{{ block.id }}
-              text-align-{{ block.settings.text_alignment }}
-              text-center container article
-            "
-          >
-                <h1 class="hero__title" style="{% if block.settings.color %}color: {{ block.settings.color }}{% else %}color: #333;margin-top:.5em;{% endif %}">
-                  {{ article.title | escape }}
-                </h1>
-            {% if block.settings.text != blank %}
-              <p class="slideshow-slide-text">
-                {{ block.settings.text | escape }}
-              </p>
-            {% endif %}
-            {% if block.settings.link != blank %}
-              </a>
-            {% endif %}
-          </div>
-        {% endif %}
+        
       </div>
     {% endfor %}
 
