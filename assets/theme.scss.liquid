@@ -3841,6 +3841,10 @@ $local-max-width: 700px;
   @extend %layout-container;
   position: relative;
   margin-top: $space-x-large;
+  .article--content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
   @include media($max: $bp-large) {
     @extend %layout-container;
@@ -5449,6 +5453,10 @@ $local-slideshow-large: 560px;
     position: relative;
     transform: none;
     padding: 25px 50px;
+  }
+  &.article {
+    max-width: 900px !important;
+    margin: 0 auto;
   }
   &:not(.slideshow-slide-content-bottom){
     //@media screen and (min-width: 992px) {
