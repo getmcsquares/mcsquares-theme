@@ -58,19 +58,14 @@
     {% endif %}{% endcomment %}
 
     <div class="article--inner container">
-      {% if section.settings.show_date or section.settings.show_author %}
-        <div class="article--meta article--content">
-          {% if has_share %}
-              {{- share_buttons -}}
-          {% endif %}
-          
-        </div>
-      {% endif %}
-
       <h1 class="article--title hidden">
         {{ article.title }}
       </h1>
-
+      <div class="article--meta article--content">
+        {% if has_share %}
+            {{- share_buttons -}}
+        {% endif %}
+      </div>
       <div class="article--content rte">
         {{ article.content }}
       </div>
