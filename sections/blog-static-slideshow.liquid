@@ -119,10 +119,10 @@
             class="
               slideshow-slide-content
               slideshow-slide-content--{{ block.id }}
-              text-align-{{ block.settings.text_alignment }}
+              text-align-{{ block.settings.text_alignment }} blog
             "
           >
-                <h1 class="hero__title propisi" style="color: {{ block.settings.color }}">
+                <h1 class="hero__title" style="color: {{ block.settings.color }}">
                   {{ blog.title | escape }}
                 </h1>
             {% if block.settings.text != blank %}
