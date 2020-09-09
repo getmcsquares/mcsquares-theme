@@ -81,10 +81,17 @@
             {% if block.settings.link != blank %}
               </a>
             {% endif %}
+            <span class="article--meta-item">
+              {{ article.published_at | date: format: 'month_day_year' }}
+            </span>
+
+            <span class="article--meta-item">
+              {{ article.author }}
+            </span>
           </div>
         {% endif %}
 
-        
+
          <div
           class="
             background-target

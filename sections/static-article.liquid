@@ -59,21 +59,11 @@
 
     <div class="article--inner container">
       {% if section.settings.show_date or section.settings.show_author %}
-        <div class="article--meta">
+        <div class="article--meta article--content">
           {% if has_share %}
               {{- share_buttons -}}
           {% endif %}
-          {% if section.settings.show_date %}
-            <span class="article--meta-item">
-              {{ article.published_at | date: format: 'month_day_year' }}
-            </span>
-          {% endif %}
-
-          {% if section.settings.show_author %}
-            <span class="article--meta-item">
-              {{ article.author }}
-            </span>
-          {% endif %}
+          
         </div>
       {% endif %}
 
