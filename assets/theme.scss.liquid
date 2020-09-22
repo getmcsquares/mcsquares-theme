@@ -3860,6 +3860,18 @@ $local-max-width: 700px;
     padding-right: 0;
     padding-left: 0;
   }
+  a, a:hover, a:active {
+    outline: none;
+    outline-color: transparent;
+  }
+}
+
+.article--section {
+  a, a > p {
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+    color: #006072 !important;
+  }
 }
 
 .article--sidebar {
@@ -15624,6 +15636,9 @@ $local-image-width: rem(48px);
     margin-bottom: 1rem;
   }
 }
+.featured-product-info-content {
+    padding: 3em 2em;
+}
 .categories-section {
   .card-container {
     a {
@@ -16483,4 +16498,13 @@ input[placeholder="Comments"]{
   h2, p, a{
     color: #222 !important;
   }
+}
+#notify-me{
+  cursor: pointer;
+}
+#notify-me-text{
+  color: #CC455E;
+}
+#notify-me-wrapper{
+  display: flex;
 }
