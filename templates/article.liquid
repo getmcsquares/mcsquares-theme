@@ -16,8 +16,9 @@
   {% comment %} {% section 'contact-cta' %} {% endcomment %}
 {% endif %}
 <script type="text/javascript">
-  $('a[href*="#"]').each(function(e) {
+  $('a[href*="#"]').on("click", function(e) {
     e.preventDefault()
-    alert('Yup');
-});
+    var target = $(this).attr('href').replace('#','')
+    $('html,body').animate({scrollTop:$("a[name='"+ target +"']").offset().top - 220},'slow');
+  });
 </script>
