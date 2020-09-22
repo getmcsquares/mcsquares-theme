@@ -15,3 +15,9 @@
   {% section 'static-article' %}
   {% comment %} {% section 'contact-cta' %} {% endcomment %}
 {% endif %}
+<script type="text/javascript">
+  $('a[href*="#"]').each(function(e) {
+    e.preventDefault()
+    alert('Yup');
+});
+</script>
