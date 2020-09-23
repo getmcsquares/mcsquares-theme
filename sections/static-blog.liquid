@@ -27,17 +27,6 @@
   {% endpaginate %}
 </section> -->
 
-
-
-
-
-
-<script
-  type="application/json"
-  data-section-type="static-blog"
-  data-section-id="{{ section.id }}">
-</script>
-
 {% assign featured_post = section.settings.featured_post %}
 {% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
 
@@ -54,7 +43,7 @@
 {% endif %}
 
 <section class="blog--container container">
-  <ul class="">
+  <ul class="blog-nav">
     <li><h4><a onclick="blogSwitch('all')">All</a></h4></li>
     <li><h4><a onclick="blogSwitch('education')">Education</a></h4></li>
     <li><h4><a onclick="blogSwitch('work')">Work</a></h4></li>
@@ -67,12 +56,6 @@
         include 'article-excerpt',
         article: article
         %}
-    {% else %}
-      <article class="blog--no-results">
-        <h2 class="blog--no-results-title">
-          {{ 'blog.general.empty_blog' | t }}
-        </h2>
-      </article>
   {% endfor %}
   {% include 'pagination' %}
   {% endpaginate %}
@@ -81,51 +64,33 @@
 
 <div class="row article-row articles-education" style="display:none">
   <ul class="blog--inner">
-  {% paginate blog.articles by paginate_by %}
   {% for article in blog.articles reversed %}
-  {% if article.tags contains 'Education' %}
+    {% if article.tags contains 'Education' %}
       {%
         include 'article-excerpt',
         article: article
         %}
-    {% else %}
-  <article class="blog--no-results">
-    <h2 class="blog--no-results-title">
-      {{ 'blog.general.empty_blog' | t }}
-    </h2>
-  </article>
     {% endif%}
   {% endfor %}
-  {% include 'pagination' %}
-  {% endpaginate %}
 </ul>
 </div>
 
 <div class="row article-row articles-work" style="display:none">
   <ul class="blog--inner">
-  {% paginate blog.articles by paginate_by %}
   {% for article in blog.articles reversed %}
-  {% if article.tags contains 'Work' %}
-  {%
-    include 'article-excerpt',
-    article: article
-    %}
-{% else %}
-<article class="blog--no-results">
-<h2 class="blog--no-results-title">
-  {{ 'blog.general.empty_blog' | t }}
-</h2>
-</article>
+    {% if article.tags contains 'Work' %}
+      {%
+        include 'article-excerpt',
+        article: article
+      %}
     {% endif%}
   {% endfor %}
-  {% include 'pagination' %}
-  {% endpaginate %}
 </ul>
 </div>
 </section>
 <script>
 var blogSwitch = function ( target ) {
-  $('.articles-row').hide()
+  $('.article-row').hide()
   $('.articles-' + target).fadeIn();
 }
 </script>
