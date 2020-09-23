@@ -5,26 +5,8 @@
 </script>
 
 {% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
-{% comment %}
-{% assign featured_post = section.settings.featured_post %}
-{% assign show_featured = false %}
-{% if featured_post != '' and featured_post != blank %}
-  {% assign show_featured = true %}
-  {% if paginate.current_page != 1 and current_tags != blank %}
-    {% assign show_featured = false %}
-  {% endif %}
-{% endif %}
-{% endcomment %}
-<section class="blog--container container">
+<!-- <section class="blog--container container">
   {% paginate blog.articles by paginate_by %}
-    {% comment %}
-    {% if show_featured %}
-      {%
-        include 'article-excerpt-featured',
-        article: articles[featured_post]
-      %}
-    {% endif %}
-    {% endcomment %}
 
     <ul class="blog--inner">
       {% for article in blog.articles %}
@@ -43,7 +25,113 @@
 
     {% include 'pagination' %}
   {% endpaginate %}
+</section> -->
+
+
+
+
+
+
+<script
+  type="application/json"
+  data-section-type="static-blog"
+  data-section-id="{{ section.id }}">
+</script>
+
+{% assign featured_post = section.settings.featured_post %}
+{% assign paginate_by = section.settings.posts_per_page_range | times: 1 %}
+
+{% assign show_featured = false %}
+{% if featured_post != '' and featured_post != blank %}
+  {% assign show_featured = true %}
+
+  {% comment %}
+    Don't show highlighted post if is not first page, or if tags are active
+  {% endcomment %}
+  {% if paginate.current_page != 1 and current_tags != blank %}
+    {% assign show_featured = false %}
+  {% endif %}
+{% endif %}
+
+<section class="blog--container container">
+  <ul class="">
+    <li><h4><a onclick="blogSwitch('all')">All</a></h4></li>
+    <li><h4><a onclick="blogSwitch('education')">Education</a></h4></li>
+    <li><h4><a onclick="blogSwitch('work')">Work</a></h4></li>
+  </ul>
+<div class="row article-row articles-all">
+  <ul class="blog--inner">
+  {% paginate blog.articles by paginate_by %}
+  {% for article in blog.articles reversed %}
+      {%
+        include 'article-excerpt',
+        article: article
+        %}
+    {% else %}
+      <article class="blog--no-results">
+        <h2 class="blog--no-results-title">
+          {{ 'blog.general.empty_blog' | t }}
+        </h2>
+      </article>
+  {% endfor %}
+  {% include 'pagination' %}
+  {% endpaginate %}
+</ul>
+</div>
+
+<div class="row article-row articles-education" style="display:none">
+  <ul class="blog--inner">
+  {% paginate blog.articles by paginate_by %}
+  {% for article in blog.articles reversed %}
+  {% if article.tags contains 'Education' %}
+      {%
+        include 'article-excerpt',
+        article: article
+        %}
+    {% else %}
+  <article class="blog--no-results">
+    <h2 class="blog--no-results-title">
+      {{ 'blog.general.empty_blog' | t }}
+    </h2>
+  </article>
+    {% endif%}
+  {% endfor %}
+  {% include 'pagination' %}
+  {% endpaginate %}
+</ul>
+</div>
+
+<div class="row article-row articles-work" style="display:none">
+  <ul class="blog--inner">
+  {% paginate blog.articles by paginate_by %}
+  {% for article in blog.articles reversed %}
+  {% if article.tags contains 'Work' %}
+  {%
+    include 'article-excerpt',
+    article: article
+    %}
+{% else %}
+<article class="blog--no-results">
+<h2 class="blog--no-results-title">
+  {{ 'blog.general.empty_blog' | t }}
+</h2>
+</article>
+    {% endif%}
+  {% endfor %}
+  {% include 'pagination' %}
+  {% endpaginate %}
+</ul>
+</div>
 </section>
+<script>
+var blogSwitch = function ( target ) {
+  $('.articles-row').hide()
+  $('.articles-' + target).fadeIn();
+}
+</script>
+
+
+
 
 {% schema %}
 {
