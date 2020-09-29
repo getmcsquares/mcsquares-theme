@@ -74,19 +74,6 @@
   {% endfor %}
 </ul>
 </div>
-
-<div class="row article-row articles-work" style="display:none">
-  <ul class="blog--inner">
-  {% for article in blog.articles reversed %}
-    {% if article.tags contains 'Work' %}
-      {%
-        include 'article-excerpt',
-        article: article
-      %}
-    {% endif%}
-  {% endfor %}
-</ul>
-</div>
 </section>
 <script>
 var blogSwitch = function ( target ) {
