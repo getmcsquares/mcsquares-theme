@@ -116,7 +116,7 @@
 {% endcapture %}
 
 <div class="row">
-<div class="col-lg-7">
+<div class="col-lg-12">
 <div class="product-details" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
@@ -245,10 +245,10 @@
     %}
   {% endif %}
 </div>
-  <div class="col-lg-5">
+  <div class="col-lg-12">
   {{atc}}
   </div>
-  <div class="col-lg-7">
+  <div class="col-lg-12">
   {% unless product.description == blank or hide_description or template == 'index' %}
     {% unless template == 'index' %}
       <div class="product-description rte test-1" data-product-description>

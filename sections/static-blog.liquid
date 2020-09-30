@@ -51,7 +51,7 @@
 <div class="row article-row articles-all">
   <ul class="blog--inner">
   {% paginate blog.articles by paginate_by %}
-  {% for article in blog.articles reversed %}
+  {% for article in blog.articles %}
       {%
         include 'article-excerpt',
         article: article
@@ -64,7 +64,7 @@
 
 <div class="row article-row articles-education" style="display:none">
   <ul class="blog--inner">
-  {% for article in blog.articles reversed %}
+  {% for article in blog.articles %}
     {% if article.tags contains 'Education' %}
       {%
         include 'article-excerpt',
