@@ -43,37 +43,40 @@
 {% endif %}
 
 <section class="blog--container container">
+  {% assign sorter = section.settings.sort_tags | split: ',' %}
   <!-- <ul class="blog-nav">
-    <li><h4><a onclick="blogSwitch('all')">All</a></h4></li>
-    <li><h4><a onclick="blogSwitch('education')">Education</a></h4></li>
-    <li><h4><a onclick="blogSwitch('work')">Work</a></h4></li>
+    <li><h4><a class="active" onclick="blogSwitch('all')">All</a></h4></li>
+    {% for tag in sorter %}
+    <li><h4><a class="" onclick="blogSwitch('{{tag}}')">{{tag | capitalize}}</a></h4></li>
+    {% endfor %}
   </ul> -->
-<div class="row article-row articles-all">
+
+  <div class="article-row articles-all">
+    <ul class="blog--inner">
+      {% for article in blog.articles %}
+        {%
+          include 'article-excerpt-video',
+          article: article
+          %}
+      {% endfor %}
+    </ul>
+  </div>
+{% for tag in sorter %}
+<div class="article-row articles-{{tag}}" style="display:none">
   <ul class="blog--inner">
-  {% paginate blog.articles by paginate_by %}
-  {% for article in blog.articles %}
+  {%- for article in blog.articles -%}
+    {%- if article.tags contains tag -%}
       {%
         include 'article-excerpt',
         article: article
         %}
-  {% endfor %}
-  {% include 'pagination' %}
-  {% endpaginate %}
+    {%- endif -%}
+  {%- endfor -%}
 </ul>
 </div>
 
-<div class="row article-row articles-education" style="display:none">
-  <ul class="blog--inner">
-  {% for article in blog.articles %}
-    {% if article.tags contains 'Education' %}
-      {%
-        include 'article-excerpt',
-        article: article
-        %}
-    {% endif%}
-  {% endfor %}
-</ul>
-</div>
+
+{% endfor %}
 </section>
 <script>
 var blogSwitch = function ( target ) {
@@ -113,6 +116,13 @@ var blogSwitch = function ( target ) {
       "id": "show_excerpt",
       "label": "Show post excerpt",
       "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "sort_tags",
+      "label": "Tags to Sort By",
+      "default": "history,backcountry,action",
+      "info": "Comma separated, no spaces"
     },
     {
       "type": "range",
