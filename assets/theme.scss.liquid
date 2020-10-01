@@ -11872,6 +11872,7 @@ $local-space-large: 20px;
 
 .productgrid--no-results-title {
   @extend %no-results--title;
+  margin-bottom: 2em;
 }
 
 .productgrid--no-results-button {
@@ -12968,9 +12969,14 @@ $local-stack: (100, 50);
   }
   // color card btns
   &.button-secondary {
-    color: #1f1f1f;
+    color: #fff;
     background-color: rgb(2, 97, 114);
     border: 1px solid #ddd;
+    &:hover {
+      color: #fff;
+      background-color: rgb(2, 97, 114);
+      opacity: .8;
+    }
   }
 }
 
@@ -14513,6 +14519,17 @@ $local-thumbnail-space: 3px;
   .product-form--alt & {
     @include media($max: $bp-xl) {
       font-size: $button-medium-size;
+    }
+  }
+  // add color product btn
+  &.button-secondary {
+    color: #fff;
+    background-color: rgb(2, 97, 114);
+    border: 1px solid #ddd;
+    &:hover {
+      color: #fff;
+      background-color: rgb(2, 97, 114);
+      opacity: .8;
     }
   }
 }
