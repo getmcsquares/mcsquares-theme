@@ -26,29 +26,6 @@
 {% comment %} {% assign bg_color = '#fff' %}
 {% include 'svg-curve' %} {% endcomment %}
 <section class="article--outer">
-  {% comment %} {% if article.image %}
-    <figure
-      class="article-image"
-      {%
-        include 'rimg',
-        img: article.image,
-        size: '1800x',
-        lazy: true,
-        crop: 'center',
-        background: true
-      %}
-    >
-      {%
-        include 'rimg',
-        img: article.image,
-        size: '1800x',
-        crop: 'center',
-        lazy: true,
-        canvas: true
-      %}
-    </figure>
-  {% endif %} {% endcomment %}
-
   <div class="article--container">
 
     {% comment %}{% if has_share %}
