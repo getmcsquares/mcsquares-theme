@@ -12887,6 +12887,10 @@ $local-stack: (100, 50);
     left: 0;
     opacity: 0;
     visibility: hidden;
+    @include media($max: $bp-medium) {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 
   .has-touch & {
