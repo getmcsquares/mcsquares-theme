@@ -12887,7 +12887,7 @@ $local-stack: (100, 50);
     left: 0;
     opacity: 0;
     visibility: hidden;
-    @include media($max: $bp-medium) {
+    @include media($max: $bp-large) {
       opacity: 1;
       visibility: visible;
       position: revert;
@@ -12965,6 +12965,12 @@ $local-stack: (100, 50);
 
   &.productitem--action-atc {
     @extend %atc-button;
+  }
+  // color card btns
+  .button-secondary {
+    color: #1f1f1f;
+    background-color: rgb(2, 97, 114);
+    border: 1px solid #ddd;
   }
 }
 
