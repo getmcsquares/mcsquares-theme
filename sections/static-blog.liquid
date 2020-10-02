@@ -51,16 +51,16 @@
     {% endfor %}
   </ul> -->
 
-  <!-- <div class="article-row articles-all">
+  <div class="article-row articles-all">
     <ul class="blog--inner">
       {% for article in blog.articles %}
         {%
-          include 'article-excerpt-video',
+          include 'article-excerpt',
           article: article
           %}
       {% endfor %}
     </ul>
-  </div> -->
+  </div>
 {% for tag in sorter %}
 <div class="article-row articles-{{tag}}" style="display:none">
   <ul class="blog--inner">
@@ -121,7 +121,7 @@ var blogSwitch = function ( target ) {
       "type": "textarea",
       "id": "sort_tags",
       "label": "Tags to Sort By",
-      "default": "history,backcountry,action",
+      "default": "education,work from home,whiteboarding",
       "info": "Comma separated, no spaces"
     },
     {
