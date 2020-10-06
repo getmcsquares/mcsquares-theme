@@ -12595,7 +12595,7 @@ function setImage(item, size, isPlaceholder, onLoad) {
   if (item.isBackgroundImage) {
     item.el.style.backgroundImage = 'url(\'' + url + '\')';
   } else {
-    item.el.setAttribute('srcset', url + ' ' + density + 'x');
+    item.el.setAttribute('d', url + ' ' + density + 'x');
   }
 }
 

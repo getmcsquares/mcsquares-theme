@@ -68,5 +68,15 @@
         <span class="visually-hidden">{{ 'general.accessibility.share_on_pinterest' | t }}</span>
       </a>
     {% endif %}
+    <a
+      class="share-buttons--button share-buttons--email"
+      target="_blank"
+      href="mailto:support@mcsquares.com">
+      {%-
+        include 'social-icon',
+        id: 'email'
+      -%}
+      <span class="visually-hidden">Email Support</span>
+    </a>
   </div>
 </aside>
