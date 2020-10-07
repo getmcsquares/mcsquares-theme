@@ -1,4 +1,11 @@
+{% for item in checkout.line_items %}
+{% assign title = item.title | downcase %}
+{% if title contains 'stickie' or title contains 'sticky' %}
+{% assign is_sticky = true %}
+{% endif %}
+{% endfor %}
 <div class="row">
   <div class="col-12"><p class="fuzzy-message-text">Free Returns</p></div>
   <div class="col-12"><p class="fuzzy-message-text">100% Money-back Guarantee</p></div>
+  <div class="col-12"><p class="fuzzy-message-text">{% if is _sticky %}180 day{% else %}2 Year{% endif %} No Ghosting Guarantee</p></div>
 </div>
