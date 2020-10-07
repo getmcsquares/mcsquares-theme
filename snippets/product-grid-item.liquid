@@ -107,17 +107,17 @@
               include 'rimg',
               img: product.images[1].src,
               size: '512x',
-              lazy: true,
+              lazy: false,
               class: 'productitem--image-alternate',
-              canvas: true
+              canvas: false
             %}
           {% endif %}
           {%
             include 'rimg',
             img: product.featured_image
             size: '512x',
-            lazy: true,
-            canvas: true
+            lazy: false,
+            canvas: false
           %}
         {% else %}
           {% if product %}

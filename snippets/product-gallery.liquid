@@ -49,8 +49,8 @@
             {%
               include 'rimg',
               img: image,
-              size: 'x700',
-              lazy: true,
+              size: '800x',
+              lazy: false,
               background: true
             %}
           {% endif %}
@@ -70,8 +70,8 @@
                 img: image,
                 class: 'product-gallery--video-image'
                 size: '800x800',
-                lazy: true,
-                canvas: true
+                lazy: false,
+                canvas: false
               %}
             </div>
           {% else %}
@@ -99,9 +99,9 @@
             {%
               include 'rimg',
               img: image,
-              size: 'x700',
-              lazy: true,
-              canvas: true
+              size: '800x800',
+              lazy: false,
+              canvas: false
             %}
           {% endif %}
         </div>
@@ -178,7 +178,7 @@
         include 'rimg',
         img: product.images[0],
         size: '800x800',
-        lazy: true,
+        lazy: false,
         canvas: true
       %}
     </div>
