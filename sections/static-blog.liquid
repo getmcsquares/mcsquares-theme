@@ -45,11 +45,11 @@
 <section class="blog--container container">
   {% assign sorter = section.settings.sort_tags | split: ',' %}
 
-  {% if show_nav == 'true' %}
+  {% if section.settings.show_nav == 'true' %}
   <ul class="blog-nav">
     <li><h4><a class="active" onclick="blogSwitch('all')">All</a></h4></li>
     {% for tag in sorter %}
-    <li><h4><a class="" onclick="blogSwitch('{{tag}}')">{{tag | capitalize}}</a></h4></li>
+    <li><h4><a class="" onclick="blogSwitch('{{tag}}')">{{ tag | capitalize }}</a></h4></li>
     {% endfor %}
   </ul>
   {% endif %}
