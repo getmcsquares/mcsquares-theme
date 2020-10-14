@@ -12890,13 +12890,12 @@ $local-stack: (100, 50);
     right: 0;
     bottom: $local-padding-medium;
     left: 0;
-    opacity: 0;
-    visibility: hidden;
-    @include media($max: $bp-large) {
+    // opacity: 0;
+    // visibility: hidden;
+    // ALWAYS ON
       opacity: 1;
       visibility: visible;
       position: revert;
-    }
   }
 
   .has-touch & {

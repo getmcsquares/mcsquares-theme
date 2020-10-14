@@ -792,11 +792,11 @@ function () {
         openProductItem = true;
       }
 
-      if (openProductItem) {
-        this._showActions();
-      } else {
-        this._hideActions();
-      }
+      // if (openProductItem) {
+      //   this._showActions();
+      // } else {
+      //   this._hideActions();
+      // }
     }
   }, {
     key: "_showActions",
