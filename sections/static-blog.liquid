@@ -44,13 +44,15 @@
 
 <section class="blog--container container">
   {% assign sorter = section.settings.sort_tags | split: ',' %}
+
+  {% if show_nav == 'true' %}
   <ul class="blog-nav">
     <li><h4><a class="active" onclick="blogSwitch('all')">All</a></h4></li>
     {% for tag in sorter %}
     <li><h4><a class="" onclick="blogSwitch('{{tag}}')">{{tag | capitalize}}</a></h4></li>
     {% endfor %}
   </ul>
-
+  {% endif %}
   <div class="article-row articles-all">
     {% paginate blog.articles by paginate_by %}
     <ul class="blog--inner">
@@ -126,6 +128,22 @@ var blogSwitch = function ( target ) {
       "label": "Tags to Sort By",
       "default": "education,work from home,whiteboarding",
       "info": "Comma separated, no spaces"
+    },
+    {
+      "type": "radio",
+      "id": "show_nav",
+      "label": "Show Nav for Sorted blogs?",
+      "default": "false",
+      "options": [
+        {
+          "value": "true",
+          "label": "Yes"
+        },
+        {
+          "value": "false",
+          "label": "No"
+        }
+      ]
     },
     {
       "type": "range",
