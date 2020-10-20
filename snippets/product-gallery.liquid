@@ -11,7 +11,9 @@
   data-product-slider
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
+
   {% if product.images.size > 0 %}
+  <button id="gallery-prev" class="gallery-nav-button"><div><p style="margin:0;">&lsaquo;</p></div></button>
     {% for image in product.images %}
     {%- unless image.alt contains 'logo' -%}
       {% assign is_video = false %}
@@ -108,6 +110,7 @@
       </figure>
       {%- endunless -%}
     {% endfor %}
+    <button id="gallery-next" class="gallery-nav-button"><div><p style="margin:0;">&rsaquo;</p></div></button>
   {% else %}
     <figure class="product-gallery--image product-gallery--image-placeholder">
       {% unless onboarding %}
@@ -184,3 +187,18 @@
     </div>
   </div>
 {% endif %}
+<script type="text/javascript">
+  // gallery next-prev
+  $('#gallery-prev').on('click', function(){
+      var selected = $('.thumbnail--selected').attr('data-product-thumbnail');
+      var index = parseInt(selected) - 1;
+      $( "button[data-product-thumbnail='" + index + "']" ).click();
+    }
+  )
+  $('#gallery-next').on('click', function(){
+      var selected = $('.thumbnail--selected').attr('data-product-thumbnail');
+      var index = parseInt(selected) + 1;
+      $( "button[data-product-thumbnail='" + index + "']" ).click();
+    }
+  )
+</script>

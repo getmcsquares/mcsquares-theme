@@ -194,7 +194,7 @@
     {% endif %}
   </div>
 
-  <div class="site-header-cart d-flex align-items-center justify-content-between">
+  <div class="site-header-cart d-flex align-items-center justify-content-between mobile">
    <a class="site-header-menu-toggle" href="#" data-menu-toggle>
     <div class="site-header-menu-toggle--button" tabindex="-1">
       <span class="toggle-icon--bar toggle-icon--bar-top"></span>
@@ -203,6 +203,17 @@
       <span class="visually-hidden">{{ 'general.accessibility.menu' | t }}</span>
     </div>
   </a>
+
+  <!-- Search here -->
+  <div class="small-show" style="margin-left: auto;">
+  {%
+    include 'live-search-form',
+    quick_links: linklists[section.settings.quick_links],
+    enable_live_search: section.settings.enable_live_search,
+    enable_images: section.settings.enable_live_search_images,
+    enable_content: section.settings.enable_live_search_articles_pages
+  %}
+</div>
     <a class="site-header-cart--button" href="/cart">
       <span
         class="site-header-cart--count {% if cart.item_count > 0 %}visible{% endif %}"
