@@ -83,4 +83,67 @@
 .input-checkbox:checked, .input-radio:checked{
   box-shadow: 0 0 0 10px #ed7724 inset;
 }
+.breadcrumb{
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.breadcrumb__item{
+  flex: 1;
+  justify-content: center;
+  padding-top: 1em;
+  position: relative;
+}
+
+.breadcrumb__item > svg {
+  display: none !important;
+}
+.breadcrumb__item--completed{
+  border-top: 2px solid #026172;
+}
+.breadcrumb__item--completed:before{
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: calc(50% - 16px);
+  transform: translate(-50%,-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #026172;
+  border: 2px solid #026172;
+}
+.breadcrumb__item--current{
+  border-top: 2px solid #026172;
+}
+.breadcrumb__item--current:before{
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: calc(50% - 16px);
+  transform: translate(-50%,-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #026172;
+}
+.breadcrumb__item--blank{
+  border-top: 2px solid lightgrey;
+}
+.breadcrumb__item--blank:before{
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: calc(50% - 16px);
+  transform: translate(-50%,-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid lightgrey;
+}
 </style>
+<script>
+  $('.breadcrumb').prepend('<div class="progress-bar"></div>')
+</script>
