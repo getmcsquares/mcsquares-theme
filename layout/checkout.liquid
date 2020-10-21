@@ -18,14 +18,16 @@
 
     <header class="banner" data-header role="banner">
       <div class="wrap">
-        {{ content_for_logo }}
+        <div class="inner">
+          {{ content_for_logo }}
+        </div>
       </div>
     </header>
 
     {{ order_summary_toggle }}
     <div class="content" data-content>
       <div class="header_upper">
-        <header class="main__header" role="banner">
+        <header class="main__header wrap" role="banner">
           {{ content_for_logo }}
         </header>
         {{ breadcrumb }}
@@ -59,6 +61,18 @@
 </html>
 <style>
 .content, .wrap, .sidebar {
+}
+.main_header {
+  box-shadow: 0px 2px 4px rgba(0,0,0,.2);
+  padding: 0 0em 1em;
+  max-width: 100%;
+  width: 100%;
+}
+.inner.wrap {
+  padding: 0 0em 1em;
+}
+.logo {
+  margin-top: 1em;
 }
 .sidebar {
   background: #fafafa;
