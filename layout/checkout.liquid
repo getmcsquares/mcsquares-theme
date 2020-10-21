@@ -64,14 +64,25 @@
 .fuzzy-message-row{
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 3em;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 30px auto;
 }
 .fuzzy-message-col{
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
+  max-width: 200px;
+  width: 50%;
+  @media screen and (max-width: 500px){
+    width: 100%;
+    max-width: 90%;
+    justify-content: center;
+    margin: .5em 0;
+  }
 }
 .fuzzy-message-text{
   text-transform: capitalize;
