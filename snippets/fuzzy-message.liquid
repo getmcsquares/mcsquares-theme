@@ -4,8 +4,8 @@
 {% assign is_sticky = true %}
 {% endif %}
 {% endfor %}
-<div class="fuzzy-message-row">
-  <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-shipping.png' | asset_url }}"/><p class="fuzzy-message-text">Free Returns</p></div>
-  <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-moneyback.png' | asset_url }}"/><p class="fuzzy-message-text">100% Money-back Guarantee</p></div>
-  <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-noghost.png' | asset_url }}"/><p class="fuzzy-message-text">{% if is_sticky %}180 day{% else %}2 Year{% endif %} No Ghosting Guarantee</p></div>
+<div class="fuzzy-message-row row">
+  <div class="fuzzy-message-col col-6 col-sm-12"><img class="fuzzy-message-img" src="{{ 'icon-shipping.png' | asset_url }}"/><p class="fuzzy-message-text">Free Returns</p></div>
+  <div class="fuzzy-message-col col-6 col-sm-12"><img class="fuzzy-message-img" src="{{ 'icon-moneyback.png' | asset_url }}"/><p class="fuzzy-message-text">100% Money-back Guarantee</p></div>
+  <div class="fuzzy-message-col col-6 col-sm-12"><img class="fuzzy-message-img" src="{{ 'icon-noghost.png' | asset_url }}"/><p class="fuzzy-message-text">{% if is_sticky %}180 day{% else %}2 Year{% endif %} No Ghosting Guarantee</p></div>
 </div>
