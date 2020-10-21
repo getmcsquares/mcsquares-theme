@@ -24,11 +24,15 @@
 
     {{ order_summary_toggle }}
     <div class="content" data-content>
+      <div class="header_upper">
+        <header class="main__header" role="banner">
+          {{ content_for_logo }}
+        </header>
+        {{ breadcrumb }}
+      </div>
       <div class="wrap">
         <div class="main">
-          <header class="main__header" role="banner">
-            {{ content_for_logo }}
-            {{ breadcrumb }}
+          <header style="padding-bottom:2em;">
             {{ alternative_payment_methods }}
           </header>
           <main class="main__content" role="main">
@@ -55,7 +59,9 @@
 </html>
 <style>
 .content, .wrap, .sidebar {
-  background: #fff;
+}
+.sidebar {
+  background: #fafafa;
 }
 .order-summary__sections {
   height: unset !important;
@@ -79,7 +85,7 @@
   align-items: center;
   margin-bottom: 20px;
   max-width: 200px;
-  width: 50%;
+  width: 100%;
 }
 .fuzzy-message-text{
   text-transform: capitalize;
@@ -94,7 +100,8 @@
 .breadcrumb{
   justify-content: center;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 2.5em auto 2em;
+  height: 40px;
 }
 .breadcrumb__item{
   flex: 1;
