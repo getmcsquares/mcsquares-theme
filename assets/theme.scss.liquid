@@ -15120,7 +15120,7 @@ $local-image-width: rem(48px);
 }
 
 .live-search-form {
-  position: absolute;
+  position: relative;
   top: -1px;
   right: -1px;
   left: -1px;
@@ -15182,7 +15182,20 @@ $local-image-width: rem(48px);
   }
 }
 
-
+.live-search-form-field{
+  width: 0;
+  transition: all 1s ease;
+}
+.live-search-form-field.expand{
+  //width: calc(100% - 43px) !important;
+  width: calc(100% - #{$local-button-width}) !important;
+  border-bottom: 1px solid #ccc;
+  max-width: 500px;
+  @include media($max: $bp-medium) {
+    max-width: unset;
+    width: calc(100% - 10px) !important;
+  }
+}
 .live-search-button {
   @extend %search-button;
   flex-basis: auto;
