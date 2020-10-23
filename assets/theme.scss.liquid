@@ -9041,6 +9041,7 @@ $local-max-width: 680px;
   display: none;
   background-color: $color-header-background;
   transition: margin-top 0.2s $ease-bubble;
+  display: flex;
   }
 
 
@@ -15099,10 +15100,10 @@ $local-image-width: rem(48px);
   max-width: 250px;
   margin: 10px auto;
   @include media($min: $bp-large) {
-    display: flex;
-    flex-basis: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
+    // display: flex;
+    // flex-basis: auto;
+    // flex-grow: 1;
+    // flex-shrink: 1;
     margin: 10px 0 10px auto;
     vertical-align: middle;
   }
@@ -15215,7 +15216,7 @@ $local-image-width: rem(48px);
     outline: none;
   }
   .search-icon {
-    color: #d7dad9;
+    // color: #d7dad9;
   }
   .live-search--active & {
     border-bottom-right-radius: 0;
@@ -16140,6 +16141,9 @@ input[placeholder="Comments"]{
 /*================ Pangea Search ================*/
 .header-search {
   margin-bottom: 0;
+  border: none;
+  box-shadow: none !important;
+  border-bottom: 1px solid lightgrey;
 }
 .header-search input {
   // background-color: transparent;
@@ -16183,6 +16187,8 @@ input[placeholder="Comments"]{
 .header-search .input-group-prepend button{
   background-color: transparent;
 }
+
+
  /*================ Header Search ================*/
  .search-header {
   display: inline-block;
@@ -16216,10 +16222,10 @@ input[placeholder="Comments"]{
   pointer-events: none;
 }
 
-.search-header,
-.search-header__submit {
-  transition: all 0.35s cubic-bezier(0.29, 0.63, 0.44, 1);
-}
+// .search-header,
+// .search-header__submit {
+//   transition: all 0.35s cubic-bezier(0.29, 0.63, 0.44, 1);
+// }
 
 .no-svg {
   .site-header__search {
@@ -16254,9 +16260,9 @@ input[placeholder="Comments"]{
     color: #222;
     font-size: 12px;
     text-align: left;
-    -webkit-transition: width ease-in-out .5s;
+    -webkit-transition: width .5s;
     /* Safari */
-    transition: width ease-in-out .5s;
+    transition: width .5s;
     input{
       padding: 0;
     }
@@ -16277,22 +16283,23 @@ input[placeholder="Comments"]{
       /* Safari */
       transition: visibility .5s, opacity 0.5s linear, width .5s;
       width: 0;
-      max-width: 120px;
+      // max-width: 120px;
     }
     .header-search-button{
       padding: 10px 10px;
-      background-color: transparent;
+      background-color: white;
+      border-bottom: solid 3px white;
+      margin-bottom: -2px;
       svg{
         fill: #111;
       }
     }
     &:hover, &:focus, &:focus-within {
-
       .search-box-input {
         visibility: visible;
         opacity: 1;
         height: 44px;
-        width: 120px !important;
+        width: calc(85% - 53px) !important
       }
       input{
         padding: 0 10px;

@@ -21,8 +21,6 @@
   @param placeholder {String|Nil}
     Add a custom placeholder string
 {% endcomment %}
-
-
 <!-- {% assign has_quick_links = false %}
 {% if quick_links.links.size > 0 %}
   {% assign has_quick_links = true %}
@@ -37,9 +35,9 @@
 {%- endcapture -%}
 
 
-<div class="live-search" data-live-search>
+<div id="search-box" class="live-search" data-live-search>
   <form
-    class="live-search-form form-fields-inline"
+    class="live-search-form form-fields-inline header-search search"
     action="/search"
     method="get"
     role="search"
@@ -48,11 +46,11 @@
   >
     <input type="hidden" name="type" value="{{ search_type | replace: '  ', '' | strip_newlines }}">
     <div class="form-field no-label">
-    
       <input
-        class="form-field-input live-search-form-field"
+        class="form-field-input live-search-form-field search-box-input"
         type="text"
         name="q"
+        id="Search"
         aria-label="{{ 'search.form.label' | t }}"
         placeholder="{{ placeholder_text | escape }}"
         {% if search.performed %}
@@ -71,7 +69,7 @@
         {{ 'search.form.cancel' | t }}
       </button>
       <button
-        class="live-search-button button-primary"
+      class="btn btn-small header-search-button live-search-button"
         type="{% if enable_live_search %}button{% else %}submit{% endif %}"
         aria-label="{{ 'general.accessibility.search' | t }}"
         data-live-search-submit
@@ -83,6 +81,13 @@
           {% include 'icon-spinner' %}
         </span>
       </button>
+        <!-- <button id="header-search-button" type="submit" class="btn btn-small header-search-button live-search-button">
+          {% include 'icon-search' %}
+          <span class="icon-fallback-text">Submit</span>
+          <span class="search-icon search-icon--active">
+            {% include 'icon-spinner' %}
+          </span>
+        </button> -->
     </div>
 
     <div class="search-flydown" data-live-search-flydown>
@@ -126,7 +131,7 @@
   </form>
 </div> -->
 <div id="search-box">
-<form  id="header-search" action="/search" method="get" role="search" class="input-group header-search d-flex align-items-center justify-content-end search alpine" >
+<form  id="header-search" action="/search" method="get" role="search" class="input-group header-search  d-flex align-items-center justify-content-end search alpine" >
   <input type="search"
   name="q"
   id="Search"
