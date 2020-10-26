@@ -27,11 +27,22 @@
       <h4 class="text-center" style="margin-bottom: .5rem">{{- bundleProduct.title -}}</h4>
       {% endif %}
     </div>
+    {% assign img_url = bundleProduct.images[0] | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
     <img
-      class="slideshow-image-block w-100"
-      src="{{ bundleProduct.images[0] | img_url: '1500x1500' }}"
+      {% if forloop.first %}
+      class="slideshow-image-block w-100 lazyload"
+      {% else %}
+      class="slideshow-image-block w-100 lazyload lazypreload"
+      {% endif %}
+      src="{{ bundleProduct.images[0] | img_url: "500x" }}"
+      data-src="{{ img_url }}"
+      data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+      data-aspectratio="{{ bundleProduct.images[0].aspect_ratio }}"
+      data-sizes="auto"
+      data-parent-fit="cover"
       alt=""
     >
+    
     </div>
     {% endfor %}
   </div>
