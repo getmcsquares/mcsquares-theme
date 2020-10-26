@@ -48,15 +48,16 @@
         <div
           class="product-galley--image-background"
           {% if settings.product_slideshow_style contains 'cropped' and is_video == false %}
-            {%
-              include 'rimg',
-              img: image,
-              size: '800x',
-              lazy: false,
-              background: true
-            %}
+          {%
+            include 'rimg',
+            img: image,
+            size: 'x700',
+            lazy: false,
+            background: true,
+            class: " lazyload lazypreload"
+          %}
           {% endif %}
-          data-image="{{ image | img_url: '800x800' }}"
+          data-image="{{ image | img_url: '900x900' }}"
         >
           {% if is_video %}
             <div class="product-galley--video-container">
@@ -71,9 +72,9 @@
                 include 'rimg',
                 img: image,
                 class: 'product-gallery--video-image'
-                size: '800x800',
-                lazy: false,
-                canvas: false
+                size: '900x500',
+                lazy: true,
+                canvas: true
               %}
             </div>
           {% else %}
@@ -101,7 +102,7 @@
             {%
               include 'rimg',
               img: image,
-              size: '800x800',
+              size: 'x700',
               lazy: false,
               canvas: false
             %}
@@ -167,7 +168,6 @@
     {% endfor %}
   </div>
 {% endif %}
-
 {% if product.images.size > 0 %}
   <div
     class="product-gallery--overlay"
@@ -180,8 +180,8 @@
       {%
         include 'rimg',
         img: product.images[0],
-        size: '800x800',
-        lazy: false,
+        size: '900x500',
+        lazy: true,
         canvas: true
       %}
     </div>

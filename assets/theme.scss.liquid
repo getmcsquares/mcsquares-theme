@@ -9041,7 +9041,7 @@ $local-max-width: 680px;
   display: none;
   background-color: $color-header-background;
   transition: margin-top 0.2s $ease-bubble;
-  display: flex;
+  // display: flex;
   }
 
 
@@ -15148,6 +15148,7 @@ $local-image-width: rem(48px);
     z-index: 100;
     display: flex;
     height: $header-content-height;
+    justify-content: flex-end;
 
     .live-search--takeover & {
       height: $header-content-height + 6px;
@@ -15168,6 +15169,9 @@ $local-image-width: rem(48px);
   border: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+
+
+  
   // background: $client-black !important;
   // color: $client-light-grey;
 
@@ -15188,10 +15192,11 @@ $local-image-width: rem(48px);
   transition: all 1s ease;
 }
 .live-search-form-field.expand{
-  //width: calc(100% - 43px) !important;
+  width: calc(100% - 43px) !important;
   width: calc(100% - #{$local-button-width}) !important;
   border-bottom: 1px solid #ccc;
   max-width: 500px;
+  
   @include media($max: $bp-medium) {
     max-width: unset;
     width: calc(100% - 10px) !important;
@@ -15210,8 +15215,8 @@ $local-image-width: rem(48px);
   border: 1px solid $client-blue;
   outline: none;
   &:hover {
-    background-color: $client-blue !important;
-    border: 1px solid $client-blue !important;
+    // background-color: $client-blue !important;
+    // border: 1px solid $client-blue !important;
     opacity: .8;
     outline: none;
   }
@@ -15238,13 +15243,13 @@ $local-image-width: rem(48px);
   @include font-size-body;
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
+  right: -12px;
+  bottom: 6px;
   z-index: $index-header-search + 100;
   display: none;
-  padding: rem(15px);
+  padding: 0 rem(15px);
   visibility: hidden;
-  color: white;
+  // color: white;
   .live-search--takeover & {
     display: inline-block;
     visibility: visible;
@@ -15258,15 +15263,26 @@ $local-image-width: rem(48px);
 
 .search-flydown {
   @include font-size-body;
-  position: relative;
+  @extend %box-shadow;
+  position: fixed;
   z-index: 50;
   display: none;
-  width: 100%;
+  // width: calc(100% + 50px);
+  // margin-left: -50px;
   background-color: $color-background;
   border-top: 1px solid $color-border-soft;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-
+  right: 15px;
+  left: 15px;
+  padding-top: .2em;
+  top: 168px;
+  // bottom: 0;
+  overflow-y: scroll;
+  h4{
+    margin-bottom: .5rem;
+    // font-size: 90%;
+  }
   .live-search--active & {
     z-index: 200;
     display: block;
@@ -15336,7 +15352,7 @@ $local-image-width: rem(48px);
 .search-flydown--product-items--none,
 .search-flydown--product-items {
   display: block;
-
+  width: 50%;
   .search-flydown--results--content-enabled & {
     display: inline-block;
     // width: 64%;
@@ -15496,9 +15512,9 @@ $local-image-width: rem(48px);
 .search-flydown--content-items {
   display: inline-block;
   // width: 36%;
-  padding: $space-medium 25px $space-large;
+  // padding: $space-medium 25px $space-large;
   vertical-align: top;
-
+  width: 50%;
   .live-search--takeover & {
     display: none;
   }
@@ -16282,8 +16298,22 @@ input[placeholder="Comments"]{
       -webkit-transition: visibility .5s, opacity 0.5s linear, width .5s;
       /* Safari */
       transition: visibility .5s, opacity 0.5s linear, width .5s;
-      width: 0;
-      // max-width: 120px;
+      position: absolute;
+      display: block;
+      visibility: hidden;
+      padding: 0 10px;
+      width: calc(100vw - 300px);
+      @media screen and (max-width: 1056px){
+        width: calc(100vw - 220px);
+      }
+      @media screen and (min-width: 1400px){
+        width: calc(90vw - 400px);
+      }
+      right: 55px;
+      top: -2px;
+      border: 1px solid #ccc;
+      height: 51px;
+      box-shadow: 0 2px 4px rgba(127,127,127,0.5);
     }
     .header-search-button{
       padding: 10px 10px;
@@ -16299,7 +16329,7 @@ input[placeholder="Comments"]{
         visibility: visible;
         opacity: 1;
         height: 44px;
-        width: calc(85% - 53px) !important
+        // width: calc(85% - 53px) !important
       }
       input{
         padding: 0 10px;
