@@ -54,7 +54,7 @@
             size: 'x700',
             lazy: false,
             background: true,
-            class: " lazyload lazypreload"
+            class: "lazyload lazypreload"
           %}
           {% endif %}
           data-image="{{ image | img_url: '900x900' }}"
@@ -104,7 +104,8 @@
               img: image,
               size: 'x700',
               lazy: false,
-              canvas: false
+              canvas: false,,
+              class: "lazyload lazypreload"
             %}
           {% endif %}
         </div>
