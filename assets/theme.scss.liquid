@@ -4556,7 +4556,7 @@ $local-cart-sidebar-width: 280px;
 .yotpo-collection {
   .pull-left {
     float: unset !important;
-    text-align: left !important;
+    text-align: center !important;
     justify-content: flex-start;
     flex-direction: column;
   }
@@ -4564,6 +4564,12 @@ $local-cart-sidebar-width: 280px;
 .yotpo-bottomline{
   flex-direction: column;
   align-items: center;
+  &.pull-left {
+    float: unset !important;
+    text-align: center !important;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 }
 .collection--title {
   @include font-size-heading-large;
@@ -4945,8 +4951,15 @@ $local-header-height: $header-content-height + ($header-padding-vertical-mobile 
   }
 }
 
+.row.alt{
+  background-color: #f2f2f2;
+}
 .product-description {
   margin-top: $space-large;
+  &.alt{
+    padding: $space-large;
+    background-color: #f2f2f2;
+  }
 }
 
 .product-form--alt {
@@ -14597,6 +14610,44 @@ $local-thumbnail-space: 3px;
   }
 }
 
+// CHECKBOXES V2
+.option-value-input-v2 {
+  position: absolute;
+  opacity: 0;
+
+  & + .option-value-name {
+    @extend %form-control-base;
+    display: inline-block;
+    width: auto;
+    padding: $gutter-outer-small * 0.75 $gutter-outer-small;
+    margin: 0 $gutter-outer-small / 2 $gutter-outer-small 0;
+    cursor: pointer;
+    transition: 0.2s;
+
+    @include media($min: $bp-small) {
+      @include font-size-body-smaller;
+    }
+  }
+
+  &:focus ~ .option-value-name {
+    outline: auto;
+  }
+
+
+  &:checked + .option-value-name {
+    color: $color-link;
+    background-color: rgba($color-link, 0.0);
+    border: 2px solid rgba($color-link, 0.8);
+    border-radius: 3px;
+  }
+
+  &:disabled + .option-value-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    cursor: default;
+  }
+}
+
 .smart-payment-enabled {
   .product-form--atc-button {
     @extend %button-secondary, %atc-button;
@@ -16637,6 +16688,30 @@ input[placeholder="Comments"]{
     right: -15px;
   }
 }
+// FUZYY MESSAGING NON-CHECKOUT
+.fuzzy-message-img{
+  max-width: 30px;
+  margin-right: 10px;
+}
+.fuzzy-message-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+.fuzzy-message-col{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.fuzzy-message-text{
+  text-transform: capitalize;
+}
 // Sticky add to cart
 .sticky-add-to-cart{
   display: none;
@@ -16661,5 +16736,29 @@ input[placeholder="Comments"]{
     width: 100%;
     height: 82px;
     margin: 0 auto !important;
+  }
+}
+.product-price-v2{
+  flex-grow: 1;
+  text-align: center;
+}
+.image-wall{
+  .image-wrap{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 380px;
+  }
+  .full-width-immage-wrap{
+    width: 100%;
+  }
+  .third-width-image-wrap{
+    width: 33%;
+    display: inline-block;
+  }
+  .text-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -45,12 +45,6 @@
       is_product_modal: is_product_modal,
       onboarding: onboarding
     %}
-    {% comment %}{%
-      include 'product-gallery',
-      selected_image: selected_image,
-      is_product_modal: is_product_modal,
-      onboarding: onboarding
-    %}{% endcomment %}
   </div>
   <div class="col-md-6">
     {% comment %}
@@ -64,16 +58,29 @@
 
         {% unless onboarding %}
           {%
-            include 'product-form',
+            include 'product-form-v2',
             product: product,
             selected_variant: selected_variant
           %}
         {% endunless %}
       </div>
   </div>
-
-  </div>
-
+</div>
+<div class="row alt" style="margin-top: 2em;">
+<div class="col-lg-12">
+  {% unless product.description == blank or hide_description or template == 'index' %}
+    {% unless template == 'index' %}
+      <div class="product-description product--container alt rte" data-product-description>
+        <h3>Product Details</h3>
+        {{ product.description }}
+      </div>
+    {% endunless %}
+  {% endunless %}
+    {% if template == 'index' %}
+      <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
+    {% endif %}
+    </div>
+</div>
   {% comment %}
     If is a 3 column layout, the form will move here at $bp-large (layout.isBreakpoint('L'))
   {% endcomment %}

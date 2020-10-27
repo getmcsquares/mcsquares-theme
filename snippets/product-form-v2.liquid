@@ -1,0 +1,276 @@
+{% comment %}
+  Product form
+
+  @param product
+
+  @param selected_variant
+{% endcomment %}
+{% assign enable_social_sharing = settings.product_social_sharing %}
+
+{% if is_product_modal and settings.quickshop_show_dcb %}
+  {% assign quickshop_smart_buttons = true %}
+{% endif %}
+
+{% if is_product_modal == false and section.settings.show_dcb %}
+  {% assign product_smart_buttons = true %}
+{% endif %}
+
+{% if selected_variant.available == false %}
+  {% assign quickshop_smart_buttons = false %}
+  {% assign product_smart_buttons = false %}
+{% endif %}
+
+{% assign product_form_class = '' %}
+{% if product_smart_buttons or quickshop_smart_buttons %}
+  {% assign product_form_class = 'smart-payment-enabled product-form tester' %}
+{% endif %}
+{% capture "form_class" %}product-form{% if section.settings.enable_payment_button %} smart-payment-enabled product-form  product-form--payment-button{% endif %} product-form{%- endcapture %}
+{%- capture share_buttons -%}
+  {% assign social_image = false %}
+  {% if product.featured_image %}
+    {% assign social_image = product.featured_image | img_url: '1024x' %}
+  {% endif %}
+  {% assign social_url = shop.url | append: product.url %}
+  {%-
+    include 'share-buttons',
+    snippet_title: 'general.share_buttons.title',
+    social_image: social_image,
+    social_title: product.title,
+    social_url: social_url
+  -%}
+{%- endcapture  -%}
+{% form 'product', product, class: form_class, data-product-form: '' %}
+
+{% capture atc %}
+  <div class="product-form--atc">
+    <div class="product-form--atc-qty form-fields--qty" data-quantity-wrapper>
+      <div class="form-field form-field--qty-select">
+        <div class="form-field-select-wrapper">
+          <select
+            id="product-quantity-select"
+            class="form-field-input form-field-select"
+            aria-label="{{ 'general.general.quantity' | t }}"
+            data-quantity-select
+          >
+            {% for i in (1..9) %}
+              <option {% if i == 1 %}selected {% endif %}value="{{ i }}">
+                {{ i }}
+              </option>
+            {% endfor %}
+            <option value="10+">
+              10+
+            </option>
+          </select>
+          <label
+            for="product-quantity-select"
+            class="form-field-title"
+          >
+            {{ 'general.general.quantity' | t }}
+          </label>
+          {% include 'icon-chevron-down-small' %}
+        </div>
+      </div>
+      <div class="form-field form-field--qty-input hidden">
+        <input
+          id="product-quantity-input"
+          class="form-field-input form-field-number form-field-filled"
+          value="1"
+          name="quantity"
+          type="text"
+          pattern="\d*"
+          aria-label="{{ 'general.general.quantity' | t }}"
+          data-quantity-input
+        >
+        <label
+          for="product-quantity-input"
+          class="form-field-title"
+        >
+          {{ 'general.general.quantity' | t }}
+        </label>
+      </div>
+    </div>
+
+    <button
+      class="button-secondary product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
+      type="submit"
+      {% unless selected_variant.available %}disabled{% endunless %}
+      data-product-atc>
+      <span class="atc-button--text">
+        {% if selected_variant.available %}
+          {{ 'product.buttons.add_to_cart' | t }}
+        {% else %}
+          {{ 'product.buttons.sold_out' | t }}
+        {% endif %}
+      </span>
+      <span class="atc-button--icon">
+        {%- include 'icon-spinner' -%}
+      </span>
+    </button>
+{% unless template == 'index' %}
+      {{ form | payment_button }}
+    {% endunless %}
+  </div>
+  {%- comment -%}{% if enable_social_sharing %}
+    {{ share_buttons | strip_newlines }}
+  {% endif %}{%- endcomment -%}
+{% endcapture %}
+
+<div class="row">
+<div class="col-lg-12">
+<div class="product-details text-center" data-product-details>
+      {% if is_product_modal %}
+        <h2 class="product-title">
+          <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </h2>
+      {% else %}
+        {% if template == 'index' %}
+          <h2 class="product-title">
+        {% else %}
+          <h1 class="product-title">
+        {% endif %}
+          {% unless onboarding %}
+            {{ product.title }}
+          {% else %}
+            {{ 'onboarding.product.title' | t }}
+          {% endunless %}
+        {% if template == 'index' %}
+          </h2>
+        {% else %}
+          </h1>
+        {% endif %}
+      {% endif %}
+      <div class="yotpo-star-box yotpo">
+        <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo text-center"{% else %} class="yotpo bottomLine else"{% endif %}
+          data-product-id="{{ product.id }}">
+        </div>
+      </div>
+      {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
+        <div class="product-vendor">
+          {% unless onboarding %}
+            {%- capture vendor_link -%}
+              {{ product.vendor | link_to_vendor }}
+            {%- endcapture -%}
+            {{ 'product.general.by_vendor_html' | t: vendor_link: vendor_link }}
+          {% else %}
+            {{ 'onboarding.product.by_vendor' | t }}
+          {% endunless %}
+        </div>
+      {% endif %}
+      {% if product.template_suffix == 'show-inventory' %}
+          <div id="variant-inventory">
+          <span class="product--badge badge--sale">
+            {% if product.variants.first.inventory_quantity > 0 %}
+                {{ product.variants.first.inventory_quantity }} left. Order soon!
+            {% else %}
+            {% endif %}
+          </span>
+          </div>
+      {% endif %}
+    {% unless template == 'index' %}
+      <div class="product-pricing text-center" aria-live="polite">
+        {%
+          include 'product-badge',
+          class_root: 'product',
+          product_available: product_available,
+          on_sale: on_sale,
+          price: price,
+          compare_at_price: compare_at_price,
+          show_saved: true
+        %}
+
+        {%
+          include 'product-price',
+          class_root: 'product-price-v2 product',
+          price: price,
+          price_varies: false,
+          compare_at_price: compare_at_price,
+          compare_at_price_varies: false,
+          on_sale: on_sale,
+          emphasize_price: false,
+          show_original: true
+        %}
+      </div>
+    {% endunless %}
+      {% if settings.product_show_sku == true %}
+        {% unless onboarding %}
+          <div
+            class="
+              product-sku
+              {% if sku == empty %}product-sku--empty{% endif %}
+            "
+          >
+            {{ 'product.general.sku_html' | t: sku: sku | strip_newlines }}
+          </div>
+        {% endunless %}
+      {% endif %}
+
+        {% if hide_description %}
+          <a
+            href="{{ product.url | within: collection }}"
+            class="product-link"
+          >
+            {{ 'product.buttons.view_details' | t }}
+          </a>
+        {% endif %}
+        </div>
+
+  {% if product.has_only_default_variant %}
+    <input
+      name="id"
+      value="{{ product.variants[0].id }}"
+      type="hidden">
+  {% else %}
+    {%
+      include 'product-options-v2',
+      product: product,
+      selected_variant: selected_variant,
+      style: 'radio'
+    %}
+  {% endif %}
+</div>
+  <div class="col-lg-12">
+  {{atc}}
+  </div>
+  <div class="col-lg-12">
+    {% include 'fuzzy-message' %}
+  </div>
+  {% comment %} <div class="small-hide tester col-lg-5">
+    {{atc}}
+  </div> {% endcomment %}
+</div>
+{% endform %}
+{% unless product.available %}
+<div id="sold-out">
+  {% form 'contact' %}
+    {% if form.posted_successfully? %}
+    <p class="accent-text">Thanks! We will notify you when this product becomes available!</p>
+    {% else %}
+    <p id="notify-me-text"><strong id="notify-me">Get Notified</strong> by email when {{ product.title }} becomes available.</p>
+    {% endif %}
+    {% if form.errors %}
+    <div class="error feedback accent-text">
+      <p>Please provide a valid email address.</p>
+    </div>
+    {% endif %}
+    {% unless form.posted_successfully? %}
+    <div id="notify-me-wrapper" class="clearfix" style="display:none">
+      {% if customer %}
+      <input type="hidden" name="contact[email]" value="{{ customer.email }}" />
+      {% else %}
+      <input style="float:left; width:180px;" required="required" type="email" name="contact[email]" placeholder="your@email.com" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+      {% endif %}
+      <input type="hidden" name="contact[type]" value="Stock Notification" />
+      <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+      <input style="float:left; margin-left:5px;" class="btn button-primary styled-submit" type="submit" value="Send" />
+    </div>
+    {% endunless %}
+  {% endform %}
+</div>
+<script type="text/javascript">
+$('#notify-me').click(function(e) {
+  // e.preventDefault()
+  $('#notify-me-wrapper').fadeIn();
+  return false;
+  } );
+</script>
+{% endunless %}

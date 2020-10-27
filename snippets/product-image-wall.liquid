@@ -1,0 +1,34 @@
+<div class="image-wall">
+  <div class="image-wrap full-width-image-wrap"
+    {%
+      include 'rimg',
+      img: product.images[1],
+      size: 'x1000',
+      lazy: true,
+      background: true
+    %}
+    >
+  </div>
+  <div class="image-wrap third-width-image-wrap"{%
+    include 'rimg',
+    img:  product.images[2],
+    size: 'x600',
+    lazy: true,
+    background: true
+  %}>
+  </div>
+  <div class="image-wrap third-width-image-wrap"
+    {%
+      include 'rimg',
+      img:  product.images[3],
+      size: 'x600',
+      lazy: true,
+      background: true
+    %}>
+  </div>
+  <div class="image-wrap third-width-image-wrap">
+    <div class="text-box">
+      <p>Placeholder for Meta-driven text.</p>
+    </div>
+  </div>
+</div>
