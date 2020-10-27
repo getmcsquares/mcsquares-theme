@@ -16688,6 +16688,7 @@ input[placeholder="Comments"]{
     right: -15px;
   }
 }
+
 // FUZYY MESSAGING NON-CHECKOUT
 .fuzzy-message-img{
   max-width: 30px;
@@ -16711,6 +16712,12 @@ input[placeholder="Comments"]{
 }
 .fuzzy-message-text{
   text-transform: capitalize;
+}
+
+.fuzzy-product {
+  .fuzzy-message-text {
+    margin: 0 5px;
+  }
 }
 // Sticky add to cart
 .sticky-add-to-cart{
@@ -16743,14 +16750,14 @@ input[placeholder="Comments"]{
   text-align: center;
 }
 .image-wall{
-  margin: 1em auto !important;
+  margin: 1.5em auto !important;
   .image-wrap{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 320px;
+    min-height: 420px;
   }
-  .full-width-immage-wrap{
+  .full-width-image-wrap{
     width: 100%;
     min-height: 440px;
   }
@@ -16763,5 +16770,6 @@ input[placeholder="Comments"]{
     justify-content: center;
     align-items: center;
     padding: 2em;
+    flex-direction: column;
   }
 }

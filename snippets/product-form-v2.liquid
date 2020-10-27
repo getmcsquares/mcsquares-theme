@@ -117,7 +117,7 @@
 
 <div class="row">
 <div class="col-lg-12">
-<div class="product-details text-center" data-product-details>
+<div class="product-details text-center mt-4" data-product-details>
       {% if is_product_modal %}
         <h2 class="product-title">
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
@@ -146,6 +146,7 @@
           </div>
         </div>
       {% endunless %}
+{% comment %}
       {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
         <div class="product-vendor">
           {% unless onboarding %}
@@ -158,6 +159,7 @@
           {% endunless %}
         </div>
       {% endif %}
+{% endcomment %}
       {% if product.template_suffix == 'show-inventory' %}
           <div id="variant-inventory">
           <span class="product--badge badge--sale">
@@ -233,7 +235,7 @@
   <div class="col-lg-12">
   {{atc}}
   </div>
-  <div class="col-lg-12">
+  <div class="col-lg-8 offset-lg-2 product-fuzzy">
     {% include 'fuzzy-message' %}
   </div>
   {% comment %} <div class="small-hide tester col-lg-5">
