@@ -197,7 +197,7 @@ function () {
             Shopify.PaymentButton.init();
           }
 
-          _this.recommendationContainer.addEventListener('rimg:load', _this._resizeRowScroller);
+          _this.recommendationContainer.addEventListener('rimg:load', _this._resizeRowScroller, {passive: true});
 
           _this.productsScroller = new _components_ProductRowScroller__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"](_this.section.el.querySelector('[data-product-row]'));
         }

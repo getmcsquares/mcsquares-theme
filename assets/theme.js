@@ -3295,7 +3295,7 @@ theme.Video = (function() {
 
           player.addEventListener('onReady', function() {
             defer.resolve(player);
-          });
+          }, {passive: true});
 
           setTimeout(function() {
             defer.reject(

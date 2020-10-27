@@ -133,7 +133,7 @@ $('input[type=radio][name=customer_type]').change(function() {
         $('.contact-page-text').hide();
         $("html, body").animate({ scrollTop: 0 }, "slow");
       }
-  })
+  }, {passive: true})
 });
 </script>
 
