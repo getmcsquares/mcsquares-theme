@@ -21,8 +21,8 @@
                   srcset="
                   {% if image_src.width > 640 %}{{ image_src | img_url: '640x' }} 640w{% endif %}
                   {% if image_src.width > 720 %},{{ image_src | img_url: '720x' }} 720w{% endif %}
-                  {% if image_src.width > 900 %},{{ image_src | img_url: '900x' }} 900w{% endif %}"
-                  sizes="(min-width: 960px) 450px, (min-width: 720px) 50vw, 100vw"
+                  {% comment %}{% if image_src.width > 900 %},{{ image_src | img_url: '900x' }} 900w{% endif %}{% endcomment %}"
+                  sizes="(min-width: 640px) 450px, (min-width: 720px) 50vw, 100vw"
                   style="max-width: 100%;">
                 <div><h5 class="text-center">{{ block.settings.title | escape }}</h5></div>
               </a>
