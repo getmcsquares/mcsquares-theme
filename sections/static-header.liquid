@@ -47,10 +47,12 @@
   data-site-header-main
   {% if section.settings.sticky_header %}data-site-header-sticky{% endif %}
 >
+  {% unless product.template_suffix contains "rework" %}
    <div class="header-subscribe-wrap">
     {% comment %} <div class="klaviyo-form-Pps8gU"></div> {% endcomment %}
-    <div class="klaviyo-form-MhnGmv"></div>
-  </div>
+      <div class="klaviyo-form-MhnGmv"></div>
+    </div>
+  {% endunless %}
   <div
     class="
       site-header-main-content
@@ -58,8 +60,8 @@
         small-promo-enabled
       {% endif %}
     "
-  > 
- 
+  >
+
     <div class="site-header-logo">
       <a
         class="site-logo"
@@ -126,7 +128,7 @@
       is_mobile: false
     %}
   </nav>
-    
+
 </div>
     {% if section.settings.small_promo_text != blank or section.settings.small_promo_heading != blank %}
       <div class="small-promo">
