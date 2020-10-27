@@ -51,13 +51,13 @@
           {%
             include 'rimg',
             img: image,
-            size: 'x700',
+            size: 'x600',
             lazy: false,
             background: true,
             class: "lazyload lazypreload"
           %}
           {% endif %}
-          data-image="{{ image | img_url: '900x900' }}"
+          data-image="{{ image | img_url: '500x500' }}"
         >
           {% if is_video %}
             <div class="product-galley--video-container">
@@ -102,7 +102,7 @@
             {%
               include 'rimg',
               img: image,
-              size: 'x700',
+              size: 'x350',
               lazy: false,
               canvas: false,,
               class: "lazyload lazypreload"
