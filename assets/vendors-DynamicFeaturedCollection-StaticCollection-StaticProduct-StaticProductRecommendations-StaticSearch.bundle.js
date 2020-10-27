@@ -1315,7 +1315,7 @@ var TabsLayout = function () {
           existingActive = true;
         }
 
-        trigger.addEventListener('keydown', _this._handleKeydown);
+        trigger.addEventListener('keydown', _this._handleKeydown, {passive: true});
         trigger.addEventListener('click', _this._handleClick);
 
         _this.events.push({
@@ -1487,8 +1487,8 @@ var AccordionLayout = function () {
 
         trigger.parentNode.insertBefore(content, trigger.nextSibling);
 
-        trigger.addEventListener('keydown', _this._handleKeydown);
-        trigger.addEventListener('click', _this._handleClick);
+        trigger.addEventListener('keydown', _this._handleKeydown,{passive: true});
+        trigger.addEventListener('click', _this._handleClick,{passive: true});
 
         _this.events.push({
           trigger: trigger,
@@ -1946,7 +1946,7 @@ function forceFocus(element, options) {
   if (typeof options.className !== 'undefined') {
     element.classList.add(options.className);
   }
-  element.addEventListener('blur', callback);
+  element.addEventListener('blur', callback, {passive: true});
 
   function callback(event) {
     event.target.removeEventListener(event.type, callback);
@@ -2017,7 +2017,7 @@ function bindInPageLinks(options) {
 
     link.addEventListener('click', function() {
       forceFocus(element, options);
-    });
+    },{passive: true});
 
     return true;
   });
@@ -2080,7 +2080,7 @@ function trapFocus(container, options) {
       event.target !== first
     )
       return;
-    document.addEventListener('keydown', trapFocusHandlers.keydown);
+    document.addEventListener('keydown', trapFocusHandlers.keydown,{passive: true});
   };
 
   trapFocusHandlers.focusout = function() {
@@ -2106,8 +2106,8 @@ function trapFocus(container, options) {
     }
   };
 
-  document.addEventListener('focusout', trapFocusHandlers.focusout);
-  document.addEventListener('focusin', trapFocusHandlers.focusin);
+  document.addEventListener('focusout', trapFocusHandlers.focusout,{passive: true});
+  document.addEventListener('focusin', trapFocusHandlers.focusin,{passive: true});
 
   forceFocus(elementToFocus, options);
 }
@@ -2377,7 +2377,7 @@ var Pixelzoom = function () {
 
       this.image.addEventListener('load', function () {
         _this._appendImage();
-      });
+      }, {passive: true});
 
       this.image.classList.add(this.options.imageClass);
       this.image.src = this.imageSrc;
@@ -2448,13 +2448,13 @@ var Pixelzoom = function () {
         var pointer = _this2._getPointerBounds(event);
 
         _this2._initializeDrag(pointer[0]);
-      });
+      }, {passive: true});
 
       this.container.addEventListener('mouseenter', function () {
         event.stopPropagation();
 
         _this2._initializeMouse();
-      });
+      },{passive: true});
 
       this.container.addEventListener('touchstart', function (event) {
         event.stopPropagation();
@@ -2462,13 +2462,13 @@ var Pixelzoom = function () {
         var pointers = _this2._getPointerBounds(event);
 
         _this2._initializeTouch(pointers[0], pointers[1]);
-      });
+      },{passive: true});
 
       this.container.addEventListener('dragstart', function (event) {
         event.stopPropagation();
 
         _this2._preventDrag(event);
-      });
+      },{passive: true});
 
       ['mousemove', 'touchmove'].forEach(function (eventType) {
         _this2.container.addEventListener(eventType, function (event) {
@@ -2476,7 +2476,7 @@ var Pixelzoom = function () {
 
           _this2._pan(eventType, pointers[0], pointers[1]);
         });
-      });
+      },{passive: true});
 
       this.container.addEventListener('mouseup', function (event) {
         event.stopPropagation();
@@ -2485,7 +2485,7 @@ var Pixelzoom = function () {
           x: event.pageX,
           y: event.pageY
         });
-      });
+      },{passive: true});
 
       ['mouseleave', 'touchend'].forEach(function (eventType) {
         _this2.container.addEventListener(eventType, function (event) {
@@ -2502,11 +2502,11 @@ var Pixelzoom = function () {
           x: event.pageX,
           y: event.pageY
         });
-      });
+      },{passive: true});
 
       document.body.addEventListener('touchmove', function (event) {
         _this2._preventScroll(event);
-      });
+      },{passive: true});
     }
 
     /**
