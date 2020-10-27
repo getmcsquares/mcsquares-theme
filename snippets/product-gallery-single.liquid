@@ -67,15 +67,6 @@
       </figure>
       {%- endunless -%}
     <!-- <button id="gallery-next" class="gallery-nav-button"><div><p style="margin:0;">&rsaquo;</p></div></button> -->
-  {% else %}
-    <figure class="product-gallery--image product-gallery--image-placeholder">
-      {% unless onboarding %}
-        {{ 'image' | placeholder_svg_tag: 'placeholder--image' }}
-      {% else %}
-        {{ 'product-1' | placeholder_svg_tag: 'placeholder--image' }}
-      {% endunless %}
-    </figure>
-  {% endif %}
 </div>
 
 
