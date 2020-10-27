@@ -20,7 +20,7 @@
   {% endif %}
   >
   {% assign img_url = block.settings.background_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-    <img
+    <img rel="preload"
     {% if forloop.first %}
     class="slideshow-image-block w-100 lazyload"
     {% else %}
@@ -28,13 +28,13 @@
     {% endif %}
       src="{{ block.settings.background_image | img_url: "500x" }}"
       data-src="{{ img_url }}"
-      data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
+      data-widths="[540, 720, 900, 1080]"
       data-aspectratio="{{ block.settings.background_image.aspect_ratio }}"
       data-sizes="auto"
       data-parent-fit="cover"
       alt=""
     >
-    
+
       <div class="slideshow-text limit-copy-width-sm promo-slider-text">
       {% if block.settings.title %}
       <h4 class="text-center">{{- block.settings.title -}}</h4>
