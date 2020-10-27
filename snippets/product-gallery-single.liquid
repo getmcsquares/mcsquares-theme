@@ -1,10 +1,10 @@
-<!-- {%- capture classes -%}
+{%- capture classes -%}
   product-gallery--slider
   {% if product.images.size > 0 %}
     product-gallery--has-images
-    product-gallery--style-{{ settings.product_slideshow_style }}
+    product-gallery--style-square
   {% endif %}
-{%- endcapture -%} -->
+{%- endcapture -%}
 
 <!-- <div
   class="{{ classes | strip_newlines }}"
@@ -15,31 +15,34 @@
   class="{{ classes | strip_newlines }}"
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
-{% assign image = product.images.first %}
-    {%- unless image.alt contains 'logo' -%}
-      <figure
-        class="
-          product-gallery--image
-          image--selected
-        "
-        data-product-image="{{ image.id }}"
-        data-product-image-index="0"
-        tabindex="-1"
-        {% if selected_image != image %}
-          aria-hidden="true"
-        {% endif %}
-      >
-        <div
-          class="product-galley--image-background"
-            {%
-              include 'rimg',
-              img: image,
-              size: 'x700',
-              lazy: false,
-              background: true
-            %}
-        >
-        </div>
-      </figure>
-    {%- endunless -%}
+{% for filterImage in product.images %}
+{%- unless image.alt contains 'logo' -%}
+{% assign image = filterImage %}
+{% break %}
+{%- endunless -%}
+{% endfor %}
+  <figure
+    class="
+      product-gallery--image
+      image--selected
+    "
+    data-product-image="{{ image.id }}"
+    data-product-image-index="0"
+    tabindex="-1"
+    {% if selected_image != image %}
+      aria-hidden="true"
+    {% endif %}
+  >
+    <div
+      class="product-galley--image-background"
+        {%
+          include 'rimg',
+          img: image,
+          size: 'x600',
+          lazy: false,
+          background: true
+        %}
+    >
+    </div>
+  </figure>
 </div>
