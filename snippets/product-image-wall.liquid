@@ -1,34 +1,42 @@
 <div class="image-wall row product--container">
+  {% if product.images[3] %}
   <div class="col-12 order-1 image-wrap full-width-image-wrap"
     {%
       include 'rimg',
-      img: product.images[1],
-      size: 'x1000',
+      img: product.images[3],
+      size: 'x1200',
       lazy: true,
       background: true
     %}
     >
   </div>
+  {% endif %}
+  {% if product.images[1] %}
   <div class="col-md-4 order-3 order-md-2 image-wrap third-width-image-wrap"{%
     include 'rimg',
-    img:  product.images[2],
+    img:  product.images[1],
     size: 'x600',
     lazy: true,
     background: true
   %}>
   </div>
+  {% endif %}
+  {% if product.images[2] %}
   <div class="col-md-4 order-4 order-md-3 image-wrap third-width-image-wrap"
     {%
       include 'rimg',
-      img:  product.images[3],
+      img:  product.images[2],
       size: 'x600',
       lazy: true,
       background: true
     %}>
   </div>
+  {% endif %}
+  {% if product.images[1] %}
   <div class="col-md-4 order-2 order-md-4 image-wrap third-width-image-wrap">
     <div class="text-box">
       <p>Placeholder for Meta-driven text.</p>
     </div>
   </div>
+  {% endif %}
 </div>
