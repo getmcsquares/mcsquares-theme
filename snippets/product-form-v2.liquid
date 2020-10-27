@@ -139,11 +139,13 @@
           </h1>
         {% endif %}
       {% endif %}
-      <div class="yotpo-star-box yotpo">
-        <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo text-center"{% else %} class="yotpo bottomLine else"{% endif %}
-          data-product-id="{{ product.id }}">
+      {% unless product.template_suffix contains "rework" %}
+        <div class="yotpo-star-box yotpo">
+          <div  {% if template.name == 'product' %} class="yotpo bottomLine productYotpo text-center"{% else %} class="yotpo bottomLine else"{% endif %}
+            data-product-id="{{ product.id }}">
+          </div>
         </div>
-      </div>
+      {% endunless %}
       {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
         <div class="product-vendor">
           {% unless onboarding %}
