@@ -1,0 +1,15 @@
+{% if product.available %}
+  <div class="sticky-add-to-cart">
+    <button id="mobile-adder" class="button-primary btn--small hover-light" style="margin: 6px 0 6px 10px;">Buy It Now</button>
+  </div>
+{% endif %}
+<script>
+  // 2. Get a reference to our preferred element (link/button, see below) and
+  document.getElementById('mobile-adder').addEventListener('click', function () {
+      progClick();
+    });
+  var progClick = function(){
+    var button = document.getElementsByClassName("product-form--atc-button");
+    button[0].click();
+  }
+</script>

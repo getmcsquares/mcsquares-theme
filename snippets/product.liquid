@@ -39,18 +39,18 @@
     Product slideshow, never moves
   {% endcomment %}
   <div class="product-gallery col-12 col-md-6" data-product-gallery>
-    {% comment %}{%
+    {%
       include 'product-gallery-single',
       selected_image: selected_image,
       is_product_modal: is_product_modal,
       onboarding: onboarding
-    %}{% endcomment %}
-    {%
+    %}
+    {% comment %}{%
       include 'product-gallery',
       selected_image: selected_image,
       is_product_modal: is_product_modal,
       onboarding: onboarding
-    %}
+    %}{% endcomment %}
   </div>
   <div class="col-md-6">
     {% comment %}

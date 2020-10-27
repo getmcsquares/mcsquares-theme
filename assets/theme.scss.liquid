@@ -16637,3 +16637,29 @@ input[placeholder="Comments"]{
     right: -15px;
   }
 }
+// Sticky add to cart
+.sticky-add-to-cart{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  z-index: 2;
+  @include media($bp-small) {
+    display: block;
+  }
+  .button-primary{
+    border-radius: 0;
+  }
+  .btn--small {
+    padding: 10px 15px;
+    font-size: 1em;
+    line-height: 1;
+    width: 100%;
+    height: 82px;
+    margin: 0 auto !important;
+  }
+}
