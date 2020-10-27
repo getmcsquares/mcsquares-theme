@@ -60,7 +60,7 @@
           {% assign handle = menu_item.object.handle %}
           {% assign targetCollection = collections[handle] %}
             {% if targetCollection.image != blank %}
-              <img src="{{ targetCollection.image | img_url: '240x' }}" alt="{{targetCollection.handle}} logo" style="max-width: 100%; max-height: 24px;width: auto;height:24px;">
+              <img data-source="{{ targetCollection.image | img_url: '240x' }}" alt="{{targetCollection.handle}} logo" class="lazyload" style="max-width: 100%; max-height: 24px;width: auto;height:24px;">
               {% else %}
               {{- menu_item.title -}}
             {% endif %}
