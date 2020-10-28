@@ -146,9 +146,8 @@
           </div>
         </div>
       {% endunless %}
-{% comment %}
       {% if settings.product_show_vendor and product.vendor != blank or onboarding %}
-        <div class="product-vendor">
+        <div class="product-vendor" style="display: none !important">
           {% unless onboarding %}
             {%- capture vendor_link -%}
               {{ product.vendor | link_to_vendor }}
@@ -159,7 +158,6 @@
           {% endunless %}
         </div>
       {% endif %}
-{% endcomment %}
       {% if product.template_suffix == 'show-inventory' %}
           <div id="variant-inventory">
           <span class="product--badge badge--sale">
@@ -225,7 +223,7 @@
       type="hidden">
   {% else %}
     {%
-      include 'product-options-v2',
+      include 'product-options',
       product: product,
       selected_variant: selected_variant,
       style: 'radio'
@@ -235,9 +233,21 @@
   <div class="col-lg-12">
   {{atc}}
   </div>
-  <div class="col-lg-8 offset-lg-2 product-fuzzy">
+  <div class="col-lg-8 offset-lg-2 product-fuzzy test-class">
     {% include 'fuzzy-message' %}
   </div>
+  <div class="col-lg-12" style="display:none !important">
+    {% unless product.description == blank or hide_description or template == 'index' %}
+      {% unless template == 'index' %}
+        <div class="product-description rte test-1" data-product-description>
+          {{ product.description }}
+        </div>
+      {% endunless %}
+    {% endunless %}
+      {% if template == 'index' %}
+        <p class="text-small text-center"><a href="{{product.url}}"><small>View Full Details</small></p>
+      {% endif %}
+      </div>
   {% comment %} <div class="small-hide tester col-lg-5">
     {{atc}}
   </div> {% endcomment %}

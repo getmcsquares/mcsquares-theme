@@ -11,20 +11,24 @@
   data-product-slider
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
-<div
-  class="{{ classes | strip_newlines }}"
-  aria-label="{{ product.title }} image. Click or Scroll to Zoom."
->
 {% for variant in product.variants %}
 {%- unless variant.image.alt contains 'logo' -%}
 {% assign image = variant.image %}
+{%- endunless -%}
   <figure
     class="
       product-gallery--image
-      {% if forloop.first %}image--selected{% endif %}
+      {% if selected_image == image %}
+      image--selected
+      {% endif %}
     "
     data-product-image="{{ image.id }}"
-    data-product-image-index="0"
+    data-product-image-index="{{ forloop.index0 }}"
+    {% if is_video %}
+      data-product-image-video
+    {% else %}
+      data-product-image-zoom
+    {% endif %}
     tabindex="-1"
     {% if selected_image != image %}
       aria-hidden="true"
@@ -37,11 +41,12 @@
           img: image,
           size: 'x600',
           lazy: false,
-          background: true
+          background: true,
+          class: "lazyload lazypreload"
         %}
+        data-image="{{ image | img_url: '500x500' }}"
     >
     </div>
   </figure>
   {% endfor %}
-</div>
 </div>

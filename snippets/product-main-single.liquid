@@ -57,20 +57,29 @@
         {% endif %}
 
         {% unless onboarding %}
+        {% if product.template_suffix contains 'rework' %}
           {%
             include 'product-form-v2',
             product: product,
             selected_variant: selected_variant
           %}
+          {% else %}
+          {%
+            include 'product-form',
+            product: product,
+            selected_variant: selected_variant
+          %}
+          {% endif %}
         {% endunless %}
       </div>
   </div>
 </div>
+{% if product.template_suffix contains 'rework' %}
 <div class="row alt" style="margin: 3em 0 0;">
 <div class="col-lg-12">
   {% unless product.description == blank or hide_description or template == 'index' %}
     {% unless template == 'index' %}
-      <div class="product-description product--container alt rte" data-product-description style="max-width: 600px;">
+      <div class="product-description product--container alt rte" style="max-width: 600px;">
         <h3 style="margin:0;">Product Details</h3>
         {{ product.description }}
       </div>
@@ -81,6 +90,7 @@
     {% endif %}
     </div>
 </div>
+{% endif %}
   {% comment %}
     If is a 3 column layout, the form will move here at $bp-large (layout.isBreakpoint('L'))
   {% endcomment %}
