@@ -16764,12 +16764,32 @@ input[placeholder="Comments"]{
   .third-width-image-wrap{
     // width: 33%;
     // display: inline-block;
+    min-height: 420px;
+    @media screen and (max-width: 1200px){
+      min-height: 400px;
+    }
+    @media screen and (max-width: 1020px){
+      min-height: 380px;
+    }
+    @media screen and (max-width: 960px){
+      min-height: 320px;
+    }
+    @media screen and (max-width: 800px){
+      min-height: 260px;
+    }
+    @media screen and (max-width: 695px){
+      min-height: 440px;
+    }
   }
   .text-box{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 2em;
     flex-direction: column;
+    h4 {
+      margin-bottom: .5em;
+      font-weight: 600;
+    }
   }
 }
