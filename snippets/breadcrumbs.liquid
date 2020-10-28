@@ -26,7 +26,14 @@
         {{ collection.title | link_to: collection.url }}
       {% endif %}
       {{ delimiter }}
-      <span>{{ product.title }}</span>
+        {%- if product.title contains "<br/>" -%}
+          {% assign titleArray = product.title | split: '<br/>' %}
+          <span >{{- titleArray[0] -}}</span>
+        {%- else -%}
+          <span>{{ product.title }}</span>
+        {%- endif -%}
+      
+      
 
     {% elsif template contains 'list-collections' %}
 
