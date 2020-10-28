@@ -129,7 +129,13 @@
           <h1 class="product-title">
         {% endif %}
           {% unless onboarding %}
-            {{ product.title }}
+            {%- if product.title contains "<br/>" -%}
+              {% assign titleArray = product.title | split: '<br/>' %}
+              {{- titleArray[0] -}}<br/>
+              <span style="font-size: .8em">{{- titleArray[1] -}}</span>
+            {%- else -%}
+              {{ product.title }}
+            {%- endif -%}
           {% else %}
             {{ 'onboarding.product.title' | t }}
           {% endunless %}

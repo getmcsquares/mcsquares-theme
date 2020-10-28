@@ -123,6 +123,7 @@
   {% endif %}
 </div>
 
+{% unless product.template_suffix contains 'rework' %}
 {% if product.images.size > 0 %}
   <div
     class="product-gallery--navigation"
@@ -187,6 +188,7 @@
     </div>
   </div>
 {% endif %}
+{% endunless %}
 {% comment %} <script type="text/javascript">
   $('#gallery-prev').on('click', function(){
       var selected = $('.thumbnail--selected').attr('data-product-thumbnail');

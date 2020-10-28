@@ -11,6 +11,7 @@
   data-product-slider
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
+{% if product.variants.size > 0 %}
 {% for variant in product.variants %}
 {%- unless variant.image.alt contains 'logo' -%}
 {% assign image = variant.image %}
@@ -49,4 +50,39 @@
     </div>
   </figure>
   {% endfor %}
+  {% else %}
+  {% assign image = product.images[0] %}
+    <figure
+      class="
+        product-gallery--image
+        {% if selected_image == image %}
+        image--selected
+        {% endif %}
+      "
+      data-product-image="{{ image.id }}"
+      data-product-image-index="0"
+      {% if is_video %}
+        data-product-image-video
+      {% else %}
+        data-product-image-zoom
+      {% endif %}
+      tabindex="-1"
+      {% if selected_image != image %}
+        aria-hidden="true"
+      {% endif %}
+    >
+      <div
+        class="product-galley--image-background"
+          {%
+            include 'rimg',
+            img: image,
+            size: 'x600',
+            lazy: false,
+            background: false
+          %}
+          data-image="{{ image | img_url: '500x500' }}"
+      >
+      </div>
+    </figure>
+  {% endif  %}
 </div>
