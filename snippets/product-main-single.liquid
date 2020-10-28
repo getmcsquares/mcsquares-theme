@@ -66,12 +66,12 @@
       </div>
   </div>
 </div>
-<div class="row alt" style="margin-top: 2em;">
+<div class="row alt" style="margin: 3em 0 0;">
 <div class="col-lg-12">
   {% unless product.description == blank or hide_description or template == 'index' %}
     {% unless template == 'index' %}
-      <div class="product-description product--container alt rte" data-product-description>
-        <h3>Product Details</h3>
+      <div class="product-description product--container alt rte" data-product-description style="max-width: 1200px;">
+        <h3 style="margin:0;">Product Details</h3>
         {{ product.description }}
       </div>
     {% endunless %}
