@@ -16753,14 +16753,20 @@ input[placeholder="Comments"]{
 .image-wall{
   margin: 1.5em auto !important;
   .image-wrap{
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 420px;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // min-height: 420px;
+    &:not(.d-flex){
+      text-align: center;
+    }
+    img{
+      max-width: 100%;
+    }
   }
   .full-width-image-wrap{
     width: 100%;
-    min-height: 440px;
+    // min-height: 440px;
   }
   .third-width-image-wrap{
     // width: 33%;
@@ -16788,6 +16794,7 @@ input[placeholder="Comments"]{
     align-items: flex-start;
     padding: 2em;
     flex-direction: column;
+    text-align: unset;
     h4 {
       margin-bottom: .5em;
       font-weight: 600;

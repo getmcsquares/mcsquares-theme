@@ -7,7 +7,7 @@
       include 'rimg',
       img: product.images[3],
       size: 'x1200',
-      lazy: true,
+      lazy: false,
       background: false
     %}
   </div>
@@ -18,7 +18,7 @@
       include 'rimg',
       img:  product.images[1],
       size: 'x600',
-      lazy: true,
+      lazy: false,
       background: false
     %}
   </div>
@@ -29,14 +29,14 @@
       include 'rimg',
       img:  product.images[2],
       size: 'x600',
-      lazy: true,
+      lazy: false,
       background: false
     %}
   </div>
   {% endif %}
   {% if product.images[1] %}
   <div class="col-md-4 order-2 order-md-4 image-wrap third-width-image-wrap d-flex align-items-center justify-content-center">
-    <div class="text-box ">
+    <div class="text-box">
       {% if product.metafields["global"]["image_features_text"] %}
         {{ product.metafields["global"]["image_features_text"] }}
       {% else %}
