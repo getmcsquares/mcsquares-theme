@@ -25,45 +25,36 @@
         {%- for tag in current_tags -%}
           {% assign is_advanced_tag = false %}
           {% assign cat = tag | split: '_' | first %}
-
           {%- unless cat == tag -%}
             {%- if cat_array contains cat -%}
               {% assign is_advanced_tag = true %}
               {% assign title_tags = title_tags | append: ', ' | append: tag | replace_first: '_', ': ' %}
             {%- endif -%}
           {%- endunless -%}
-
           {%- unless is_advanced_tag -%}
             {% assign title_tags = title_tags | append: ', ' | append: tag %}
           {%- endunless -%}
         {%- endfor -%}
         {{ 'general.title.tags' | t: tags: title_tags | remove_first: ', ' }}
       {%- endif -%}
-
       {%- if current_page != 1 -%}
         {{- 'general.title.page' | t: page: current_page -}}
       {%- endif -%}
-
       {%- unless page_title contains shop.name -%}
         {{- 'general.title.shop' | t: shop: shop.name -}}
       {%- endunless -%}
     </title>
-
     {% if page_description != blank %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
-
     {% include 'favicon' %}
-
     {% if template contains 'collection' and current_tags %}
       <meta name="robots" content="noindex" />
       <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
     {% else %}
       <link rel="canonical" href="{{ canonical_url }}" />
     {% endif %}
-
     <meta name="viewport" content="width=device-width">
-
     {% assign twitter_handle = settings.social_twitter | split: 'twitter.com/' | last %}
     {%
       include 'social-meta-tags',
@@ -93,7 +84,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-946440132');
 </script>
 
