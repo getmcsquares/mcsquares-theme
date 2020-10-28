@@ -6,25 +6,22 @@
   {% endif %}
 {%- endcapture -%}
 
-<!-- <div
+<div
   class="{{ classes | strip_newlines }}"
   data-product-slider
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
-> -->
+>
 <div
   class="{{ classes | strip_newlines }}"
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
-{% for filterImage in product.images %}
-{%- unless image.alt contains 'logo' -%}
-{% assign image = filterImage %}
-{% break %}
-{%- endunless -%}
-{% endfor %}
+{% for variant in product.variants %}
+{%- unless variant.image.alt contains 'logo' -%}
+{% assign image = variant.image %}
   <figure
     class="
       product-gallery--image
-      image--selected
+      {% if forloop.first %}image--selected{% endif %}
     "
     data-product-image="{{ image.id }}"
     data-product-image-index="0"
@@ -45,4 +42,6 @@
     >
     </div>
   </figure>
+  {% endfor %}
+</div>
 </div>
