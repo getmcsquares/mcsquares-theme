@@ -38,7 +38,12 @@
     <div class="cart-item--content">
       <h2 class="cart-item--content-title">
         <a href="{{ item.url }}">
+        {%- if item.product.title contains "<br/>" -%}
+          {% assign titleArray = item.product.title | split: '<br/>' %}
+          {{- titleArray[0] -}}
+        {%- else -%}
           {{ item.product.title }}
+        {%- endif -%}
         </a>
       </h2>
 
