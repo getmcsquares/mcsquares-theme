@@ -14,7 +14,21 @@
             {{ 'image' | placeholder_svg_tag: 'placeholder--image' }}
           </div>
           <div class="atc--product-details">
-            <h2 class="atc--product-details--title" data-atc-banner-product-title></h2>
+            <h2 class="atc--product-details--title" data-atc-banner-product-title>
+              {% if data-atc-banner-product-title contains "<br/>" %}
+                {% assign titleArray = data-atc-banner-product-title | split: '<br/>' %}
+                {{ titleArray[0] }}
+              {% else %}
+                data-atc-banner-product-title
+              {% endif %}
+            </h2>
+            {% comment %}{% if data-atc-banner-product-title contains "<br/>" %}
+              {% assign titleArray = data-atc-banner-product-title | split: '<br/>' %}
+              <h2 class="atc--product-details--title" data-{{ titleArray[0] }} ></h2>
+            {% else %}
+              <h2 class="atc--product-details--title" data-atc-banner-product-title></h2>
+            {% endif %}{% endcomment %}
+
             <span class="atc--product-details--options" data-atc-banner-product-options></span>
             <span class="atc--product-details--price">
               <span class="atc--product-details--price-quantity" data-atc-banner-product-price-quantity></span>
