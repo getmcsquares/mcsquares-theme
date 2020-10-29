@@ -11,7 +11,7 @@
   data-product-slider
   aria-label="{{ product.title }} image. Click or Scroll to Zoom."
 >
-{% if product.variants.size > 0 %}
+{% if product.variants.size > 1 %}
 {% for variant in product.variants %}
 {%- unless variant.image.alt contains 'logo' -%}
 {% assign image = variant.image %}
@@ -22,6 +22,7 @@
       {% if selected_image == image %}
       image--selected
       {% endif %}
+      multipole variant
     "
     data-product-image="{{ image.id }}"
     data-product-image-index="{{ forloop.index0 }}"
@@ -46,14 +47,14 @@
   </figure>
   {% endfor %}
   {% else %}
-  {% assign image = product.images[0] %}
+  {% assign image = product.featured_image %}
     <figure
       class="
         product-gallery--image
         {% if selected_image == image %}
         image--selected
         {% endif %}
-      "
+        single-image"
       data-product-image="{{ image.id }}"
       data-product-image-index="0"
       {% if is_video %}
@@ -66,17 +67,19 @@
         aria-hidden="true"
       {% endif %}
     >
-      <div
-        class="product-galley--image-background"
-          {%
-            include 'rimg',
-            img: image,
-            size: 'x650',
-            lazy: false,
-            background: false
-          %}
-      >
-      </div>
+    <div
+    class="product-galley--image-background"
+      {%
+        include 'rimg',
+        img: image,
+        size: 'x650',
+        lazy: false,
+        background: true,
+        class: "lazyload lazypreload"
+      %}
+      data-image="{{ image | img_url: '500x500' }}"
+    >
+  </div>
     </figure>
   {% endif  %}
 </div>

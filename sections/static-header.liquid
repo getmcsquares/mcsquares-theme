@@ -43,6 +43,7 @@
     {% if section.settings.full_width_header %}
       site-header--full-width
     {% endif %}
+
   "
   data-site-header-main
   {% if section.settings.sticky_header %}data-site-header-sticky{% endif %}
@@ -59,10 +60,11 @@
       {% if section.settings.small_promo_text != empty %}
         small-promo-enabled
       {% endif %}
+      small-hide
     "
   >
 
-    <div class="site-header-logo">
+    <div class="site-header-logo small-hide">
       <a
         class="site-logo"
         href="/">
@@ -190,6 +192,46 @@
   </div>
 
   <div class="site-header-cart d-flex align-items-center justify-content-between mobile">
+    <div class="site-header-logo small-show mobile-logo">
+      <a
+        class="site-logo"
+        href="/">
+        {% if section.settings.logo %}
+          {% assign logo_alt = section.settings.logo.alt %}
+          {% if logo_alt == '' %}
+            {% assign logo_alt = shop.name | strip %}
+          {% endif %}
+          {% assign logo_height = section.settings.logo_height | default: 80 %}
+          {% assign logo_width = section.settings.logo_width | default: 80 %}
+          {% assign logo_size = logo_width | prepend: 'x' %}
+
+          {% capture logo_style %}
+            max-width: {{ logo_width }}px;
+            max-height: {{ logo_height }}px;
+          {% endcapture %}
+
+          {%
+            include 'rimg',
+            img: section.settings.logo,
+            class: 'site-logo-image',
+            style: logo_style,
+            alt: logo_alt,
+            size: logo_size
+          %}
+        {% else %}
+          {% if template == 'index' %}
+            <h1 class="site-logo-text">
+              {{ shop.name }}
+            </h1>
+          {% else %}
+            <span class="site-logo-text">
+              {{ shop.name }}
+            </span>
+          {% endif %}
+        {% endif %}
+      </a>
+    </div>
+
    <a class="site-header-menu-toggle" href="#" data-menu-toggle>
     <div class="site-header-menu-toggle--button" tabindex="-1">
       <span class="toggle-icon--bar toggle-icon--bar-top"></span>

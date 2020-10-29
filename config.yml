@@ -1,11 +1,11 @@
-production:
-  password: 0d1e460e75a9e993dbf8e9a3f9a464a0
-  theme_id: "74031038519"
-  store: https://mcsquares-dev.myshopify.com
-  ignore_files:
-  - config/settings_data.json
-  - config/settings_schema.json
-  - theme.lock
+# production:
+#   password: 0d1e460e75a9e993dbf8e9a3f9a464a0
+#   theme_id: "74031038519"
+#   store: https://mcsquares-dev.myshopify.com
+#   ignore_files:
+#   - config/settings_data.json
+#   - config/settings_schema.json
+#   - theme.lock
 
 development:
   password: 1d45a165db5b162b7fbbc5c46a5e325a

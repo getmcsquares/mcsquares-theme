@@ -3064,6 +3064,9 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
       padding-bottom: $header-padding-vertical-sticky;
     }
   }
+  @include media($max: $bp-large) {
+    padding-top: $header-padding-vertical-sticky;
+  }
 
   &.site-header--full-width  {
     width: 100%;
@@ -3108,6 +3111,10 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
     display: table;
     min-height: $header-content-height;
     min-height: 60px;
+    &.mobile-logo{
+      min-height: unset;
+      margin-right: unset;
+    }
   }
 
   @include media($min: $bp-large) {
@@ -16365,9 +16372,9 @@ input[placeholder="Comments"]{
       display: block;
       visibility: hidden;
       padding: 0 10px;
-      width: calc(100vw - 300px);
+      width: calc(100vw - 320px);
       @media screen and (max-width: 1056px){
-        width: calc(100vw - 220px);
+        width: calc(100vw - 260px);
       }
       @media screen and (min-width: 1400px){
         width: calc(80vw - 400px);
