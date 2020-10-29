@@ -174,7 +174,12 @@
 
       <h2 class="productitem--title">
         <a href="{{ product_link }}">
-          {{ product_title }}
+          {% if product_title contains "<br/>" %}
+            {% assign titleArray = product.title | split: '<br/>' %}
+            {{ titleArray[0] }}
+          {% else %}
+            {{ product_title }}
+          {% endif %}
         </a>
       </h2>
 
