@@ -16,32 +16,21 @@
   {% assign price = product.price %}
   {% assign price_varies = product.price_varies %}
   {% assign product_available = product.available %}
+  {% comment %}{% assign product_title = product.title %}{% endcomment %}
 
-  {% comment %}{% if product.title contains "<br/>" %}
-    {% assign titleArray = product.title | split: '<br/>' %}
-    {{- titleArray[0] -}}
-  {% else %}
-    {{ product.title }}
-  {% endif %}
-
-  {% if product.title contains '<br/>' %}
-    {% assign titleArray = product.title | split: '<br/>' %}
-    {% assign product_title = {{- titleArray[0] -}} %}
-  {% else %}
-    {% assign product_title = product.title %}
-  {% endif %}
-  {% endcomment %}
-  {% assign product_title = product.title %}
+    {% if product.title contains "<br/>" %}
+      {% assign titleArray = product.title | split: '<br/>' %}
+      {{ titleArray[0] }}
+      {% assign product_title = titleArray[0] %}
+    {% else %}
+      {{ product.title }}
+      {% assign product_title = product.title %}
+    {% endif %}
 
   {% assign product_vendor = product.vendor %}
   {% assign product_link = product.url | within: collection %}
   {% assign product_description = product.description | strip_html %}
-  {% assign product_description_size = product.{%- if product.title contains "<br/>" -%}
-          {% assign titleArray = product.title | split: '<br/>' %}
-          <span >{{- titleArray[0] -}}</span>
-        {%- else -%}
-          <span>{{ product.title }}</span>
-        {%- endif -%}description | strip_html | size %}
+  {% assign product_description_size = product.description | strip_html | size %}
   {% if recently_viewed == true %}
     {%- capture recently_viewed_header -%}
     <div class="product-recently-viewed-card-time" data-product-handle="{{product.handle}}">
