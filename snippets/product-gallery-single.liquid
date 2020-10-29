@@ -25,11 +25,6 @@
     "
     data-product-image="{{ image.id }}"
     data-product-image-index="{{ forloop.index0 }}"
-    {% if is_video %}
-      data-product-image-video
-    {% else %}
-      data-product-image-zoom
-    {% endif %}
     tabindex="-1"
     {% if selected_image != image %}
       aria-hidden="true"
@@ -80,7 +75,6 @@
             lazy: false,
             background: false
           %}
-          data-image="{{ image | img_url: '500x500' }}"
       >
       </div>
     </figure>

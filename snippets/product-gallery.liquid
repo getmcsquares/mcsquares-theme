@@ -37,8 +37,6 @@
         data-product-image-index="{{ forloop.index0 }}"
         {% if is_video %}
           data-product-image-video
-        {% else %}
-          data-product-image-zoom
         {% endif %}
         tabindex="-1"
         {% if selected_image != image %}
@@ -101,7 +99,7 @@
             {%
               include 'rimg',
               img: image,
-              size: 'x700',
+              size: 'x600',
               lazy: false,
               canvas: false,
               class: "lazyload lazypreload"
@@ -189,7 +187,7 @@
   </div>
 {% endif %}
 {% endunless %}
-{% comment %} <script type="text/javascript">
+<!-- <script type="text/javascript">
   $('#gallery-prev').on('click', function(){
       var selected = $('.thumbnail--selected').attr('data-product-thumbnail');
       var index = parseInt(selected) - 1;
@@ -202,4 +200,4 @@
       $( "button[data-product-thumbnail='" + index + "']" ).click();
     }
   )
-</script> {% endcomment %}
+</script>  -->

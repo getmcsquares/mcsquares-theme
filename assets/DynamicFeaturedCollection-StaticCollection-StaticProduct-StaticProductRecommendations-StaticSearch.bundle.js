@@ -2150,9 +2150,9 @@ function () {
 
           $flyOut.find('[data-atc-banner-product-image]').html("<img src=\"".concat(imageUrl, "\" alt=\"").concat(response.product_title, "\">"));
         }
-
-        $flyOut.find('[data-atc-banner-product-title]').text(response.product_title.replace(/<[^>]*>?/gm, ''));
-
+        var filteredTitle = response.product_title.split('<br/>')[0]
+        $flyOut.find('[data-atc-banner-product-title]').text(filteredTitle);
+        // $flyOut.find('[data-atc-banner-product-title]').text(response.product_title.replace(/<[^>]*>?/gm, ''));
         /*
           TODO: Bring in `variant.options`, iterate through to get option
             name for: <strong>Option name:</strong> Option
