@@ -97,7 +97,11 @@
       data-product-atc>
       <span class="atc-button--text">
         {% if selected_variant.available %}
+          {% if product.template_suffix contains 'rework' %}
+          Add to Cart
+          {% else %}
           {{ 'product.buttons.add_to_cart' | t }}
+          {% endif %}
         {% else %}
           {{ 'product.buttons.sold_out' | t }}
         {% endif %}
