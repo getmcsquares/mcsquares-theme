@@ -15,3 +15,12 @@ development:
   - config/settings_data.json
   - config/settings_schema.json
   - theme.lock
+
+development-plus:
+  password: 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
+  theme_id: "111354577054"
+  store: https://mcsquaresdevelopment.myshopify.com
+  ignore_files:
+  - config/settings_data.json
+  - config/settings_schema.json
+  - theme.lock
