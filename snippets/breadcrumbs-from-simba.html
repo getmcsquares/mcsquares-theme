@@ -1,0 +1,191 @@
+<ul class="breadcrumb breadcrumb--center">
+    <li class="breadcrumb__item breadcrumb__item--current" aria-current="step">
+    <span class="breadcrumb__text">Your information</span>
+      <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> <use xlink:href="#chevron-right"></use> </svg>
+  </li>
+    <li class="breadcrumb__item breadcrumb__item--blank">
+    <span class="breadcrumb__text">Shipping</span>
+      <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> <use xlink:href="#chevron-right"></use> </svg>
+  </li>
+    <li class="breadcrumb__item breadcrumb__item--blank">
+    <span class="breadcrumb__text">Payment</span>
+  </li>
+</ul>
+
+
+/* Alternate Breadcrumbs */
+  #main-checkout-body .content .checkout__header .wrap {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  #main-checkout-body .checkout__header {
+    padding: 0;
+  }
+
+  #main-checkout-body .breadcrumb__item {
+    position: relative;
+    width: 33%;
+    padding: 36px 0;
+    margin-top: 12px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    overflow-wrap: normal;
+    word-wrap: normal;
+    word-break: normal;
+    float: left;
+    font-size: 12px;
+
+  }
+
+  #main-checkout-body .breadcrumb__item a {
+    font-size: 12px;
+  }
+
+  /* #main-checkout-body .checkout__header .breadcrumb__item:first-child {
+    display: none;
+  } */
+
+  .page--thank-you .breadcrumb {
+    display: none !important;
+  }
+
+  #main-checkout-body .checkout__header .breadcrumb {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #main-checkout-body .breadcrumb__item .icon-svg {
+    display: none;
+  }
+
+  #main-checkout-body .breadcrumb__text,
+  .breadcrumb__link {
+    padding: 0;
+    display: block;
+    width: 100%;
+  }
+
+  #main-checkout-body .breadcrumb__text::before,
+  #main-checkout-body .breadcrumb__link::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    display: block;
+    background: #0cc6de;
+    top: 0;
+    border-radius: 50%;
+    left: 50%;
+    margin-left: -12px;
+    box-sizing: border-box;
+    border: 2px solid #0cc6de;
+  }
+
+  #main-checkout-body .breadcrumb__link::before {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  #main-checkout-body .breadcrumb__item--blank .breadcrumb__text::before,
+  #main-checkout-body .breadcrumb__item--blank .breadcrumb__link::before {
+    background: transparent;
+  }
+
+  #main-checkout-body .checkout__header .breadcrumb__item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #dedede;
+    left: 50%;
+    top: 8px;
+    margin-left: 24px;
+  }
+
+  #main-checkout-body .breadcrumb__item::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 1px;
+    background: #dedede;
+    left: 0px;
+    top: 8px;
+    margin-left: -24px;
+  }
+
+  /* #main-checkout-body .breadcrumb__item:nth-child(2)::before,
+  #main-checkout-body .breadcrumb__item:last-child::after {
+    display: none;
+  } */
+
+  #main-checkout-body .breadcrumb__item:first-child::before,
+  #main-checkout-body .breadcrumb__item:last-child::after {
+    display: none;
+  }
+
+  #main-checkout-body .breadcrumb__item--current ~ .breadcrumb__item .breadcrumb__text::before,
+  #main-checkout-body .breadcrumb__item--current ~ .breadcrumb__item .breadcrumb__link::before {
+    background: transparent;
+  }
+
+  .breadcrumb__item--current {
+    color: #2d2c2c;
+    font-weight: normal;
+  }
+
+  .breadcrumb__item--blank span {
+    color: #a29993;
+  }
+
+  #main-checkout-body .checkout__header .visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  #main-checkout-body .page--thank-you .checkout__header .breadcrumb {
+    display: none;
+  }
+
+  #simba-checkout-breadcrumb-header {
+    display: none;
+  }
+
+  #main-checkout-body #simba-checkout-breadcrumb-header {
+    display: block;
+  }
+
+  #main-checkout-body #simba-checkout-breadcrumb-header .logo {
+    display: none;
+  }
+
+  #simba-checkout-non-breadcrumb-main {
+    display: block;
+  }
+
+  #main-checkout-body #simba-checkout-non-breadcrumb-main {
+    display: none;
+  }
+
+  @media (min-width: 1000px) {
+    #main-checkout-body .checkout__header .breadcrumb {
+      margin: 0 auto;
+    }
+
+    #main-checkout-body #simba-checkout-breadcrumb-header .logo {
+      display: block;
+      margin-top: 56px;
+    }
+  }
