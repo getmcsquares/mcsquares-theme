@@ -30,11 +30,17 @@
           {{ content_for_logo }}
           </div>
         </header>
+      </div>
+      <div class="small-show">
         {{ breadcrumb }}
       </div>
       {{ order_summary_toggle }}
+      
       <div class="wrap">
         <div class="main">
+          <div class="small-hide">
+            {{ breadcrumb }}
+          </div>
           <header style="padding-bottom:.75em;">
             {{ alternative_payment_methods }}
           </header>
@@ -86,6 +92,7 @@ body, p, a {
 }
 .sidebar {
   background: #fafafa;
+  z-index: -1;
 }
 .order-summary__sections {
   height: unset !important;
@@ -122,7 +129,7 @@ body, p, a {
 }
 .breadcrumb{
   justify-content: center;
-  max-width: 600px;
+  max-width: 900px;
   margin: 3em auto 1em !important;
   height: 40px;
 }
@@ -165,7 +172,7 @@ body, p, a {
   content: "";
   position: absolute;
   top: -1px;
-  right: calc(100% - 16px);
+  right: calc(50% - 16px);
   transform: translate(-50%,-50%);
   width: 12px;
   height: 12px;
@@ -173,6 +180,7 @@ body, p, a {
   background: #026172;
   border: 2px solid #026172;
   z-index: 1;
+  box-shadow: 0px 0px 0 8px white;
 }
 .breadcrumb__item--current{
   border-top: 2px solid #026172;
@@ -189,6 +197,7 @@ body, p, a {
   background: white;
   border: 2px solid #026172;
   z-index: 1;
+  box-shadow: 0px 0px 0 8px white;
 }
 .breadcrumb_text, .breadcrumb_link {
   transform: translate(-50px,-0%);
@@ -208,6 +217,7 @@ body, p, a {
   background: white;
   border: 2px solid lightgrey;
   z-index: 1;
+  box-shadow: 0px 0px 0 8px white;
 }
 @media screen and (max-width: 500px){
     .fuzzy-message-col{
@@ -221,6 +231,19 @@ body, p, a {
     .inner.wrap {
       max-width: 90%;
     }
+}
+@media screen and (max-width: 1000px){
+.small-hide{
+    display: none;
+  }
+}
+.small-show{
+  display: none;
+}
+@media screen and (max-width: 1000px){
+.small-show{
+    display: block;
+  }
 }
 </style>
 <script>
