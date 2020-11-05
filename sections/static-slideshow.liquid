@@ -85,6 +85,9 @@
           data-themecolor="{{ settings.color_text }}"
           data-slidecolor="{{ block.settings.color }}"
         >
+        {% if block.settings.cta_override %}
+        <a class="slideshow-link-override" href="{{block.settings.cta_override}}"></a>
+        {% endif %}
           {% if block.settings.background_image %}
             {% comment %} {%
               include 'rimg',
@@ -117,6 +120,7 @@
             ></div>
           {% endif %}
         </div>
+        {% unless block.settings.cta_override %}
         {% if block.settings.title != blank
           or block.settings.text != blank
           or block.settings.button_one_label != blank
@@ -172,6 +176,7 @@
             {% endif %}
           </div>
         {% endif %}
+        {% endunless %}
       </div>
 
     {% endfor %}
@@ -314,7 +319,20 @@
         },
         {
           "type": "header",
-          "content": "Buttons"
+          "content": "CTA Override"
+        },
+        {
+          "type": "paragraph",
+          "content": "If this field has a link in it, it will force a clickable state on the entire background image and hide the normal cta box."
+        },
+        {
+          "id": "cta_override",
+          "type": "url",
+          "label": "Button 1 link"
+        },
+        {
+          "type": "header",
+          "content": "CTA Buttons"
         },
         {
           "id": "button_one_label",
