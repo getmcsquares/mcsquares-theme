@@ -339,12 +339,6 @@
       },
       {
         "type": "checkbox",
-        "id": "product_show_variant_size",
-        "label": "Show Variant Size",
-        "default": false
-      },
-      {
-        "type": "checkbox",
         "id": "product_show_sku",
         "label": "Show SKU",
         "default": false
