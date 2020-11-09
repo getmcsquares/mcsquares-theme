@@ -86,6 +86,7 @@
   {{ settings.product_social_sharing }}
   {{ settings.product_show_vendor }}
   {{ settings.product_ratings_reviews }}
+  {{ settings.product_show_variant_size }}
   {{ settings.product_show_sku }}
   {{ 'general.general.quantity' | t }}
   {{ 'products.product.add_to_cart' | t }}
@@ -152,6 +153,22 @@
         %}
       </figure>
     </a>
+
+    {%- capture product_show_variant_size -%}
+      {% if settings.product_show_variant_size == true %}
+        {% unless onboarding %}
+          <div
+            class="
+              product-variant-size
+              {% if sku == empty %}product-variant-size--empty{% endif %}
+            "
+          >
+            VARIANT Description here Chad todo{{ 'product.general.sku_html' | t: sku: sku | strip_newlines }}
+          </div>
+        {% endunless %}
+      {% endif %}
+    {%- endcapture  -%}
+
 
     {%- capture product_item_price -%}
       {%
