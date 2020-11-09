@@ -93,9 +93,12 @@ function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return scrollLeft; });
 function scrollLeft($el) {
   var $container = $el.parent();
-  $container.animate({
-    scrollLeft: $el.offset().left - $el.width() / 2 - $container.width() / 2
-  });
+  console.log('header container', $container.length)
+  if ($container.length > 0 ){
+    $container.animate({
+      scrollLeft: $el.offset().left - $el.width() / 2 - $container.width() / 2
+    });
+  }
 }
 
 /***/ }),

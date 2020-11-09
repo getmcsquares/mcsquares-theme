@@ -285,6 +285,7 @@ function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return scrollLeft; });
 function scrollLeft($el) {
   var $container = $el.parent();
+  console.log('container:', $container)
   $container.animate({
     scrollLeft: $el.offset().left - $el.width() / 2 - $container.width() / 2
   });
