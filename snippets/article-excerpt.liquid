@@ -49,8 +49,10 @@
           {% endif %}
 
           {% if section.settings.show_author %}
-            <span class="article--excerpt-meta-item">
-              {{ article.tags.first }}
+            <span class="article--excerpt-meta-item article--section">
+              {% for tag in article.tags limit: 1 %}
+                {{ tag | link_to_tag: tag }}
+              {% endfor %}
             </span>
           {% endif %}
         </div>
