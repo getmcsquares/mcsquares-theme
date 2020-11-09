@@ -1,7 +1,7 @@
       {% assign otherProducts = '' | split: ';' %}
       {% assign indexer = 0 %}
-{% for tag in collection.all_tags %}
-          {% if tag contains 'sort-by' %}
+      {% for tag in collection.all_tags %}
+        {% if tag contains 'sort-by' %}
           {% capture current_tag %}/{{ tag }}/{% endcapture %}
           {% assign words =  tag | remove: 'sort-by' | split: '-' %}
           <h3>{% for word in words %}{{ word }} {% endfor %}</h3>
@@ -19,15 +19,15 @@
             {% endfor %}
           {% endfor %}
           </ul>
-          {% endif %}
-        {% endfor %}
+        {% endif %}
+      {% endfor %}
 
       {% if indexer < collection.products.size %}
-      {% unless indexer == 0 %}
-      <h3>Other</h3>
-      {% endunless %}
-      <ul class="productgrid--items">
-            {% for product in collection.products %}
+        {% unless indexer == 0 %}
+        <h3>Other</h3>
+        {% endunless %}
+        <ul class="productgrid--items">
+          {% for product in collection.products %}
             {% assign hasSort = false %}
               {% for product_tag in product.tags %}
                 {% if product_tag contains 'sort-by' %}
