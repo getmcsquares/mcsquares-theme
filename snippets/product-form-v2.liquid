@@ -91,7 +91,7 @@
     </div>
 
     <button
-      class="button-secondary product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
+      class="button-primary product-form--atc-button {% unless selected_variant.available %}disabled{% endunless %}"
       type="submit"
       {% unless selected_variant.available %}disabled{% endunless %}
       >
@@ -106,9 +106,9 @@
         {%- include 'icon-spinner' -%}
       </span>
     </button>
-{% unless template == 'index' %}
+<!-- {% unless template == 'index' %}
       {{ form | payment_button }}
-    {% endunless %}
+    {% endunless %} -->
   </div>
   {%- comment -%}{% if enable_social_sharing %}
     {{ share_buttons | strip_newlines }}

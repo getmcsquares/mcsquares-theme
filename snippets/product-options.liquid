@@ -96,7 +96,7 @@
                     id="data-product-option-{{ optionIndex }}-{{ forloop.index0 }}"
                   >
 
-                  <span class="option-value-name" tabindex="-1">{{ value }}</span>
+                  <span class="option-value-name" tabindex="-1">{{ value }}<br/><small>{{ product.variants[forloop.index0].price | money}}</small></span>
                 </label>
               </div>
             {% endfor %}
