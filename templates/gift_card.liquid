@@ -22,7 +22,7 @@
 
     {{ content_for_header }}
 
-    <script>
+    <script async>
       document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
 
       if (window.Shopify && window.Shopify.designMode) document.documentElement.className += ' in-theme-editor';
@@ -154,6 +154,6 @@
       src="{{ 'empire.js' | asset_url }}"
       data-scripts
       data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
-    >
+    ></script>
   </body>
 </html>

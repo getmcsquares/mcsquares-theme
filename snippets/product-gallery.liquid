@@ -187,7 +187,7 @@
   </div>
 {% endif %}
 {% endunless %}
-<script type="text/javascript">
+<script type="text/javascript" defer>
   $('#gallery-prev').on('click', function(){
       var selected = $('.thumbnail--selected').attr('data-product-thumbnail');
       var index = parseInt(selected) - 1;
@@ -200,4 +200,4 @@
       $( "button[data-product-thumbnail='" + index + "']" ).click();
     }
   )
-</script> 
+</script>
