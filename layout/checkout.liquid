@@ -249,6 +249,12 @@ body, p, a {
   }
 }
 </style>
-<script>
-  $('.breadcrumb').prepend('<div class="progress-bar"></div>')
+<script async>
+(function() {
+console.log('click?')
+var el = document.getElementsByClassName('order-summary-toggle');
+el[0].click()
+
+})();
+
 </script>
