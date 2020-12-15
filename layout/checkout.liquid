@@ -99,6 +99,30 @@ body, p, a {
 }
 .order-summary__sections {
   height: unset !important;
+  
+}
+@media screen and (max-width: 1000px){
+  .order-summary__sections{
+      display: flex;
+      flex-direction: column;
+    }
+}
+@media screen and (max-width: 1000px){
+  .order-summary__section--product-list{
+      order: 2;
+    }
+}
+@media screen and (max-width: 1000px){
+  .order-summary__section--discount{
+      order: 1;
+      border-bottom: 1px solid rgba(175,175,175,0.34);
+      border-top: none !important;
+    }
+}
+@media screen and (max-width: 1000px){
+  .order-summary__section--total-lines{
+      order: 3;
+    }
 }
 .fuzzy-message-img{
   max-width: 30px;

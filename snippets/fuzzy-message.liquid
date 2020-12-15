@@ -1,9 +1,12 @@
-{% for item in checkout.line_items %}
-{% assign title = item.title | downcase %}
-{% if title contains 'stickie' or title contains 'sticky' %}
-{% assign is_sticky = true %}
+{% if checkout.line_items %}
+  {% for item in checkout.line_items %}
+  {% assign title = item.title | downcase %}
+  {% if title contains 'stickie' or title contains 'sticky' %}
+  {% assign is_sticky = true %}
+  {% endif %}
+  {% endfor %}
 {% endif %}
-{% endfor %}
+<div>
   <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-moneyback_teal.png' | asset_url }}"/><p class="fuzzy-message-text">100% Money-back Guarantee</p></div>
   <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-noghost-teal.png' | asset_url }}"/><p class="fuzzy-message-text">{% if is_sticky %}180 day{% else %}2 Year{% endif %} No Ghosting Guarantee</p></div>
   <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'plant_teal-1.png' | asset_url }}"/><p class="fuzzy-message-text">One Tree Planted For Every Order</p></div>

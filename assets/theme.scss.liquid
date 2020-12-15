@@ -11361,19 +11361,27 @@ $local-image-width: rem(100px);
 .atc-banner--container {
   @extend %sneak-in;
   position: fixed;
-  top: 0;
+  top: 142px;
   z-index: $index-banner;
   display: none;
-  width: 100%;
+  width: 340px;
   background-color: $color-background;
   outline: 0;
   box-shadow: 0 2px 5px transparentize($color-border, 0.75);
   transition: text-shadow 0.275s linear; // animation duration + delay
-
-  .site-header-sticky & {
-    position: absolute;
-    top: 100%;
+  right: 0;
+  height: calc(100vh - 142px);
+  @include media($max: $bp-large) {
+    top: 102px;
+    height: calc(100vh - 102px);
   }
+  @include media($max: $bp-small) {
+    width: 100%;
+  }
+  // .site-header-sticky & {
+  //   position: absolute;
+  //   top: 100%;
+  // }
 }
 
 .atc-banner--outer {
@@ -11391,23 +11399,63 @@ $local-image-width: rem(100px);
   margin-left: auto;
   table-layout: fixed;
   text-align: center;
-
-  @include media($min: $bp-small) {
-    display: table;
-    text-align: left;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  // @include media($min: $bp-small) {
+  //   display: table;
+  //   text-align: left;
+  // }
+}
+.atc-banner--fuzzy{
+  margin-top: 4em;
+  @include media($max: $bp-small) {
+    display: none;
   }
 }
+// FUZYY MESSAGING NON-CHECKOUT
+.fuzzy-message-img{
+  max-width: 30px;
+  margin-right: 10px;
+}
+.fuzzy-message-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+.fuzzy-message-col{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+  p{
+    margin: 0;
+  }
+}
+.fuzzy-message-text{
+  text-transform: capitalize;
+}
 
+.product-fuzzy {
+  .fuzzy-message-text {
+    margin: 0 5px;
+  }
+}
 // Banner columns
 .atc-banner--product {
   @include font-size-body;
   vertical-align: middle;
 
-  @include media($min: $bp-small) {
-    display: table-cell;
-    width: 52%;
-    padding-right: $space-x-large;
-  }
+  // @include media($min: $bp-small) {
+  //   display: table-cell;
+  //   width: 52%;
+  //   padding-right: $space-x-large;
+  // }
 
   @include media($min: $bp-large) {
     padding-right: $space-x-large;
@@ -11418,17 +11466,17 @@ $local-image-width: rem(100px);
   margin-top: $space-xx-large;
   vertical-align: middle;
 
-  @include media($min: $bp-small) {
-    display: table-cell;
-    width: 48%;
-    padding-left: $space-large;
-    margin-top: 0;
-    border-left: 1px solid $color-border-soft;
-  }
+  // @include media($min: $bp-small) {
+  //   display: table-cell;
+  //   width: 48%;
+  //   padding-left: $space-large;
+  //   margin-top: 0;
+  //   border-left: 1px solid $color-border-soft;
+  // }
 
-  @include media($min: $bp-large) {
-    padding-left: $space-xx-large;
-  }
+  // @include media($min: $bp-large) {
+  //   padding-left: $space-xx-large;
+  // }
 }
 
 // Product column
@@ -16730,36 +16778,7 @@ input[placeholder="Comments"]{
   }
 }
 
-// FUZYY MESSAGING NON-CHECKOUT
-.fuzzy-message-img{
-  max-width: 30px;
-  margin-right: 10px;
-}
-.fuzzy-message-row{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
-  flex-wrap: wrap;
-  margin: 30px auto;
-}
-.fuzzy-message-col{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-.fuzzy-message-text{
-  text-transform: capitalize;
-}
 
-.product-fuzzy {
-  .fuzzy-message-text {
-    margin: 0 5px;
-  }
-}
 // Sticky add to cart
 .sticky-add-to-cart{
   display: none;
@@ -16849,4 +16868,28 @@ input[placeholder="Comments"]{
   width: 100%;
   z-index: 1000;
   cursor: pointer;
+}
+
+// overlay for cart open
+
+.site-main:after {
+  content:'\A';
+  position:absolute;
+  top:0; left:0;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  z-index: -10000;
+  height:0;
+  width: 0;
+  @include media($max: $bp-small) {
+    display: none;
+  }
+}
+.site-main.overlay-active:after {
+  z-index: 1000;
+  opacity:1;
+  width:100%; height:100%;
+  
 }
