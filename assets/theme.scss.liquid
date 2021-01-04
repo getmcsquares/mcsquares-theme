@@ -11360,8 +11360,8 @@ $local-image-width: rem(100px);
 // Outer banner styles
 .atc-banner--container {
   @extend %sneak-in;
-  position: fixed;
-  top: 142px;
+  position: absolute;
+  top: 100%;
   z-index: $index-banner;
   display: none;
   width: 340px;
@@ -11370,7 +11370,7 @@ $local-image-width: rem(100px);
   box-shadow: 0 2px 5px transparentize($color-border, 0.75);
   transition: text-shadow 0.275s linear; // animation duration + delay
   right: 0;
-  height: calc(100vh - 142px);
+  height: 100vh;
   @include media($max: $bp-large) {
     top: 102px;
     height: calc(100vh - 102px);
