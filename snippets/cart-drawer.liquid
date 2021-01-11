@@ -6,7 +6,9 @@
       <h4 style="margin-left: .75em;"><span id="cartCount">{{ cart.item_count}}</span> items | Free Returns</h4>
       <a style="position: absolute;right:0; bottom: 12px;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     </div>
-    <form action="/cart" method="post" novalidate class="cart">
+    <form action="/cart" method="post" novalidate class="cart" style="margin-bottom: 20px;">
+      <div id="cart-drawer-inner">
+      </div>
       <div class="cart__footer">
         <div class="grid">
           <div class="grid__item{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
@@ -38,34 +40,24 @@
               {%- endif -%}
             {%- endcapture -%}
             <div class="cart__shipping rte">
-            <p>{{ 'cart.general.free_shipping_copy' | t }}</p>
+            <!-- <p>{{ 'cart.general.free_shipping_copy' | t }}</p> -->
             <small><em>{{ taxes_shipping_checkout }}</em></small>
             </div>
             <div class="cart__submit-controls">
               <input type="submit" name="checkout"
-                class="btn btn--small-wide cart__submit cart__submit-control hover-light"
+                class="button-primary cart__submit cart__submit-control hover-light"
                 value="{{ 'cart.general.checkout' | t }}">
                 <br/>
                 {% for link in linklists.peek-cart-button.links | limit: 1 %}
-                  <a id="continue-shopping" href="{{link.url}}" title="Continue shopping" class="btn btn--small-wide cart__submit cart__submit-control" >Continue Shopping</a>
+                  <a id="continue-shopping" href="{{link.url}}" title="Continue shopping" class="button-primary btn--small-wide cart__submit cart__submit-control" >Continue Shopping</a>
                 {% endfor %}
             </div>
             </div>
         </div>
       </div>
-      <div id="cart-drawer-inner">
-      </div>
+      
     </form>
-    {% comment %} <div style="max-width: 400px; margin: 0 auto;">
-    <div class="row d-flex align-items-center">
-      <div class="col-3 offset-1 d-flex align-items-center justify-content-center" style="padding:.5em"><img style="width: 60%;" src="{{ 'satisfaction-guarantee-min.png' | asset_url }}"/></div>
-      <div class="col-8" style="padding:.5em"><p style="font-size: 80%;">{{ 'cart.general.cart_guarantee' | t }}</p></div>
-    </div>
-    <div class="row d-flex align-items-center">
-      <div class="col-3 offset-1 d-flex align-items-center justify-content-center" style="padding:.5em"><img style="width: 60%;" src="{{ 'free-shipping-min.png' | asset_url }}"/></div>
-      <div class="col-8" style="padding:.5em"><p style="font-size: 80%;">{{ 'cart.general.free_shipping_copy' | t }}</p></div>
-    </div>
-    </div> {% endcomment %}
+    {% include 'fuzzy-message' %}
 </div>
 </div>
 {% include 'ajax-cart-template' %}
@@ -78,6 +70,7 @@ $('#close_drawer').click(function(e){
 $('.cart-drawer-closer').click(function(e){
     e.preventDefault();
     $('#cart-drawer').removeClass('show');
+    $('.processing').removeClass('processing');
     $('.cart-drawer-wrapper').removeClass('show');
 });
 

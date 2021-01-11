@@ -337,6 +337,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 /**
@@ -3029,7 +3030,7 @@ $local-header-main-space: (50px, 125px); // Space left, right between logo/searc
   left: 0;
   width: 100%;
   z-index: $index-header;
-
+  // overflow: hidden;
   .site-header-sticky & {
     position: -webkit-sticky;
     position: sticky;
@@ -16932,10 +16933,10 @@ $cart-width: 400px;
   padding: 0 !important;
 }
 .cart-drawer-wrapper{
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 100%;
   right: 0;
-  height: 100vh;
+  height: calc(100vh - 100%);
   width: 0;
   transition: all .4s;
   z-index: 10000;
@@ -16950,4 +16951,10 @@ $cart-width: 400px;
   bottom: 0;
   left: 0;
   right: $cart-width;
+  background-color: rgba(0,0,0, 0.3);
+}
+#cart-drawer-inner{
+  img{
+    max-width: 100%;
+  }
 }

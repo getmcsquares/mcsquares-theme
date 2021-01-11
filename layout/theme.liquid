@@ -111,6 +111,7 @@
       data-site-header
     >
       {% section 'static-header' %}
+      {% include 'cart-drawer' %}
     </header>
     <div class="intersection-target" data-header-intersection-target></div>
     <main id="site-main" class="site-main" aria-label="Main content" tabindex="-1">
@@ -123,13 +124,13 @@
     </main>
 
     {% section 'fixed-footer' %}
-    {% include 'cart-drawer' %}
+    
     {% comment %}
       Below are various templates used in JavaScript
     {% endcomment %}
     <div style="display: none;" aria-hidden="true" data-templates>
       {% include 'message-banner' %}
-      {% include 'atc-banner' %}
+      <!-- {% include 'atc-banner' %} -->
     </div>
 
     {% comment %}
