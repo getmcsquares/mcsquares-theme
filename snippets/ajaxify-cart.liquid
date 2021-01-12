@@ -41,6 +41,8 @@ Shopify.AjaxifyCart = (function($) {
         var domSelector = $('#cart-drawer-inner');
         domSelector.html('');
         $('#cartCount').text(cart.item_count);
+        $('.site-header-cart--count').attr('data-header-cart-count', cart.item_count)
+        $('#cart_target').text(cart.item_count);
         for (i = 0; i < cart.items.length; i++){
             item = cart.items[i];
             var indexPlus = i + 1;
@@ -102,9 +104,6 @@ Shopify.AjaxifyCart = (function($) {
               var sbt = cart.total_price.toString();
               var subtotalFormatted ='$'+sbt.substring(0,sbt.length-2)+"."+sbt.substring(sbt.length-2);
               // now have access to Shopify cart object
-              $('#cartCount').text(cart.item_count);
-              $('.site-header-cart--count').attr('data-header-cart-count', cart.item_count)
-              $('#cart_target').text(cart.item_count);
               $('.cart__subtotal').text(subtotalFormatted);
               buildCart(cart);
               bindChangeHandlers();
