@@ -8,12 +8,16 @@
     </div>
     <form action="/cart" method="post" novalidate class="cart" style="margin-bottom: 20px;">
       <div id="cart-drawer-inner">
+        
       </div>
-      <div class="cart__footer">
+      <div id="cart-drawer-empty" style="margin : 1em 0 2em;">
+        <h3 class="cart--empty-message text-center">{{ 'cart.general.empty' | t }}</h3>
+      </div>
+      <div class="cart__footer" style="margin-top: 10px;">
         <div class="grid">
           <div class="grid__item{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="d-flex justify-content-between">
-              <span class="cart__subtotal-title"><em>{{ 'cart.general.cart_discount_copy'  | t }}</em></span>
+              <span class="cart__subtotal-title" style="margin-bottom: 10px;"><em>{{ 'cart.general.cart_discount_copy'  | t }}</em></span>
               {% comment %} <span class="cart__subtotal-title">Have a discount code?</span>
               <span class="text-light-blue text-right">Enter it at Checkout</span> {% endcomment %}
             </div>
@@ -43,7 +47,7 @@
             <!-- <p>{{ 'cart.general.free_shipping_copy' | t }}</p> -->
             <small><em>{{ taxes_shipping_checkout }}</em></small>
             </div>
-            <div class="cart__submit-controls">
+            <div class="cart__submit-controls" style="margin-top: 10px;">
               <input type="submit" name="checkout"
                 class="button-primary cart__submit cart__submit-control hover-light"
                 value="{{ 'cart.general.checkout' | t }}">

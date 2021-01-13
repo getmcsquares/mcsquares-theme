@@ -43,30 +43,33 @@ Shopify.AjaxifyCart = (function($) {
         $('#cartCount').text(cart.item_count);
         $('.site-header-cart--count').attr('data-header-cart-count', cart.item_count)
         $('#cart_target').text(cart.item_count);
+        $('.cart__footer').fadeIn()
         for (i = 0; i < cart.items.length; i++){
             item = cart.items[i];
             var indexPlus = i + 1;
             var str = item.line_price.toString();
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
             domSelector.append(
-                '<div class="row" style="margin: .5em auto;">'+
+                '<div id="cart-contents" class="row" style="margin: .5em auto;">'+
                 '<div style="padding: 0 !important;" class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
                 '<a href="' + item.url + '"><img src="' + item.image + '" alt="' + item.title + '"/></a>'+
                 '</div>'+
                 '<div class="col-8 d-flex align-items-center" style="padding: .5em 1em">'+
                 '<div class="row" style="width:100%;height:100%;">'+
-                '<div class="col-10 d-flex flex-column align-items-start justify-content-between">'+
+                '<div class="col-12 d-flex flex-column align-items-start justify-content-between">'+
                 '<p><strong>'+ item.title +'</strong></p>'+
                 '</div>'+
-                '<div class="col-2 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
-                '<div><a href="/cart/change?line='+ indexPlus + '&amp;quantity=0">{{ "cart.general.remove" | t }}</a></div>'+
-                '</div>' +
-                '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
-                '<input style="width: 100%; background:transparent !important;border: none;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
+                // '<div class="col-2 cart-item-info d-flex flex-column align-items-end justify-content-between" data-label="{{ "cart.label.price" | t }}">'+
+                // '<div><a href="/cart/change?line='+ indexPlus + '&amp;quantity=0">{{ "cart.general.remove" | t }}</a></div>'+
+                // '</div>' +
+                '<div class="col-6 d-flex align-items-start justify-content-between update-wrapper">'+
+                '<button class="indexDown" >-</button>'+
+                '<input style="background:transparent !important;border: none;" type="number" class="update-select field-' + i + ' first-field" name="updates[' + item.key + ']"' +
                 'id="'+ item.key + '"'+
                 'value="' + item.quantity + '" min="0"/>' +
+                '<button class="indexUp" >+</button>'+
                 '</div>' +
-                '<div class="col-6 d-flex flex-column align-items-start justify-content-between">'+
+                '<div class="col-6 d-flex flex-column align-items-end justify-content-between">'+
                   '<div>'+ priceFormatted + '</div>' +
                 '</div>' +
                 '</div>' +
@@ -82,23 +85,66 @@ Shopify.AjaxifyCart = (function($) {
             // now have access to Shopify cart object
             $('#cart_target').text(cart.item_count);
             $('.cart__subtotal').text(subtotalFormatted);
+            handleEmpty(true);
+            $('#cart-drawer-empty').fadeOut();
             buildCart(cart);
             $('.cart-drawer-wrapper').addClass('show');
             $('#cart-drawer').addClass('show');
             bindChangeHandlers();
         } );
     };
+    var enableButtons = function (){
+      $('.indexDown').prop("disabled", false);
+      $('.indexUp').prop("disabled", false);
+    }
+    var disableButtons = function (){
+      $('.indexDown').prop("disabled", true);
+      $('.indexUp').prop("disabled", true);
+    }
+    var handleEmpty = function(check = false){
+      if ( check ) {
+        jQuery.getJSON('/cart.js', function(cart) {
+          if (cart.item_count == 0 ){ 
+            console.log ('check', check)
+            $('#cart-contents').fadeOut();
+            $('.cart__footer').fadeOut()
+            $('#cart-drawer-empty').fadeIn();
+          }
+        });
+      } else {
+        console.log ('check', check)
+        $('#cart-contents').fadeOut();
+        $('.cart__footer').fadeOut()
+        $('#cart-drawer-empty').fadeIn();
+      }
+    };
     var bindChangeHandlers = function(){
+      $('.indexDown').click(function(e){
+        e.preventDefault();
+        var val = parseInt($(this).next('input[type=number]')[0].value);
+        var event = new Event('change');
+        $(this).next('input[type=number]').attr('value', (val - 1));
+        disableButtons()
+        $(this).next('input[type=number]')[0].dispatchEvent(event);
+      })
+      $('.indexUp').click(function(e){
+        e.preventDefault();
+        var val = parseInt($(this).prev('input[type=number]')[0].value);
+        var event = new Event('change');
+        $(this).prev('input[type=number]').attr('value', (val + 1));
+        disableButtons()
+        $(this).prev('input[type=number]')[0].dispatchEvent(event);
+      })
       $('.update-select').change(function(e){
         var id = $( this ).attr('id');
         var qty = $( this ).val();
         console.log('id', id, 'qty', qty)
         jQuery.ajax({
           type: 'POST',
-          url: '/cart/change.js', 
-          data: { quantity: qty, id: id }, 
+          url: '/cart/change.js',
+          data: { quantity: qty, id: id },
           dataType: 'json',
-          success: function() { 
+          success: function() {
             console.log('updated')
             jQuery.getJSON('/cart.js', function(cart) {
               var sbt = cart.total_price.toString();
@@ -107,13 +153,18 @@ Shopify.AjaxifyCart = (function($) {
               $('.cart__subtotal').text(subtotalFormatted);
               buildCart(cart);
               bindChangeHandlers();
+              enableButtons();
+              console.log(cart)
+              if (cart.item_count == 0){
+                handleEmpty();
+              };
             } );
           }
         // jQuery.post('/cart/change.js', { quantity: qty, id: id});
       })
     })
   };
-     $('.header-cart-opener').click(function(e){
+    $('.header-cart-opener').click(function(e){
         e.preventDefault();
         popCart();
     });
