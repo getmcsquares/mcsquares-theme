@@ -6,14 +6,14 @@
       <h4 style="margin-left: .75em;"><span id="cartCount">{{ cart.item_count}}</span> items | Free Returns</h4>
       <a style="position: absolute;right:0; bottom: 12px;" href="#" id="close_drawer"><span class="close-icon"></span></a>
     </div>
-    <form action="/cart" method="post" novalidate class="cart" style="margin-bottom: 20px;">
+    <form action="/cart" method="post" novalidate class="cart" style="margin-bottom: 30px;">
       <div id="cart-drawer-inner">
         
       </div>
       <div id="cart-drawer-empty" style="margin : 1em 0 2em;">
         <h3 class="cart--empty-message text-center">{{ 'cart.general.empty' | t }}</h3>
       </div>
-      <div class="cart__footer" style="margin-top: 10px;">
+      <div class="cart__footer" style="margin-top: 20px;">
         <div class="grid">
           <div class="grid__item{% if section.settings.cart_notes_enable %} medium-up--one-half{% endif %}">
             <div class="d-flex justify-content-between">
