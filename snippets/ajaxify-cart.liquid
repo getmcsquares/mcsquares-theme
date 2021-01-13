@@ -10,13 +10,13 @@
  *
  */
 Shopify.AjaxifyCart = (function($) {
-  
+
   // Some configuration options.
   // I have separated what you will never need to change from what
   // you might change.
-  
+
   var _config = {
-    
+
     // What you might want to change
     addToCartBtnLabel:             'Add to cart',
     addedToCartBtnLabel:           'Thank you!',
@@ -25,8 +25,8 @@ Shopify.AjaxifyCart = (function($) {
     howLongTillBtnReturnsToNormal: 10, // in milliseconds.
     cartCountSelector:             '#cart_target',
     cartTotalSelector:             '#cart-price',
-    // 'aboveForm' for top of add to cart form, 
-    // 'belowForm' for below the add to cart form, and 
+    // 'aboveForm' for top of add to cart form,
+    // 'belowForm' for below the add to cart form, and
     // 'nextButton' for next to add to cart button.
     feedbackPosition:              'nextButton',
     // What you will never need to change
@@ -50,7 +50,7 @@ Shopify.AjaxifyCart = (function($) {
             var str = item.line_price.toString();
             var priceFormatted = '$'+str.substring(0,str.length-2)+"."+str.substring(str.length-2);
             domSelector.append(
-                '<div id="cart-contents" class="row" style="margin: .5em auto;">'+
+                '<div id="cart-contents" class="row" style="">'+
                 '<div style="padding: 0 !important;" class="col-4 d-flex align-items-center" data-label="{{ "customer.order.product" | t }}">'+
                 '<a href="' + item.url + '"><img src="' + item.image + '" alt="' + item.title + '"/></a>'+
                 '</div>'+
@@ -104,7 +104,7 @@ Shopify.AjaxifyCart = (function($) {
     var handleEmpty = function(check = false){
       if ( check ) {
         jQuery.getJSON('/cart.js', function(cart) {
-          if (cart.item_count == 0 ){ 
+          if (cart.item_count == 0 ){
             console.log ('check', check)
             $('#cart-contents').fadeOut();
             $('.cart__footer').fadeOut()
@@ -269,7 +269,7 @@ var _setText = function($button, label) {
     getConfig: function() {
       return _config;
     }
-  } 
+  }
 })(jQuery);
 
 Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
@@ -288,12 +288,12 @@ Shopify.AjaxifyCart.init({ cartCountSelector: '#cart_target' });
   font-size: 90%;
   vertical-align: middle;
 }
-.ajaxified-cart-feedback.success { 
+.ajaxified-cart-feedback.success {
   color: black;
 }
-.ajaxified-cart-feedback.error { 
-  color: #FF4136; 
-} 
+.ajaxified-cart-feedback.error {
+  color: #FF4136;
+}
 .ajaxified-cart-feedback a {
   border-bottom: 1px solid;
 }
