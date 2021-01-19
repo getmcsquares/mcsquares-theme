@@ -251,7 +251,7 @@
     enable_content: section.settings.enable_live_search_articles_pages
   %}
 </div>
-    <a class="site-header-cart--button header-cart-opener">
+    <a id="header-cart-opener" data-opener class="site-header-cart--button header-cart-opener">
       <span
         class="site-header-cart--count {% if cart.item_count > 0 %}visible{% endif %}"
         data-header-cart-count="{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}">
