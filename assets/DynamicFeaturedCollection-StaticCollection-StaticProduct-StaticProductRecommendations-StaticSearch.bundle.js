@@ -2154,6 +2154,7 @@ function () {
         }
         var filteredTitle = response.product_title.split('<br/>')[0]
         $flyOut.find('[data-atc-banner-product-title]').text(filteredTitle);
+        // OPEN THE CART DRAWER AFTER DONE
         document.getElementById('header-cart-opener').click();
         // $addToCartBtn.prop('disabled', false)
         $atcButton.prop('disabled', false).removeClass('processing');
