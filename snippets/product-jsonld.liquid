@@ -1,0 +1,35 @@
+<!---JSON SCHEMA Product--->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ product.title }}",
+  "image": "{{ shop.url }}/{{ product.featured_image }}",
+  "description": "{{ product.description | strip_html }}",
+  "url": "{{ shop.url }}/{{ product.url }}",
+  "sku": "{{ product.id }}",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "itemReviewed": "{{ product.title }}",
+     "ratingValue": "{% if product.metafields.yotpo.reviews_average %}{{ product.metafields.yotpo.reviews_average }}{% else %}5{% endif %}",
+    "reviewCount": "{% if product.metafields.yotpo.reviews_count %}{{ product.metafields.yotpo.reviews_count }}{% else %}1{% endif %}"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "McSquares"
+  },
+  "releaseDate": "{{product.metafields.data.year}}",
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ shop.url }}/{{ product.url }}",
+    "priceCurrency": "{{ shop.currency }}",
+    "price": "{{ current_variant.price | money_without_currency }}",
+    "priceValidUntil": "2022-12-1",
+    "availability": "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+    "seller": {
+      "@type": "Organization",
+      "name": "McSquares"
+    }
+  }
+}
+</script>

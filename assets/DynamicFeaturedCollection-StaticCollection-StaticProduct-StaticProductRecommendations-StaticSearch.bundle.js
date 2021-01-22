@@ -2352,8 +2352,6 @@ function () {
         $flyOut.removeClass('animating animating-in').addClass('visible').off('trend');
         $flyOut.attr('data-flyout-active', true);
         Object(theme_a11y["b" /* trapFocus */])($flyOut[0]);
-        console.log('opened')
-        $('.site-main').addClass('overlay-active')
         window.addEventListener('keydown', _this4._closeEsc);
 
         _this4._enableButton($atcButton);
@@ -2389,8 +2387,7 @@ function () {
       $flyOut.addClass('animating animating-out').one('trend', function () {
         $flyOut.removeClass('animating animating-out visible').one('trend', function () {
           $flyOut.off('trend');
-          console.log('closed');
-          $('.site-main').removeClass('overlay-active')
+
           _this5._removeFlyOut($flyOut, index); // if the user clicked onto the search box, close the atc flyout and move focus
           // to the search instead of going to the previous active element.
 

@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js no-touch" lang="{{ shop.locale }}">
   <head>
+    <meta name="google-site-verification" content="6DjLC7gyyWjouBlq_XwTMbhQPamEZ6O8w0gM3oWhZJE" />
     {% include 'yotpo-head' %}
     {% include 'gtm-head' %}
     <script
@@ -73,7 +74,8 @@
     <link rel="preload" href="{{ settings.type_menu | font_url }}" as="font" crossorigin="anonymous">
     <link rel="preload" as="style" href="{{ 'theme.scss.css' | asset_url }}">
 
-    {{ content_for_header }}
+<!--     {{ content_for_header }} -->
+    {{ content_for_header | remove:'AW-946440132' | replace:'gtag.js', '' | remove:'gtag'}}
 
     <script>
       document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
@@ -96,6 +98,22 @@
 
   gtag('config', 'AW-946440132');
 </script> -->
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ routes.search_url }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}
+{% include 'dataLayer-allPages' %}
 
 </head>
 

@@ -424,5 +424,12 @@
       "search": "Search",
       "tags_html": "Tagged \"{{ tags }}\""
     }
+  },
+  "shopify": {
+    "checkout": {
+      "order_summary": {
+        "expand_order_summary": "Click to Show Order Summary or Enter Discount Code"
+      }
+    }
   }
 }
