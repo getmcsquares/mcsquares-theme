@@ -1,10 +1,7 @@
-{% if checkout.line_items %}
-  {% for item in checkout.line_items %}
-  {% assign title = item.title | downcase %}
-  {% if title contains 'stickie' or title contains 'sticky' %}
-  {% assign is_sticky = true %}
-  {% endif %}
-  {% endfor %}
+{% for item in checkout.line_items %}
+{% assign title = item.title | downcase %}
+{% if title contains 'stickie' or title contains 'sticky' %}
+{% assign is_sticky = true %}
 {% endif %}
 <div class="fuzzy-msg-container">
   <div class="fuzzy-message-col"><img class="fuzzy-message-img" src="{{ 'icon-moneyback_teal.png' | asset_url }}"/><p class="fuzzy-message-text">100% Money-back Guarantee</p></div>

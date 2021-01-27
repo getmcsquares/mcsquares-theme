@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js no-touch" lang="{{ shop.locale }}">
   <head>
+    <meta name="google-site-verification" content="6DjLC7gyyWjouBlq_XwTMbhQPamEZ6O8w0gM3oWhZJE" />
     {% include 'yotpo-head' %}
     {% include 'gtm-head' %}
     <script
@@ -75,7 +76,8 @@
     <link rel="preload" href="{{ settings.type_menu | font_url }}" as="font" crossorigin="anonymous">
     <link rel="preload" as="style" href="{{ 'theme.scss.css' | asset_url }}">
 
-    {{ content_for_header }}
+<!--     {{ content_for_header }} -->
+    {{ content_for_header | replace:'AW-946440132', '' }}
 
     <script>
       document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
@@ -98,6 +100,30 @@
 
   gtag('config', 'AW-946440132');
 </script> -->
+{% if template.name == 'index' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ routes.search_url }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "url": "{{ shop.url }}{{ page.url }}"
+    }
+  </script>
+{% endif %}
+{% include 'dataLayer-allPages' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-946440132"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-946440132', {'send_page_view': false});
+  </script>
+
 
 </head>
 
@@ -201,5 +227,6 @@
 
 
   {% include 'bootstrap-helper' %}
+  {% include 'footer-scripts %}
   {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
 </html>

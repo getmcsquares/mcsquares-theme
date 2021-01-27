@@ -11365,7 +11365,7 @@ $local-image-width: rem(100px);
   top: 100%;
   z-index: $index-banner;
   display: none;
-  width: 340px;
+  width: 100%;
   background-color: $color-background;
   outline: 0;
   box-shadow: 0 2px 5px transparentize($color-border, 0.75);
@@ -11379,10 +11379,6 @@ $local-image-width: rem(100px);
   @include media($max: $bp-small) {
     width: 100%;
   }
-  // .site-header-sticky & {
-  //   position: absolute;
-  //   top: 100%;
-  // }
 }
 
 .atc-banner--outer {
@@ -11447,21 +11443,22 @@ $local-image-width: rem(100px);
   text-transform: capitalize;
 }
 
-.product-fuzzy {
-  .fuzzy-message-text {
-    margin: 0 5px;
+  @include media($min: $bp-small) {
+    display: table;
+    text-align: left;
   }
 }
+
 // Banner columns
 .atc-banner--product {
   @include font-size-body;
   vertical-align: middle;
 
-  // @include media($min: $bp-small) {
-  //   display: table-cell;
-  //   width: 52%;
-  //   padding-right: $space-x-large;
-  // }
+  @include media($min: $bp-small) {
+    display: table-cell;
+    width: 52%;
+    padding-right: $space-x-large;
+  }
 
   @include media($min: $bp-large) {
     padding-right: $space-x-large;
@@ -11472,17 +11469,17 @@ $local-image-width: rem(100px);
   margin-top: $space-xx-large;
   vertical-align: middle;
 
-  // @include media($min: $bp-small) {
-  //   display: table-cell;
-  //   width: 48%;
-  //   padding-left: $space-large;
-  //   margin-top: 0;
-  //   border-left: 1px solid $color-border-soft;
-  // }
+  @include media($min: $bp-small) {
+    display: table-cell;
+    width: 48%;
+    padding-left: $space-large;
+    margin-top: 0;
+    border-left: 1px solid $color-border-soft;
+  }
 
-  // @include media($min: $bp-large) {
-  //   padding-left: $space-xx-large;
-  // }
+  @include media($min: $bp-large) {
+    padding-left: $space-xx-large;
+  }
 }
 
 // Product column
@@ -16784,7 +16781,36 @@ input[placeholder="Comments"]{
   }
 }
 
+// FUZYY MESSAGING NON-CHECKOUT
+.fuzzy-message-img{
+  max-width: 30px;
+  margin-right: 10px;
+}
+.fuzzy-message-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  margin: 30px auto;
+}
+.fuzzy-message-col{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.fuzzy-message-text{
+  text-transform: capitalize;
+}
 
+.product-fuzzy {
+  .fuzzy-message-text {
+    margin: 0 5px;
+  }
+}
 // Sticky add to cart
 .sticky-add-to-cart{
   display: none;
