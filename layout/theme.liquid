@@ -75,7 +75,7 @@
     <link rel="preload" as="style" href="{{ 'theme.scss.css' | asset_url }}">
 
 <!--     {{ content_for_header }} -->
-    {{ content_for_header | remove:'AW-946440132' | replace:'gtag.js', '' | remove:'gtag'}}
+    {{ content_for_header | replace:'AW-946440132', '' }}
 
     <script>
       document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js');
@@ -114,6 +114,14 @@
   </script>
 {% endif %}
 {% include 'dataLayer-allPages' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-946440132"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-946440132', {'send_page_view': false});
+  </script>
+
 
 </head>
 
@@ -208,5 +216,6 @@
     </script>
   </body>
   {% include 'bootstrap-helper' %}
+  {% include 'footer-scripts %}
   {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
 </html>
