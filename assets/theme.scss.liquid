@@ -17058,3 +17058,22 @@ input[type=number].update-select::-webkit-outer-spin-button {
   // border-width: 0 2px;
   text-align: center;
 }
+#close_drawer{
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  position: relative;
+  margin-left: auto;
+&:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\2715"; /* use the hex value here... */
+    font-size: 20px; 
+    color: #333;
+    line-height: 16px;
+    text-align: center;
+}
+}
