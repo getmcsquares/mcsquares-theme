@@ -2072,6 +2072,7 @@ function () {
     this.settings = {};
     this.events = [];
     this.Images = new Images();
+    // this.flyOutSelector = '[data-opener]';
     this.flyOutSelector = '[data-atc-banner]';
     this.$atcTemplate = jquery_default()("[data-templates] ".concat(this.flyOutSelector));
     this.activeElement = null;
@@ -2153,7 +2154,11 @@ function () {
         }
         var filteredTitle = response.product_title.split('<br/>')[0]
         $flyOut.find('[data-atc-banner-product-title]').text(filteredTitle);
-        // $flyOut.find('[data-atc-banner-product-title]').text(response.product_title.replace(/<[^>]*>?/gm, ''));
+        // OPEN THE CART DRAWER AFTER DONE
+        document.getElementById('header-cart-opener').click();
+        // $addToCartBtn.prop('disabled', false)
+        $atcButton.prop('disabled', false).removeClass('processing');
+        $flyOut.find('[data-atc-banner-product-title]').text(response.product_title.replace(/<[^>]*>?/gm, ''));
         /*
           TODO: Bring in `variant.options`, iterate through to get option
             name for: <strong>Option name:</strong> Option

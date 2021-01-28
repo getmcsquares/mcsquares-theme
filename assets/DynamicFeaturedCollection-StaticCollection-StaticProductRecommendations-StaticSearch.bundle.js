@@ -665,7 +665,7 @@ function () {
 
       script_default()(jquery_default()('[data-scripts]').data('shopify-api-url'), function () {
         _this.events.push(_this.$el.on('click.product-item', '[data-quick-buy]', _this._addToCart));
-
+       
         _this.events.push(_this.$el.on('click.product-item', '[data-quickshop-slim]', _this._openQuickShop));
 
         _this.events.push(_this.$el.on('click.product-item', '[data-quickshop-full]', _this._openQuickShop));
@@ -873,6 +873,7 @@ function () {
         }
       };
       AddToCartFlyout["a" /* default */].init(formData, options);
+      
     }
   }, {
     key: "unload",

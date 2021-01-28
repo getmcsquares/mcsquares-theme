@@ -8,6 +8,8 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/cart.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/rivets-cart.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
 
@@ -135,6 +137,7 @@
       data-site-header
     >
       {% section 'static-header' %}
+      {% include 'cart-drawer' %}
     </header>
     <div class="intersection-target" data-header-intersection-target></div>
     <main id="site-main" class="site-main" aria-label="Main content" tabindex="-1">
@@ -147,13 +150,13 @@
     </main>
 
     {% section 'fixed-footer' %}
-
+    
     {% comment %}
       Below are various templates used in JavaScript
     {% endcomment %}
     <div style="display: none;" aria-hidden="true" data-templates>
       {% include 'message-banner' %}
-      {% include 'atc-banner' %}
+      <!-- {% include 'atc-banner' %} -->
     </div>
 
     {% comment %}
@@ -166,7 +169,7 @@
       {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
       {{ 'customer_area.js' | shopify_asset_url | script_tag }}
     {%- endif -%}
-
+    {% include 'ajaxify-cart' %}
     <script src="{{ 'vendors-main.bundle.js' | asset_url }}" ></script>
 
     {% if settings.enable_currency_converter %}
@@ -214,7 +217,15 @@
       data-pxu-polyfills="{{ 'polyfills.js' | asset_url }}"
     >
     </script>
+    <script type="text/javascript">
+      jQuery(function() {
+          CartJS.init({{ cart | json }});
+      });
+  </script>
+  {% include 'ajax-cart-template' %}
   </body>
+
+
   {% include 'bootstrap-helper' %}
   {% include 'footer-scripts %}
   {{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
