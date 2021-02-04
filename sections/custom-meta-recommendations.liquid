@@ -1,26 +1,25 @@
-  {% assign product_limit = 5 %}
-  <script
-    type="application/json"
-    data-section-type="static-meta-recommendations"
-    data-section-id="{{ section.id }}"
-    data-section-data
-  >
-    {
-      "settings": {
-        "limit": {{ product_limit }}
-      },
-      "productId": {{ product.id | json }}
+{% assign product_limit = 5 %}
+<script
+  type="application/json"
+  data-section-type="static-collection"
+  data-section-id="{{ section.id }}"
+  data-section-data
+>
+  {
+    "context": {
+      "see_more": {{ 'general.general.see_more' | t | json }},
+      "see_less": {{ 'general.general.see_less' | t | json }},
+      "collectionUrl": {{ collection.url | default: '/collections/all' | json }}
     }
-  </script>
-
+  }
+</script>
   <section
-    class="product-section--container product-row--container product-recommendations--container "
+    class="product-section--container product-row--container"
     data-html
-    data-meta-recommendations
   >
+  <div class="productgrid--wrapper product-row meta-rec-row">
       <ul
-        class="product-section--content product-row product-row-meta"
-        data-product-row
+        class="productgrid--items"
       >
       {% for meta in product.metafields["global"]  limit: product_limit %}
       {% assign key = 'recommend_' | append: forloop.index %}
@@ -32,6 +31,7 @@
           %}
       {% endfor %}
       </ul>
+    </div>
   </section>
 
   {% include 'quick-shop' %}
