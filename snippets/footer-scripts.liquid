@@ -4,9 +4,8 @@
         </script>
         <script>
             var ecomm_prodid=[];
-            for(var i=0;i<json_product.variants.length;i++){
-              ecomm_prodid.push('{{product.id}};
-            }
+            for(var i=0;i<json_product.variants.length;i++)
+                ecomm_prodid.push('{{product.id}};
         </script>
         <script type="text/javascript">
           {% assign variant = product.selected_or_first_available_variant %}
