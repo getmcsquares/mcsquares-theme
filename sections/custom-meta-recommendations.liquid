@@ -19,7 +19,7 @@
   >
   <div class="productgrid--wrapper">
       <ul
-        class="productgrid--items"
+        class="productgrid--items 5-up"
       >
       {% for meta in product.metafields["global"]  limit: product_limit %}
       {% assign key = 'recommend_' | append: forloop.index %}
