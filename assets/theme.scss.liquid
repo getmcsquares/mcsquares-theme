@@ -11958,21 +11958,20 @@ $local-space-large: 20px;
         }
       }
     }
-    .5-up{
+    .five-up &{
       @include media($min: $bp-medium) {
         width: calc(20% - #{$local-space-large * 1 / 2});
         margin-top: $local-space-large;
         margin-left: $local-space-large;
 
-        &:nth-child(5n + 1) {
-          margin-left: 10px;
-        }
+        // &:nth-child(4n + 1) {
+        //   margin-left: 0;
+        // }
 
-        &:nth-child(-n + 4) {
-          margin-top: 0;
-        }
+        // &:nth-child(-n + 4) {
+        //   margin-top: 0;
+        // }
       }
-    }
     }
   }
 }
