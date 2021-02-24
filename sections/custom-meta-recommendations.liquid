@@ -17,6 +17,11 @@
     class="product-section--container product-row--container productgrid--outer layout--no-sidebar productgrid-gridview"
     data-html
   >
+  {%- if section.settings.product_recommendations_heading != blank -%}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.product_recommendations_heading | escape }}</h2>
+          </div>
+        {%- endif -%}
   <div class="productgrid--wrapper">
       <ul
         class="productgrid--items five-up"
