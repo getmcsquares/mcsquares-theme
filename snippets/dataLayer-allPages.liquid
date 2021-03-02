@@ -1,9 +1,50 @@
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-946440132"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-946440132', {'send_page_view': false});
+  </script>
 <script>
 /*
 ===================================
 | DATALAYER ARCHITECTURE: SHOPIFY |
 -----------------------------------
 
+DEFINITION:
+A data layer helps you collect more accurate analytics data, that in turn allows you to better understand what potential buyers are doing on your website and where you can make improvements. It also reduces the time to implement marketing tags on a website, and reduces the need for IT involvement, leaving them to get on with implementing new features and fixing bugs.
+
+RESOURCES:
+http://www.datalayerdoctor.com/a-gentle-introduction-to-the-data-layer-for-digital-marketers/
+http://www.simoahava.com/analytics/data-layer/
+
+AUTHORS:
+Mechelle Warneke = [{
+Email: mechellewarneke@gmail.com,
+Website: mechellewarneke.com,
+BVACCEL: [{
+  Email: mechelle@bvaccel.com,
+  Position: XO Strategist | Technical Web Analyst
+}]
+}];
+
+Tyler Shambora = [{
+Website: tylershambora.com,
+BVACCEL: [{
+  Email: tyler@bvaccel.com,
+  Position: Lead Web Developer
+}]
+}];
+
+EXTERNAL DEPENDENCIES:
+* jQuery
+* jQuery Cookie Plugin v1.4.1 - https://github.com/carhartl/jquery-cookie
+* cartjs - https://github.com/discolabs/cartjs
+
+DataLayer Architecture: Shopify v1.3.1
+COPYRIGHT 2016
+LICENSES: MIT ( https://opensource.org/licenses/MIT )
 */
 
 /* PRELOADS */ 
@@ -305,12 +346,12 @@ applyBindings(defaultBindings, __bva__);
     var product = {
       'products': [
       {% for product in collection.products %}{
-        'id'              : '{{ product.id }}',
+        'id'              : 'shopify_US_{{product.id}}_{{variant.id}}',
         'sku'             : '{{product.selected_variant.sku}}',
         'variantId'       : '{{product.selected_variant.variant.id}}',
         'productType'     : "{{product.type}}",
         'name'            : "{{product.title}}",
-        'price'           : '{{product.price | money_without_currency | remove: ","}}',
+        'price'           : '{{variant.price | money_without_currency | remove: ","}}',
         'imageURL'        : "https:{{product.featured_image.src|img_url:'grande'}}", 
         'productURL'      : '{{shop.secure_url}}{{product.url}}',
         'brand'           : '{{shop.name}}',              
@@ -349,19 +390,21 @@ applyBindings(defaultBindings, __bva__);
     if (template.match(/.*product.*/gi) && !template.match(/.*collection.*/gi)) {
 
       sku = '';
+      {% assign variant = product.selected_or_first_available_variant %}
+      var variantId = window.ShopifyAnalytics.meta.selectedVariantId;
       var product = {
         'products': [{
-          'id'              : '{{product.id}}',
-          'sku'             : '{{product.selected_variant.sku}}',
-          'variantId'       : '{{product.selected_variant.variant.id}}',
+          'id'              : 'shopify_US_{{product.id}}_{{variant.id}}',
+          'sku'             : '{{variant.id}}',
+          'variantId'       : '{{variant.id}}',
           'productType'     : "{{product.type}}",
           'name'            : '{{product.title}}',
-          'price'           : '{{product.price | money_without_currency | remove: ","}}',
+          'price'           : '{{product.price | money_without_currency }}',
           'description'     : '{{product.description | strip_newlines | strip_html | escape }}',
           'imageURL'        : "https:{{product.featured_image.src|img_url:'grande'}}", 
           'productURL'      : '{{shop.secure_url}}{{product.url}}',
           'brand'           : '{{shop.name}}',              
-          'comparePrice'    : '{{product.compare_at_price_max|money_without_currency}}',
+          'comparePrice'    : '{{product.compare_at_price_max | money_without_currency}}',
           'categories'      : {{product.collections|map:"title"|json}},
           'currentCategory' : "{{collection.title}}",
           'productOptions'  : {
@@ -962,80 +1005,170 @@ applyBindings(defaultBindings, __bva__);
 }, 500);
 </script>
 
-  <!-- google dynamic remarketing tag for theme.liquid -->
-  {% if template contains 'product' %}
-    {% if template contains 'private-product' %}
-      <script type="text/javascript">
-          var google_tag_params = {
-              ecomm_pagetype: 'other'
-          };
-      </script>
-    {% else %}
-      <script type="text/javascript">
-        var json_product = {{ product | json }};
-      </script>
-      <script>
-        var ecomm_prodid=[];
-        for(var i=0;i<json_product.variants.length;i++)
-          ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
-      </script>
-      <script type="text/javascript">
-        var google_tag_params = {
-          ecomm_prodid: ecomm_prodid,
-          ecomm_pagetype: 'product',
-          ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
-                                       };
-      </script>
-    {% endif %}
-  {% elsif template contains 'collection' %}
-  <script type="text/javascript">
-    var google_tag_params = {
-      ecomm_pagetype: 'category'
-    };
-  </script>
-  {% elsif template contains 'cart' %}
-  <script type="text/javascript">
-    var id = new Array();
-    {% for item in cart.items %}
-    id.push('{{item.product.id}}_{{item.variant.id}}');
-            {% endfor %}
-
+{% if template contains 'product' %}
+        <script type="text/javascript">
+            var json_product = {{ product | json }};
+        </script>
+        <script>
+            var ecomm_prodid=[];
+            for(var i=0;i<json_product.variants.length;i++)
+                ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+        </script>
+        <script type="text/javascript">
+          {% assign variant = product.selected_or_first_available_variant %}
             var google_tag_params = {
-            ecomm_prodid: id,
-            ecomm_pagetype: 'cart',
-            ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+                ecomm_prodid: ecomm_prodid,
+                ecomm_pagetype: 'product',
+                ecomm_totalvalue: parseFloat('{{ variant.price | money_without_currency }}')
             };
-  </script>
-  {% elsif template contains 'search' %}
-  <script type="text/javascript">
-    var google_tag_params = {
-      ecomm_pagetype: 'searchresults'
-    };
-  </script>
-  {% elsif template contains 'index' %}
-  <script type="text/javascript">
-    var google_tag_params = {
-      ecomm_pagetype: 'home'
-    };
-  </script>
-  {% else %}
-  <script type="text/javascript">
-    var google_tag_params = {
-      ecomm_pagetype: 'other'
-    };
-  </script>
-  {% endif %}
-  <script>
-    gtag('event', 'page_view', {'send_to': 'AW-946440132',
-                                'ecomm_prodid':window.google_tag_params.ecomm_prodid,
-                                'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
-                                'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
-                               });
-  </script>
-  {% if template contains 'search' %}
-  <script>
-    window.uetq = window.uetq || []; 
-    window.uetq.push('event', 'view_search_results', {});
-  </script>
-  {% endif %}
+        </script>
+    {% elsif template contains 'collection' %}
+        <script type="text/javascript">
+            var google_tag_params = {
+                ecomm_prodid: '',
+                ecomm_pagetype: 'category',
+                ecomm_totalvalue: 0
+            };
+        </script>
+    {% elsif template contains 'cart' %}
+        <script type="text/javascript">
+        var id = new Array();
+        {% for item in cart.items %}
+        id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+        {% endfor %}
+        
+            var google_tag_params = {
+                ecomm_prodid: id,
+                ecomm_pagetype: 'cart',
+                ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+            };
+        </script>
+    {% elsif template contains 'search' %}
+        <script type="text/javascript">
+            var google_tag_params = {
+                ecomm_prodid: '',
+                ecomm_pagetype: 'searchresults',
+                ecomm_totalvalue: 0
+        };
+        </script>
+    {% elsif template contains 'index' %}
+        <script type="text/javascript">
+            var google_tag_params = {
+                ecomm_prodid: '',
+                ecomm_pagetype: 'home',
+                ecomm_totalvalue: 0
+            };
+        </script>
+    {% else %}
+        <script type="text/javascript">
+            var google_tag_params = {
+                ecomm_prodid: '',
+                ecomm_pagetype: 'other',
+                ecomm_totalvalue: 0
+            };
+        </script>
+    {% endif %}
 
+
+<!-- google dynamic remarketing tag for theme.liquid  -->
+{% if template contains 'product' %}
+<script type="text/javascript">
+  var json_product = {{ product | json }};
+</script>
+<script>
+  var ecomm_prodid=[];
+  for(var i=0;i<json_product.variants.length;i++)
+    ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+</script>
+<script type="text/javascript">
+  {% assign variant = product.selected_or_first_available_variant %}
+  var google_tag_params = {
+    ecomm_prodid: ecomm_prodid,
+    ecomm_pagetype: 'product',
+    ecomm_totalvalue: parseFloat('{{ variant.price | money_without_currency }}')
+  };
+</script>
+{% elsif template contains 'collection' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'category'
+  };
+</script>
+{% elsif template contains 'cart' %}
+<script type="text/javascript">
+  var id = new Array();
+  {% for item in cart.items %}
+  id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+   {% endfor %}
+
+   var google_tag_params = {
+     ecomm_prodid: id,
+     ecomm_pagetype: 'cart',
+     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+   };
+</script>
+{% elsif template contains 'search' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'searchresults'
+  };
+</script>
+{% elsif template contains 'index' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'home'
+  };
+</script>
+{% else %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+{% endif %}
+{% if template contains 'product' %}
+<script>
+  gtag('event', 'view_item', {'send_to': 'AW-946440132',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+  gtag('event', 'page_view', {'send_to': 'AW-946440132',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+</script>
+
+
+{% else %}
+<script>
+  gtag('event', 'page_view', {'send_to': 'AW-946440132',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+</script>
+{% endif %}
+
+<!-- add click event to fire atc for remarketing -->
+<script>
+  $( ".ajax-submit" ).click(function(){
+     {% assign variant = product.selected_or_first_available_variant %}
+     var id = window.ShopifyAnalytics.meta.selectedVariantId;
+    
+  
+      gtag('event','add_to_cart', {'send_to': 'AW-946440132',
+        'ecomm_prodid': shopify_US_{{product.id}}_{{variant.id}},
+        'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+        'ecomm_totalvalue': {{ variant.price | money_without_currency }},
+        'value': {{ variant.price | money_without_currency }},
+        'items': [
+          {
+            'id': 'shopify_US_{{product.id}}_{{variant.id}}', 
+            'google_business_vertical': 'retail'
+          }
+        ]
+      });
+    });
+</script>
