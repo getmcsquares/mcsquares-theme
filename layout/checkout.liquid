@@ -17,7 +17,12 @@
     <title>{{ page_title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700|Roboto&display=swap" rel="stylesheet">
 
-    {{ content_for_header }}
+<!--     {{ content_for_header }} -->
+    {% capture h_content %}
+ {{ content_for_header }}
+{% endcapture %}
+
+{{ h_content | remove: 'AW-946440132/ga4pCK2i3eABEMSPpsMD' | remove: '946440132' | remove: ',"https://www.googletagmanager.com/gtag/js?id=AW-946440132"' }} 
 
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
