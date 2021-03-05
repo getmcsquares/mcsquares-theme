@@ -1,2 +1,2 @@
 # mcsquares-theme
-McSquares Shopify theme
+M.C. Squares Shopify theme

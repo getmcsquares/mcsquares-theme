@@ -21,7 +21,7 @@
       {% if featured_image != blank %}
         <img style="max-width: 240px;" src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg-{{ section.id }}">
       {% else %}
-        <img style="max-width: 100px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="mcsquares logo" id="logo-{{ section.id }}">
+        <img style="max-width: 100px;" src="{{ 'mcsqs-logo2.png' | asset_img_url: '400x' }}" alt="M.C. Squares logo" id="logo-{{ section.id }}">
       {% endif %}
       </div>
       <div class="product-info-text col-md-7" style="color: {{ section.settings.font_color }} !important;">
